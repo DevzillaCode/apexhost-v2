@@ -368,7 +368,7 @@
   --accent-foreground: #fafafa;
   --destructive: #ef4444;
   --border: rgba(255, 255, 255, 0.1);
-  --input: rgba(255, 255, 255, 0.15);
+  --input: color-mix(in oklab, rgba(255, 255, 255, 0.15) 30%, transparent);
   --ring: #737373;
   --chart-1: #3b82f6;
   --chart-2: #06b6d4;

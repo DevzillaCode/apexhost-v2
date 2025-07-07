@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark-theme">
+<html lang="en" data-theme="dark-theme" dir="{if $language eq 'arabic'}rtl{else}ltr{/if}">
 
 <head>
   <meta charset="{$charset}" />
