@@ -31,6 +31,9 @@ body {
   font-family: var(--font-family-base);
   /* background-image: url("../images/backgrounds/dots.png"); */
 }
+[dir="rtl"] body {
+  text-align: right;
+}
 h1,
 h2,
 h3,
@@ -67,6 +70,9 @@ p {
 a {
   text-decoration: none !important;
 }
+img {
+  max-width: 100%;
+}
 button,
 [type="button"],
 [type="reset"],
@@ -96,6 +102,18 @@ button,
 /* --------------------------------- */
 
 /* Radius */
+.--radius-none {
+  border-radius: 0 !important;
+}
+.--radius-sm {
+  border-radius: var(--radius-sm) !important;
+}
+.--radius-md {
+  border-radius: var(--radius-md) !important;
+}
+.--radius-lg {
+  border-radius: var(--radius-lg) !important;
+}
 .--radius-pill {
   border-radius: var(--radius-pill) !important;
 }
