@@ -4,19 +4,19 @@
 
     {* Panel heading with title, icon, and badge *}
     <div class="panel-heading">
-      <h3 class="panel-title d-flex align-items-center justify-content-between">
+      <h3 class="panel-title d-flex align-items-center justify-content-between --mb-0">
         <div class="panel-header-text d-flex align-items-center" data-gap-x="10px">
           {if $item->hasIcon()}
-            <i class="{$item->getIcon()|replace:'fas':'fad'}"></i>
+            <i class="{$item->getIcon()|replace:'fas':'fad'} --text-sm"></i>
           {/if}
-          <span class="panel-header-label">
+          <span class="panel-header-label --text-base --color-foreground">
             {$item->getLabel()}
           </span>
           {if $item->hasBadge()}
             <span class="badge">{$item->getBadge()}</span>
           {/if}
         </div>
-        <i class="fad fa-chevron-up card-minimise panel-minimise pull-right float-right"></i>
+        <i class="fad fa-chevron-up card-minimise panel-minimise pull-right float-right --text-sm"></i>
       </h3>
     </div>
 
