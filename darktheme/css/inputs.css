@@ -1,0 +1,685 @@
+/* CSS Custom Properties */
+:root {
+  /* Input Dimensions */
+  --input-padding: var(--space-2, 0.5rem) var(--space-3, 0.75rem);
+  --input-padding-sm: var(--space-1, 0.25rem) var(--space-2, 0.5rem);
+  --input-padding-md: var(--space-2, 0.5rem) var(--space-4, 1rem);
+  --input-padding-lg: var(--space-3, 0.75rem) var(--space-5, 1.25rem);
+  --input-padding-xl: var(--space-4, 1rem) var(--space-6, 1.5rem);
+
+  --input-height: var(--space-10, 2.5rem);
+  --input-height-sm: var(--space-8, 2rem);
+  --input-height-md: var(--space-12, 3rem);
+  --input-height-lg: var(--space-14, 3.5rem);
+  --input-height-xl: var(--space-16, 4rem);
+
+  /* Input Styling */
+  --input-border-radius: var(--theme-radius, 0.375rem);
+  --input-border-width: 1px;
+  --input-font-weight: var(--font-normal, 400);
+  --input-transition: all 0.15s var(--transition-function-1, ease-out);
+
+  /* Gaps */
+  --input-gap: var(--space-2, 0.5rem);
+  --input-gap-sm: var(--space-1, 0.25rem);
+  --input-gap-md: var(--space-3, 0.75rem);
+  --input-gap-lg: var(--space-4, 1rem);
+  --input-gap-xl: var(--space-5, 1.25rem);
+
+  /* Icon Sizes */
+  --input-icon-size: var(--space-5, 1.25rem);
+
+  /* Icon Positioning */
+  --input-icon-position: var(--space-3, 1rem);
+  --has-icon-padding: 2.65rem;
+
+  /* Focus Outline */
+  --input-outline-style: solid;
+  --input-outline-width: 0;
+  --input-focus-outline-width: 2px;
+  --input-focus-outline-offset: 2px;
+
+  /* Colors */
+  --input: color-mix(in oklab, var(--input) 30%, transparent);
+  --input-color: var(--foreground);
+  --input-border: var(--border);
+  --input-placeholder: var(--muted-foreground);
+  --input-focus-border: var(--ring);
+  --input-focus-outline: color-mix(in srgb, var(--ring), transparent 80%);
+  --input-error-border: var(--color-red-500);
+  --input-error-outline: color-mix(
+    in srgb,
+    var(--color-red-500),
+    transparent 80%
+  );
+  --input-success-border: var(--color-teal-500);
+  --input-success-outline: color-mix(
+    in srgb,
+    var(--color-teal-500),
+    transparent 80%
+  );
+  --input-warning-border: var(--color-yellow-500);
+  --input-warning-outline: color-mix(
+    in srgb,
+    var(--color-yellow-500),
+    transparent 80%
+  );
+}
+
+/* Base Input Styles */
+.nt-input,
+.nt-textarea,
+.nt-select {
+  display: block;
+  width: 100%;
+  padding: var(--input-padding);
+  min-height: var(--input-height);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: var(--input-font-weight);
+  line-height: 1;
+  color: var(--input-color);
+  background-color: var(--input-bg);
+  border: var(--input-border-width) solid var(--input-border);
+  border-radius: var(--input-border-radius);
+  outline: none;
+  outline-color: var(--input-focus-outline);
+  outline-width: var(--input-outline-width);
+  outline-style: var(--input-outline-style);
+  outline-offset: var(--input-focus-outline-offset);
+  transition: var(--input-transition);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Textarea specific */
+.nt-textarea {
+  min-height: calc(var(--input-height) * 2);
+  resize: vertical;
+  line-height: 1.5;
+}
+
+/* Select specific */
+.nt-select {
+  cursor: pointer;
+  padding-right: calc(var(--input-gap) * 4);
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
+  background-position: right var(--input-gap) center;
+  background-repeat: no-repeat;
+  background-size: 1.5em 1.5em;
+}
+.nt-select option {
+  background-color: #262626;
+}
+
+/* Placeholder styling */
+.nt-input::placeholder,
+.nt-textarea::placeholder {
+  color: var(--input-placeholder);
+  opacity: 1;
+}
+
+/* Size Variants */
+.--input-sm {
+  --input-padding: var(--input-padding-sm);
+  --input-height: var(--input-height-sm);
+  --has-icon-padding: 2rem;
+  --input-icon-size: var(--space-4, 1rem);
+  --input-icon-position: var(--space-2, 0.5rem);
+  font-size: 0.875rem;
+}
+.--input-md {
+  --input-padding: var(--input-padding-md);
+  --input-height: var(--input-height-md);
+  --input-gap: var(--input-gap-md);
+  --has-icon-padding: 3rem;
+  --input-icon-size: var(--space-5, 1.25rem);
+  --input-icon-position: 0.875rem;
+  font-size: 1rem;
+}
+.--input-lg {
+  --input-padding: var(--input-padding-lg);
+  --input-height: var(--input-height-lg);
+  --input-gap: var(--input-gap-lg);
+  --has-icon-padding: 4rem;
+  --input-icon-size: var(--space-6, 1.5rem);
+  --input-icon-position: 1.25rem;
+  font-size: 1.125rem;
+}
+.--input-xl {
+  --input-padding: var(--input-padding-xl);
+  --input-height: var(--input-height-xl);
+  --input-gap: var(--input-gap-xl);
+  --has-icon-padding: 4rem;
+  --input-icon-size: var(--space-6, 1.5rem);
+  --input-icon-position: 1.25rem;
+  font-size: 1.25rem;
+}
+
+/* Focus States */
+.nt-input:focus,
+.nt-textarea:focus,
+.nt-select:focus {
+  border-color: var(--input-focus-border);
+  outline-color: var(--input-focus-outline);
+  outline-width: var(--input-focus-outline-width);
+}
+
+/* State Variants */
+.--input-error {
+  --input-border: var(--input-error-border);
+  --input-focus-border: var(--input-error-border);
+  --input-focus-outline: var(--input-error-outline);
+}
+.--input-success {
+  --input-border: var(--input-success-border);
+  --input-focus-border: var(--input-success-border);
+  --input-focus-outline: var(--input-success-outline);
+}
+.--input-warning {
+  --input-border: var(--input-warning-border);
+  --input-focus-border: var(--input-warning-border);
+  --input-focus-outline: var(--input-warning-outline);
+}
+
+/* Style Variants */
+.--input-glass {
+  --input: color-mix(in srgb, var(--accent, #f1f5f9), transparent 70%);
+  --input-border: color-mix(in srgb, var(--border, #d1d5db), transparent 50%);
+  backdrop-filter: blur(8px);
+}
+.--input-filled {
+  --input: var(--muted, #f8fafc);
+  --input-border: var(--muted, #f8fafc);
+}
+
+/* Disabled States */
+.nt-input:disabled,
+.nt-textarea:disabled,
+.nt-select:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  background-color: var(--muted, #f8fafc);
+}
+
+/* Read-only States */
+.nt-input:read-only,
+.nt-textarea:read-only {
+  background-color: var(--muted, #f8fafc);
+  cursor: default;
+}
+
+/* Input Groups */
+.input-group {
+  position: relative;
+  display: flex;
+  width: 100%;
+  align-items: stretch;
+}
+
+.input-group > .nt-input,
+.input-group > .nt-select {
+  position: relative;
+  flex: 1 1 auto;
+  width: 1%;
+  min-width: 0;
+}
+
+.input-group > .nt-input:not(:first-child),
+.input-group > .nt-select:not(:first-child) {
+  margin-left: -1px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.input-group > .nt-input:not(:last-child),
+.input-group > .nt-select:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.input-group > .nt-input:focus,
+.input-group > .nt-select:focus {
+  z-index: 2;
+}
+
+/* Input Group Addons */
+.input-group-addon {
+  display: flex;
+  align-items: center;
+  padding: var(--input-padding);
+  font-size: 1rem;
+  font-weight: var(--input-font-weight);
+  line-height: 1.5;
+  color: var(--input-color);
+  text-align: center;
+  white-space: nowrap;
+  background-color: var(--muted, #f8fafc);
+  border: var(--input-border-width) solid var(--input-border);
+  border-radius: var(--input-border-radius);
+}
+
+.input-group-addon:first-child {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.input-group-addon:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Input with Icons */
+.input-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.input-wrapper.--has-icon-left .nt-input,
+.input-wrapper.--has-icon-left .nt-select {
+  padding-left: var(--has-icon-padding);
+}
+
+.input-wrapper.--has-icon-right .nt-input,
+.input-wrapper.--has-icon-right .nt-select {
+  padding-right: var(--has-icon-padding);
+}
+
+.input-wrapper.--has-icon-right .nt-select {
+  padding-right: calc(var(--input-icon-size) * 2.5);
+}
+
+.input-icon {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: var(--input-icon-size);
+  color: var(--input-placeholder);
+  pointer-events: none;
+  z-index: 1;
+}
+
+.input-icon.--left {
+  left: var(--input-icon-position);
+}
+
+.input-icon.--right {
+  right: var(--icon-position);
+}
+
+.input-icon svg,
+.input-icon i {
+  width: 100%;
+  height: 100%;
+}
+
+/* Clickable Icons */
+.input-icon.--clickable {
+  pointer-events: auto;
+  cursor: pointer;
+  color: var(--input-color);
+  transition: var(--input-transition);
+}
+
+.input-icon.--clickable:hover {
+  color: var(--input-focus-border);
+}
+
+/* Form Groups */
+.form-group {
+  margin-bottom: var(--space-4, 1rem);
+}
+
+.form-group:last-child {
+  margin-bottom: 0;
+}
+
+/* Labels */
+.form-label {
+  display: block;
+  margin-bottom: var(--space-2, 0.5rem);
+  font-size: 0.875rem;
+  font-weight: var(--font-medium, 500);
+  color: var(--foreground, #000000);
+}
+
+.form-label.--required::after {
+  content: " *";
+  color: var(--color-red-500, #ef4444);
+}
+
+/* Help Text */
+.form-help {
+  margin-top: var(--space-1, 0.25rem);
+  font-size: 0.875rem;
+  color: var(--muted-foreground, #6b7280);
+}
+
+/* Error Messages */
+.form-error {
+  margin-top: var(--space-1, 0.25rem);
+  font-size: 0.875rem;
+  color: var(--color-red-500, #ef4444);
+}
+
+/* Success Messages */
+.form-success {
+  margin-top: var(--space-1, 0.25rem);
+  font-size: 0.875rem;
+  color: var(--color-teal-500, #14b8a6);
+}
+
+/* Warning Messages */
+.form-warning {
+  margin-top: var(--space-1, 0.25rem);
+  font-size: 0.875rem;
+  color: var(--color-yellow-600, #d97706);
+}
+
+/* Checkbox and Radio Styles */
+.nt-checkbox,
+.nt-radio {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.nt-checkbox input,
+.nt-radio input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.checkmark,
+.radiomark {
+  position: relative;
+  display: inline-block;
+  width: var(--input-icon-size);
+  height: var(--input-icon-size);
+  background-color: var(--input);
+  border: var(--input-border-width) solid var(--input-border);
+  border-radius: var(--input-border-radius);
+  transition: var(--input-transition);
+  margin-right: var(--input-gap);
+}
+
+.radiomark {
+  border-radius: 50%;
+}
+
+.nt-checkbox input:checked ~ .checkmark,
+.nt-radio input:checked ~ .radiomark {
+  background-color: var(--input-focus-border);
+  border-color: var(--input-focus-border);
+}
+
+.nt-checkbox input:focus ~ .checkmark,
+.nt-radio input:focus ~ .radiomark {
+  outline: var(--input-focus-outline-width) solid var(--input-focus-outline);
+  outline-offset: var(--input-focus-outline-offset);
+}
+
+.checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+  left: 4px;
+  top: 1px;
+  width: 5px;
+  height: 9px;
+  border: solid white;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.radiomark::after {
+  content: "";
+  position: absolute;
+  display: none;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: white;
+  transform: translate(-50%, -50%);
+}
+
+.nt-checkbox input:checked ~ .checkmark::after,
+.nt-radio input:checked ~ .radiomark::after {
+  display: block;
+}
+
+.nt-checkbox input:disabled ~ .checkmark,
+.nt-radio input:disabled ~ .radiomark {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Switch Styles */
+.nt-switch {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.nt-switch input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.switch-slider {
+  position: relative;
+  display: inline-block;
+  width: calc(var(--input-icon-size) * 2);
+  height: var(--input-icon-size);
+  background-color: var(--input-border);
+  border-radius: calc(var(--input-icon-size) / 2);
+  transition: var(--input-transition);
+  margin-right: var(--input-gap);
+}
+
+.switch-slider::before {
+  content: "";
+  position: absolute;
+  height: calc(var(--input-icon-size) - 4px);
+  width: calc(var(--input-icon-size) - 4px);
+  left: 2px;
+  bottom: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: var(--input-transition);
+}
+
+.nt-switch input:checked ~ .switch-slider {
+  background-color: var(--input-focus-border);
+}
+
+.nt-switch input:checked ~ .switch-slider::before {
+  transform: translateX(calc(var(--input-icon-size) - 4px));
+}
+
+.nt-switch input:focus ~ .switch-slider {
+  outline: var(--input-focus-outline-width) solid var(--input-focus-outline);
+  outline-offset: var(--input-focus-outline-offset);
+}
+
+.nt-switch input:disabled ~ .switch-slider {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Range Slider */
+.nt-range {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 4px;
+  border-radius: 2px;
+  background: var(--input-border);
+  outline: none;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+}
+
+.nt-range:hover {
+  opacity: 1;
+}
+
+.nt-range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: var(--input-icon-size);
+  height: var(--input-icon-size);
+  border-radius: 50%;
+  background: var(--input-focus-border);
+  cursor: pointer;
+}
+
+.nt-range::-moz-range-thumb {
+  width: var(--input-icon-size);
+  height: var(--input-icon-size);
+  border-radius: 50%;
+  background: var(--input-focus-border);
+  cursor: pointer;
+  border: none;
+}
+
+/* File Input */
+.nt-file {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  width: 100%;
+}
+
+.nt-file input[type="file"] {
+  position: absolute;
+  left: -9999px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.file-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--input-padding);
+  min-height: var(--input-height);
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: var(--input-font-weight);
+  line-height: 1.5;
+  color: var(--input-color);
+  background-color: var(--input);
+  border: var(--input-border-width) solid var(--input-border);
+  border-radius: var(--input-border-radius);
+  cursor: pointer;
+  transition: var(--input-transition);
+  gap: var(--input-gap);
+}
+
+.file-label:hover {
+  border-color: var(--input-focus-border);
+}
+
+.nt-file input[type="file"]:focus ~ .file-label {
+  border-color: var(--input-focus-border);
+  outline: var(--input-focus-outline-width) solid var(--input-focus-outline);
+  outline-offset: var(--input-focus-outline-offset);
+}
+
+/* Utility Classes */
+.--input-full {
+  width: 100%;
+}
+
+.--input-auto {
+  width: auto;
+}
+
+.--input-pill {
+  border-radius: 9999px;
+}
+
+/* Browser Compatibility */
+@supports not (color: color-mix(in srgb, red, blue)) {
+  /* Fallback for browsers that don't support color-mix */
+  .--input-glass {
+    background: rgba(241, 245, 249, 0.3);
+    border-color: rgba(209, 213, 219, 0.5);
+  }
+
+  :root {
+    --input-focus-outline: rgba(59, 130, 246, 0.2);
+    --input-error-outline: rgba(239, 68, 68, 0.2);
+    --input-success-outline: rgba(20, 184, 166, 0.2);
+    --input-warning-outline: rgba(234, 179, 8, 0.2);
+  }
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .nt-input,
+  .nt-textarea,
+  .nt-select {
+    border-width: 2px;
+  }
+
+  .checkmark,
+  .radiomark {
+    border-width: 2px;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  .nt-input,
+  .nt-textarea,
+  .nt-select,
+  .checkmark,
+  .radiomark,
+  .switch-slider,
+  .switch-slider::before,
+  .input-icon {
+    transition: none;
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .input-group {
+    flex-direction: column;
+  }
+
+  .input-group > .nt-input:not(:first-child),
+  .input-group > .nt-select:not(:first-child) {
+    margin-left: 0;
+    margin-top: -1px;
+    border-radius: var(--input-border-radius);
+  }
+
+  .input-group > .nt-input:not(:last-child),
+  .input-group > .nt-select:not(:last-child) {
+    border-radius: var(--input-border-radius);
+  }
+
+  .input-group-addon:first-child {
+    border-radius: var(--input-border-radius);
+  }
+
+  .input-group-addon:last-child {
+    border-radius: var(--input-border-radius);
+  }
+}

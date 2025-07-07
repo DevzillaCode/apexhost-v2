@@ -1,0 +1,101 @@
+/* : Cart Body States : */
+#order-standard_cart .cart-body-expanded {
+  width: 100% !important;
+  float: none !important;
+}
+#order-standard_cart .cart-body-collapsed {
+  width: 80% !important;
+  float: right !important;
+}
+
+/* Responsive adjustments for cart body states */
+@media only screen and (max-width: 1199px) {
+  #order-standard_cart .cart-body-expanded,
+  #order-standard_cart .cart-body-collapsed {
+    width: 100% !important;
+    float: none !important;
+  }
+}
+/* --------------------------------- */
+
+#order-standard_cart .cart-row {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+#order-standard_cart .cart-sidebar {
+  width: 20%;
+  padding-left: 15px;
+  padding-right: 15px;
+  display: none;
+}
+@media (max-width: 1199.98px) {
+  #order-standard_cart .cart-sidebar {
+    display: none !important;
+  }
+}
+#order-standard_cart .cart-body {
+  width: 80%;
+  padding-left: 15px;
+  padding-right: 15px;
+  transition: all 0.3s ease;
+}
+/* --------------------------------- */
+
+/* : Standard Cart : */
+.standard-card {
+  background: var(--card);
+  border-radius: var(--radius-md);
+}
+/* popular */
+.standard-card.popular::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 2px;
+  border-radius: var(--radius-md);
+  background: var(--background);
+  background-size: 400% 100%;
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  animation: gradient-animation 12s ease infinite;
+}
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* standard-card-header */
+.standard-card .standard-card-header {
+  border-bottom: 1px solid var(--border);
+}
+
+/* fea-item */
+.standard-card .fea-item {
+  column-gap: 10px;
+}
+.standard-card .fea-item .icon {
+  width: var(--space-6);
+  fill: var(--accent);
+}
+
+/* standard-card-footer */
+.standard-card .standard-card-footer {
+  border-top: 1px solid var(--border);
+}
+@media (max-width: 991.98px) {
+  .standard-card .standard-card-footer a {
+    width: 100%;
+  }
+}
+/* --------------------------------- */
