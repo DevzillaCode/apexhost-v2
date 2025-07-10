@@ -452,3 +452,40 @@ button:disabled {
   text-decoration: underline !important;
 }
 /* ----------------------------------- */
+
+/* : Alerts : */
+.nt-alert {
+  padding: 1rem;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border);
+  background-color: var(--card);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+.nt-alert .nt-alert-icon svg {
+  width: 18px;
+  height: 18px;
+}
+.nt-alert.nt-alert-success {
+  color: var(--color-green-600);
+  border-color: var(--color-green-600);
+  background-color: color-mix(in srgb, var(--color-green-600), transparent 95%);
+}
+.nt-alert.nt-alert-danger {
+  color: var(--color-red-600);
+  border-color: var(--color-red-600);
+  background-color: color-mix(in srgb, var(--color-red-600), transparent 95%);
+}
+.nt-alert.nt-alert-warning {
+  color: var(--color-yellow-600);
+  border-color: var(--color-yellow-600);
+  background-color: color-mix(in srgb, var(--color-yellow-600), transparent 95%);
+}
+.nt-alert.nt-alert-info {
+  color: var(--color-cyan-400);
+  border-color: var(--color-cyan-400);
+  background-color: color-mix(in srgb, var(--color-cyan-400), transparent 95%);
+}
+/* ----------------------------------- */

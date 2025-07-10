@@ -1,11 +1,13 @@
 {assign var="assetPath" value="{$WEB_ROOT}/templates/{$template}/images/"}
+<div class="providerLinkingFeedback"></div>
 
 {* auth-page *}
 <div class="auth-page">
   <div class="container-fluid">
     {* page-content *}
     <div class="page-content d-flex align-items-center justify-content-center flex-column w-100">
-      <form method="" action="" class="nt-auth-form">
+      {* login-form *}
+      <form method="post" action="{routePath('login-validate')}" class="nt-auth-form" role="form">
         {* Logo *}
         <div class="logo-container text-center --mb-4">
           <img src="{$assetPath}logo-square.png" class="img-fluid logo" alt="{$companyname}">
@@ -15,12 +17,13 @@
           <h1 class="--title-3 --color-foreground --mb-2">Welcome Back</h1>
           <p class="--text-base">Enter your email and password to access your account</p>
         </div>
+        {include file="$template/includes/flashmessage.tpl"}
         {* form-body *}
         <div class="form-body">
           {* Email Address Field *}
           <div class="nt-form-group">
             {* label *}
-            <label class="nt-label">Email</label>
+            <label class="nt-label" for="inputEmail">{lang key='clientareaemail'}</label>
             {* input-wrapper *}
             <div class="nt-input-wrapper">
               {* icon *}
@@ -31,13 +34,13 @@
                 </svg>
               </div>
               {* input *}
-              <input type="email" class="nt-input" placeholder="Email" aria-label="Email">
+              <input type="email" class="nt-input" name="username" id="inputEmail" placeholder="name@example.com" aria-label="name@example.com" autofocus autocomplete="off">
             </div>
           </div>
           {* Password Field *}
           <div class="nt-form-group">
             {* label *}
-            <label class="nt-label">Password</label>
+            <label class="nt-label" for="inputPassword">{lang key='clientareapassword'}</label>
             {* input-wrapper *}
             <div class="nt-input-wrapper">
               {* icon *}
@@ -48,28 +51,32 @@
                 </svg>
               </div>
               {* input *}
-              <input type="password" class="nt-input" placeholder="Password" aria-label="Password">
+              <input type="password" class="nt-input" name="password" id="inputPassword" placeholder="{lang key='clientareapassword'}" aria-label="{lang key='clientareapassword'}" autocomplete="off">
             </div>
           </div>
+          {if $captcha->isEnabled()}
+            {include file="$template/includes/captcha.tpl"}
+          {/if}
           {* Remember Me Checkbox *}
           <div class="nt-for-group d-flex align-items-center justify-content-between">
             {* nt-checkbox *}
-            <label for="asd-password" class="nt-checkbox">
-              <input type="checkbox" class="" id="asd-password">
+            <label for="remember-password" class="nt-checkbox">
+              <input type="checkbox" id="remember-password" name="rememberme">
               <span class="checkmark"></span>
-              Remember Password
+              {lang key='loginrememberme'}
             </label>
-            <a href="#" class="nt-link">Forgot Password?</a>
+            <a href="{routePath('password-reset-begin')}" class="nt-link">{lang key='forgotpw'}</a>
           </div>
           {* Login Button *}
           <div class="form-group --mt-6">
-            <button type="submit" class="nt-btn nt-btn-default nt-btn-block">Login</button>
+            <button type="submit" class="nt-btn nt-btn-default nt-btn-block {$captcha->getButtonClass($captchaForm)}">{lang key='loginbutton'}</button>
           </div>
           <div class="form-group text-center --mt-6 d-flex align-items-center justify-content-center">
-          <p class="--text-sm --color-muted-foreground">Don't have an account? &nbsp;</p><a href="#" class="nt-link">Create an Account</a>
+            <p class="--text-sm --color-muted-foreground">{lang key='userLogin.notRegistered'} &nbsp;</p><a href="{$WEB_ROOT}/register.php" class="nt-link">{lang key='userLogin.createAccount'}</a>
           </div>
         </div>
       </form>
+      {include file="$template/includes/linkedaccounts.tpl" linkContext="login" customFeedback=true}
     </div>
   </div>
 </div>
