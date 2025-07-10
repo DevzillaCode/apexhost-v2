@@ -27,3 +27,57 @@
 # NOTES
 1. Fonts Sizes for each website element
   -
+
+{include file="$template/components/sections/Inputs.tpl"}
+
+# TEMPLATE PARAMETERS
+1. `{$BASE_PATH_CSS}`   → The base URL to common CSS assets
+2. `{$BASE_PATH_FONTS}` → The base URL to common font assets
+3. `{$BASE_PATH_IMG}`   → The base URL to common image assets
+4. `{$BASE_PATH_JS}`    → The base URL to common JavaScript assets
+5. `{$WEB_ROOT}`        → The root URL of the WHMCS installation
+6. `{$BASE_PATH}`       → The base path for the current template
+7. `{$template}`        → The current template name
+8. `{$companyname}`     → The company name set in General Settings
+9. `{$charset}`         → The character set (e.g., UTF-8)
+10. `{$LANG}`           → The current language array
+11. `{$LANG.language}`  → The current language code
+12. `{$loggedin}`       → Boolean, true if the user is logged in
+13. `{$clientsdetails}` → Array of the logged-in client's details
+14. `{$token}`          → CSRF token for forms
+15. `{$systemurl}`      → The system URL (base URL for links)
+16. `{$filename}`       → The current PHP filename
+17. `{$pagetitle}`      → The current page title
+18. `{$breadcrumb}`     → The breadcrumb navigation array
+19. `{$errormessage}`   → Error message string (if any)
+20. `{$successmessage}` → Success message string (if any)
+21. `{$templatefile}`   → The current template file name
+22. `{$captcha}`        → Captcha HTML (if enabled)
+23. `{$announcements}`  → Array of announcements
+24. `{$kbarticles}`     → Array of knowledgebase articles
+25. `{$kbcats}`         → Array of knowledgebase categories
+26. `{$kbmostviews}`    → Array of most viewed KB articles
+27. `{$kbpopulartags}`  → Array of popular KB tags
+28. `{$twitterusername}`→ Twitter username (if set)
+29. `{$twittertweet}`   → Twitter tweet embed code (if set)
+30. `{$googleanalytics}`→ Google Analytics code (if set)
+31. `{$footeroutput}`   → Footer output (hooks, etc.)
+32. `{$headeroutput}`   → Header output (hooks, etc.)
+33. `{$primarySidebar}` → Primary sidebar content
+34. `{$secondarySidebar}` → Secondary sidebar content
+35. `{$mainContent}`    → Main page content
+36. `{$sidebar}`        → Sidebar content
+37. `{$invoiceid}`      → Current invoice ID (if on invoice page)
+38. `{$orderid}`        → Current order ID (if on order page)
+39. `{$serviceid}`      → Current service ID (if on service page)
+40. `{$domainid}`       → Current domain ID (if on domain page)
+41. `{$projectid}`      → Current project ID (if on project page)
+42. `{$adminloggedin}`  → Boolean, true if an admin is logged in
+43. `{$adminid}`        → Admin user ID (if admin logged in)
+44. `{$adminusername}`  → Admin username (if admin logged in)
+45. `{$adminemail}`     → Admin email (if admin logged in)
+46. `{$adminperms}`     → Array of admin permissions
+47. `{$customfields}`   → Array of custom fields (varies by page)
+48. `{$addons_html}`    → HTML for product addons (if any)
+49. `{$captcha}`        → Captcha HTML (if enabled)
+50. `{$recaptchahtml}`  → Google reCAPTCHA HTML (if enabled)

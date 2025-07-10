@@ -73,11 +73,8 @@ a {
 img {
   max-width: 100%;
 }
-button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
-  font-size: inherit;
+button {
+  font-size: unset;
 }
 
 [tabindex="-1"]:focus {

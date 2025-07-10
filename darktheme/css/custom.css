@@ -448,6 +448,9 @@
   padding: 12px 20px;
   cursor: pointer;
 }
+.theme-sidebar-panel .panel-heading .panel-header-label {
+  line-height: 1;
+}
 .theme-sidebar-panel .panel-heading .card-minimise {
   font-size: var(--text-sm);
   transition: all 0.3s ease-in-out;
@@ -481,11 +484,39 @@
 .theme-sidebar-panel .sidebar-list-item.active {
   color: var(--sidebar-accent-foreground);
 }
+
+/* tags */
+.theme-sidebar-panel a[href*="/knowledgebase/tag"] {
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-full);
+  background-color: var(--popover);
+  color: var(--muted-foreground);
+  transition: all 0.15s var(--transition-function-1);
+}
+.theme-sidebar-panel a[href*="/knowledgebase/tag"]:hover {
+  color: var(--foreground);
+}
 /* ----------------------------------- */
 
 /* Cards */
 .nt-card {
   background-color: var(--card);
+  transition: all 0.15s var(--transition-function-1);
+}
+.nt-card.--has-hover:hover {
+  background-color: var(--popover);
+}
+
+/* nt-card-header */
+.nt-card-header {
+  border-bottom: 1px solid var(--border);
+}
+
+.nt-card .show-on-hover {
+  opacity: 0;
+}
+.nt-card:hover .show-on-hover {
+  opacity: 1;
 }
 /* ----------------------------------- */
 
@@ -534,30 +565,19 @@
 
 .theme-master-breadcrumb .breadcrumb-item > a {
   font-size: var(--text-sm);
-  color: var(--foreground);
+  color: var(--muted-foreground);
+  transition: all 0.15s var(--transition-function-1);
 }
 
 .theme-master-breadcrumb .breadcrumb-item:not(.active) > a:hover {
-  text-decoration: underline !important;
-}
-
-.theme-master-breadcrumb .breadcrumb-item + .breadcrumb-item::before {
-  display: inline-block;
-  padding-right: 0.5rem;
-  color: var(--accent);
-  content: "/";
-}
-
-.theme-master-breadcrumb .breadcrumb-item + .breadcrumb-item:hover::before {
-  text-decoration: underline;
-}
-
-.theme-master-breadcrumb .breadcrumb-item + .breadcrumb-item:hover::before {
-  text-decoration: none;
+  color: var(--foreground);
 }
 
 .theme-master-breadcrumb .breadcrumb-item.active {
-  color: var(--color-neutral-500);
+  color: var(--foreground);
+}
+.theme-master-breadcrumb svg {
+  width: 0.75rem;
 }
 
 /* ----------------------------------- */
@@ -1071,6 +1091,7 @@
   right: 6px;
   height: 60px;
   font-size: var(--text-lg);
+  padding-inline: 1.5rem;
 }
 @media (max-width: 1199.98px) {
   .home-domain-search .domain-search-form .custom-input-group i {
@@ -1212,7 +1233,6 @@
     width: 100%;
   }
 }
-
 /* ----------------------------------- */
 
 /* : Mini Plan Card : */
@@ -1382,20 +1402,23 @@
 }
 /* ----------------------------------- */
 
-/* Announcements List */
+/* Announcements List, Knowledgebase */
 .announcements-list {
   display: flex;
   flex-direction: column;
   row-gap: 30px;
 }
-.announcements-text-area {
+.announcements-text-area,
+.kb-text-area {
   line-height: 1.6;
 }
-.announcements-text-area ul {
+.announcements-text-area ul,
+.kb-text-area ul {
   padding-left: 20px;
   list-style-type: disc;
 }
-[dir="rtl"] .announcements-text-area ul {
+[dir="rtl"] .announcements-text-area ul,
+[dir="rtl"] .kb-text-area ul {
   padding-right: 20px;
   padding-left: unset;
 }
@@ -1683,5 +1706,24 @@
 }
 .theme-footer .footer-bottom .social-list a:hover {
   color: var(--foreground);
+}
+/* ----------------------------------- */
+
+/* : Auth Page : */
+.auth-page .page-content {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+.nt-auth-form {
+  padding: 1rem;
+  max-width: 450px;
+  width: 100%;
+}
+.nt-auth-form .form-header {
+  text-align: center;
+}
+.nt-auth-form .logo {
+  width: 48px;
+  height: 48px;
 }
 /* ----------------------------------- */

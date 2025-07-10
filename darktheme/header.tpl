@@ -23,12 +23,15 @@
     {/if}
 
     {* Main navigation bar *}
-    {include file="$template/includes/components/navbar/navbar.tpl"}
+    {if $templatefile !== 'login' && $templatefile !== 'register' && $templatefile !== 'passwordreset' && $templatefile !== 'contact'}
+      {include file="$template/includes/components/navbar/navbar.tpl"}
+    {/if}
   </header>
 
   {include file="$template/includes/network-issues-notifications.tpl"}
 
-  {if $templatefile !== 'homepage'}
+  {if $templatefile !== 'homepage' && $templatefile !== 'login' && $templatefile !== 'register' && $templatefile !== 'passwordreset' && $templatefile !== 'contact'}
+    {* Breadcrumbs - Only for non-homepage templates *}
     <nav class="theme-master-breadcrumb" aria-label="breadcrumb">
       <div class="container-fluid">
         {include file="$template/includes/components/breadcrumbs/master.tpl"}
@@ -69,24 +72,27 @@
     {include file="$template/components/search/FloatBar.tpl"}
   {/if}
 
-  <section id="main-body">
-    <div class="{if !$skipMainBodyContainer}container-fluid{/if}">
-      <div class="row main-row">
+  {* Main body section - Exclude login *}
+  {if $templatefile !== 'login'}
+    <section id="main-body">
+      <div class="{if !$skipMainBodyContainer}container-fluid{/if}">
+        <div class="row main-row">
 
-        {if !$inShoppingCart && ($primarySidebar->hasChildren() || $secondarySidebar->hasChildren())}
-          <div class="sidebar-col">
-            {* Primary sidebar *}
-            <div class="sidebar">
-              {include file="$template/includes/sidebar.tpl" sidebar=$primarySidebar}
-            </div>
-
-            {* Secondary sidebar - Desktop only *}
-            {if !$inShoppingCart && $secondarySidebar->hasChildren()}
-              <div class="d-none d-lg-block sidebar">
-                {include file="$template/includes/sidebar.tpl" sidebar=$secondarySidebar}
+          {if !$inShoppingCart && ($primarySidebar->hasChildren() || $secondarySidebar->hasChildren())}
+            <div class="sidebar-col">
+              {* Primary sidebar *}
+              <div class="sidebar">
+                {include file="$template/includes/sidebar.tpl" sidebar=$primarySidebar}
               </div>
-            {/if}
-          </div>
-        {/if}
 
-<div class="{if !$inShoppingCart && ($primarySidebar->hasChildren() || $secondarySidebar->hasChildren())}content-col{/if} primary-content">
+              {* Secondary sidebar - Desktop only *}
+              {if !$inShoppingCart && $secondarySidebar->hasChildren()}
+                <div class="d-none d-lg-block sidebar">
+                  {include file="$template/includes/sidebar.tpl" sidebar=$secondarySidebar}
+                </div>
+              {/if}
+            </div>
+          {/if}
+
+          <div class="{if !$inShoppingCart && ($primarySidebar->hasChildren() || $secondarySidebar->hasChildren())}content-col{/if} primary-content">
+{/if}

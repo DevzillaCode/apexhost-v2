@@ -5,510 +5,450 @@
 /* CSS Custom Properties */
 :root {
   /* Button Dimensions */
-  --btn-padding: var(--space-2, 0.5rem) var(--space-3, 0.75rem);
-  --btn-padding-sm: var(--space-1, 0.25rem) var(--space-2, 0.5rem);
-  --btn-padding-md: var(--space-2, 0.5rem) var(--space-4, 1rem);
-  --btn-padding-lg: var(--space-3, 0.75rem) var(--space-5, 1.25rem);
-  --btn-padding-xl: var(--space-4, 1rem) var(--space-6, 1.5rem);
+  --btn-padding-sm: 8px 12px;
+  --btn-padding-md: 10px 15px;
+  --btn-padding-lg: 12px 18px;
 
-  --btn-height: var(--space-10, 2.5rem);
-  --btn-height-sm: var(--space-8, 2rem);
-  --btn-height-md: var(--space-12, 3rem);
-  --btn-height-lg: var(--space-14, 3.5rem);
-  --btn-height-xl: var(--space-16, 4rem);
-
-  --btn-width: var(--space-10, 2.5rem);
-  --btn-width-sm: var(--space-8, 2rem);
-  --btn-width-md: var(--space-12, 3rem);
-  --btn-width-lg: var(--space-14, 3.5rem);
-  --btn-width-xl: var(--space-16, 4rem);
-
-  /* Button Styling */
-  --btn-border-radius: var(--theme-radius, 0.375rem);
-  --btn-transparent-border: 1px solid transparent;
-  --btn-font-weight: var(--font-medium, 500);
-  --btn-transition: all 0.15s var(--transition-function-1, ease-out);
-
-  /* Icons */
-  --btn-icon-size: var(--space-5, 1.25rem);
-  --btn-icon-size-sm: var(--space-4, 1rem);
-  --btn-icon-size-md: var(--space-6, 1.5rem);
-  --btn-icon-size-lg: var(--space-7, 1.75rem);
-  --btn-icon-size-xl: var(--space-8, 2rem);
-
-  /* Gaps */
-  --btn-gap: var(--space-2, 0.5rem);
-  --btn-gap-sm: var(--space-1, 0.25rem);
-  --btn-gap-md: var(--space-3, 0.75rem);
-  --btn-gap-lg: var(--space-4, 1rem);
-  --btn-gap-xl: var(--space-5, 1.25rem);
-
-  /* Focus Outline */
-  --btn-outline-style: solid;
-  --btn-outline-width: 0;
-  --btn-focus-outline-width: 3px;
-
-  --radius-full: 9999px;
+  --square-btn-dimension-sm: 40px;
+  --square-btn-dimension-md: 44px;
+  --square-btn-dimension-lg: 48px;
 }
 
 /* Base Button Styles */
 .nt-btn,
-.nt-square {
+.nt-square-btn {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: inherit;
-  font-weight: var(--btn-font-weight);
-  line-height: 1;
-  text-decoration: none;
+  font-family: var(--font-family-base);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  line-height: 22px;
   white-space: nowrap;
   vertical-align: middle;
-  cursor: pointer;
   -webkit-user-select: none;
   user-select: none;
-  border: var(--btn-transparent-border);
-  border-radius: var(--btn-border-radius);
-  outline: none;
-  outline-width: var(--btn-outline-width);
-  outline-style: var(--btn-outline-style);
-  transition: var(--btn-transition);
+  border: 1px solid var(--border);
+  border-radius: var(--theme-radius);
+  outline: 2px solid transparent;
+  outline-offset: 2px;
+  transition: all 0.15s ease-in-out;
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
 }
 
-/* Regular Button */
+/* Square button */
+.nt-square-btn {
+  width: var(--square-btn-dimension-md);
+  height: var(--square-btn-dimension-md);
+}
+/* -> sizes */
+.nt-square-btn.nt-btn-size-sm {
+  width: var(--square-btn-dimension-sm);
+  height: var(--square-btn-dimension-sm);
+}
+.nt-square-btn.nt-btn-size-lg {
+  width: var(--square-btn-dimension-lg);
+  height: var(--square-btn-dimension-lg);
+}
+
+/* Square button icon */
+.nt-square-btn svg {
+  width: 20px;
+  height: 20px;
+}
+/* -> sizes */
+.nt-square-btn.nt-btn-size-sm svg {
+  width: 18px;
+  height: 18px;
+}
+.nt-square-btn.nt-btn-size-lg svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Regular button */
 .nt-btn {
-  padding: var(--btn-padding);
-  min-height: var(--btn-height);
-}
-
-/* Square Button */
-.nt-square {
-  height: var(--btn-height);
-  width: var(--btn-width);
-  padding: 0;
-}
-
-/* Icon Styling */
-.nt-btn svg,
-.nt-square svg,
-.nt-btn i,
-.nt-square i {
-  width: var(--btn-icon-size);
-  height: var(--btn-icon-size);
-  flex-shrink: 0;
-  display: inline-flex;
+  display: flex;
   align-items: center;
   justify-content: center;
+  gap: 6px;
+  padding: var(--btn-padding-md);
+}
+/* -> sizes */
+.nt-btn.nt-btn-size-sm {
+  padding: var(--btn-padding-sm);
+  font-size: var(--text-sm);
+}
+.nt-btn.nt-btn-size-lg {
+  padding: var(--btn-padding-lg);
+  font-size: var(--text-base);
 }
 
-/* Gap for buttons with icons */
-.nt-btn:has(svg),
-.nt-btn:has(i) {
-  gap: var(--btn-gap);
+/* Buttons variations (solid) */
+.nt-btn-primary {
+  --btn-color: var(--foreground);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: var(--color-indigo-600);
+  --btn-hover-bg: var(--color-indigo-700);
+  --btn-border: var(--color-indigo-600);
+  --btn-hover-border: var(--color-indigo-700);
+  --btn-outline-color: color-mix(in srgb, var(--color-indigo-300), transparent 80%);
 }
-
-/* Size Variants - Work with any button type */
-.--btn-sm {
-  --btn-padding: var(--btn-padding-sm);
-  --btn-height: var(--btn-height-sm);
-  --btn-width: var(--btn-width-sm);
-  --btn-icon-size: var(--btn-icon-size-sm);
-  --btn-gap: var(--btn-gap-sm);
-  font-size: 0.875rem;
+.nt-btn-secondary {
+  --btn-color: var(--foreground);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: var(--color-neutral-800);
+  --btn-hover-bg: var(--color-neutral-900);
+  --btn-border: var(--color-neutral-800);
+  --btn-hover-border: var(--color-neutral-900);
+  --btn-outline-color: color-mix(in srgb, var(--color-neutral-500), transparent 80%);
 }
-.--btn-md {
-  --btn-padding: var(--btn-padding-md);
-  --btn-height: var(--btn-height-md);
-  --btn-width: var(--btn-width-md);
-  --btn-icon-size: var(--btn-icon-size-md);
-  --btn-gap: var(--btn-gap-md);
-  font-size: 1rem;
+.nt-btn-success {
+  --btn-color: var(--foreground);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: var(--color-green-600);
+  --btn-hover-bg: var(--color-green-700);
+  --btn-border: var(--color-green-600);
+  --btn-hover-border: var(--color-green-700);
+  --btn-outline-color: color-mix(in srgb, var(--color-green-300), transparent 80%);
 }
-.--btn-lg {
-  --btn-padding: var(--btn-padding-lg);
-  --btn-height: var(--btn-height-lg);
-  --btn-width: var(--btn-width-lg);
-  --btn-icon-size: var(--btn-icon-size-lg);
-  --btn-gap: var(--btn-gap-lg);
-  font-size: 1.125rem;
+.nt-btn-danger {
+  --btn-color: var(--foreground);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: var(--color-red-600);
+  --btn-hover-bg: var(--color-red-700);
+  --btn-border: var(--color-red-600);
+  --btn-hover-border: var(--color-red-700);
+  --btn-outline-color: color-mix(in srgb, var(--color-red-300), transparent 80%);
 }
-.--btn-xl {
-  --btn-padding: var(--btn-padding-xl);
-  --btn-height: var(--btn-height-xl);
-  --btn-width: var(--btn-width-xl);
-  --btn-icon-size: var(--btn-icon-size-xl);
-  --btn-gap: var(--btn-gap-xl);
-  font-size: 1.25rem;
+.nt-btn-warning {
+  --btn-color: var(--foreground);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: var(--color-yellow-600);
+  --btn-hover-bg: var(--color-yellow-700);
+  --btn-border: var(--color-yellow-600);
+  --btn-hover-border: var(--color-yellow-700);
+  --btn-outline-color: color-mix(in srgb, var(--color-yellow-300), transparent 80%);
 }
-
-/* Width Variants */
-.nt-btn.--btn-full {
-  width: 100%;
+.nt-btn-info {
+  --btn-color: var(--foreground);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: var(--color-cyan-600);
+  --btn-hover-bg: var(--color-cyan-700);
+  --btn-border: var(--color-cyan-600);
+  --btn-hover-border: var(--color-cyan-700);
+  --btn-outline-color: color-mix(in srgb, var(--color-cyan-300), transparent 80%);
 }
-
-.nt-btn.--btn-auto {
-  width: auto;
-}
-
-/* Button Variants - Using CSS Custom Properties for DRY approach */
-.--btn-default {
-  --btn-bg: var(--accent-foreground);
-  --btn-color: var(--color-neutral-900);
-  --btn-border: var(--accent-foreground);
+.nt-btn-default {
+  --btn-color: var(--background);
+  --btn-hover-color: var(--background);
+  --btn-bg: var(--foreground);
   --btn-hover-bg: var(--color-gray-300);
+  --btn-border: var(--color-gray-300);
   --btn-hover-border: var(--color-gray-300);
-  --btn-outline: color-mix(in srgb, var(--color-gray-300), transparent 80%);
+  --btn-outline-color: color-mix(in srgb, var(--color-gray-300), transparent 80%);
 }
-
-.--btn-primary {
-  --btn-bg: var(--color-blue-500);
-  --btn-color: white;
-  --btn-border: var(--color-blue-500);
-  --btn-hover-bg: var(--color-blue-600);
-  --btn-hover-border: var(--color-blue-600);
-  --btn-outline: color-mix(in srgb, var(--color-blue-500), transparent 80%);
+.nt-btn-dark {
+  --btn-color: var(--foreground);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: var(--color-gray-800);
+  --btn-hover-bg: var(--color-gray-900);
+  --btn-border: var(--color-gray-800);
+  --btn-hover-border: var(--color-gray-900);
+  --btn-outline-color: color-mix(in srgb, var(--color-gray-500), transparent 80%);
 }
-
-.--btn-secondary {
-  --btn-bg: var(--color-gray-500);
-  --btn-color: white;
-  --btn-border: var(--color-gray-500);
-  --btn-hover-bg: var(--color-gray-600);
-  --btn-hover-border: var(--color-gray-600);
-  --btn-outline: color-mix(in srgb, var(--color-gray-500), transparent 80%);
-}
-
-.--btn-success {
-  --btn-bg: var(--color-teal-500);
-  --btn-color: white;
-  --btn-border: var(--color-teal-500);
-  --btn-hover-bg: var(--color-teal-600);
-  --btn-hover-border: var(--color-teal-600);
-  --btn-outline: color-mix(in srgb, var(--color-teal-500), transparent 80%);
-}
-
-.--btn-danger {
-  --btn-bg: var(--color-red-500);
-  --btn-color: white;
-  --btn-border: var(--color-red-500);
-  --btn-hover-bg: var(--color-red-600);
-  --btn-hover-border: var(--color-red-600);
-  --btn-outline: color-mix(in srgb, var(--color-red-500), transparent 80%);
-}
-
-.--btn-warning {
-  --btn-bg: var(--color-yellow-500);
-  --btn-color: var(--color-gray-900);
-  --btn-border: var(--color-yellow-500);
-  --btn-hover-bg: var(--color-yellow-600);
-  --btn-hover-border: var(--color-yellow-600);
-  --btn-outline: color-mix(in srgb, var(--color-yellow-500), transparent 80%);
-}
-
-.--btn-ghost {
+.nt-btn-ghost {
+  --btn-color: var(--foreground);
+  --btn-hover-color: var(--foreground);
   --btn-bg: transparent;
-  --btn-color: var(--foreground);
-  --btn-border: transparent;
   --btn-hover-bg: color-mix(in srgb, var(--accent), transparent 50%);
-  --btn-hover-border: transparent;
-  --btn-outline: color-mix(in srgb, var(--accent), transparent 80%);
-}
-
-.--btn-glass {
-  --btn-bg: color-mix(in srgb, var(--accent), transparent 70%);
-  --btn-color: var(--foreground);
   --btn-border: transparent;
-  --btn-hover-bg: color-mix(in srgb, var(--accent), transparent 20%);
-  --btn-hover-border: var(--border);
-  --btn-outline: color-mix(in srgb, var(--accent), transparent 100%);
+  --btn-hover-border: transparent;
+  --btn-outline-color: color-mix(in srgb, var(--accent), transparent 80%);
+}
+.nt-btn-link {
+  --btn-color: var(--foreground);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: transparent;
+  --btn-hover-bg: transparent;
+  --btn-border: transparent;
+  --btn-hover-border: transparent;
+  --btn-outline-color: transparent;
 }
 
-/* Apply button variant styles - Simple approach */
-.--btn-default,
-.--btn-primary,
-.--btn-secondary,
-.--btn-success,
-.--btn-danger,
-.--btn-warning,
-.--btn-ghost,
-.--btn-glass {
+.nt-btn-primary,
+.nt-btn-secondary,
+.nt-btn-success,
+.nt-btn-danger,
+.nt-btn-warning,
+.nt-btn-info,
+.nt-btn-default,
+.nt-btn-dark,
+.nt-btn-ghost,
+.nt-btn-link {
   background-color: var(--btn-bg);
   color: var(--btn-color);
   border-color: var(--btn-border);
-  outline-color: var(--btn-outline);
 }
 
-.--btn-default:not(:disabled):hover,
-.--btn-default:not(:disabled):focus,
-.--btn-default.active,
-.--btn-primary:not(:disabled):hover,
-.--btn-primary:not(:disabled):focus,
-.--btn-primary.active,
-.--btn-secondary:not(:disabled):hover,
-.--btn-secondary:not(:disabled):focus,
-.--btn-secondary.active,
-.--btn-success:not(:disabled):hover,
-.--btn-success:not(:disabled):focus,
-.--btn-success.active,
-.--btn-danger:not(:disabled):hover,
-.--btn-danger:not(:disabled):focus,
-.--btn-danger.active,
-.--btn-warning:not(:disabled):hover,
-.--btn-warning:not(:disabled):focus,
-.--btn-warning.active,
-.--btn-ghost:not(:disabled):hover,
-.--btn-ghost:not(:disabled):focus,
-.--btn-ghost.active,
-.--btn-glass:not(:disabled):hover,
-.--btn-glass:not(:disabled):focus,
-.--btn-glass.active {
+.nt-btn-primary:not(:disabled):hover,
+.nt-btn-secondary:not(:disabled):hover,
+.nt-btn-success:not(:disabled):hover,
+.nt-btn-danger:not(:disabled):hover,
+.nt-btn-warning:not(:disabled):hover,
+.nt-btn-info:not(:disabled):hover,
+.nt-btn-default:not(:disabled):hover,
+.nt-btn-dark:not(:disabled):hover,
+.nt-btn-ghost:not(:disabled):hover,
+.nt-btn-link:not(:disabled):hover {
+  color: var(--btn-hover-color);
   background-color: var(--btn-hover-bg);
   border-color: var(--btn-hover-border);
 }
-
-/* Shadow Variants */
-.--btn-shadow-default {
-  color: var(--foreground);
-  background: color-mix(in srgb, var(--color-gray-300), transparent 80%);
-  outline-color: color-mix(in srgb, var(--color-gray-300), transparent 80%);
+.nt-btn-link:not(:disabled):hover {
+  text-decoration: underline;
 }
 
-.--btn-shadow-primary {
-  color: var(--color-blue-500);
-  background: color-mix(in srgb, var(--color-blue-500), transparent 80%);
-  outline-color: color-mix(in srgb, var(--color-blue-500), transparent 80%);
+.nt-btn-primary:not(:disabled):focus,
+.nt-btn-secondary:not(:disabled):focus,
+.nt-btn-success:not(:disabled):focus,
+.nt-btn-danger:not(:disabled):focus,
+.nt-btn-warning:not(:disabled):focus,
+.nt-btn-info:not(:disabled):focus,
+.nt-btn-default:not(:disabled):focus,
+.nt-btn-dark:not(:disabled):focus,
+.nt-btn-ghost:not(:disabled):focus,
+.nt-btn-link:not(:disabled):focus {
+  color: var(--btn-hover-color);
+  background-color: var(--btn-hover-bg);
+  outline-color: var(--btn-outline-color);
+  border-color: var(--btn-hover-border);
+}
+.nt-btn-link:not(:disabled):focus {
+  text-decoration: underline;
 }
 
-.--btn-shadow-secondary {
-  color: var(--color-gray-500);
-  background: color-mix(in srgb, var(--color-gray-500), transparent 80%);
-  outline-color: color-mix(in srgb, var(--color-gray-500), transparent 80%);
+.nt-btn-primary.active,
+.nt-btn-secondary.active,
+.nt-btn-success.active,
+.nt-btn-danger.active,
+.nt-btn-warning.active,
+.nt-btn-info.active,
+.nt-btn-default.active,
+.nt-btn-dark.active,
+.nt-btn-ghost.active,
+.nt-btn-link.active {
+  color: var(--btn-hover-color);
+  background-color: var(--btn-hover-bg);
+  outline-color: var(--btn-outline-color);
+  border-color: var(--btn-hover-border);
 }
 
-.--btn-shadow-success {
-  color: var(--color-teal-500);
-  background: color-mix(in srgb, var(--color-teal-500), transparent 80%);
-  outline-color: color-mix(in srgb, var(--color-teal-500), transparent 80%);
+/* Buttons variations (shadow) */
+.nt-btn-outline-primary {
+  --btn-color: var(--color-indigo-600);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: transparent;
+  --btn-hover-bg: var(--color-indigo-600);
+  --btn-border: var(--color-indigo-600);
+  --outline-color: color-mix(in srgb, var(--color-blue-500), transparent 80%)
+}
+.nt-btn-outline-secondary {
+  --btn-color: var(--color-neutral-500);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: transparent;
+  --btn-hover-bg: var(--color-neutral-800);
+  --btn-border: var(--color-neutral-800);
+  --outline-color: color-mix(in srgb, var(--color-neutral-500), transparent 80%);
+}
+.nt-btn-outline-success {
+  --btn-color: var(--color-green-600);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: transparent;
+  --btn-hover-bg: var(--color-green-600);
+  --btn-border: var(--color-green-600);
+  --outline-color: color-mix(in srgb, var(--color-green-500), transparent 80%);
+}
+.nt-btn-outline-danger {
+  --btn-color: var(--color-red-600);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: transparent;
+  --btn-hover-bg: var(--color-red-600);
+  --btn-border: var(--color-red-600);
+  --outline-color: color-mix(in srgb, var(--color-red-500), transparent 80%);
+}
+.nt-btn-outline-warning {
+  --btn-color: var(--color-yellow-600);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: transparent;
+  --btn-hover-bg: var(--color-yellow-600);
+  --btn-border: var(--color-yellow-600);
+  --outline-color: color-mix(in srgb, var(--color-yellow-500), transparent 80%);
+}
+.nt-btn-outline-info {
+  --btn-color: var(--color-cyan-600);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: transparent;
+  --btn-hover-bg: var(--color-cyan-600);
+  --btn-border: var(--color-cyan-600);
+  --outline-color: color-mix(in srgb, var(--color-cyan-500), transparent 80%);
+}
+.nt-btn-outline-default {
+  --btn-color: var(--color-gray-300);
+  --btn-hover-color: var(--background);
+  --btn-bg: transparent;
+  --btn-hover-bg: var(--color-gray-300);
+  --btn-border: var(--color-gray-300);
+  --outline-color: color-mix(in srgb, var(--color-gray-200), transparent 80%);
+}
+.nt-btn-outline-dark {
+  --btn-color: var(--color-gray-500);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: transparent;
+  --btn-hover-bg: var(--color-gray-800);
+  --btn-border: var(--color-gray-800);
+  --outline-color: color-mix(in srgb, var(--color-gray-700), transparent 80%);
 }
 
-.--btn-shadow-danger {
-  color: var(--color-red-500);
-  background: color-mix(in srgb, var(--color-red-500), transparent 80%);
-  outline-color: color-mix(in srgb, var(--color-red-500), transparent 80%);
+.nt-btn-outline-primary,
+.nt-btn-outline-secondary,
+.nt-btn-outline-success,
+.nt-btn-outline-danger,
+.nt-btn-outline-warning,
+.nt-btn-outline-info,
+.nt-btn-outline-default,
+.nt-btn-outline-dark {
+  color: var(--btn-color);
+  border-color: var(--btn-border);
+  background-color: var(--btn-bg);
 }
 
-.--btn-shadow-warning {
-  color: var(--color-yellow-600);
-  background: color-mix(in srgb, var(--color-yellow-500), transparent 80%);
-  outline-color: color-mix(in srgb, var(--color-yellow-500), transparent 80%);
+.nt-btn-outline-primary:not(:disabled):hover,
+.nt-btn-outline-secondary:not(:disabled):hover,
+.nt-btn-outline-success:not(:disabled):hover,
+.nt-btn-outline-danger:not(:disabled):hover,
+.nt-btn-outline-warning:not(:disabled):hover,
+.nt-btn-outline-info:not(:disabled):hover,
+.nt-btn-outline-default:not(:disabled):hover,
+.nt-btn-outline-dark:not(:disabled):hover {
+  color: var(--btn-hover-color);
+  background-color: var(--btn-hover-bg);
 }
 
-/* Shadow Hover States */
-[class*="--btn-shadow-"]:not(:disabled):hover,
-[class*="--btn-shadow-"]:not(:disabled):focus,
-[class*="--btn-shadow-"].active {
-  background: color-mix(
-    in srgb,
-    var(--btn-hover-bg, currentColor),
-    transparent 70%
-  );
+.nt-btn-outline-primary:not(:disabled):focus,
+.nt-btn-outline-secondary:not(:disabled):focus,
+.nt-btn-outline-success:not(:disabled):focus,
+.nt-btn-outline-danger:not(:disabled):focus,
+.nt-btn-outline-warning:not(:disabled):focus,
+.nt-btn-outline-info:not(:disabled):focus,
+.nt-btn-outline-default:not(:disabled):focus,
+.nt-btn-outline-dark:not(:disabled):focus {
+  color: var(--btn-hover-color);
+  background-color: var(--btn-hover-bg);
+  outline-color: var(--outline-color);
 }
 
-/* Special Cases */
-.--btn-ghost-danger {
-  color: var(--color-red-500) !important;
-  color: var(--color-red-500) !important;
-  background: transparent !important;
-  border-color: transparent !important;
-  outline-color: color-mix(
-    in srgb,
-    var(--color-red-500),
-    transparent 80%
-  ) !important;
+/* Button's icon */
+.nt-btn svg {
+  width: 16px;
+  height: 16px;
 }
 
-.--btn-ghost-danger:not(:disabled):hover,
-.--btn-ghost-danger:not(:disabled):focus,
-.--btn-ghost-danger.active {
-  background: color-mix(
-    in srgb,
-    var(--color-red-500),
-    transparent 80%
-  ) !important;
-}
-
-/* Loading State */
-.--btn-loading {
-  position: relative;
-  pointer-events: none;
-}
-
-.--btn-loading::before {
-  content: "";
-  position: absolute;
-  width: 1rem;
-  height: 1rem;
-  border: 2px solid transparent;
-  border-top: 2px solid currentColor;
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
-
-/* Disabled States */
-.nt-btn:disabled,
-.nt-square:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-  pointer-events: none;
-}
-
-/* Focus States */
-.nt-btn:not(:disabled):focus-visible,
-.nt-square:not(:disabled):focus-visible,
-.nt-btn.active:not(:disabled),
-.nt-square.active:not(:disabled) {
-  outline-width: var(--btn-focus-outline-width) !important;
-}
-
-/* Notification Dot */
-.--has-red-dot::before {
-  content: "";
-  position: absolute;
-  top: -2px;
-  right: -2px;
-  width: 12px;
-  height: 12px;
-  background-color: var(--color-red-500);
-  border-radius: var(--radius-full);
-  border: 2px solid var(--background);
-  z-index: 1;
-}
-
-/* Browser Compatibility */
-@supports not (color: color-mix(in srgb, red, blue)) {
-  /* Fallback for browsers that don't support color-mix */
-  .--btn-shadow-default {
-    background: rgba(209, 213, 219, 0.2);
-  }
-  .--btn-shadow-primary {
-    background: rgba(59, 130, 246, 0.2);
-  }
-  .--btn-shadow-secondary {
-    background: rgba(107, 114, 128, 0.2);
-  }
-  .--btn-shadow-success {
-    background: rgba(20, 184, 166, 0.2);
-  }
-  .--btn-shadow-danger {
-    background: rgba(239, 68, 68, 0.2);
-  }
-  .--btn-shadow-warning {
-    background: rgba(234, 179, 8, 0.2);
-  }
-  .--btn-ghost:hover {
-    background: rgba(241, 245, 249, 0.5);
-  }
-  .--btn-glass {
-    background: rgba(241, 245, 249, 0.3);
-  }
-}
-
-/* High Contrast Mode Support */
-@media (prefers-contrast: high) {
-  .nt-btn,
-  .nt-square {
-    border: 2px solid;
-  }
-
-  .--btn-ghost {
-    border-color: currentColor;
-  }
-}
-
-/* Reduced Motion Support */
-@media (prefers-reduced-motion: reduce) {
-  .nt-btn,
-  .nt-square {
-    transition: none;
-  }
-
-  .--btn-loading::before {
-    animation: none;
-  }
-}
-
-/* Dark Mode Support */
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground: #ffffff;
-    --background: #000000;
-    --accent: #1e293b;
-    --accent-foreground: #0f172a;
-    --border: #334155;
-  }
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .nt-btn.--btn-responsive {
-    width: 100%;
-    justify-content: center;
-  }
-
-  .nt-btn.--btn-responsive .btn-text {
-    display: none;
-  }
-}
-
-/* Button Groups */
-.btn-group {
+/* Button's Group */
+.nt-btn-group {
   display: inline-flex;
   vertical-align: middle;
 }
-
-.btn-group > .nt-btn:not(:first-child),
-.btn-group > .nt-square:not(:first-child) {
+.nt-btn-group > .nt-btn:not(:first-child),
+.nt-btn-group > .nt-square-btn:not(:first-child) {
   margin-left: -1px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
 }
 
-.btn-group > .nt-btn:not(:last-child),
-.btn-group > .nt-square:not(:last-child) {
+.nt-btn-group > .nt-btn:not(:last-child),
+.nt-btn-group > .nt-square-btn:not(:last-child) {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
 }
 
-.btn-group > .nt-btn:focus,
-.btn-group > .nt-square:focus {
+.nt-btn-group > .nt-btn:focus,
+.nt-btn-group > .nt-square-btn:focus {
   z-index: 1;
 }
 
-/* Utility Classes */
-.--btn-block {
-  display: block;
+/* General Buttons Styles */
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.nt-btn-block {
   width: 100%;
 }
-
-.--btn-circle {
+.nt-btn-circle {
   border-radius: 50%;
 }
-
-.--btn-pill {
+.nt-btn-pill {
   border-radius: 9999px;
 }
 /* ----------------------------------- */
 
+/* : Badges : */
+.badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--theme-radius);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 4px;
+}
+.badge svg {
+  width: 1rem;
+  height: 1rem;
+}
+.badge-primary {
+  background-color: var(--color-indigo-600);
+  color: var(--foreground);
+}
+.badge-secondary {
+  background-color: var(--color-neutral-800);
+  color: var(--foreground);
+}
+.badge-success {
+  background-color: var(--color-green-600);
+  color: var(--foreground);
+}
+.badge-danger {
+  background-color: var(--color-red-600);
+  color: var(--foreground);
+}
+.badge-warning {
+  background-color: var(--color-yellow-600);
+  color: var(--foreground);
+}
+.badge-info {
+  background-color: var(--color-cyan-600);
+  color: var(--foreground);
+}
+.badge-default {
+  background-color: var(--foreground);
+  color: var(--color-neutral-900);
+}
+/* ----------------------------------- */
+
+/* : Links : */
+.nt-link {
+  font-weight: var(--font-medium);
+  color: var(--color-neutral-300);
+  transition: all 0.15s var(--transition-function-1);
+}
+.nt-link:hover {
+  color: var(--foreground);
+  text-decoration: underline !important;
+}
 /* ----------------------------------- */
