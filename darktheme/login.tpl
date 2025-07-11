@@ -3,6 +3,15 @@
 
 {* auth-page *}
 <div class="auth-page">
+  {* video-bg-wrapper *}
+  <div class="video-bg-wrapper">
+    <video autoplay muted loop playsinline class="bg-video">
+      <source src="{$WEB_ROOT}/templates/{$template}/videos/bg.mp4" type="video/mp4" />
+      Your browser does not support the video tag.
+    </video>
+    <div class="video-overlay-blur"></div>
+  </div>
+  {* container-fluid *}
   <div class="container-fluid">
     {* page-content *}
     <div class="page-content d-flex align-items-center justify-content-center flex-column w-100">

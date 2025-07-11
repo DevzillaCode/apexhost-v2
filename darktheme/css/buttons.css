@@ -31,8 +31,8 @@
   user-select: none;
   border: 1px solid var(--border);
   border-radius: var(--theme-radius);
-  outline: 2px solid transparent;
-  outline-offset: 2px;
+  outline: 1px solid transparent;
+  outline-offset: 1px;
   transition: all 0.15s ease-in-out;
   -webkit-appearance: none;
   -moz-appearance: none;
@@ -350,6 +350,18 @@
   background-color: var(--btn-hover-bg);
   outline-color: var(--outline-color);
 }
+.nt-btn-outline-primary.active,
+.nt-btn-outline-secondary.active,
+.nt-btn-outline-success.active,
+.nt-btn-outline-danger.active,
+.nt-btn-outline-warning.active,
+.nt-btn-outline-info.active,
+.nt-btn-outline-default.active,
+.nt-btn-outline-dark.active {
+  color: var(--btn-hover-color);
+  background-color: var(--btn-hover-bg);
+  outline-color: var(--outline-color);
+}
 
 /* Button's icon */
 .nt-btn svg {
@@ -487,5 +499,23 @@ button:disabled {
   color: var(--color-cyan-400);
   border-color: var(--color-cyan-400);
   background-color: color-mix(in srgb, var(--color-cyan-400), transparent 95%);
+}
+/* ----------------------------------- */
+
+/* Status */
+.nt-has-red-dot {
+  position: relative;
+}
+.nt-has-red-dot::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 12px;
+  height: 12px;
+  background-color: var(--color-red-500);
+  border-radius: var(--radius-full);
+  border: 2px solid var(--background);
+  z-index: 1;
 }
 /* ----------------------------------- */
