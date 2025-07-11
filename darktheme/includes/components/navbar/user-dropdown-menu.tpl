@@ -35,7 +35,7 @@
       <div class="ddm-divider" role="separator"></div>
     {else}
       <li class="ddm-item">
-        <a href="{$childItem->getUri()}" class="ddm-link{if $childItem->getLabel() == 'Logout'} --btn-ghost-danger{/if}" role="menuitem" {if $childItem->getAttribute('target')} target="{$childItem->getAttribute('target')}" {/if} data-gap-x="6px">
+        <a href="{$childItem->getUri()}" class="ddm-link" role="menuitem" {if $childItem->getAttribute('target')} target="{$childItem->getAttribute('target')}" {/if} data-gap-x="6px">
           {* SVG output: if label matches, show SVG; else, fallback to icon or placeholder *}
           {if isset($svgIcons[$childItem->getLabel()])}
             {$svgIcons[$childItem->getLabel()] nofilter}

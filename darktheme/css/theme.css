@@ -87,7 +87,6 @@ h1, h2, h3, h4, h5, h6 {
 
 p {
   margin-top: 0;
-  margin-bottom: 1rem;
 }
 
 abbr[title],
@@ -164,7 +163,7 @@ a {
   text-decoration: none;
   background-color: transparent;
 }
-a:not(.nt-btn, .nt-square):hover {
+a:not(.nt-btn, .nt-square, .nt-link):hover {
   color: #204060;
   text-decoration: underline;
 }
@@ -226,16 +225,6 @@ th {
 
 label {
   display: inline-block;
-  margin-bottom: 0.5rem;
-}
-
-button:not(.nt-btn, .nt-square) {
-  border-radius: 0;
-}
-
-button:not(.nt-btn, .nt-square):focus {
-  outline: 1px dotted;
-  outline: 5px auto -webkit-focus-ring-color;
 }
 
 input,
@@ -246,7 +235,6 @@ textarea {
   margin: 0;
   font-family: inherit;
   font-size: inherit;
-  line-height: inherit;
 }
 
 button:not(.nt-btn, .nt-square),

@@ -73,11 +73,8 @@ a {
 img {
   max-width: 100%;
 }
-button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
-  font-size: inherit;
+button {
+  font-size: unset;
 }
 
 [tabindex="-1"]:focus {
@@ -577,22 +574,22 @@ button,
 }
 
 .--font-light {
-  font-weight: var(--font-light);
+  font-weight: var(--font-light) !important;
 }
 .--font-normal {
-  font-weight: var(--font-normal);
+  font-weight: var(--font-normal) !important;
 }
 .--font-medium {
-  font-weight: var(--font-medium);
+  font-weight: var(--font-medium) !important;
 }
 .--font-semibold {
-  font-weight: var(--font-semibold);
+  font-weight: var(--font-semibold) !important;
 }
 .--font-bold {
-  font-weight: var(--font-bold);
+  font-weight: var(--font-bold) !important;
 }
 .--font-extrabold {
-  font-weight: var(--font-extrabold);
+  font-weight: var(--font-extrabold) !important;
 }
 /* ----------------------------------- */
 
@@ -611,6 +608,45 @@ button,
 }
 .--color-primary-500 {
   color: var(--primary-500) !important;
+}
+.text-white {
+  color: #fff !important;
+}
+.text-primary {
+  color: var(--foreground) !important;
+}
+a.text-primary:hover, a.text-primary:focus {
+  color: var(--primary-500) !important;
+}
+.text-gray {
+  color: var(--color-neutral-300) !important;
+}
+a.text-gray:hover, a.text-gray:focus {
+  color: var(--color-neutral-500) !important;
+}
+.text-success {
+  color: var(--color-green-600) !important;
+}
+a.text-success:hover, a.text-success:focus {
+  color: var(--color-green-700) !important;
+}
+.text-info {
+  color: var(--color-cyan-600) !important;
+}
+a.text-info:hover, a.text-info:focus {
+  color: var(--color-cyan-700) !important;
+}
+.text-warning {
+  color: var(--color-yellow-600) !important;
+}
+a.text-warning:hover, a.text-warning:focus {
+  color: var(--color-yellow-700) !important;
+}
+.text-danger {
+  color: var(--color-red-600) !important;
+}
+a.text-danger:hover, a.text-danger:focus {
+  color: var(--color-red-700) !important;
 }
 /* ----------------------------------- */
 

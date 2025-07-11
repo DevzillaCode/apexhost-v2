@@ -97,9 +97,6 @@
 .nt-input::placeholder {
   color: var(--ring);
 }
-input::-webkit-autofill {
-  background-color: #000 !important;
-}
 /* -> Input Sizes */
 .nt-input-size-sm .nt-input {
   padding: var(--input-padding-sm);

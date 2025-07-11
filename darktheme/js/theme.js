@@ -22,7 +22,7 @@ $(document).ready(function () {
       $parent.addClass("show");
       $dropdown.show();
     }
-}
+  }
 
   $('[data-type="dropdown_menu_toggler"]').on("click", function (e) {
     e.preventDefault();
@@ -303,7 +303,11 @@ $(document).ready(function () {
 
   scrollSettings.forEach((setting) => {
     const row = document.getElementById(setting.id);
+    if (!row) return; // Prevent error if element not found
+
     const container = row.parentElement;
+    if (!container) return; // Just in case
+
     let position = 0;
     let speed = 0.4;
     let targetSpeed = 0.4;
@@ -316,14 +320,12 @@ $(document).ready(function () {
       const rowWidth = row.scrollWidth / 2;
       const containerWidth = container.offsetWidth;
 
-      // Infinite loop logic (left or right)
       if (dir === -1 && Math.abs(position) >= rowWidth) {
         position = 0;
       } else if (dir === 1 && position >= 0) {
         position = -rowWidth;
       }
 
-      // Smooth speed changes
       speed += (targetSpeed - speed) * 0.1;
       requestAnimationFrame(update);
     };
@@ -334,5 +336,31 @@ $(document).ready(function () {
       item.addEventListener("mouseenter", () => (targetSpeed = 0));
       item.addEventListener("mouseleave", () => (targetSpeed = 0.4));
     });
+  });
+
+  /**
+   * :: Show/Hide Password Toggle
+   * Handles toggling the visibility of a password input field using an eye icon button.
+   * Displays the appropriate icon depending on the current visibility state.
+   */
+  const $toggleBtn = $("#show-password-btn");
+  const $passwordInput = $("#password");
+  const $showIcon = $("#show-svg");
+  const $hideIcon = $("#hide-svg");
+
+  // Ensure all elements exist
+  if (!$toggleBtn.length || !$passwordInput.length) return;
+
+  // Initial icon setup
+  $showIcon.show();
+  $hideIcon.hide();
+
+  // Toggle visibility
+  $toggleBtn.on("click", function () {
+    const isHidden = $passwordInput.attr("type") === "password";
+
+    $passwordInput.attr("type", isHidden ? "text" : "password");
+    $showIcon.toggle(!isHidden);
+    $hideIcon.toggle(isHidden);
   });
 });
