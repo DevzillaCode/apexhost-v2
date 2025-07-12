@@ -12,7 +12,7 @@
             {* col *}
             <div class="col-xl-4 col-md-6">
               {* Announcement Card *}
-              {include file="$template/includes/components/cards/AnnouncementCard.tpl" announcement=$announcement}
+              {include file="$template/components/cards/AnnouncementCard.tpl" announcement=$announcement}
             </div>
           {/if}
         {/foreach}
