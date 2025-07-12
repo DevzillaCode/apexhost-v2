@@ -1,7 +1,7 @@
 {* Announcement Card *}
 <div class="announcement-card">
   {* card-cover *}
-  <div class="card-cover d-flex align-items-center justify-content-center position-relative --mb-3">
+  <div class="card-cover d-flex align-items-center justify-content-center position-relative mb-3">
     {assign var="imgStart" value=$announcement.text|strpos:'<img'}
     {assign var="imgTag" value=$announcement.text|substr:$imgStart:200}
     {assign var="imgEnd" value=$imgTag|strpos:'>'}
@@ -30,14 +30,14 @@
     {/if}
   </div>
   {* card-info *}
-  <div class="card-info d-flex align-items-center justify-content-start flex-warp --mb-4" data-gap-x="10px">
+  <div class="card-info d-flex align-items-center justify-content-start flex-warp mb-4" data-gap-x="10px">
     {* info-div *}
-    <div class="info-div d-inline-flex align-items-center --py-2 --px-3 --text-sm --color-foreground" data-gap-x="8px">
+    <div class="info-div d-inline-flex align-items-center py-2 px-3 text-size-sm color-foreground" data-gap-x="8px">
       <i class="fad fa-calendar-alt"></i>
       {$carbon->parse($announcement.rawDate)->format('jS F, Y')}
     </div>
     {* info-div *}
-    <div class="info-div d-inline-flex align-items-center --py-2 --px-3 --text-sm --color-foreground" data-gap-x="8px">
+    <div class="info-div d-inline-flex align-items-center py-2 px-3 text-size-sm color-foreground" data-gap-x="8px">
       <i class="fad fa-clock"></i>
       {$carbon->parse($announcement.rawDate)->format('h:ia')}
     </div>
@@ -45,7 +45,7 @@
   {* card-text *}
   <div class="card-text">
     <h3 class="card-title">
-      <a href="{fqdnRoutePath('announcement-view', $announcement.id, $announcement.urlfriendlytitle)}" class="--text-base --color-foreground --font-semibold">
+      <a href="{fqdnRoutePath('announcement-view', $announcement.id, $announcement.urlfriendlytitle)}" class="text-size-base color-foreground font-weight-semibold">
         {$announcement.title}
       </a>
     </h3>

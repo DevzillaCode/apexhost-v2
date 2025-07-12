@@ -18,13 +18,13 @@
       {* login-form *}
       <form method="post" action="{routePath('login-validate')}" class="nt-auth-form" role="form">
         {* Logo *}
-        <div class="logo-container text-center --mb-4">
+        <div class="logo-container text-center mb-4">
           <img src="{$assetPath}logo-square.png" class="img-fluid logo" alt="{$companyname}">
         </div>
         {* form-header *}
-        <div class="form-header --mb-10">
-          <h1 class="--title-3 --color-foreground --mb-2">Welcome Back</h1>
-          <p class="--text-base">Enter your email and password to access your account</p>
+        <div class="form-header mb-10">
+          <h1 class="title-3 color-foreground mb-2">Welcome Back</h1>
+          <p class="text-size-base">Enter your email and password to access your account</p>
         </div>
         {include file="$template/includes/flashmessage.tpl"}
         {* form-body *}
@@ -77,11 +77,11 @@
             <a href="{routePath('password-reset-begin')}" class="nt-link">{lang key='forgotpw'}</a>
           </div>
           {* Login Button *}
-          <div class="form-group --mt-6">
+          <div class="form-group mt-6">
             <button type="submit" class="nt-btn nt-btn-default nt-btn-block {$captcha->getButtonClass($captchaForm)}">{lang key='loginbutton'}</button>
           </div>
-          <div class="form-group text-center --mt-6 d-flex align-items-center justify-content-center">
-            <p class="--text-sm --color-muted-foreground">{lang key='userLogin.notRegistered'} &nbsp;</p><a href="{$WEB_ROOT}/register.php" class="nt-link">{lang key='userLogin.createAccount'}</a>
+          <div class="form-group text-center mt-6 d-flex align-items-center justify-content-center">
+            <p class="text-size-sm color-muted-foreground">{lang key='userLogin.notRegistered'} &nbsp;</p><a href="{$WEB_ROOT}/register.php" class="nt-link">{lang key='userLogin.createAccount'}</a>
           </div>
         </div>
       </form>

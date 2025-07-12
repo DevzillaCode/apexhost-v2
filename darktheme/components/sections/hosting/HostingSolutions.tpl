@@ -13,8 +13,8 @@
             <div class="ui-content-inner d-flex flex-column justify-content-between align-items-start h-100">
               {* title *}
               <div>
-                <h3 class="ui-content-subtitle position-relative gradient-text gradient-primary --title-5 --font-bold --mb-3">{lang key="T_hostingSolutionsMoreFeatures"}</h3>
-                <h2 class="ui-content-title position-relative --title-1 --font-bold --color-foreground --mb-10">{lang key="T_hostingSolutionsMainTitle"}</h2>
+                <h3 class="ui-content-subtitle position-relative gradient-text gradient-primary title-5 font-weight-bold mb-3">{lang key="T_hostingSolutionsMoreFeatures"}</h3>
+                <h2 class="ui-content-title position-relative title-1 font-weight-bold color-foreground mb-10">{lang key="T_hostingSolutionsMainTitle"}</h2>
               </div>
               {* link *}
               <a href="/whmcs/register.php" class="nt-btn nt-btn-default">{lang key="getStartedNow"}
@@ -37,8 +37,8 @@
                 <div class="col-12">
                   {* ps-card *}
                   <div class="ps-card">
-                    <a href="{$productGroup->getRoutePath()}" class="ps-title --title-5 --font-medium --color-foreground --mb-4">{$productGroup.name}</a>
-                    <p class="ps-desc --text-base --color-muted-foreground">{$productGroup.tagline}</p>
+                    <a href="{$productGroup->getRoutePath()}" class="ps-title title-5 font-weight-medium color-foreground mb-4">{$productGroup.name}</a>
+                    <p class="ps-desc text-size-base color-muted-foreground">{$productGroup.tagline}</p>
                   </div>
                 </div>
               {/if}
@@ -48,8 +48,8 @@
               <div class="col-12">
                 {* ps-card *}
                 <div class="ps-card">
-                  <a href="{$WEB_ROOT}/cart.php?a=add&domain=register" class="ps-title --title-5 --font-medium --color-foreground --mb-4">{lang key='orderregisterdomain'}</a>
-                  <p class="ps-desc --text-base --color-muted-foreground">{lang key='secureYourDomain'}</p>
+                  <a href="{$WEB_ROOT}/cart.php?a=add&domain=register" class="ps-title title-5 font-weight-medium color-foreground mb-4">{lang key='orderregisterdomain'}</a>
+                  <p class="ps-desc text-size-base color-muted-foreground">{lang key='secureYourDomain'}</p>
                 </div>
               </div>
             {/if}
@@ -58,8 +58,8 @@
               <div class="col-12">
                 {* ps-card *}
                 <div class="ps-card">
-                  <a href="{$WEB_ROOT}/cart.php?a=add&domain=transfer" class="ps-title --title-5 --font-medium --color-foreground --mb-4">{lang key='transferYourDomain'}</a>
-                  <p class="ps-desc --text-base --color-muted-foreground">{lang key='transferExtend'}</p>
+                  <a href="{$WEB_ROOT}/cart.php?a=add&domain=transfer" class="ps-title title-5 font-weight-medium color-foreground mb-4">{lang key='transferYourDomain'}</a>
+                  <p class="ps-desc text-size-base color-muted-foreground">{lang key='transferExtend'}</p>
                 </div>
               </div>
             {/if}

@@ -22,7 +22,7 @@
                 <ul class="client-alerts">
                   {foreach $clientAlerts as $alert}
                     <li>
-                      <a href="{$alert->getLink()}" class="notification-item d-flex align-items-start --p-3">
+                      <a href="{$alert->getLink()}" class="notification-item d-flex align-items-start p-3">
                         <span class="icon text-{if $alert->getSeverity() == 'danger'}danger{elseif $alert->getSeverity() == 'warning'}warning{elseif $alert->getSeverity() == 'info'}info{else}success{/if}">
                           <i class="fas fa-fw fa-{if $alert->getSeverity() == 'danger'}exclamation-circle{elseif $alert->getSeverity() == 'warning'}exclamation-triangle{elseif $alert->getSeverity() == 'info'}info-circle{else}check-circle{/if}"></i>
                         </span>
@@ -30,7 +30,7 @@
                       </a>
                     </li>
                   {foreachelse}
-                    <li class="none --text-sm --font-normal">
+                    <li class="none text-size-sm font-weight-normal">
                       {lang key='notificationsnone'}
                     </li>
                   {/foreach}

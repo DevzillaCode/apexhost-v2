@@ -6,16 +6,7 @@
 {assetExists file="custom.css"}
 <link href="{$__assetPath__}" rel="stylesheet">
 {/assetExists}
-{assetExists file="variables.css"}
-<link href="{$__assetPath__}" rel="stylesheet">
-{/assetExists}
-{assetExists file="buttons.css"}
-<link href="{$__assetPath__}" rel="stylesheet">
-{/assetExists}
-{assetExists file="inputs.css"}
-<link href="{$__assetPath__}" rel="stylesheet">
-{/assetExists}
-{assetExists file="style.css"}
+{assetExists file="utils.css"}
 <link href="{$__assetPath__}" rel="stylesheet">
 {/assetExists}
 

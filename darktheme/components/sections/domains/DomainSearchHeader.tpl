@@ -3,7 +3,7 @@
     <!-- domain-search-content -->
     <div class="domain-search-content text-center">
       <!-- domain-search-title -->
-      <h1 class="domain-search-title --text-5xl --font-base --font-semibold">
+      <h1 class="domain-search-title text-5xl font-base font-semibold">
         {lang key="T_domainSearchText1"} <span class="gradient-text gradient-primary">{lang key="T_domainSearchText2"}</span> {lang key="T_domainSearchText3"}<br class="d-none d-md-block">{lang key="T_domainSearchText4"}
       </h1>
       <!-- search-form -->

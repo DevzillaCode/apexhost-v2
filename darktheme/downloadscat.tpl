@@ -64,6 +64,6 @@
     </div>
 </div>
 
-<a href="javascript:history.go(-1)" class="btn btn-default px-4">
+<a href="javascript:history.go(-1)" class="nt-btn nt-btn-default">
     {lang key='clientareabacklink'}
 </a>

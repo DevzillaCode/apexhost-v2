@@ -4,12 +4,12 @@
 {/if}
 
 {* Main article container *}
-<div class="nt-card --radius-md --p-8 --mb-6">
+<div class="nt-card rounded-md p-8 mb-6">
   {* Article header with title and print button *}
-  <h1 class="--title-4 --font-semibold --color-foreground --mb-4">
+  <h1 class="title-4 font-weight-semibold color-foreground mb-4">
     {$kbarticle.title}
     {* Print button - positioned to the right *}
-    <a href="#" class="nt-btn --btn-default --btn-sm float-right" onclick="window.print();return false">
+    <a href="#" class="nt-btn nt-btn-default nt-btn-size-sm float-right" onclick="window.print();return false">
       {* Printer icon SVG *}
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-printer-icon lucide-printer">
         <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
@@ -21,7 +21,7 @@
   </h1>
 
   {* Article metadata section *}
-  <ul class="list-inline d-flex align-items-center flex-wrap --mb-4" data-gap-x="8px" data-gap-y="8px">
+  <ul class="list-inline d-flex align-items-center flex-wrap mb-4" data-gap-x="8px" data-gap-y="8px">
     {* Display tags if they exist *}
     {if $kbarticle.tags}
       <li>
@@ -37,7 +37,7 @@
     {/if}
 
     {* Display useful votes count *}
-    <li class="list-inline-item --text-sm --pr-2 --color-muted-foreground --mx-4">
+    <li class="list-inline-item text-size-sm pr-2 color-muted-foreground mx-4">
       <i class="fas fa-thumbs-up mr-2"></i>{$kbarticle.useful}
     </li>
   </ul>
@@ -46,7 +46,7 @@
   <hr>
 
   {* Main article content *}
-  <article class="kb-text-area --text-base">
+  <article class="kb-text-area text-size-base">
     {$kbarticle.text}
   </article>
 
@@ -55,7 +55,7 @@
     <hr>
 
     {* Voting section header *}
-    <h4 class="--title-5 --color-foreground --mb-3">{lang key='knowledgebasehelpful'}</h4>
+    <h4 class="title-5 color-foreground mb-3">{lang key='knowledgebasehelpful'}</h4>
 
     {* Voting form *}
     <form action="{routePath('knowledgebase-article-view', {$kbarticle.id}, {$kbarticle.urlfriendlytitle})}" method="post" class="d-flex justify-content-between">
@@ -65,7 +65,7 @@
       {* Vote buttons container *}
       <div>
         {* Yes/Helpful button *}
-        <button class="nt-btn --btn-shadow-primary --btn-sm" type="submit" name="vote" value="yes">
+        <button class="nt-btn nt-btn-outline-default nt-btn-size-sm" type="submit" name="vote" value="yes">
           {* Thumbs up icon *}
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-thumbs-up-icon lucide-thumbs-up">
             <path d="M7 10v12" />
@@ -75,7 +75,7 @@
         </button>
 
         {* No/Not helpful button *}
-        <button class="nt-btn --btn-shadow-danger --btn-sm" type="submit" name="vote" value="no">
+        <button class="nt-btn nt-btn-outline-default nt-btn-size-sm" type="submit" name="vote" value="no">
           {* Thumbs down icon *}
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-thumbs-down-icon lucide-thumbs-down">
             <path d="M17 14V2" />
@@ -129,13 +129,13 @@
 
 {* Navigation buttons section *}
 {* Back button *}
-<a href="javascript:history.go(-1)" class="nt-btn --btn-default --px-5">
+<a href="javascript:history.go(-1)" class="nt-btn nt-btn-default px-5">
   {lang key='clientareabacklink'}
 </a>
 
 {* Edit button - only show if user has edit permissions *}
 {if $kbarticle.editLink}
-  <a href="{$kbarticle.editLink}" class="nt-btn --btn-shadow-default float-right">
+  <a href="{$kbarticle.editLink}" class="nt-btn nt-btn-outline-default float-right">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil-icon lucide-pencil">
       <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" />
       <path d="m15 5 4 4" />
