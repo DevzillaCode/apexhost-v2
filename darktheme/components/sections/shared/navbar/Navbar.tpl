@@ -34,7 +34,7 @@
           </button>
         </div>
         <!-- Links List -->
-        {include file="$template/includes/components/navbar/links.tpl" navbar=$primaryNavbar}
+        {include file="$template/components/sections/shared/navbar/Links.tpl" navbar=$primaryNavbar}
       </div>
       <!-- Actions -->
       <div class="actions d-flex align-items-center justify-content-end" data-gap-x="6px">
@@ -80,7 +80,7 @@
             </button>
             <!-- User Dropdown Menu -->
             <div class="theme-dropdown-menu user-dropwon-menu" id="user_dropdown_menu" aria-labelledby="user_options" role="menu">
-              {include file="$template/includes/components/navbar/user-dropdown-menu.tpl" navbar=$secondaryNavbar}
+              {include file="$template/components/sections/shared/navbar/UserDropdownMenu.tpl" navbar=$secondaryNavbar}
             </div>
           </div>
         </div>

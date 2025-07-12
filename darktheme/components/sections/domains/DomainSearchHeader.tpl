@@ -13,15 +13,15 @@
           <!-- flex-div -->
           <div class="d-flex align-items-center w-100">
             <i class="fad fa-search"></i>
-            <input type="text" name="domain" class="custom-input" placeholder="{lang key='exampledomain'}" autocapitalize="none">
+            <input type="text" name="domain" class="custom-input" placeholder="{lang key='exampledomain'}" autocapitalize="none" autocomplete="off">
           </div>
           {if $registerdomainenabled}
-            <button type="submit" class="nt-btn --btn-default mx-md-0 mx-auto{$captcha->getButtonClass($captchaForm)}" id="btnDomainSearch">{lang key="T_searchDomain"}</button>
+            <button type="submit" class="nt-btn nt-btn-default mx-md-0 mx-auto{$captcha->getButtonClass($captchaForm)}" id="btnDomainSearch">{lang key="T_searchDomain"}</button>
           {/if}
         </div>
         {if $transferdomainenabled}
           <!-- default-link -->
-          <button type="submit" id="btnTransfer" data-domain-action="transfer" class="nt-btn --btn-ghost{$captcha->getButtonClass($captchaForm)}" data-gap-x="6px">{lang key="T_domainTransfer"}</button>
+          <button type="submit" id="btnTransfer" data-domain-action="transfer" class="nt-btn nt-btn-ghost mx-auto{$captcha->getButtonClass($captchaForm)}">{lang key="T_domainTransfer"}</button>
         {/if}
       </form>
       <!-- captcha -->

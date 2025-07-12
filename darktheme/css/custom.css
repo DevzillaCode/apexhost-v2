@@ -550,7 +550,6 @@
   margin-top: 20px;
   font-family: var(--font-family-base);
 }
-
 .theme-master-breadcrumb .theme-breadcrumb {
   display: flex;
   flex-wrap: wrap;
@@ -562,24 +561,20 @@
   position: relative;
   overflow: hidden;
 }
-
 .theme-master-breadcrumb .breadcrumb-item > a {
   font-size: var(--text-sm);
   color: var(--muted-foreground);
   transition: all 0.15s var(--transition-function-1);
 }
-
 .theme-master-breadcrumb .breadcrumb-item:not(.active) > a:hover {
   color: var(--foreground);
 }
-
 .theme-master-breadcrumb .breadcrumb-item.active {
   color: var(--foreground);
 }
 .theme-master-breadcrumb svg {
   width: 0.75rem;
 }
-
 /* ----------------------------------- */
 
 /* : Float Search Bar : */
@@ -596,7 +591,6 @@
     border-radius 0.4s var(--transition-function-1),
     border-color 0.15s var(--transition-function-1);
 }
-
 .float-search-bar.bar-is-active {
   width: min(768px, calc(100vw - 40px));
   height: 122px;
@@ -745,6 +739,9 @@
 /* ----------------------------------- */
 
 /* : Float Bar Overlay : */
+body.float-bar-open {
+  overflow-y: hidden;
+}
 @media (min-width: 768px) {
   .float-bar-overlay {
     position: fixed;
@@ -757,7 +754,6 @@
     display: none;
   }
 }
-
 /* ----------------------------------- */
 
 /* : Quick Actions Header : */
@@ -984,15 +980,15 @@
   font-weight: var(--font-medium);
   color: var(--foreground);
   padding: 1.5rem 12rem 1.5rem 4rem;
-  border: 1px solid var(--input-border);
+  border: 1px solid var(--border);
   background: var(--input);
   border-radius: var(--radius-md);
   line-height: 1;
   outline: none;
-  outline-color: var(--input-focus-outline);
-  outline-width: var(--input-outline-width);
-  outline-style: var(--input-outline-style);
-  outline-offset: var(--input-focus-outline-offset);
+  outline-color: transparent;
+  outline-width: 0;
+  outline-style: solid;
+  outline-offset: 1px;
   transition: all 0.1s var(--transition-function-1);
   font-family: var(--font-primary);
   -webkit-appearance: none;
@@ -1001,9 +997,9 @@
 }
 
 .home-domain-search .domain-search-form .custom-input:focus {
-  border-color: var(--input-focus-border);
-  outline-color: var(--input-focus-outline);
-  outline-width: var(--input-focus-outline-width);
+  border-color: var(--primary-500);
+  outline-color: color-mix(in srgb, var(--ring), transparent 80%);
+  outline-width: 2px;
 }
 
 @media (max-width: 1199.98px) {
@@ -1244,11 +1240,11 @@
 
 /* : PS Card : */
 .ps-card .ps-title {
-  text-decoration: underline !important;
   transition: color 0.15s ease;
 }
 .ps-card .ps-title:hover {
-  color: var(--color-neutral-300);
+  text-decoration: underline !important;
+  color: var(--foreground);
 }
 /* ----------------------------------- */
 
@@ -1494,6 +1490,7 @@
 .theme-footer {
   position: relative;
   background-color: var(--background);
+  z-index: 101;
 }
 .theme-footer::before {
   position: absolute;

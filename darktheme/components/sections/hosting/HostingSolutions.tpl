@@ -17,7 +17,7 @@
                 <h2 class="ui-content-title position-relative --title-1 --font-bold --color-foreground --mb-10">{lang key="T_hostingSolutionsMainTitle"}</h2>
               </div>
               {* link *}
-              <a href="/whmcs/register.php" class="nt-btn --btn-default">{lang key="getStartedNow"}
+              <a href="/whmcs/register.php" class="nt-btn nt-btn-default">{lang key="getStartedNow"}
                 <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 72 72">
                   <path fill="currentColor" d="M49.212 51.534L67 35.036L49.212 18.538l-3.789 4.076l10.396 9.641H5v5.562h50.819l-10.396 9.642z" />
                   <path fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="2" d="M49.212 51.534L67 35.036L49.212 18.538l-3.789 4.076l10.396 9.641H5v5.562h50.819l-10.396 9.642z" />

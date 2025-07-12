@@ -1,3 +1,5 @@
+{assign var="assetPath" value="{$WEB_ROOT}/templates/{$template}/images/"}
+
 {* Servers Locations Section *}
 <section class="servers-locations-section section-padding-large">
   <div class="container-fluid">
@@ -9,7 +11,7 @@
       <div class="location-item position-relative d-flex align-items-center --mb-5" data-gap-x="10px">
         {* location-image *}
         <div class="location-image">
-          <img src="{$WEB_ROOT}/templates/apexhost/images/servers-flags/us.svg" class="img-fluid" alt="{lang key="USA"}">
+          <img src="{$assetPath}servers-flags/us.svg" class="img-fluid" alt="{lang key="USA"}">
         </div>
         {* location-info *}
         <div class="location-info d-flex align-items-center" data-gap-x="10px">
@@ -21,7 +23,7 @@
       <div class="location-item position-relative d-flex align-items-center --mb-5" data-gap-x="10px">
         {* location-image *}
         <div class="location-image">
-          <img src="{$WEB_ROOT}/templates/apexhost/images/servers-flags/united-kingdom.svg" class="img-fluid" alt="{lang key="UK"}">
+          <img src="{$assetPath}servers-flags/united-kingdom.svg" class="img-fluid" alt="{lang key="UK"}">
         </div>
         {* location-info *}
         <div class="location-info d-flex align-items-center" data-gap-x="10px">
@@ -33,7 +35,7 @@
       <div class="location-item position-relative d-flex align-items-center --mb-5" data-gap-x="10px">
         {* location-image *}
         <div class="location-image">
-          <img src="{$WEB_ROOT}/templates/apexhost/images/servers-flags/singapore.svg" class="img-fluid" alt="{lang key="Singapore"}">
+          <img src="{$assetPath}servers-flags/singapore.svg" class="img-fluid" alt="{lang key="Singapore"}">
         </div>
         {* location-info *}
         <div class="location-info d-flex align-items-center" data-gap-x="10px">
@@ -45,7 +47,7 @@
       <div class="location-item position-relative d-flex align-items-center --mb-5" data-gap-x="10px">
         {* location-image *}
         <div class="location-image">
-          <img src="{$WEB_ROOT}/templates/apexhost/images/servers-flags/german.svg" class="img-fluid" alt="{lang key="Germany"}">
+          <img src="{$assetPath}servers-flags/german.svg" class="img-fluid" alt="{lang key="Germany"}">
         </div>
         {* location-info *}
         <div class="location-info d-flex align-items-center" data-gap-x="10px">
@@ -57,7 +59,7 @@
       <div class="location-item position-relative d-flex align-items-center --mb-5" data-gap-x="10px">
         {* location-image *}
         <div class="location-image">
-          <img src="{$WEB_ROOT}/templates/apexhost/images/servers-flags/japan.svg" class="img-fluid" alt="{lang key="Japan"}">
+          <img src="{$assetPath}servers-flags/japan.svg" class="img-fluid" alt="{lang key="Japan"}">
         </div>
         {* location-info *}
         <div class="location-info d-flex align-items-center" data-gap-x="10px">
@@ -68,7 +70,7 @@
     </div>
     {* locations-map *}
     <div class="locations-map mt-5">
-      <img src="{$WEB_ROOT}/templates/apexhost/images/ui/map.png" class="map-image img-fluid" alt="{lang key="serversLocationsMap"}">
+      <img src="{$assetPath}ui/map.png" class="map-image img-fluid" alt="{lang key="serversLocationsMap"}">
     </div>
   </div>
 </section>

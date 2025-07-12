@@ -80,7 +80,7 @@
             </ul>
             {* plan-actions *}
             <div class="plan-actions --mt-10">
-              <a href="#" class="nt-btn --btn-default">{lang key="Configure Plan"}</a>
+              <a href="#" class="nt-btn nt-btn-default">{lang key="Configure Plan"}</a>
             </div>
           </div>
         </div>

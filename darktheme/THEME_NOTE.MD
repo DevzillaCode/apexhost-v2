@@ -2,8 +2,9 @@
 - master-loader 9999
 - theme-topbar 99
 - theme-navabr 99
-- float-search-bar 100
 - float-bar-overlay 99
+- float-search-bar 100
+- theme-footer 101
 
 
 # HOW TO CHOOSE PRODUCTS TO SHOW AT THE HOME PAGE

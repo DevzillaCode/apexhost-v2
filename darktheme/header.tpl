@@ -14,17 +14,17 @@
   {if $captcha}{$captcha->getMarkup()}{/if}
   {$headeroutput}
 
-  {include file="$template/includes/components/preloader.tpl"}
+  {include file="$template/components/shared/Preloader.tpl"}
 
   <header id="header" class="header">
     {* Topbar - Only visible for logged-in users *}
     {if $loggedin}
-      {include file="$template/includes/components/topbar/topbar.tpl"}
+      {include file="$template/components/sections/shared/navbar/TopBar.tpl"}
     {/if}
 
     {* Main navigation bar *}
     {if $templatefile !== 'login' && $templatefile !== 'register' && $templatefile !== 'passwordreset' && $templatefile !== 'contact'}
-      {include file="$template/includes/components/navbar/navbar.tpl"}
+      {include file="$template/components/sections/shared/navbar/Navbar.tpl"}
     {/if}
   </header>
 
@@ -34,7 +34,7 @@
     {* Breadcrumbs - Only for non-homepage templates *}
     <nav class="theme-master-breadcrumb" aria-label="breadcrumb">
       <div class="container-fluid">
-        {include file="$template/includes/components/breadcrumbs/master.tpl"}
+        {include file="$template/components/breadcrumbs/MasterBreadcrumb.tpl"}
       </div>
     </nav>
   {/if}
@@ -43,30 +43,30 @@
   {include file="$template/includes/verifyemail.tpl"}
 
   {if $templatefile == 'homepage'}
-    {* {include file="$template/components/sections/QuickActionsHeader.tpl"} *}
+    {* {include file="$template/components/sections/header/QuickActionsHeader.tpl"} *}
     {* Domain Search & Features - Only if domain services are enabled *}
     {if $registerdomainenabled || $transferdomainenabled}
       {* Main domain search functionality *}
-      {include file="$template/includes/sections/domain-search/domain-search.tpl"}
+      {include file="$template/components/sections/domains/DomainSearchHeader.tpl"}
       {* Domain features showcase *}
-      {include file="$template/includes/sections/domain-search/domains-features.tpl"}
+      {include file="$template/components/sections/domains/DomainsFeatures.tpl"}
     {/if}
 
     {* Product showcase sections *}
-    {include file="$template/includes/sections/products/basic-plans.tpl"}
-    {include file="$template/includes/sections/products/special-products.tpl"}
+    {include file="$template/components/plans/BasicPlans.tpl"}
+    {include file="$template/components/plans/SpecialPlans.tpl"}
 
     {* Feature highlights *}
-    {include file="$template/includes/sections/features/features-section.tpl"}
+    {include file="$template/components/sections/features/FeaturesSection.tpl"}
 
     {* Hosting solutions showcase *}
-    {include file="$template/includes/sections/HostingSolutions.tpl"}
+    {include file="$template/components/sections/hosting/HostingSolutions.tpl"}
 
     {* Server locations map *}
-    {include file="$template/includes/sections/ServersLocations.tpl"}
+    {include file="$template/components/sections/maps/ServersLocations.tpl"}
 
     {* System announcements *}
-    {include file="$template/includes/sections/Announcements.tpl"}
+    {include file="$template/components/sections/announcements/Announcements.tpl"}
 
     {* Domains search bar *}
     {include file="$template/components/search/FloatBar.tpl"}
@@ -82,13 +82,13 @@
             <div class="sidebar-col">
               {* Primary sidebar *}
               <div class="sidebar">
-                {include file="$template/includes/sidebar.tpl" sidebar=$primarySidebar}
+                {include file="$template/components/sections/shared/Sidebar.tpl" sidebar=$primarySidebar}
               </div>
 
               {* Secondary sidebar - Desktop only *}
               {if !$inShoppingCart && $secondarySidebar->hasChildren()}
                 <div class="d-none d-lg-block sidebar">
-                  {include file="$template/includes/sidebar.tpl" sidebar=$secondarySidebar}
+                  {include file="$template/components/sections/shared/Sidebar.tpl" sidebar=$secondarySidebar}
                 </div>
               {/if}
             </div>
