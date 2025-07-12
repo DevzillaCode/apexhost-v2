@@ -18,19 +18,19 @@
   <div menuItemName="{$panel->getName()}" class="panel theme-sidebar-panel mb-3 toggler-sidebar-panel {if $panel->getClass()}{$panel->getClass()}{else}panel-sidebar{/if}{if $panel->getExtra('mobileSelect') and $panel->hasChildren()} hidden-sm hidden-xs d-none d-md-block{/if}" {if $panel->getAttribute('id')} id="{$panel->getAttribute('id')}" {/if}>
     {* Panel heading with title, icon, and badge *}
     <div class="panel-heading">
-      <h3 class="panel-title d-flex align-items-center justify-content-between --mb-0">
+      <h3 class="panel-title d-flex align-items-center justify-content-between mb-0">
         <div class="panel-header-text d-flex align-items-center" data-gap-x="10px">
           {if $panel->hasIcon()}
-            <i class="{$panel->getIcon()|replace:'fas':'fad'} --text-sm"></i>
+            <i class="{$panel->getIcon()|replace:'fas':'fad'} text-size-sm"></i>
           {/if}
-          <span class="panel-header-label --text-base --color-foreground">
+          <span class="panel-header-label text-size-sm color-foreground">
             {$panel->getLabel()}
           </span>
           {if $panel->hasBadge()}
             <span class="badge">{$panel->getBadge()}</span>
           {/if}
         </div>
-        <i class="fad fa-chevron-up card-minimise panel-minimise pull-right float-right --text-sm"></i>
+        <i class="fad fa-chevron-up card-minimise panel-minimise pull-right float-right text-size-sm"></i>
       </h3>
     </div>
 

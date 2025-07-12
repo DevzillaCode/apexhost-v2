@@ -107,7 +107,7 @@
                             </div>
                             {* modal-actions *}
                             <div class="modal-actions d-flex align-items-center justify-content-end">
-                              <button type="submit" class="nt-btn --btn-default">{lang key='apply'}</button>
+                              <button type="submit" class="nt-btn nt-btn-default">{lang key='apply'}</button>
                             </div>
                           </div>
                         </div>

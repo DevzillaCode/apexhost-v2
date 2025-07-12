@@ -22,27 +22,27 @@
                 <!-- plan-header -->
                 <div class="plan-header">
                   <!-- top-area -->
-                  <div class="top-area d-flex align-items-center justify-content-between --mb-6">
+                  <div class="top-area d-flex align-items-center justify-content-between mb-6">
                     <!-- icon -->
-                    <div class="icon d-flex align-items-center justify-content-center --radius-full">
-                      <i class="fad fa-certificate --text-3xl --color-foreground"></i>
+                    <div class="icon d-flex align-items-center justify-content-center rounded-circle">
+                      <i class="fad fa-certificate text-size-3xl color-foreground"></i>
                     </div>
                   </div>
                   <!-- plan-title -->
-                  <div class="plan-title --mb-3">
-                    <h3 class="title --title-4 --font-semibold">{$product.name}</h3>
+                  <div class="plan-title mb-3">
+                    <h3 class="title title-4 font-weight-semibold">{$product.name}</h3>
                   </div>
                   <!-- plan-desc -->
-                  <div class="plan-desc --mb-6">
-                    <p class="text --text-sm">{$product.short_description}</p>
+                  <div class="plan-desc mb-6">
+                    <p class="text text-size-sm">{$product.short_description}</p>
                   </div>
                   <!-- plan-price -->
-                  <div class="plan-price --mb-5">
-                    <div class="sub-title --text-sm --font-medium --mb-2">{lang key="T_startFrom"}</div>
-                    <h3 class="price --title-4 --font-bold --color-foreground">
+                  <div class="plan-price mb-5">
+                    <div class="sub-title text-size-sm font-weight-medium mb-2">{lang key="T_startFrom"}</div>
+                    <h3 class="price title-4 font-weight-bold color-foreground">
                       {* ! IMPORTANT: If you change the product name in the admin area, update the names here to match. *}
                       {* ? The {$product.name} must exactly match the plan name set in the database. *}
-                      <span class="currency --font-semibold">$</span>
+                      <span class="currency font-weight-semibold">$</span>
                       {if $product.name == "Basic"}
                         {$basicPlanPrice} {* ? Basic Plan Price *}
                       {elseif $product.name == "Standard"}
@@ -54,7 +54,7 @@
                       {else}
                         12.99 {* ! Default price if no match is found. *}
                       {/if}
-                      <span class="duration --text-sm --font-medium">/{lang key="T_month"}</span>
+                      <span class="duration text-size-sm font-weight-medium">/{lang key="T_month"}</span>
                     </h3>
                   </div>
                   <!-- plan-action -->
@@ -63,9 +63,9 @@
                   </div>
                 </div>
                 <!-- plan-features -->
-                <div class="plan-features --px-5">
+                <div class="plan-features px-5">
                   <!-- features-title -->
-                  <h5 class="features-title --title-6 --font-semibold --color-foreground --mb-5">{lang key="T_topFeatures"}</h5>
+                  <h5 class="features-title title-6 font-weight-semibold color-foreground mb-5">{lang key="T_topFeatures"}</h5>
                   <!-- features-list -->
                   <ul class="features-list list-unstyled d-flex flex-column" data-gap-y="12px">
                     <!-- list-item -->
@@ -87,7 +87,7 @@
                               <path fill-rule="evenodd" clip-rule="evenodd" d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12ZM16.0303 8.96967C16.3232 9.26256 16.3232 9.73744 16.0303 10.0303L11.0303 15.0303C10.7374 15.3232 10.2626 15.3232 9.96967 15.0303L7.96967 13.0303C7.67678 12.7374 7.67678 12.2626 7.96967 11.9697C8.26256 11.6768 8.73744 11.6768 9.03033 11.9697L10.5 13.4393L12.7348 11.2045L14.9697 8.96967C15.2626 8.67678 15.7374 8.67678 16.0303 8.96967Z" fill=""></path>
                             </g>
                           </svg>
-                          <span class="--text-base">
+                          <span class="text-size-base">
                             {$line}
                           </span>
                         </li>
@@ -111,7 +111,7 @@
           <path class="st1" fill="#ffffff" d="M385.8,201.8L247.1,340.4c-4.2,4.2-9.6,6.3-15.1,6.3s-10.9-2.1-15.1-6.3l-69.3-69.3c-8.3-8.3-8.3-21.8,0-30.2
         c8.3-8.3,21.8-8.3,30.2,0l54.3,54.3l123.6-123.6c8.3-8.3,21.8-8.3,30.2,0C394.1,179.9,394.1,193.4,385.8,201.8z"></path>
         </svg>
-        <span class="text --text-sm --font-medium --color-neutral-300">{lang key="T_backupsMonthly"}</span>
+        <span class="text text-size-sm font-weight-medium color-neutral-300">{lang key="T_backupsMonthly"}</span>
       </div>
       <!-- line -->
       <div class="line d-flex align-items-center justify-content-center" data-gap-x="10px">
@@ -119,7 +119,7 @@
           <path class="st0" d="M256,0C114.8,0,0,114.8,0,256s114.8,256,256,256s256-114.8,256-256S397.2,0,256,0z"></path>
           <path class="st1" fill="#ffffff" d="M385.8,201.8L247.1,340.4c-4.2,4.2-9.6,6.3-15.1,6.3s-10.9-2.1-15.1-6.3l-69.3-69.3c-8.3-8.3-8.3-21.8,0-30.2 c8.3-8.3,21.8-8.3,30.2,0l54.3,54.3l123.6-123.6c8.3-8.3,21.8-8.3,30.2,0C394.1,179.9,394.1,193.4,385.8,201.8z"></path>
         </svg>
-        <span class="text --text-sm --font-medium --color-neutral-300">{lang key="T_freeWhiteGloveMigrations"}</span>
+        <span class="text text-size-sm font-weight-medium color-neutral-300">{lang key="T_freeWhiteGloveMigrations"}</span>
       </div>
       <!-- line -->
       <div class="line d-flex align-items-center justify-content-center" data-gap-x="10px">
@@ -127,7 +127,7 @@
           <path class="st0" d="M256,0C114.8,0,0,114.8,0,256s114.8,256,256,256s256-114.8,256-256S397.2,0,256,0z"></path>
           <path class="st1" fill="#ffffff" d="M385.8,201.8L247.1,340.4c-4.2,4.2-9.6,6.3-15.1,6.3s-10.9-2.1-15.1-6.3l-69.3-69.3c-8.3-8.3-8.3-21.8,0-30.2 c8.3-8.3,21.8-8.3,30.2,0l54.3,54.3l123.6-123.6c8.3-8.3,21.8-8.3,30.2,0C394.1,179.9,394.1,193.4,385.8,201.8z"></path>
         </svg>
-        <span class="text --text-sm --font-medium --color-neutral-300">{lang key="T_stagingEnvironments"}</span>
+        <span class="text text-size-sm font-weight-medium color-neutral-300">{lang key="T_stagingEnvironments"}</span>
       </div>
     </div>
   </div>

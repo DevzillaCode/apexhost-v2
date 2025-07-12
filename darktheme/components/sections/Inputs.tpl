@@ -76,7 +76,7 @@
       </div>
     </div>
   </div>
-  <div class="d-flex align-items-center justify-content-start --mt-4" data-gap-x="10px">
+  <div class="d-flex align-items-center justify-content-start mt-4" data-gap-x="10px">
     <button class="nt-btn nt-btn-size-sm">Click Button</button>
     <button class="nt-square-btn nt-btn-size-sm">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe-icon lucide-globe">
@@ -86,7 +86,7 @@
       </svg>
     </button>
   </div>
-  <div class="d-flex align-items-center justify-content-start --mt-4" data-gap-x="10px">
+  <div class="d-flex align-items-center justify-content-start mt-4" data-gap-x="10px">
     <button class="nt-btn">Click Button</button>
     <button class="nt-square-btn">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-at-sign-icon lucide-at-sign">
@@ -95,7 +95,7 @@
       </svg>
     </button>
   </div>
-  <div class="d-flex align-items-center justify-content-start --mt-4" data-gap-x="10px">
+  <div class="d-flex align-items-center justify-content-start mt-4" data-gap-x="10px">
     <button class="nt-btn nt-btn-size-lg">Click Button</button>
     <button class="nt-square-btn nt-btn-size-lg">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-key-round-icon lucide-key-round">
@@ -104,7 +104,7 @@
       </svg>
     </button>
   </div>
-  <div class="d-flex align-items-center justify-content-start --mt-4" data-gap-x="10px">
+  <div class="d-flex align-items-center justify-content-start mt-4" data-gap-x="10px">
     <button class="nt-btn nt-btn-primary nt-btn-size-sm">Click<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-right-icon lucide-move-right">
         <path d="M18 8L22 12L18 16" />
         <path d="M2 12H22" />
@@ -119,7 +119,7 @@
     <button class="nt-btn nt-btn-ghost nt-btn-size-sm">Click</button>
     <button class="nt-btn nt-btn-link nt-btn-size-sm">Click</button>
   </div>
-  <div class="d-flex align-items-center justify-content-start --mt-4" data-gap-x="10px">
+  <div class="d-flex align-items-center justify-content-start mt-4" data-gap-x="10px">
     <button class="nt-btn nt-btn-outline-primary">Click<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-move-right-icon lucide-move-right">
         <path d="M18 8L22 12L18 16" />
         <path d="M2 12H22" />
@@ -132,7 +132,7 @@
     <button class="nt-btn nt-btn-outline-default">Click</button>
     <button class="nt-btn nt-btn-outline-dark">Click</button>
   </div>
-  <div class="d-flex align-items-center justify-content-start --mt-4" data-gap-x="10px">
+  <div class="d-flex align-items-center justify-content-start mt-4" data-gap-x="10px">
     <div class="nt-btn-group">
       <button class="nt-btn nt-btn-outline-primary">Click</button>
       <button class="nt-btn nt-btn-outline-secondary">Click</button>
@@ -144,7 +144,7 @@
       <button class="nt-btn nt-btn-outline-primary">Click</button>
     </div>
   </div>
-  <div class="d-flex align-items-center justify-content-start --mt-4" data-gap-x="10px">
+  <div class="d-flex align-items-center justify-content-start mt-4" data-gap-x="10px">
     <button class="nt-btn nt-btn-primary nt-btn-size-lg"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-git-branch-plus-icon lucide-git-branch-plus">
         <path d="M6 3v12" />
         <path d="M18 9a3 3 0 1 0 0-6 3 3 0 0 0 0 6z" />
@@ -163,7 +163,7 @@
     <button class="nt-btn nt-btn-ghost nt-btn-size-lg">Click</button>
     <button class="nt-btn nt-btn-link nt-btn-size-lg">Click</button>
   </div>
-  <div class="d-flex align-items-center justify-content-start --mt-4" data-gap-x="10px">
+  <div class="d-flex align-items-center justify-content-start mt-4" data-gap-x="10px">
     <div class="badge badge-primary">Primary</div>
     <div class="badge badge-secondary">Secondary</div>
     <div class="badge badge-success">Success</div>

@@ -1,0 +1,1246 @@
+/*
+ * Custom CSS Overrides for ApexHost Theme
+ * This file contains custom styles that modify and extend the main theme.css file.
+ * Add your custom styles here to override default theme behavior.
+ *
+ * Note: This file should be loaded after theme.css to ensure proper cascading.
+ */
+@import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
+
+/* : Dividers : */
+.v-divider {
+  width: 1px;
+  background-color: var(--border);
+  height: var(--space-4);
+}
+.h-divider {
+  width: 100%;
+  height: 1px;
+  background-color: var(--border);
+}
+/* --------------------------------- */
+
+/* : Section Padding : */
+.section-padding-large {
+  padding: 80px 0;
+}
+@media (max-width: 991.98px) {
+  .section-padding-large {
+    padding: 60px 0;
+  }
+}
+/* ----------------------------------- */
+
+/* Width Utilities (rem based) */
+.width-1 {
+  width: 0.25rem !important;
+}
+.width-2 {
+  width: 0.5rem !important;
+}
+.width-3 {
+  width: 0.75rem !important;
+}
+.width-4 {
+  width: 1rem !important;
+}
+.width-5 {
+  width: 1.25rem !important;
+}
+.width-6 {
+  width: 1.5rem !important;
+}
+.width-7 {
+  width: 1.75rem !important;
+}
+.width-8 {
+  width: 2rem !important;
+}
+.width-9 {
+  width: 2.25rem !important;
+}
+.width-10 {
+  width: 2.5rem !important;
+}
+
+/* Height Utilities (rem based) */
+.height-1 {
+  height: 0.25rem !important;
+}
+.height-2 {
+  height: 0.5rem !important;
+}
+.height-3 {
+  height: 0.75rem !important;
+}
+.height-4 {
+  height: 1rem !important;
+}
+.height-5 {
+  height: 1.25rem !important;
+}
+.height-6 {
+  height: 1.5rem !important;
+}
+.height-7 {
+  height: 1.75rem !important;
+}
+.height-8 {
+  height: 2rem !important;
+}
+.height-9 {
+  height: 2.25rem !important;
+}
+.height-10 {
+  height: 2.5rem !important;
+}
+/* Height Utilities */
+.height-1 {
+  height: 10%;
+}
+.height-2 {
+  height: 20%;
+}
+.height-3 {
+  height: 30%;
+}
+.height-4 {
+  height: 40%;
+}
+.height-5 {
+  height: 50%;
+}
+.height-6 {
+  height: 60%;
+}
+.height-7 {
+  height: 70%;
+}
+.height-8 {
+  height: 80%;
+}
+.height-9 {
+  height: 90%;
+}
+.height-10 {
+  height: 100%;
+}
+
+@media (min-width: 576px) {
+  .width-sm-1 {
+    width: 0.25rem !important;
+  }
+  .width-sm-2 {
+    width: 0.5rem !important;
+  }
+  .width-sm-3 {
+    width: 0.75rem !important;
+  }
+  .width-sm-4 {
+    width: 1rem !important;
+  }
+  .width-sm-5 {
+    width: 1.25rem !important;
+  }
+  .width-sm-6 {
+    width: 1.5rem !important;
+  }
+  .width-sm-7 {
+    width: 1.75rem !important;
+  }
+  .width-sm-8 {
+    width: 2rem !important;
+  }
+  .width-sm-9 {
+    width: 2.25rem !important;
+  }
+  .width-sm-10 {
+    width: 2.5rem !important;
+  }
+  .height-sm-1 {
+    height: 0.25rem !important;
+  }
+  .height-sm-2 {
+    height: 0.5rem !important;
+  }
+  .height-sm-3 {
+    height: 0.75rem !important;
+  }
+  .height-sm-4 {
+    height: 1rem !important;
+  }
+  .height-sm-5 {
+    height: 1.25rem !important;
+  }
+  .height-sm-6 {
+    height: 1.5rem !important;
+  }
+  .height-sm-7 {
+    height: 1.75rem !important;
+  }
+  .height-sm-8 {
+    height: 2rem !important;
+  }
+  .height-sm-9 {
+    height: 2.25rem !important;
+  }
+  .height-sm-10 {
+    height: 2.5rem !important;
+  }
+}
+@media (min-width: 768px) {
+  .width-md-1 {
+    width: 0.25rem !important;
+  }
+  .width-md-2 {
+    width: 0.5rem !important;
+  }
+  .width-md-3 {
+    width: 0.75rem !important;
+  }
+  .width-md-4 {
+    width: 1rem !important;
+  }
+  .width-md-5 {
+    width: 1.25rem !important;
+  }
+  .width-md-6 {
+    width: 1.5rem !important;
+  }
+  .width-md-7 {
+    width: 1.75rem !important;
+  }
+  .width-md-8 {
+    width: 2rem !important;
+  }
+  .width-md-9 {
+    width: 2.25rem !important;
+  }
+  .width-md-10 {
+    width: 2.5rem !important;
+  }
+  .height-md-1 {
+    height: 0.25rem !important;
+  }
+  .height-md-2 {
+    height: 0.5rem !important;
+  }
+  .height-md-3 {
+    height: 0.75rem !important;
+  }
+  .height-md-4 {
+    height: 1rem !important;
+  }
+  .height-md-5 {
+    height: 1.25rem !important;
+  }
+  .height-md-6 {
+    height: 1.5rem !important;
+  }
+  .height-md-7 {
+    height: 1.75rem !important;
+  }
+  .height-md-8 {
+    height: 2rem !important;
+  }
+  .height-md-9 {
+    height: 2.25rem !important;
+  }
+  .height-md-10 {
+    height: 2.5rem !important;
+  }
+}
+@media (min-width: 992px) {
+  .width-lg-1 {
+    width: 0.25rem !important;
+  }
+  .width-lg-2 {
+    width: 0.5rem !important;
+  }
+  .width-lg-3 {
+    width: 0.75rem !important;
+  }
+  .width-lg-4 {
+    width: 1rem !important;
+  }
+  .width-lg-5 {
+    width: 1.25rem !important;
+  }
+  .width-lg-6 {
+    width: 1.5rem !important;
+  }
+  .width-lg-7 {
+    width: 1.75rem !important;
+  }
+  .width-lg-8 {
+    width: 2rem !important;
+  }
+  .width-lg-9 {
+    width: 2.25rem !important;
+  }
+  .width-lg-10 {
+    width: 2.5rem !important;
+  }
+  .height-lg-1 {
+    height: 0.25rem !important;
+  }
+  .height-lg-2 {
+    height: 0.5rem !important;
+  }
+  .height-lg-3 {
+    height: 0.75rem !important;
+  }
+  .height-lg-4 {
+    height: 1rem !important;
+  }
+  .height-lg-5 {
+    height: 1.25rem !important;
+  }
+  .height-lg-6 {
+    height: 1.5rem !important;
+  }
+  .height-lg-7 {
+    height: 1.75rem !important;
+  }
+  .height-lg-8 {
+    height: 2rem !important;
+  }
+  .height-lg-9 {
+    height: 2.25rem !important;
+  }
+  .height-lg-10 {
+    height: 2.5rem !important;
+  }
+}
+@media (min-width: 1200px) {
+  .width-xl-1 {
+    width: 0.25rem !important;
+  }
+  .width-xl-2 {
+    width: 0.5rem !important;
+  }
+  .width-xl-3 {
+    width: 0.75rem !important;
+  }
+  .width-xl-4 {
+    width: 1rem !important;
+  }
+  .width-xl-5 {
+    width: 1.25rem !important;
+  }
+  .width-xl-6 {
+    width: 1.5rem !important;
+  }
+  .width-xl-7 {
+    width: 1.75rem !important;
+  }
+  .width-xl-8 {
+    width: 2rem !important;
+  }
+  .width-xl-9 {
+    width: 2.25rem !important;
+  }
+  .width-xl-10 {
+    width: 2.5rem !important;
+  }
+  .height-xl-1 {
+    height: 0.25rem !important;
+  }
+  .height-xl-2 {
+    height: 0.5rem !important;
+  }
+  .height-xl-3 {
+    height: 0.75rem !important;
+  }
+  .height-xl-4 {
+    height: 1rem !important;
+  }
+  .height-xl-5 {
+    height: 1.25rem !important;
+  }
+  .height-xl-6 {
+    height: 1.5rem !important;
+  }
+  .height-xl-7 {
+    height: 1.75rem !important;
+  }
+  .height-xl-8 {
+    height: 2rem !important;
+  }
+  .height-xl-9 {
+    height: 2.25rem !important;
+  }
+  .height-xl-10 {
+    height: 2.5rem !important;
+  }
+}
+/* ----------------------------------- */
+
+/* : Containers : */
+.container {
+  max-width: 1599px;
+  width: 100%;
+  padding: 0 8vw;
+  margin-right: auto;
+  margin-left: auto;
+}
+.container-fluid {
+  max-width: 1699px;
+  width: 100%;
+  padding: 0 4vw;
+  margin: 0 auto;
+}
+@media only screen and (max-width: 991.98px) {
+  .container {
+    padding: 0 4vw;
+  }
+}
+/* ----------------------------------- */
+
+/* : Custom Classes : */
+.small-gutters {
+  margin-right: -7.5px;
+  margin-left: -7.5px;
+}
+.small-gutters > .col,
+.small-gutters > [class*="col-"] {
+  padding-right: 7.5px;
+  padding-left: 7.5px;
+}
+/* ----------------------------------- */
+
+/* : Gradients : */
+.gradient-text {
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+  background-clip: text !important;
+  text-fill-color: transparent !important;
+  display: inline-block;
+}
+.gradient-primary {
+  background: var(--linear-gradient);
+}
+/* ----------------------------------- */
+
+/* : Typography : */
+.font-base {
+  font-family: var(--font-family-base);
+}
+.font-heading {
+  font-family: var(--font-family-heading);
+}
+
+.title-1 {
+  font-size: var(--text-5xl);
+}
+.title-2 {
+  font-size: var(--text-4xl);
+}
+.title-3 {
+  font-size: var(--text-3xl);
+}
+.title-4 {
+  font-size: var(--text-2xl);
+}
+.title-5 {
+  font-size: var(--text-xl);
+}
+.title-6 {
+  font-size: var(--text-lg);
+}
+
+.text-size-sm {
+  font-size: var(--text-sm);
+}
+.text-size-base {
+  font-size: var(--text-base);
+}
+.text-size-lg {
+  font-size: var(--text-lg);
+}
+.text-size-xl {
+  font-size: var(--text-xl);
+}
+.text-size-2xl {
+  font-size: var(--text-2xl);
+}
+.text-size-3xl {
+  font-size: var(--text-3xl);
+}
+.text-size-4xl {
+  font-size: var(--text-4xl);
+}
+.text-size-5xl {
+  font-size: var(--text-5xl);
+}
+/* ----------------------------------- */
+
+/* : Inputs : */
+/* form-group */
+.nt-form-group:not(:last-child) {
+  margin-bottom: 1rem;
+}
+
+/* nt-input-wrapper */
+.nt-input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+.nt-input-wrapper .nt-input-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--icon-dimension-md);
+  padding: 12px;
+  background-color: var(--border);
+  border: 1px solid var(--border);
+  border-radius: var(--theme-radius);
+}
+.nt-input-wrapper .nt-input-icon svg {
+  width: 1rem;
+  height: 1rem;
+  color: var(--color-foreground);
+}
+.nt-input-wrapper .nt-input-icon:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.nt-input-wrapper .nt-input-icon:last-child {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+/* -> Input Icon Sizes */
+.nt-input-size-sm .nt-input-icon {
+  height: var(--icon-dimension-sm) !important;
+}
+.nt-input-size-lg .nt-input-icon {
+  height: var(--icon-dimension-lg) !important;
+}
+.nt-input-size-lg .nt-input-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* nt-float-icon */
+.nt-float-icon {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: var(--icon-dimension-md);
+  padding: 12px;
+}
+.nt-float-icon svg {
+  width: 1rem;
+  height: 1rem;
+  color: var(--color-foreground);
+}
+
+/* Inputs */
+.nt-input {
+  display: block;
+  width: 100%;
+  padding: var(--input-padding-md);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-foreground);
+  background-color: var(--input);
+  border: 1px solid var(--border);
+  border-radius: var(--theme-radius);
+  outline: 2px solid transparent;
+  line-height: 22px;
+  outline-offset: 2px;
+  transition: all 0.15s var(--transition-function-1, ease-out);
+}
+.nt-input:focus {
+  outline-color: color-mix(in srgb, var(--ring), transparent 80%);
+  border-color: var(--ring);
+}
+.nt-input::placeholder {
+  color: var(--ring);
+}
+/* -> Input Sizes */
+.nt-input-size-sm .nt-input {
+  padding: var(--input-padding-sm);
+  font-size: var(--text-sm);
+}
+.nt-input-size-lg .nt-input {
+  padding: var(--input-padding-lg);
+  font-size: var(--text-base);
+}
+/* -> input if has icons */
+.nt-input-wrapper .nt-input:has(+ .nt-input-icon) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+.nt-input-wrapper:has(.nt-input-icon:first-child) .nt-input {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+/* -> input if has float icons */
+.nt-input-wrapper:has(.nt-float-icon:first-child) .nt-input {
+  padding-left: 37px !important;
+}
+.nt-input-size-lg .nt-input-wrapper:has(.nt-float-icon:first-child) .nt-input {
+  padding-left: 40px !important;
+}
+
+/* Label */
+.nt-label {
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--foreground);
+  margin-bottom: 0.5rem;
+}
+/* -> Label sizes */
+.nt-input-size-lg .nt-label {
+  font-size: var(--text-base);
+}
+
+/* nt-input-description */
+.nt-input-description {
+  font-size: var(--text-xs);
+  color: var(--muted-foreground);
+  margin-top: 0.5rem;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+/* nt-checkbox */
+.nt-checkbox {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  line-height: 1;
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  color: var(--color-neutral-300);
+  cursor: pointer;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.nt-checkbox input[type="checkbox"] {
+  position: absolute;
+  opacity: 0;
+  height: 0;
+  width: 0;
+}
+.nt-checkbox .checkmark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  background-color: var(--input);
+  border: 1px solid var(--border); /* gray-300 */
+  border-radius: 4px;
+  transition: all 0.2s ease-in-out;
+}
+.nt-checkbox input[type="checkbox"]:checked + .checkmark {
+  background-color: var(--foreground); /* blue-600 */
+  border-color: var(--foreground);
+}
+.nt-checkbox .checkmark::after {
+  position: absolute;
+  content: "✓";
+  display: none;
+  color: var(--background);
+  font-weight: var(--font-bold);
+}
+.nt-checkbox input[type="checkbox"]:checked + .checkmark::after {
+  display: block;
+}
+/* -> nt-checkbox sizes */
+.nt-input-size-lg .nt-checkbox {
+  font-size: var(--text-base);
+}
+.nt-input-size-lg .nt-checkbox .checkmark {
+  width: 18px;
+  height: 18px;
+}
+/* ----------------------------------- */
+
+/* Buttons */
+
+/* Base Button Styles */
+.nt-btn,
+.nt-square-btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-family-base);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  line-height: 22px;
+  white-space: nowrap;
+  vertical-align: middle;
+  -webkit-user-select: none;
+  user-select: none;
+  border: 1px solid var(--border);
+  border-radius: var(--theme-radius);
+  outline: 1px solid transparent;
+  outline-offset: 1px;
+  transition: all 0.15s ease-in-out;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+/* Square button */
+.nt-square-btn {
+  width: var(--square-btn-dimension-md);
+  height: var(--square-btn-dimension-md);
+}
+/* -> sizes */
+.nt-square-btn.nt-btn-size-sm {
+  width: var(--square-btn-dimension-sm);
+  height: var(--square-btn-dimension-sm);
+}
+.nt-square-btn.nt-btn-size-lg {
+  width: var(--square-btn-dimension-lg);
+  height: var(--square-btn-dimension-lg);
+}
+
+/* Square button icon */
+.nt-square-btn svg {
+  width: 20px;
+  height: 20px;
+}
+/* -> sizes */
+.nt-square-btn.nt-btn-size-sm svg {
+  width: 18px;
+  height: 18px;
+}
+.nt-square-btn.nt-btn-size-lg svg {
+  width: 22px;
+  height: 22px;
+}
+
+/* Regular button */
+.nt-btn {
+  gap: 6px;
+  padding: var(--btn-padding-md);
+}
+/* -> sizes */
+.nt-btn.nt-btn-size-sm {
+  padding: var(--btn-padding-sm);
+  font-size: var(--text-sm);
+}
+.nt-btn.nt-btn-size-lg {
+  padding: var(--btn-padding-lg);
+  font-size: var(--text-base);
+}
+
+/* Buttons variations (solid) */
+.nt-btn-primary {
+  --btn-color: var(--foreground);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: var(--color-indigo-600);
+  --btn-hover-bg: var(--color-indigo-700);
+  --btn-border: var(--color-indigo-600);
+  --btn-hover-border: var(--color-indigo-700);
+  --btn-outline-color: color-mix(
+    in srgb,
+    var(--color-indigo-300),
+    transparent 80%
+  );
+}
+.nt-btn-secondary {
+  --btn-color: var(--foreground);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: var(--color-neutral-800);
+  --btn-hover-bg: var(--color-neutral-900);
+  --btn-border: var(--color-neutral-800);
+  --btn-hover-border: var(--color-neutral-900);
+  --btn-outline-color: color-mix(
+    in srgb,
+    var(--color-neutral-500),
+    transparent 80%
+  );
+}
+.nt-btn-success {
+  --btn-color: var(--foreground);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: var(--color-green-600);
+  --btn-hover-bg: var(--color-green-700);
+  --btn-border: var(--color-green-600);
+  --btn-hover-border: var(--color-green-700);
+  --btn-outline-color: color-mix(
+    in srgb,
+    var(--color-green-300),
+    transparent 80%
+  );
+}
+.nt-btn-danger {
+  --btn-color: var(--foreground);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: var(--color-red-600);
+  --btn-hover-bg: var(--color-red-700);
+  --btn-border: var(--color-red-600);
+  --btn-hover-border: var(--color-red-700);
+  --btn-outline-color: color-mix(
+    in srgb,
+    var(--color-red-300),
+    transparent 80%
+  );
+}
+.nt-btn-warning {
+  --btn-color: var(--foreground);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: var(--color-yellow-600);
+  --btn-hover-bg: var(--color-yellow-700);
+  --btn-border: var(--color-yellow-600);
+  --btn-hover-border: var(--color-yellow-700);
+  --btn-outline-color: color-mix(
+    in srgb,
+    var(--color-yellow-300),
+    transparent 80%
+  );
+}
+.nt-btn-info {
+  --btn-color: var(--foreground);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: var(--color-cyan-600);
+  --btn-hover-bg: var(--color-cyan-700);
+  --btn-border: var(--color-cyan-600);
+  --btn-hover-border: var(--color-cyan-700);
+  --btn-outline-color: color-mix(
+    in srgb,
+    var(--color-cyan-300),
+    transparent 80%
+  );
+}
+.nt-btn-default {
+  --btn-color: var(--background);
+  --btn-hover-color: var(--background);
+  --btn-bg: var(--foreground);
+  --btn-hover-bg: var(--color-gray-300);
+  --btn-border: var(--color-gray-300);
+  --btn-hover-border: var(--color-gray-300);
+  --btn-outline-color: color-mix(
+    in srgb,
+    var(--color-gray-300),
+    transparent 80%
+  );
+}
+.nt-btn-dark {
+  --btn-color: var(--foreground);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: var(--color-gray-800);
+  --btn-hover-bg: var(--color-gray-900);
+  --btn-border: var(--color-gray-800);
+  --btn-hover-border: var(--color-gray-900);
+  --btn-outline-color: color-mix(
+    in srgb,
+    var(--color-gray-500),
+    transparent 80%
+  );
+}
+.nt-btn-ghost {
+  --btn-color: var(--foreground);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: transparent;
+  --btn-hover-bg: color-mix(in srgb, var(--accent), transparent 50%);
+  --btn-border: transparent;
+  --btn-hover-border: transparent;
+  --btn-outline-color: color-mix(in srgb, var(--accent), transparent 80%);
+}
+.nt-btn-link {
+  --btn-color: var(--foreground);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: transparent;
+  --btn-hover-bg: transparent;
+  --btn-border: transparent;
+  --btn-hover-border: transparent;
+  --btn-outline-color: transparent;
+}
+
+.nt-btn-primary,
+.nt-btn-secondary,
+.nt-btn-success,
+.nt-btn-danger,
+.nt-btn-warning,
+.nt-btn-info,
+.nt-btn-default,
+.nt-btn-dark,
+.nt-btn-ghost,
+.nt-btn-link {
+  background-color: var(--btn-bg);
+  color: var(--btn-color);
+  border-color: var(--btn-border);
+}
+
+.nt-btn-primary:not(:disabled):hover,
+.nt-btn-secondary:not(:disabled):hover,
+.nt-btn-success:not(:disabled):hover,
+.nt-btn-danger:not(:disabled):hover,
+.nt-btn-warning:not(:disabled):hover,
+.nt-btn-info:not(:disabled):hover,
+.nt-btn-default:not(:disabled):hover,
+.nt-btn-dark:not(:disabled):hover,
+.nt-btn-ghost:not(:disabled):hover,
+.nt-btn-link:not(:disabled):hover {
+  color: var(--btn-hover-color);
+  background-color: var(--btn-hover-bg);
+  border-color: var(--btn-hover-border);
+}
+.nt-btn-link:not(:disabled):hover {
+  text-decoration: underline;
+}
+
+.nt-btn-primary:not(:disabled):focus,
+.nt-btn-secondary:not(:disabled):focus,
+.nt-btn-success:not(:disabled):focus,
+.nt-btn-danger:not(:disabled):focus,
+.nt-btn-warning:not(:disabled):focus,
+.nt-btn-info:not(:disabled):focus,
+.nt-btn-default:not(:disabled):focus,
+.nt-btn-dark:not(:disabled):focus,
+.nt-btn-ghost:not(:disabled):focus,
+.nt-btn-link:not(:disabled):focus {
+  color: var(--btn-hover-color);
+  background-color: var(--btn-hover-bg);
+  outline-color: var(--btn-outline-color);
+  border-color: var(--btn-hover-border);
+}
+.nt-btn-link:not(:disabled):focus {
+  text-decoration: underline;
+}
+
+.nt-btn-primary.active,
+.nt-btn-secondary.active,
+.nt-btn-success.active,
+.nt-btn-danger.active,
+.nt-btn-warning.active,
+.nt-btn-info.active,
+.nt-btn-default.active,
+.nt-btn-dark.active,
+.nt-btn-ghost.active,
+.nt-btn-link.active {
+  color: var(--btn-hover-color);
+  background-color: var(--btn-hover-bg);
+  outline-color: var(--btn-outline-color);
+  border-color: var(--btn-hover-border);
+}
+
+/* Buttons variations (shadow) */
+.nt-btn-outline-primary {
+  --btn-color: var(--color-indigo-600);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: transparent;
+  --btn-hover-bg: var(--color-indigo-600);
+  --btn-border: var(--color-indigo-600);
+  --outline-color: color-mix(in srgb, var(--color-blue-500), transparent 80%);
+}
+.nt-btn-outline-secondary {
+  --btn-color: var(--color-neutral-500);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: transparent;
+  --btn-hover-bg: var(--color-neutral-800);
+  --btn-border: var(--color-neutral-800);
+  --outline-color: color-mix(
+    in srgb,
+    var(--color-neutral-500),
+    transparent 80%
+  );
+}
+.nt-btn-outline-success {
+  --btn-color: var(--color-green-600);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: transparent;
+  --btn-hover-bg: var(--color-green-600);
+  --btn-border: var(--color-green-600);
+  --outline-color: color-mix(in srgb, var(--color-green-500), transparent 80%);
+}
+.nt-btn-outline-danger {
+  --btn-color: var(--color-red-600);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: transparent;
+  --btn-hover-bg: var(--color-red-600);
+  --btn-border: var(--color-red-600);
+  --outline-color: color-mix(in srgb, var(--color-red-500), transparent 80%);
+}
+.nt-btn-outline-warning {
+  --btn-color: var(--color-yellow-600);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: transparent;
+  --btn-hover-bg: var(--color-yellow-600);
+  --btn-border: var(--color-yellow-600);
+  --outline-color: color-mix(in srgb, var(--color-yellow-500), transparent 80%);
+}
+.nt-btn-outline-info {
+  --btn-color: var(--color-cyan-600);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: transparent;
+  --btn-hover-bg: var(--color-cyan-600);
+  --btn-border: var(--color-cyan-600);
+  --outline-color: color-mix(in srgb, var(--color-cyan-500), transparent 80%);
+}
+.nt-btn-outline-default {
+  --btn-color: var(--color-gray-300);
+  --btn-hover-color: var(--background);
+  --btn-bg: transparent;
+  --btn-hover-bg: var(--color-gray-300);
+  --btn-border: var(--color-gray-300);
+  --outline-color: color-mix(in srgb, var(--color-gray-200), transparent 80%);
+}
+.nt-btn-outline-dark {
+  --btn-color: var(--color-gray-500);
+  --btn-hover-color: var(--foreground);
+  --btn-bg: transparent;
+  --btn-hover-bg: var(--color-gray-800);
+  --btn-border: var(--color-gray-800);
+  --outline-color: color-mix(in srgb, var(--color-gray-700), transparent 80%);
+}
+
+.nt-btn-outline-primary,
+.nt-btn-outline-secondary,
+.nt-btn-outline-success,
+.nt-btn-outline-danger,
+.nt-btn-outline-warning,
+.nt-btn-outline-info,
+.nt-btn-outline-default,
+.nt-btn-outline-dark {
+  color: var(--btn-color);
+  border-color: var(--btn-border);
+  background-color: var(--btn-bg);
+}
+
+.nt-btn-outline-primary:not(:disabled):hover,
+.nt-btn-outline-secondary:not(:disabled):hover,
+.nt-btn-outline-success:not(:disabled):hover,
+.nt-btn-outline-danger:not(:disabled):hover,
+.nt-btn-outline-warning:not(:disabled):hover,
+.nt-btn-outline-info:not(:disabled):hover,
+.nt-btn-outline-default:not(:disabled):hover,
+.nt-btn-outline-dark:not(:disabled):hover {
+  color: var(--btn-hover-color);
+  background-color: var(--btn-hover-bg);
+}
+
+.nt-btn-outline-primary:not(:disabled):focus,
+.nt-btn-outline-secondary:not(:disabled):focus,
+.nt-btn-outline-success:not(:disabled):focus,
+.nt-btn-outline-danger:not(:disabled):focus,
+.nt-btn-outline-warning:not(:disabled):focus,
+.nt-btn-outline-info:not(:disabled):focus,
+.nt-btn-outline-default:not(:disabled):focus,
+.nt-btn-outline-dark:not(:disabled):focus {
+  color: var(--btn-hover-color);
+  background-color: var(--btn-hover-bg);
+  outline-color: var(--outline-color);
+}
+.nt-btn-outline-primary.active,
+.nt-btn-outline-secondary.active,
+.nt-btn-outline-success.active,
+.nt-btn-outline-danger.active,
+.nt-btn-outline-warning.active,
+.nt-btn-outline-info.active,
+.nt-btn-outline-default.active,
+.nt-btn-outline-dark.active {
+  color: var(--btn-hover-color);
+  background-color: var(--btn-hover-bg);
+  outline-color: var(--outline-color);
+}
+
+/* Button's icon */
+.nt-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Button's Group */
+.nt-btn-group {
+  display: inline-flex;
+  vertical-align: middle;
+}
+.nt-btn-group > .nt-btn:not(:first-child),
+.nt-btn-group > .nt-square-btn:not(:first-child) {
+  margin-left: -1px;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.nt-btn-group > .nt-btn:not(:last-child),
+.nt-btn-group > .nt-square-btn:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.nt-btn-group > .nt-btn:focus,
+.nt-btn-group > .nt-square-btn:focus {
+  z-index: 1;
+}
+
+/* General Buttons Styles */
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+.nt-btn-block {
+  width: 100%;
+}
+.nt-btn-circle {
+  border-radius: 50%;
+}
+.nt-btn-pill {
+  border-radius: 9999px;
+}
+/* ----------------------------------- */
+
+/* : Utils Group : */
+.nt_utils-group {
+  position: relative;
+  display: flex;
+  align-items: stretch;
+  width: 100%;
+}
+.nt_utils-group {
+}
+/* Remove border radius from first child when there are multiple children */
+.nt_utils-group > *:first-child:not(:last-child) {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+/* Remove border radius from last child when there are multiple children */
+.nt_utils-group > *:last-child:not(:first-child) {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+/* Remove border radius from middle children when there are more than 2 children */
+.nt_utils-group > *:not(:first-child):not(:last-child) {
+  border-radius: 0;
+}
+
+/* Remove border from adjacent elements to prevent double borders */
+.nt_utils-group > * + * {
+  border-left: none;
+}
+/* ----------------------------------- */
+
+/* : Badges : */
+.badge {
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--theme-radius);
+  font-size: var(--text-sm);
+  font-weight: var(--font-medium);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  column-gap: 4px;
+  font-size: var(--text-sm);
+}
+.badge svg {
+  width: 1rem;
+  height: 1rem;
+}
+.badge-primary {
+  background-color: var(--color-indigo-600);
+  color: var(--foreground);
+}
+.badge-secondary {
+  background-color: var(--color-neutral-800);
+  color: var(--foreground);
+}
+.badge-success {
+  background-color: var(--color-green-600);
+  color: var(--foreground);
+}
+.badge-danger {
+  background-color: var(--color-red-600);
+  color: var(--foreground);
+}
+.badge-warning {
+  background-color: var(--color-yellow-600);
+  color: var(--foreground);
+}
+.badge-info {
+  background-color: var(--color-cyan-600);
+  color: var(--foreground);
+}
+.badge-default {
+  background-color: var(--foreground);
+  color: var(--color-neutral-900);
+}
+/* ----------------------------------- */
+
+/* : Links : */
+.nt-link {
+  font-weight: var(--font-medium);
+  color: var(--color-neutral-300);
+  transition: all 0.15s var(--transition-function-1);
+}
+.nt-link:hover {
+  color: var(--foreground);
+  text-decoration: underline !important;
+}
+/* ----------------------------------- */
+
+/* : Alerts : */
+.nt-alert {
+  padding: 1rem;
+  border-radius: var(radius-md);
+  border: 1px solid var(--border);
+  background-color: var(--card);
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 1rem;
+}
+.nt-alert .nt-alert-icon svg {
+  width: 18px;
+  height: 18px;
+}
+.nt-alert.nt-alert-success {
+  color: var(--color-green-600);
+  border-color: var(--color-green-600);
+  background-color: color-mix(in srgb, var(--color-green-600), transparent 95%);
+}
+.nt-alert.nt-alert-danger {
+  color: var(--color-red-600);
+  border-color: var(--color-red-600);
+  background-color: color-mix(in srgb, var(--color-red-600), transparent 95%);
+}
+.nt-alert.nt-alert-warning {
+  color: var(--color-yellow-600);
+  border-color: var(--color-yellow-600);
+  background-color: color-mix(
+    in srgb,
+    var(--color-yellow-600),
+    transparent 95%
+  );
+}
+.nt-alert.nt-alert-info {
+  color: var(--color-cyan-400);
+  border-color: var(--color-cyan-400);
+  background-color: color-mix(in srgb, var(--color-cyan-400), transparent 95%);
+}
+/* ----------------------------------- */
+
+/* Status */
+.nt-has-red-dot {
+  position: relative;
+}
+.nt-has-red-dot::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  width: 12px;
+  height: 12px;
+  background-color: var(--color-red-500);
+  border-radius: var(radius-full);
+  border: 2px solid var(--background);
+  z-index: 1;
+}
+/* ----------------------------------- */

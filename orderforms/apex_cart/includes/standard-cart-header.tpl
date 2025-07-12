@@ -1,8 +1,8 @@
-<div class="standard-cart-header --mb-10">
+<div class="standard-cart-header mb-10">
   {if $headline}
-    <h1 class="cart-healine --color-foreground --title-3 --mb-3">{$headline}</h1>
+    <h1 class="cart-healine color-foreground title-3 mb-3">{$headline}</h1>
   {/if}
   {if $tagline}
-    <p class="cart-tagline --text-base --color-neutral-300">{$tagline}</p>
+    <p class="cart-tagline text-size-base color-neutral-300">{$tagline}</p>
   {/if}
 </div>
