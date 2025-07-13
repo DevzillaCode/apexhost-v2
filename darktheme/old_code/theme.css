@@ -362,6 +362,7 @@ ol,
 ul,
 dl {
   margin-top: 0;
+  margin-bottom: 1rem;
 }
 
 ol ol,
@@ -2167,19 +2168,6 @@ input[type="month"].form-control {
   appearance: none;
 }
 
-select.form-control {
-  cursor: pointer;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-
-  /* Add custom arrow (SVG or emoji) */
-  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down"><path d="m6 9 6 6 6-6"/></svg>');
-  background-repeat: no-repeat;
-  background-position: right 10px center; /* Adjust position (right 10px) */
-  background-size: 16px 12px; /* Adjust size */
-  padding-right: 30px; /* Ensure space for the arrow */
-}
 select.form-control:focus::-ms-value {
   color: #495057;
   background-color: #fff;
@@ -2337,71 +2325,24 @@ textarea.form-control {
   padding-left: 5px;
 }
 
-/* form-check */
 .form-check {
   position: relative;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  line-height: 1;
-  font-size: var(--text-sm);
-  font-weight: var(--font-medium);
-  color: var(--color-neutral-300);
-  cursor: pointer;
-  -webkit-user-select: none;
-  user-select: none;
+  display: block;
+  padding-left: 1.25rem;
 }
 
-/* form-check -> input */
 .form-check-input {
   position: absolute;
-  opacity: 0;
-  height: 0;
-  width: 0;
+  margin-top: 0.3rem;
+  margin-left: -1.25rem;
 }
 .form-check-input[disabled] ~ .form-check-label,
 .form-check-input:disabled ~ .form-check-label {
-  color: var(--foreground);
+  color: #6c757d;
 }
 
-/* form-check -> label */
 .form-check-label {
   margin-bottom: 0;
-}
-
-/* form-check -> checkmark */
-.form-check .checkmark {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 16px;
-  height: 16px;
-  background-color: var(--input);
-  border: 1px solid var(--border);
-  border-radius: 4px;
-  transition: all 0.2s ease-in-out;
-}
-.form-check input[type="checkbox"]:checked + .checkmark {
-  background-color: var(--foreground); /* blue-600 */
-  border-color: var(--foreground);
-}
-.form-check .checkmark::after {
-  position: absolute;
-  content: "✓";
-  display: none;
-  color: var(--background);
-  font-weight: var(--font-bold);
-}
-.form-check input[type="checkbox"]:checked + .checkmark::after {
-  display: block;
-}
-/* form-check -> sizes */
-.form-check.form-control-lg {
-  font-size: var(--text-base);
-}
-.form-check.form-control-lg  .checkmark {
-  width: 18px;
-  height: 18px;
 }
 
 .form-check-inline {
@@ -5094,19 +5035,11 @@ a.badge-dark.focus {
 }
 
 .alert {
-  padding: 1rem;
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border);
-  background-color: var(--card);
-  display: flex;
-  align-items: flex-start;
-  gap: 8px;
+  position: relative;
+  padding: 0.75rem 1.25rem;
   margin-bottom: 1rem;
-  width: 100%;
-}
-.alert .alert-icon svg {
-  width: 18px;
-  height: 18px;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
 }
 
 .alert-heading {
@@ -5129,46 +5062,101 @@ a.badge-dark.focus {
   color: inherit;
 }
 
-.alert-primary,
-.alert-primaru .alert-title {
-  color: var(--color-indigo-400);
+.alert-primary {
+  color: #1b3550;
+  background-color: #d6e0eb;
+  border-color: #c6d4e2;
 }
-.alert-secondary,
-.alert-secondary .alert-title {
-  color: var(--foreground);
+.alert-primary hr {
+  border-top-color: #b5c7d9;
 }
-.alert-success,
-.alert-success .alert-title {
-  color:  var(--color-green-600);
-}
-.alert-info,
-.alert-info .alert-title {
-  color: var(--color-cyan-400);
-}
-.alert-warning,
-.alert-warning .alert-title {
-  color: var(--color-yellow-600);
-}
-.alert-danger,
-.alert-danger .alert-title {
-  color: var(--color-red-400);
-}
-.alert-light,
-.alert-light .alert-title {
-  color: var(--background);
-}
-.alert-dark,
-.alert-dark .alert-title {
-  color: var(--foreground);
+.alert-primary .alert-link {
+  color: #0e1c2a;
 }
 
-.alert-title {
-  margin-bottom: 0.75rem;
+.alert-secondary {
+  color: #383d41;
+  background-color: #e2e3e5;
+  border-color: #d6d8db;
 }
-.alert-content {
-  margin-top: 2px;
+.alert-secondary hr {
+  border-top-color: #c8cbcf;
+}
+.alert-secondary .alert-link {
+  color: #202326;
 }
 
+.alert-success {
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+}
+.alert-success hr {
+  border-top-color: #b1dfbb;
+}
+.alert-success .alert-link {
+  color: #0b2e13;
+}
+
+.alert-info {
+  color: #0c5460;
+  background-color: #d1ecf1;
+  border-color: #bee5eb;
+}
+.alert-info hr {
+  border-top-color: #abdde5;
+}
+.alert-info .alert-link {
+  color: #062c33;
+}
+
+.alert-warning {
+  color: #856404;
+  background-color: #fff3cd;
+  border-color: #ffeeba;
+}
+.alert-warning hr {
+  border-top-color: #ffe8a1;
+}
+.alert-warning .alert-link {
+  color: #533f03;
+}
+
+.alert-danger {
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+}
+.alert-danger hr {
+  border-top-color: #f1b0b7;
+}
+.alert-danger .alert-link {
+  color: #491217;
+}
+
+.alert-light {
+  color: #818182;
+  background-color: #fefefe;
+  border-color: #fdfdfe;
+}
+.alert-light hr {
+  border-top-color: #ececf6;
+}
+.alert-light .alert-link {
+  color: #686868;
+}
+
+.alert-dark {
+  color: #1b1e21;
+  background-color: #d6d8d9;
+  border-color: #c6c8ca;
+}
+.alert-dark hr {
+  border-top-color: #b9bbbe;
+}
+.alert-dark .alert-link {
+  color: #040505;
+}
 
 @keyframes progress-bar-stripes {
   from {
@@ -10988,13 +10976,7 @@ a.text-dark:hover,
 a.text-dark:focus {
   color: #121416 !important;
 }
-a.link {
-  color: var(--foreground);
-}
-a.link:hover {
-  color: var(--color-indigo-600);
-  text-decoration: underline !important;
-}
+
 .text-body {
   color: #212529 !important;
 }

@@ -1,11 +1,11 @@
 {if $message = get_flash_message()}
-  <div class="nt-alert nt-alert-{if $message.type == "error"}danger{elseif $message.type == 'success'}success{elseif $message.type == 'warning'}warning{else}info{/if}{if isset($align)} text-{$align}{/if}">
+  <div class="alert alert-{if $message.type == "error"}danger{elseif $message.type == 'success'}success{elseif $message.type == 'warning'}warning{else}info{/if}{if isset($align)} text-{$align}{/if}">
 
-    {* nt-alert-icon *}
-    <div class="nt-alert-icon">
+    {* alert-icon *}
+    <div class="alert-icon">
       {if $message.type == "error"}
         {* Error Icon *}
-        <svg xmlns="http://www.w3.org/2000/svg" class="lucide lucide-alert-circle" width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <svg xmlns="http://www.w3.org/2000/svg" class="lucide lucide-alert-circle" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
           <circle cx="12" cy="12" r="10" />
           <line x1="12" y1="8" x2="12" y2="12" />
           <line x1="12" y1="16" x2="12.01" y2="16" />
@@ -35,8 +35,8 @@
       {/if}
     </div>
 
-    {* nt-alert-content *}
-    <div class="nt-alert-content">
+    {* alert-content *}
+    <div class="alert-content">
       {$message.text}
     </div>
   </div>

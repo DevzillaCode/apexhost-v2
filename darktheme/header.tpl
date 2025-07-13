@@ -23,14 +23,14 @@
     {/if}
 
     {* Main navigation bar *}
-    {if $templatefile !== 'login' && $templatefile !== 'clientregister' && $templatefile !== 'passwordreset' && $templatefile !== 'contact'}
+    {if $templatefile !== 'login' && $templatefile !== 'passwordreset' && $templatefile !== 'contact'}
       {include file="$template/components/sections/shared/navbar/Navbar.tpl"}
     {/if}
   </header>
 
   {include file="$template/includes/network-issues-notifications.tpl"}
 
-  {if $templatefile !== 'homepage' && $templatefile !== 'login' && $templatefile !== 'clientregister' && $templatefile !== 'passwordreset' && $templatefile !== 'contact'}
+  {if $templatefile !== 'homepage' && $templatefile !== 'login' && $templatefile !== 'passwordreset' && $templatefile !== 'contact'}
     {* Breadcrumbs - Only for non-homepage templates *}
     <nav class="theme-master-breadcrumb" aria-label="breadcrumb">
       <div class="container-fluid">
@@ -73,10 +73,10 @@
   {/if}
 
   {* Main body section - Exclude login *}
-  {if $templatefile !== 'login' && $templatefile !== 'clientregister'}
+  {if $templatefile !== 'login' && $templatefile !== ''}
     <section id="main-body">
       <div class="{if !$skipMainBodyContainer}container-fluid{/if}">
-        <div class="row main-row">
+        <div class="row main-row" data-gap-y="30px">
 
           {if !$inShoppingCart && ($primarySidebar->hasChildren() || $secondarySidebar->hasChildren())}
             <div class="sidebar-col">
