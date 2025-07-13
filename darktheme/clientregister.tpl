@@ -432,7 +432,7 @@
             <label class="form-check" for="accepttos">
               <input type="checkbox" id="accepttos" name="accepttos" class="form-check-input accepttos">
               <span class="checkmark"></span>
-              {lang key='ordertosagreement'} <a href="{$tosurl}" class="link" target="_blank">{lang key='ordertos'}</a>
+              {lang key='ordertosagreement'} <a href="{$tosurl}" class="theme-link" target="_blank">{lang key='ordertos'}</a>
             </label>
           </div>
         {/if}

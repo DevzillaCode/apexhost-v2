@@ -1693,6 +1693,14 @@ body.float-bar-open {
   width: 48px;
   height: 48px;
 }
+.auth-page .float-links {
+  position: absolute;
+  bottom: 2rem;
+  background-color: var(--background);
+}
+.auth-page .float-links > div {
+  row-gap: 20px;
+}
 /* ----------------------------------- */
 
 /* : Popover : */

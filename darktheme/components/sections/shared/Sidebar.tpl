@@ -51,7 +51,9 @@
             {else}
               {* Sidebar non-link item *}
               <div menuItemName="{$childItem->getName()}" class="sidebar-list-item no-action{if $childItem->getClass()} {$childItem->getClass()}{/if}" id="{$childItem->getId()}{if $childItem->isCurrent()}active{/if}">
-
+                {if $childItem->hasIcon()}
+                  <i class="{$childItem->getIcon()|replace:'fas':'fad'}"></i>&nbsp;
+                {/if}
                 {$childItem->getLabel()}
                 {if $childItem->hasBadge()}
                   &nbsp;<span class="badge">{$childItem->getBadge()}</span>

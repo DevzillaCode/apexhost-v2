@@ -414,8 +414,8 @@ a {
   text-decoration: none;
   background-color: transparent;
 }
-a:not(.nt-btn, .nt-square, .nt-link):hover {
-  color: #204060;
+a:not(.btn, .square, .link):hover {
+  color: var(--color-indigo-600);
   text-decoration: underline;
 }
 
@@ -10929,6 +10929,9 @@ a.close.disabled {
 .color-primary-500 {
   color: var(--color-indigo-500) !important;
 }
+.color-foreground {
+  color: var(--foreground);
+}
 .text-white {
   color: #fff !important;
 }
@@ -10988,11 +10991,11 @@ a.text-dark:hover,
 a.text-dark:focus {
   color: #121416 !important;
 }
-a.link {
+a.theme-link {
   color: var(--foreground);
 }
-a.link:hover {
-  color: var(--color-indigo-600);
+a.theme-link:hover {
+  color: var(--color-neutral-300);
   text-decoration: underline !important;
 }
 .text-body {
