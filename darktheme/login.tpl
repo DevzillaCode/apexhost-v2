@@ -70,7 +70,7 @@
           <div class="nt-for-group d-flex align-items-center justify-content-between">
             {* nt-checkbox *}
             <label for="remember-password" class="nt-checkbox">
-              <input type="checkbox" id="remember-password" name="rememberme">
+              <input type="checkbox" id="remember-password" name="rememberme" class="">
               <span class="checkmark"></span>
               {lang key='loginrememberme'}
             </label>

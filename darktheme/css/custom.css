@@ -473,6 +473,9 @@
   color: var(--popover-foreground);
   transition: all 0.15s var(--transition-function-1);
 }
+.theme-sidebar-panel .sidebar-list-item.no-action {
+  color: var(--muted-foreground);
+}
 .theme-sidebar-panel .sidebar-list-item:not(.no-action):hover {
   background: var(--sidebar-accent);
   color: var(--sidebar-accent-foreground);
@@ -920,7 +923,6 @@ body.float-bar-open {
     padding: 100px 0 45px;
   }
 }
-
 @media (max-width: 767.98px) {
   .home-domain-search {
     padding: 80px 0 45px;
@@ -933,13 +935,11 @@ body.float-bar-open {
   margin: 0 auto;
   padding: 0 0 60px;
 }
-
 @media (max-width: 1199.98px) {
   .home-domain-search .domain-search-content {
     max-width: 700px;
   }
 }
-
 @media (max-width: 991.98px) {
   .home-domain-search .domain-search-content {
     max-width: 600px;
@@ -952,14 +952,12 @@ body.float-bar-open {
   letter-spacing: -0.05rem;
   margin-bottom: var(--space-12);
 }
-
 @media (max-width: 991.98px) {
   .home-domain-search .domain-search-title {
     font-size: var(--text-4xl);
     margin-bottom: var(--space-10);
   }
 }
-
 @media (max-width: 767.98px) {
   header .header-title {
     font-size: var(--text-3xl);
@@ -995,26 +993,22 @@ body.float-bar-open {
   -moz-appearance: none;
   appearance: none;
 }
-
 .home-domain-search .domain-search-form .custom-input:focus {
   border-color: var(--color-indigo-500);
   outline-color: color-mix(in srgb, var(--ring), transparent 80%);
   outline-width: 2px;
 }
-
 @media (max-width: 1199.98px) {
   .home-domain-search .domain-search-form .custom-input {
     padding: 20px 185px 20px 50px;
   }
 }
-
 @media (max-width: 991.98px) {
   .home-domain-search .domain-search-form .custom-input {
     font-size: var(--text-lg);
     padding: 18px 185px 18px 50px;
   }
 }
-
 @media (max-width: 767.98px) {
   .home-domain-search .domain-search-form .custom-input {
     font-size: var(--text-base);
@@ -1029,7 +1023,6 @@ body.float-bar-open {
   left: 20px;
   font-size: var(--text-2xl);
 }
-
 .home-domain-search .domain-search-form .custom-input-group button {
   position: absolute;
   right: 6px;

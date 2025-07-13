@@ -11,7 +11,7 @@
                     </div>
                     </section>
 
-                    {if $templatefile !== 'login' && $templatefile !== 'register' && $templatefile !== 'passwordreset' && $templatefile !== 'contact'}
+                    {if $templatefile !== 'login' && $templatefile !== 'passwordreset' && $templatefile !== 'contact'}
                       <!-- Theme Footer -->
                       {include file="$template/components/sections/shared/Footer.tpl"}
                     {/if}
@@ -153,6 +153,7 @@
                             </div>
                           </div>
                         </div>
+                      </div>
                     </form>
 
                     {if !$loggedin && $adminLoggedIn}
