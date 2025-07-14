@@ -8,7 +8,7 @@
   {* article-body *}
   <div class="article-body">
     {* Announcement Title with Link *}
-    <a class="article-title d-inline-flex title-5 font-weight-semibold color-foreground mb-4" href="{routePath('announcement-view', $announcement.id, $announcement.urlfriendlytitle)}">
+    <a class="article-title theme-link d-inline-flex title-5 font-weight-semibold color-foreground mb-4" href="{routePath('announcement-view', $announcement.id, $announcement.urlfriendlytitle)}">
       {$announcement.title}
     </a>
     {*
@@ -16,7 +16,7 @@
         The edit button links to the announcement's edit page.
       *}
     {if $announcement.editLink}
-      <a href="{$announcement.editLink}" class="nt-square nt-btn-outline-default nt-btn-size-sm rounded-circle show-on-hover ml-2 mb-2" aria-label="{lang key='edit'}" title="{lang key='edit'}">
+      <a href="{$announcement.editLink}" class="nt-square btn-outline-default btn-sm rounded-circle show-on-hover ml-2 mb-2" aria-label="{lang key='edit'}" title="{lang key='edit'}">
         <i class="fad fa-pencil-alt fa-fw"></i>
       </a>
     {/if}

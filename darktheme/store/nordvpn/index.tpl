@@ -18,7 +18,7 @@
                         <p>{lang key="store.nordvpn.hero.available"}</p>
                         <img src="{$WEB_ROOT}/assets/img/marketconnect/nordvpn/header-icons.png">
                         <p class="guarantee">{lang key="store.nordvpn.hero.guarantee"}</p>
-                        <button class="btn btn-default btn-get-nord" onclick="smoothScroll('#nordPricing')">
+                        <button class="btn btn-light btn-get-nord" onclick="smoothScroll('#nordPricing')">
                             {lang key="store.nordvpn.shared.get"}
                         </button>
                     </div>
@@ -203,7 +203,7 @@
                             <div class="col-2"></div>
                             <div class="col-2">
                                 <span>
-                                    <button class="btn btn-default btn-get-nord btn-get-deal" onclick="smoothScroll('#nordPricing')">{lang key="store.nordvpn.shared.get"}</button>
+                                    <button class="btn btn-light btn-get-nord btn-get-deal" onclick="smoothScroll('#nordPricing')">{lang key="store.nordvpn.shared.get"}</button>
                                 </span>
                             </div>
                             <div class="col-2"></div>
@@ -293,7 +293,7 @@
                                 <img src="{$WEB_ROOT}/assets/img/marketconnect/nordvpn/icon-infinity.png">
                             </div>
                         </div>
-                        <button class="btn btn-default btn-get-nord btn-get-deal" onclick="smoothScroll('#nordPricing')">
+                        <button class="btn btn-light btn-get-nord btn-get-deal" onclick="smoothScroll('#nordPricing')">
                             {lang key="store.nordvpn.features.world.getDeal"}
                         </button>
                     </div>
@@ -502,7 +502,7 @@
                                     <input type="hidden" name="pid" value="{$plan->id}">
                                     {if !$inPreview}
                                         <input type="hidden" name="billingcycle" value="{$pricing->cycle()}">
-                                        <button class="btn btn-default btn-get-{$pricing->cycle()}" type="submit">
+                                        <button class="btn btn-light btn-get-{$pricing->cycle()}" type="submit">
                                             {lang key="store.nordvpn.features.pricing.get"}
                                         </button>
                                     {/if}

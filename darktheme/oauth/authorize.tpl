@@ -27,7 +27,7 @@
             <button name="userAuthorization" id="userAuthorizationAccepted" value="yes" type="submit" class="btn btn-primary">
                 {lang key='oauth.authorise'}
             </button>
-            <button name="userAuthorization" id="userAuthorizationDeclined" value="no" type="submit" class="btn btn-default">
+            <button name="userAuthorization" id="userAuthorizationDeclined" value="no" type="submit" class="btn btn-light">
                 {lang key='cancel'}
             </button>
         </div>

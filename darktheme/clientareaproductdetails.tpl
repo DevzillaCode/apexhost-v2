@@ -13,7 +13,7 @@
 {if $unpaidInvoice}
     <div class="alert alert-{if $unpaidInvoiceOverdue}danger{else}warning{/if}" id="alert{if $unpaidInvoiceOverdue}Overdue{else}Unpaid{/if}Invoice">
         <div class="float-right">
-            <a href="viewinvoice.php?id={$unpaidInvoice}" class="btn btn-xs btn-default">
+            <a href="viewinvoice.php?id={$unpaidInvoice}" class="btn btn-xs btn-light">
                 {lang key='payInvoice'}
             </a>
         </div>
@@ -316,9 +316,9 @@
                                 {/if}
                                 <br>
                                 <p>
-                                    <a href="http://{$domain}" class="btn btn-default" target="_blank">{lang key='visitwebsite'}</a>
+                                    <a href="http://{$domain}" class="btn btn-light" target="_blank">{lang key='visitwebsite'}</a>
                                     {if $domainId}
-                                        <a href="clientarea.php?action=domaindetails&id={$domainId}" class="btn btn-default" target="_blank">{lang key='managedomain'}</a>
+                                        <a href="clientarea.php?action=domaindetails&id={$domainId}" class="btn btn-light" target="_blank">{lang key='managedomain'}</a>
                                     {/if}
                                 </p>
                             {/if}
@@ -435,7 +435,7 @@
                         {$download.description}
                     </p>
                     <p>
-                        <a href="{$download.link}" class="btn btn-default"><i class="fas fa-download"></i> {lang key='downloadname'}</a>
+                        <a href="{$download.link}" class="btn btn-light"><i class="fas fa-download"></i> {lang key='downloadname'}</a>
                     </p>
                 </div>
             {/foreach}
@@ -505,7 +505,7 @@
                             {include file="$template/includes/pwstrength.tpl"}
                         </div>
                         <div class="col-xl-3">
-                            <button type="button" class="btn btn-default btn-block generate-password" data-targetfields="inputNewPassword1,inputNewPassword2">
+                            <button type="button" class="btn btn-light btn-block generate-password" data-targetfields="inputNewPassword1,inputNewPassword2">
                                 {lang key='generatePassword.btnLabel'}
                             </button>
                         </div>

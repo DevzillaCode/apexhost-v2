@@ -4,7 +4,7 @@
 {* auth-page *}
 <div class="auth-page">
   {* video-bg-wrapper *}
-  <div class="video-bg-wrapper d-none">
+  <div class="video-bg-wrapper">
     <video autoplay muted loop playsinline class="bg-video">
       <source src="{$WEB_ROOT}/templates/{$template}/videos/bg.mp4" type="video/mp4" />
       Your browser does not support the video tag.
@@ -78,7 +78,7 @@
           </div>
           {* Login Button *}
           <div class="form-group mt-6">
-            <button type="submit" class="nt-btn nt-btn-default nt-btn-block {$captcha->getButtonClass($captchaForm)}">{lang key='loginbutton'}</button>
+            <button type="submit" class="btn btn-light btn-block {$captcha->getButtonClass($captchaForm)}">{lang key='loginbutton'}</button>
           </div>
           <div class="form-group text-center mt-6 d-flex align-items-center justify-content-center">
             <p class="text-size-sm color-muted-foreground">{lang key='userLogin.notRegistered'} &nbsp;</p><a href="{$WEB_ROOT}/register.php" class="theme-link">{lang key='userLogin.createAccount'}</a>

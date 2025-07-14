@@ -9,7 +9,7 @@
   <h1 class="title-4 font-weight-semibold color-foreground mb-4">
     {$kbarticle.title}
     {* Print button - positioned to the right *}
-    <a href="#" class="nt-btn nt-btn-default nt-btn-size-sm float-right" onclick="window.print();return false">
+    <a href="#" class="btn btn-light btn-sm float-right" onclick="window.print();return false">
       {* Printer icon SVG *}
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-printer-icon lucide-printer">
         <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
@@ -65,7 +65,7 @@
       {* Vote buttons container *}
       <div>
         {* Yes/Helpful button *}
-        <button class="nt-btn nt-btn-outline-default nt-btn-size-sm" type="submit" name="vote" value="yes">
+        <button class="btn btn-outline-light btn-sm" type="submit" name="vote" value="yes">
           {* Thumbs up icon *}
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-thumbs-up-icon lucide-thumbs-up">
             <path d="M7 10v12" />
@@ -75,7 +75,7 @@
         </button>
 
         {* No/Not helpful button *}
-        <button class="nt-btn nt-btn-outline-default nt-btn-size-sm" type="submit" name="vote" value="no">
+        <button class="btn btn-outline-light btn-sm" type="submit" name="vote" value="no">
           {* Thumbs down icon *}
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-thumbs-down-icon lucide-thumbs-down">
             <path d="M17 14V2" />
@@ -109,7 +109,7 @@
 
           {* Edit button - only show if user has edit permissions *}
           {if $kbarticle.editLink}
-            <button class="btn btn-sm btn-default show-on-card-hover" id="btnEditArticle-{$kbarticle.id}" data-url="{$kbarticle.editLink}" type="button">
+            <button class="btn btn-sm btn-light show-on-card-hover" id="btnEditArticle-{$kbarticle.id}" data-url="{$kbarticle.editLink}" type="button">
               {lang key="edit"}
             </button>
           {/if}
@@ -129,13 +129,13 @@
 
 {* Navigation buttons section *}
 {* Back button *}
-<a href="javascript:history.go(-1)" class="nt-btn nt-btn-default px-5">
+<a href="javascript:history.go(-1)" class="btn btn-light px-5">
   {lang key='clientareabacklink'}
 </a>
 
 {* Edit button - only show if user has edit permissions *}
 {if $kbarticle.editLink}
-  <a href="{$kbarticle.editLink}" class="nt-btn nt-btn-outline-default float-right">
+  <a href="{$kbarticle.editLink}" class="btn btn-outline-default float-right">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil-icon lucide-pencil">
       <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" />
       <path d="m15 5 4 4" />

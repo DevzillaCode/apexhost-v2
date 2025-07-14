@@ -27,7 +27,7 @@
                 <button type="submit" class="btn btn-primary">
                     {lang key="clientareasavechanges"}
                 </button>
-                <a href="{routePath('account-users')}" class="btn btn-default">
+                <a href="{routePath('account-users')}" class="btn btn-light">
                     {lang key="clientareacancel"}
                 </a>
             </p>

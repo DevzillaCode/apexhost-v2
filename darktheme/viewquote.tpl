@@ -50,7 +50,7 @@
                     </div>
 
                     {if $stage eq "Delivered" || $stage eq "On Hold"}
-                        <div class="payment-btn-container" align="center">
+                        <div class="paymebtn-container" align="center">
                             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#acceptQuoteModal"><i class="fas fa-check-circle"></i> {lang key='quoteacceptbtn'}</button>
                         </div>
                     {/if}
@@ -167,8 +167,8 @@
             {/if}
 
             <div class="float-right btn-group btn-group-sm d-print-none">
-                <a href="javascript:window.print()" class="btn btn-default"><i class="fas fa-print"></i> {lang key='print'}</a>
-                <a href="dl.php?type=q&amp;id={$quoteid}" class="btn btn-default"><i class="fas fa-download"></i> {lang key='invoicesdownload'}</a>
+                <a href="javascript:window.print()" class="btn btn-light"><i class="fas fa-print"></i> {lang key='print'}</a>
+                <a href="dl.php?type=q&amp;id={$quoteid}" class="btn btn-light"><i class="fas fa-download"></i> {lang key='invoicesdownload'}</a>
             </div>
 
         {/if}
@@ -196,7 +196,7 @@
                         <small>{lang key='quoteacceptcontractwarning'}</small>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">{lang key='cancel'}</button>
+                        <button type="button" class="btn btn-light" data-dismiss="modal">{lang key='cancel'}</button>
                         <button type="submit" class="btn btn-primary">{lang key='quoteacceptbtn'}</button>
                     </div>
                 </div>

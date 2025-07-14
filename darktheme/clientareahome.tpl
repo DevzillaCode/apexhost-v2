@@ -75,7 +75,7 @@
             <h3 class="card-title m-0">
               {if $item->getExtra('btn-link') && $item->getExtra('btn-text')}
                 <div class="float-right">
-                  <a href="{$item->getExtra('btn-link')}" class="btn btn-default bg-color-{$item->getExtra('color')} btn-xs">
+                  <a href="{$item->getExtra('btn-link')}" class="btn btn-light bg-color-{$item->getExtra('color')} btn-xs">
                     {if $item->getExtra('btn-icon')}<i class="{$item->getExtra('btn-icon')}"></i>{/if}
                     {$item->getExtra('btn-text')}
                   </a>

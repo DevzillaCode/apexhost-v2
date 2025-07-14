@@ -16,7 +16,7 @@
                     </h1>
                 </div>
                 <div class="col-md-6">
-                    <button id="hideShowServiceRenewalButton" class="btn btn-sm btn-default service-renewals-quick-filter">
+                    <button id="hideShowServiceRenewalButton" class="btn btn-sm btn-light service-renewals-quick-filter">
                         <span class="to-hide">
                             {lang key='renewService.hideShowServices.hide'}
                         </span>
@@ -35,7 +35,7 @@
                     {lang key='renewService.noServices'}
                 </div>
                 <p class="text-center">
-                    <a href="" class="btn btn-default">
+                    <a href="" class="btn btn-light">
                         <i class="fas fa-arrow-circle-left"></i>
                         {lang key='orderForm.returnToClientArea'}
                     </a>
@@ -99,7 +99,7 @@
                         {lang key='cartremoveitemconfirm'}
                     </div>
                     <div class="modal-footer d-block">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">{lang key='no'}</button>
+                        <button type="button" class="btn btn-light" data-dismiss="modal">{lang key='no'}</button>
                         <button type="submit" class="btn btn-primary">{lang key='yes'}</button>
                     </div>
                 </div>

@@ -39,7 +39,7 @@
                 <form method="post" action="{$issuerurl}oauth/authorize.php" id="frmCancelLogin">
                     <input type="hidden" name="return_to_app" value="1"/>
                     <input type="hidden" name="request_hash" value="{$request_hash}"/>
-                    <button type="submit" class="btn btn-default">
+                    <button type="submit" class="btn btn-light">
                         {lang key='oauth.returnToApp' appName=$appName}
                     </button>
                 </form>

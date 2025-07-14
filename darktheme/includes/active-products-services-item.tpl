@@ -19,7 +19,7 @@
         {if !empty($buttonData)}
             <div class="btn-group btn-group-sm btn-group-primary" role="group">
                 <button type="button"
-                        class="btn btn-sm btn-default dropdown-toggle"
+                        class="btn btn-sm btn-light dropdown-toggle"
                         data-toggle="dropdown"
                         aria-haspopup="true"
                         aria-expanded="false"
@@ -59,7 +59,7 @@
             {/foreach}
             {if $primaryServiceBtn}
                 <div class="btn-group btn-group-sm btn-group-secondary" role="group">
-                    <button class="btn btn-default btn-sm btn-custom-action{if !$primaryServiceBtn['active']} disabled{/if}"
+                    <button class="btn btn-light btn-sm btn-custom-action{if !$primaryServiceBtn['active']} disabled{/if}"
                             data-serviceid="{$primaryServiceBtn['serviceid']}"
                             data-identifier="{$primaryServiceBtn['identifier']}"
                             data-active="{$primaryServiceBtn['active']}"
@@ -73,7 +73,7 @@
                     {if $secondaryButtons}
                         <div class="btn-group btn-group-sm" role="group">
                             <button type="button"
-                                    class="btn btn-sm btn-default dropdown-toggle"
+                                    class="btn btn-sm btn-light dropdown-toggle"
                                     data-toggle="dropdown"
                                     aria-haspopup="true"
                                     aria-expanded="false"
@@ -100,7 +100,7 @@
                 </div>
             {/if}
         {/if}
-        <button class="btn btn-default btn-sm btn-view-details">
+        <button class="btn btn-light btn-sm btn-view-details">
             <i aria-hidden="true" class="far fa-info-circle" title="{lang key="clientareaviewdetails"}"></i>
             <span class="sr-only">{lang key="clientareaviewdetails"}</span>
             <span>{lang key="clientareaviewdetails"}</span>

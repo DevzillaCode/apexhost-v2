@@ -42,7 +42,7 @@
                         <form method="post" action="dl.php">
                             <input type="hidden" name="type" value="q" />
                             <input type="hidden" name="id" value="{$quote.id}" />
-                            <button type="submit" class="btn btn-default btn-sm"><i class="fas fa-download"></i> {lang key='quotedownload'}</button>
+                            <button type="submit" class="btn btn-light btn-sm"><i class="fas fa-download"></i> {lang key='quotedownload'}</button>
                         </form>
                     </td>
                 </tr>

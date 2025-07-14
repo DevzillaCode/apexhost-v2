@@ -36,7 +36,7 @@
 {if $showSidebarToggle}
   <!-- Sidebar toggle button: Visible only if $showSidebarToggle is true -->
   <div class="sidebar-toggler">
-    <button type="button" class="nt-btn nt-btn-default" id="btnShowSidebar">
+    <button type="button" class="btn btn-light" id="btnShowSidebar">
       <!-- Icon and text for the toggle button. Changes dynamically via JS above. -->
       <i class="fas fa-arrow-circle-right"></i>
       {$LANG.showMenu}

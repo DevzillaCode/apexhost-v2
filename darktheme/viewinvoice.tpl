@@ -59,7 +59,7 @@
                         <div class="small-text">
                             {lang key='invoicesdatedue'}: {$datedue}
                         </div>
-                        <div class="payment-btn-container d-print-none" align="center">
+                        <div class="paymebtn-container d-print-none" align="center">
                             {$paymentbutton}
                         </div>
                     {/if}
@@ -257,8 +257,8 @@
             </div>
 
             <div class="float-right btn-group btn-group-sm d-print-none">
-                <a href="javascript:window.print()" class="btn btn-default"><i class="fas fa-print"></i> {lang key='print'}</a>
-                <a href="dl.php?type=i&amp;id={$invoiceid}" class="btn btn-default"><i class="fas fa-download"></i> {lang key='invoicesdownload'}</a>
+                <a href="javascript:window.print()" class="btn btn-light"><i class="fas fa-print"></i> {lang key='print'}</a>
+                <a href="dl.php?type=i&amp;id={$invoiceid}" class="btn btn-light"><i class="fas fa-download"></i> {lang key='invoicesdownload'}</a>
             </div>
 
         {/if}

@@ -45,7 +45,7 @@
   {* card-text *}
   <div class="card-text">
     <h3 class="card-title">
-      <a href="{fqdnRoutePath('announcement-view', $announcement.id, $announcement.urlfriendlytitle)}" class="text-size-base color-foreground font-weight-semibold">
+      <a href="{fqdnRoutePath('announcement-view', $announcement.id, $announcement.urlfriendlytitle)}" class="text-size-base color-foreground font-weight-semibold theme-link">
         {$announcement.title}
       </a>
     </h3>

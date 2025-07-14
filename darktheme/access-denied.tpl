@@ -18,7 +18,7 @@
                 <i class="fas fa-arrow-circle-left"></i>
                 {lang key='goback'}
             </a>
-            <a href="index.php" class="btn btn-default">
+            <a href="index.php" class="btn btn-light">
                 <i class="fas fa-home"></i>
                 {lang key='returnhome'}
             </a>

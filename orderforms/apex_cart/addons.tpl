@@ -21,7 +21,7 @@
                     {$LANG.cartproductaddonsnone}
                 </div>
                 <p class="text-center">
-                    <a href="{$WEB_ROOT}/clientarea.php" class="btn btn-default">
+                    <a href="{$WEB_ROOT}/clientarea.php" class="btn btn-light">
                         <i class="fas fa-arrow-circle-left"></i>
                         {$LANG.orderForm.returnToClientArea}
                     </a>

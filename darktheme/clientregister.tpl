@@ -441,7 +441,7 @@
         <div class="row">
           <div class="col-xl-2 col-lg-3 col-md-3">
             <div class="mt-6">
-              <input class="btn btn-default btn-block px-5{$captcha->getButtonClass($captchaForm)}" type="submit" value="{lang key='clientregistertitle'}" />
+              <input class="btn btn-light btn-block px-5{$captcha->getButtonClass($captchaForm)}" type="submit" value="{lang key='clientregistertitle'}" />
             </div>
           </div>
         </div>

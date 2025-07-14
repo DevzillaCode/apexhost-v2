@@ -14,7 +14,7 @@
             <i class="fal fa-folder fa-fw"></i>
             {$category.name}
             {if $category.editLink}
-              <button class="btn btn-sm btn-default show-on-card-hover" id="btnEditCategory-{$category.id}" data-url="{$category.editLink}" type="button">
+              <button class="btn btn-sm btn-light show-on-card-hover" id="btnEditCategory-{$category.id}" data-url="{$category.editLink}" type="button">
                 {lang key="edit"}
               </button>
             {/if}
@@ -67,12 +67,12 @@
   </div>
 {/if}
 
-<a href="javascript:history.go(-1)" class="nt-btn nt-btn-default">
+<a href="javascript:history.go(-1)" class="btn btn-light">
   {lang key='clientareabacklink'}
 </a>
 
 {if $kbcurrentcat.editLink}
-  <a href="{$kbcurrentcat.editLink}" class="nt-btn nt-btn-default float-right">
+  <a href="{$kbcurrentcat.editLink}" class="btn btn-light float-right">
     <i class="fas fa-pencil-alt fa-fw"></i>
     {lang key='edit'}
   </a>

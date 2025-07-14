@@ -11,21 +11,21 @@
         {if $overdueinvoice}
 
             <p>
-                <a href="clientarea.php?action=productdetails&id={$id}" class="btn btn-default">{lang key='clientareabacklink'}</a>
+                <a href="clientarea.php?action=productdetails&id={$id}" class="btn btn-light">{lang key='clientareabacklink'}</a>
             </p>
 
         {elseif $existingupgradeinvoice}
 
             <p>
-                <a href="clientarea.php?action=productdetails&id={$id}" class="btn btn-default btn-lg">{lang key='clientareabacklink'}</a>
-                <a href="submitticket.php" class="btn btn-default btn-lg">{lang key='submitticketdescription'}</a>
+                <a href="clientarea.php?action=productdetails&id={$id}" class="btn btn-light btn-lg">{lang key='clientareabacklink'}</a>
+                <a href="submitticket.php" class="btn btn-light btn-lg">{lang key='submitticketdescription'}</a>
             </p>
 
         {elseif $upgradenotavailable}
 
             <p>
-                <a href="clientarea.php?action=productdetails&id={$id}" class="btn btn-default btn-lg">{lang key='clientareabacklink'}</a>
-                <a href="submitticket.php" class="btn btn-default btn-lg">{lang key='submitticketdescription'}</a>
+                <a href="clientarea.php?action=productdetails&id={$id}" class="btn btn-light btn-lg">{lang key='clientareabacklink'}</a>
+                <a href="submitticket.php" class="btn btn-light btn-lg">{lang key='submitticketdescription'}</a>
             </p>
 
         {else}

@@ -173,13 +173,13 @@
                             {include file="$template/account-paymentmethods-billing-contacts.tpl"}
                         </div>
                         <br>
-                        <a href="#" class="btn btn-default btn-sm" data-toggle="modal" data-target="#modalBillingAddress">{lang key='paymentMethodsManage.addNewAddress'}</a>
+                        <a href="#" class="btn btn-light btn-sm" data-toggle="modal" data-target="#modalBillingAddress">{lang key='paymentMethodsManage.addNewAddress'}</a>
                     </div>
                 </div>
                 <div class="form-group row submit-container">
                     <div class="col-md-8 offset-sm-4">
                         <button type="submit" name="submit" id="btnSubmit" class="btn btn-primary">{lang key='clientareasavechanges'}</button>
-                        <a href="{routePath('account-paymentmethods')}" class="btn btn-default">{lang key='cancel'}</a>
+                        <a href="{routePath('account-paymentmethods')}" class="btn btn-light">{lang key='cancel'}</a>
                     </div>
                 </div>
             </div>
@@ -300,7 +300,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">{lang key='paymentMethods.close'}</button>
+                    <button type="button" class="btn btn-light" data-dismiss="modal">{lang key='paymentMethods.close'}</button>
                     <button type="submit" class="btn btn-primary">{lang key='paymentMethods.saveChanges'}</button>
                 </div>
             </form>

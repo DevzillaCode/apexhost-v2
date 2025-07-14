@@ -241,7 +241,7 @@
     </div>
 </div>
 
-<a href="clientarea.php?action=domains" class="btn btn-default">
+<a href="clientarea.php?action=domains" class="btn btn-light">
     {lang key='clientareabacklink'}
 </a>
 

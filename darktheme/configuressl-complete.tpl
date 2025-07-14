@@ -36,7 +36,7 @@
                         <div class="input-group">
                             <input type="text" class="form-control" id="host" value="{$authData->host}" readonly/>
                             <div class="input-group-append">
-                                <button type="button" class="btn btn-default btn-sm copy-to-clipboard" data-clipboard-target="#host">
+                                <button type="button" class="btn btn-light btn-sm copy-to-clipboard" data-clipboard-target="#host">
                                     <img src="{$WEB_ROOT}/assets/img/clippy.svg" alt="Copy to clipboard" width="15">
                                 </button>
                             </div>
@@ -49,7 +49,7 @@
                         <div class="input-group">
                             <input type="text" class="form-control" id="dnsContents" value="{$authData->value}" readonly/>
                             <div class="input-group-append">
-                                <button type="button" class="btn btn-default btn-sm copy-to-clipboard" data-clipboard-target="#dnsContents">
+                                <button type="button" class="btn btn-light btn-sm copy-to-clipboard" data-clipboard-target="#dnsContents">
                                     <img src="{$WEB_ROOT}/assets/img/clippy.svg" alt="Copy to clipboard" width="15">
                                 </button>
                             </div>
@@ -72,7 +72,7 @@
                         <div class="input-group">
                             <input type="text" class="form-control" id="fileContents" value="{$authData->contents}" readonly/>
                             <div class="input-group-append">
-                                <button type="button" class="btn btn-default btn-sm copy-to-clipboard" data-clipboard-target="#fileContents">
+                                <button type="button" class="btn btn-light btn-sm copy-to-clipboard" data-clipboard-target="#fileContents">
                                     <img src="{$WEB_ROOT}/assets/img/clippy.svg" alt="Copy to clipboard" width="15">
                                 </button>
                             </div>
@@ -84,7 +84,7 @@
             <form method="post" action="clientarea.php?action=productdetails">
                 <input type="hidden" name="id" value="{$serviceid}" />
                 <p class="text-center mt-3">
-                    <button type="submit" class="btn btn-default">
+                    <button type="submit" class="btn btn-light">
                         {lang key='invoicesbacktoclientarea'}
                     </button>
                 </p>

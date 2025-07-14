@@ -45,7 +45,7 @@
                 {/if}
             </div>
             {if $renewableItem.renewable === true}
-                <button id="renewService{$renewableItem.serviceId}" class="btn btn-default btn-add-renewal-to-cart pull-right float-right" data-service-id="{$prefix}{$renewableItem.serviceId}">
+                <button id="renewService{$renewableItem.serviceId}" class="btn btn-light btn-add-renewal-to-cart pull-right float-right" data-service-id="{$prefix}{$renewableItem.serviceId}">
                     <span class="to-add">
                         <i class="fas fa-fw fa-spinner fa-spin"></i>
                         {lang key='addtocart'}

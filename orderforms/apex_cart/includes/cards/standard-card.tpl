@@ -90,7 +90,7 @@
           </div>
           {* col *}
           <div class="col-lg-6 text-lg-right text-center mt-lg-0 mt-4">
-            <a href="{$product.productUrl}" id="{$idPrefix}-order-button" {if $product.hasRecommendations} data-has-recommendations="1" {/if} class="nt-btn nt-btn-default">{$LANG.ordernowbutton}<i class="fad fa-arrow-right"></i></a>
+            <a href="{$product.productUrl}" id="{$idPrefix}-order-button" {if $product.hasRecommendations} data-has-recommendations="1" {/if} class="btn btn-light">{$LANG.ordernowbutton}<i class="fad fa-arrow-right"></i></a>
           </div>
         </div>
       </div>

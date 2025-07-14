@@ -179,7 +179,7 @@
                 </div>
             </div>
             <br>
-            <p class="text-center"><a href="{routePath('store-product-group', $routePathSlug, 'ev')}" class="btn btn-default">{lang key="store.ssl.landingPage.evs.learn"}</a></p>
+            <p class="text-center"><a href="{routePath('store-product-group', $routePathSlug, 'ev')}" class="btn btn-light">{lang key="store.ssl.landingPage.evs.learn"}</a></p>
         </div>
     </div>
 

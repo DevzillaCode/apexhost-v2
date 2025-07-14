@@ -16,7 +16,7 @@
                 </button>
             </div>
             <div class="action-buttons">
-                <button type="button" class="btn btn-default" id="btnCancel" onclick="jQuery('#frmCancelLogin').submit()">
+                <button type="button" class="btn btn-light" id="btnCancel" onclick="jQuery('#frmCancelLogin').submit()">
                     {lang key='cancel'}
                 </button>
             </div>
@@ -38,7 +38,7 @@
                     {lang key='twofacantaccess2ndfactor'}<br />
                     <a href="#" onclick="jQuery('#loginWithSecondFactor').hide();jQuery('#loginWithBackupCode').show();">{lang key='twofaloginusingbackupcode'}</a>
                 </div>
-                <button type="button" class="btn btn-default" id="btnCancel" onclick="jQuery('#frmCancelLogin').submit()">
+                <button type="button" class="btn btn-light" id="btnCancel" onclick="jQuery('#frmCancelLogin').submit()">
                     {lang key='cancel'}
                 </button>
             </div>

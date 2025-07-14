@@ -14,7 +14,7 @@
                 <input type="hidden" name="productid" value="{$serviceid}" />
                 <input type="hidden" name="aid" value="{$addonid}" />
                 <div class="text-center">
-                    <button type="submit" class="btn btn-default">
+                    <button type="submit" class="btn btn-light">
                         {lang key='supportAndUpdatesClickHereToRenew'} &raquo;
                     </button>
                 </div>
@@ -39,7 +39,7 @@
                         <input type="hidden" name="gid" value="addons" />
                     {/if}
                     <div class="text-center">
-                        <button type="submit" class="btn btn-default">
+                        <button type="submit" class="btn btn-light">
                             {lang key='ordernowbutton'} &raquo;
                         </button>
                     </div>

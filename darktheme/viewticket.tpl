@@ -16,7 +16,7 @@
             <h3 class="card-title">
                 {lang key='supportticketsviewticket'} #{$tid}
                 <div class="ticket-actions float-sm-right mt-3 mt-sm-0">
-                    <button id="ticketReply" type="button" class="btn btn-default btn-sm" onclick="smoothScroll('#ticketReplyContainer')">
+                    <button id="ticketReply" type="button" class="btn btn-light btn-sm" onclick="smoothScroll('#ticketReplyContainer')">
                         <i class="fas fa-pencil-alt fa-fw"></i>
                         {lang key='supportticketsreply'}
                     </button>
@@ -147,7 +147,7 @@
                             <input type="file" class="custom-file-input" name="attachments[]" id="inputAttachment1">
                         </div>
                         <div class="input-group-append">
-                            <button class="btn btn-default" type="button" id="btnTicketAttachmentsAdd">
+                            <button class="btn btn-light" type="button" id="btnTicketAttachmentsAdd">
                                 <i class="fas fa-plus"></i>
                                 {lang key='addmore'}
                             </button>
@@ -171,7 +171,7 @@
 
                 <div class="form-group text-center">
                     <input class="btn btn-primary" type="submit" name="save" value="{lang key='supportticketsticketsubmit'}" />
-                    <input class="btn btn-default" type="reset" value="{lang key='cancel'}" onclick="jQuery('#ticketReply').click()" />
+                    <input class="btn btn-light" type="reset" value="{lang key='cancel'}" onclick="jQuery('#ticketReply').click()" />
                 </div>
             </form>
 

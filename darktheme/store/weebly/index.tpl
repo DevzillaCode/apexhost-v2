@@ -117,7 +117,7 @@
                 <div class="col-md-9">
                     <div class="btn-group" role="group">
                         {foreach $billingCycles as $cycle}
-                            <button type="button" class="btn btn-default cycle-change{if $cycle@first} active{/if}" data-cycle="{$cycle}">
+                            <button type="button" class="btn btn-light cycle-change{if $cycle@first} active{/if}" data-cycle="{$cycle}">
                                 {lang key={'orderpaymentterm'|cat:$cycle}}
                             </button>
                         {/foreach}
@@ -158,7 +158,7 @@
                     <form method="post" action="{routePath('cart-order')}">
                         <input type="hidden" name="pid" value="{$litePlan->id}">
                         <input type="hidden" name="billingcycle" value="">
-                        <button type="submit" class="btn btn-default btn-signup">
+                        <button type="submit" class="btn btn-light btn-signup">
                             {lang key='getStartedNow'}
                         </button>
                     </form>

@@ -44,7 +44,7 @@
                               <i class="fas fa-circle-notch fa-spin"></i>
                               {lang key='loading'}
                             </div>
-                            <button type="button" class="btn btn-default" data-dismiss="modal">
+                            <button type="button" class="btn btn-light" data-dismiss="modal">
                               {lang key='close'}
                             </button>
                             <button type="button" class="btn btn-primary modal-submit">
@@ -65,7 +65,7 @@
                               {* custom-modal-header *}
                               <div class="custom-modal-header d-flex align-items-center justify-content-between">
                                 <h5 class="modal-title">{lang key='chooselanguage'}</h5>
-                                <button type="button" class="nt-square --btn-ghost" data-dismiss="modal" aria-label="Close">
+                                <button type="button" class="btn-square btn-ghost-danger btn-sm" data-dismiss="modal" aria-label="Close">
                                   <span class="icon">
                                     {include file="$template/images/svg/times.svg"}
                                   </span>
@@ -107,7 +107,7 @@
                             </div>
                             {* modal-actions *}
                             <div class="modal-actions d-flex align-items-center justify-content-end">
-                              <button type="submit" class="nt-btn nt-btn-default">{lang key='apply'}</button>
+                              <button type="submit" class="btn btn-light btn-sm btn-wide">{lang key='apply'}</button>
                             </div>
                           </div>
                         </div>
@@ -148,7 +148,7 @@
                                 {/if}
                               </div>
                               <div class="modal-footer">
-                                <button type="submit" class="btn btn-default">{lang key='apply'}</button>
+                                <button type="submit" class="btn btn-light">{lang key='apply'}</button>
                               </div>
                             </div>
                           </div>

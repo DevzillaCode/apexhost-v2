@@ -80,7 +80,7 @@
                     <input type="file" class="custom-file-input" name="attachments[]" id="inputAttachment1">
                 </div>
                 <div class="input-group-append">
-                    <button class="btn btn-default" type="button" id="btnTicketAttachmentsAdd">
+                    <button class="btn btn-light" type="button" id="btnTicketAttachmentsAdd">
                         <i class="fas fa-plus"></i>
                         {lang key='addmore'}
                     </button>
@@ -116,7 +116,7 @@
             <button type="submit" id="openTicketSubmit" class="btn btn-primary disable-on-click{$captcha->getButtonClass($captchaForm)}">
                 {lang key='supportticketsticketsubmit'}
             </button>
-            <a href="supporttickets.php" class="btn btn-default">{lang key='cancel'}</a>
+            <a href="supporttickets.php" class="btn btn-light">{lang key='cancel'}</a>
         </p>
 
     </div>

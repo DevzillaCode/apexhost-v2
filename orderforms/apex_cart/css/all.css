@@ -574,8 +574,7 @@
   width: 100%;
   font-weight: normal;
 }
-#order-standard_cart .field,
-#order-standard_cart .form-control {
+#order-standard_cart .field {
   position: relative;
   vertical-align: top;
   border: 1px solid #ddd;
@@ -600,12 +599,6 @@
 }
 #order-standard_cart .form-control-static-inline {
   display: inline-block;
-}
-#order-standard_cart .form-control:focus {
-  border-color: #ddd;
-  outline: 0;
-  -webkit-box-shadow: none;
-  box-shadow: none;
 }
 #order-standard_cart textarea.field {
   height: auto;
@@ -638,9 +631,7 @@
   color: #bbb;
 }
 #order-standard_cart .field[disabled],
-#order-standard_cart .field[readonly],
-#order-standard_cart .form-control[disabled],
-#order-standard_cart .form-control[readonly] {
+#order-standard_cart .field[readonly]{
   background-color: #f8f8f8;
   opacity: 1;
 }
