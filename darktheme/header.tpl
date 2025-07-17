@@ -151,7 +151,7 @@
   {if $templatefile !== 'login' && $templatefile !== 'contact'}
     <section id="main-body">
       <div class="{if !$skipMainBodyContainer}container-fluid{/if}">
-        <div class="row main-row" data-gap-y="30px">
+        <div class="row main-row row-gap-8">
 
           {if !$inShoppingCart && ($primarySidebar->hasChildren() || $secondarySidebar->hasChildren())}
             <div class="sidebar-col">

@@ -387,8 +387,8 @@
 /* : Sidebar : */
 #main-body .sidebar-col {
   width: 20%;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 @media (max-width: 1199.98px) {
   #main-body .sidebar-col {
@@ -402,8 +402,8 @@
 }
 #main-body .content-col {
   width: 80%;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 1rem;
+  padding-right: 1rem;
   transition: all 0.3s ease;
 }
 @media only screen and (max-width: 1199px) {

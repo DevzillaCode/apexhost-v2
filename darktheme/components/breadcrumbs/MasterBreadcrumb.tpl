@@ -1,7 +1,7 @@
 <ol class="theme-breadcrumb list-unstyled mb-0">
   {foreach $breadcrumb as $item}
     <li class="breadcrumb-item{if $item@last} active{/if} d-inline-flex align-items-center" data-gap-x="8px" {if $item@last} aria-current="page" {/if}>
-      {if !$item@last}<a href="{$item.link}">{/if}
+      {if !$item@last}<a href="{$item.link}" class="link">{/if}
         {$item.label}
         {if !$item@last}</a>{/if}
       {if !$item@last}
