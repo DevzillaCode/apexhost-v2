@@ -27,22 +27,22 @@
             <input id="bulkaction" name="update" type="hidden" />
 
             <div class="btn-group btn-group-sm mb-3" role="group">
-                <button type="button" class="btn btn-default setBulkAction" id="nameservers">
+                <button type="button" class="btn btn-light setBulkAction" id="nameservers">
                     <i class="fal fa-globe fa-fw"></i>
                     {lang key='domainmanagens'}
                 </button>
-                <button type="button" class="btn btn-default setBulkAction" id="contactinfo">
+                <button type="button" class="btn btn-light setBulkAction" id="contactinfo">
                     <i class="fal fa-user"></i>
                     {lang key='domaincontactinfoedit'}
                 </button>
                 {if $allowrenew}
-                    <button type="button" class="btn btn-default setBulkAction" id="renewDomains">
+                    <button type="button" class="btn btn-light setBulkAction" id="renewDomains">
                         <i class="fal fa-sync"></i>
                         {lang key='domainmassrenew'}
                     </button>
                 {/if}
                 <div class="btn-group btn-group-sm" role="group">
-                    <button id="btnGroupDrop1" type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <button id="btnGroupDrop1" type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                       {lang key="more"}...
                     </button>
                     <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">

@@ -77,7 +77,7 @@
                     <button type="submit" class="btn btn-primary">
                         {lang key='clientareasavechanges'}
                     </button>
-                    <button type="reset" class="btn btn-default">
+                    <button type="reset" class="btn btn-light">
                         {lang key='clientareacancel'}
                     </button>
                 </div>

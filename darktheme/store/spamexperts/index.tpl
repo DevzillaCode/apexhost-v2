@@ -292,10 +292,10 @@
                         {if $numberOfFeaturedProducts > 0}
                             <div class="btn-group choose-product" role="group">
                                 {if $products.incoming}
-                                    <button type="button" class="btn btn-default active" data-product="incoming">{lang key="store.emailServices.options.incomingFilter"}</button>
+                                    <button type="button" class="btn btn-light active" data-product="incoming">{lang key="store.emailServices.options.incomingFilter"}</button>
                                 {/if}
                                 {if $products.outgoing}
-                                    <button type="button" class="btn btn-default" data-product="outgoing">{lang key="store.emailServices.options.outgoingFilter"}</button>
+                                    <button type="button" class="btn btn-light" data-product="outgoing">{lang key="store.emailServices.options.outgoingFilter"}</button>
                                 {/if}
                             </div>
                         {elseif $inPreview}

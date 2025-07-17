@@ -137,7 +137,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-block: var(--space-3);
+  padding-block: var(--space-5);
 }
 
 /* logo-wrapper */
@@ -356,7 +356,6 @@
 .theme-navbar .theme-dropdown-menu .ddm-item .ddm-link svg {
   width: var(--space-4);
   height: var(--space-4);
-  color: var(--accent-foreground);
 }
 
 .theme-navbar .theme-dropdown-menu .ddm-item .ddm-link:hover {
@@ -587,7 +586,7 @@
   left: 50%;
   transform: translateX(-50%);
   z-index: 100;
-  width: 166px;
+  width: 170px;
   height: 66px;
   transition: width 0.6s var(--transition-function-1),
     height 0.5s var(--transition-function-1) 0.1s,
@@ -639,7 +638,8 @@
   z-index: -2;
   opacity: 0;
   animation: gradient-flow 6s ease-in-out infinite;
-  transition: 0.2s opacity 0.4s ease, border-radius 0.4s var(--transition-function-1);
+  transition: 0.2s opacity 0.4s ease,
+    border-radius 0.4s var(--transition-function-1);
 }
 .float-search-bar.bar-is-active::before {
   border-radius: var(--radius-xl);
@@ -1367,11 +1367,6 @@ body.float-bar-open {
   border-radius: var(--radius-md);
 }
 
-/* article-title */
-.announcement-article-card .article-title:hover {
-  text-decoration: underline !important;
-}
-
 /* article-text */
 .announcement-article-card .article-text {
   display: -webkit-box;
@@ -1456,12 +1451,13 @@ body.float-bar-open {
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   font-weight: 500;
+  transition: all 0.15s var(--transition-function-1);
 }
 .theme-localisation-modal .languages-list .item:hover:not(.active) {
   background-color: var(--accent);
 }
 .theme-localisation-modal .languages-list .item.active {
-  border-color: var(--foreground);
+  background-color: var(--accent);
   color: var(--foreground);
 }
 .theme-localisation-modal .languages-list .item img {
@@ -1693,6 +1689,14 @@ body.float-bar-open {
   width: 48px;
   height: 48px;
 }
+.auth-page .float-links {
+  position: absolute;
+  bottom: 2rem;
+  background-color: var(--background);
+}
+.auth-page .float-links > div {
+  row-gap: 20px;
+}
 /* ----------------------------------- */
 
 /* : Popover : */
@@ -1751,5 +1755,92 @@ body.float-bar-open {
 }
 .popover-user-notifications ul li.none {
   color: var(--muted-foreground);
+}
+/* ----------------------------------- */
+
+/* : Contact Page : */
+.contact-page .page-sections {
+  display: flex;
+  min-height: 100vh;
+  max-height: 100dvh;
+  overflow: hidden;
+  width: 100%;
+}
+.contact-page .left-section,
+.contact-page .right-section {
+  padding: 60px;
+  flex: 1;
+}
+.contact-page .left-section {
+  background: url("../images/backgrounds/contact-page-bg.jpg") center top/cover
+    no-repeat;
+}
+.contact-page .right-section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.contact-page .right-section form {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+}
+.contact-page .float-links {
+  position: absolute;
+  bottom: 2rem;
+}
+.contact-page .float-links > div {
+  row-gap: 20px;
+}
+/* Responsive Design */
+@media (max-width: 1199px) {
+  .contact-page .page-sections {
+    flex-direction: column;
+    min-height: unset;
+    max-height: auto;
+    overflow: auto;
+  }
+  .contact-page .left-section,
+  .contact-page .right-section {
+    flex: none;
+    width: 100%;
+  }
+  .contact-page .right-section form {
+    max-width: 100%;
+  }
+  .contact-page .float-links {
+    position: relative;
+    bottom: unset;
+    margin-top: 2rem;
+  }
+}
+@media (max-width: 767px) {
+  .contact-page .left-section,
+  .contact-page .right-section {
+    padding: 60px 30px;
+  }
+  .contact-page .right-section form {
+    max-width: 100%;
+  }
+}
+/* ----------------------------------- */
+
+/* : Tiles : */
+.tile-link {
+  position: absolute;
+  opacity: 0;
+  transition: all 0.15s var(--transition-function-1);
+}
+.relative-hover:hover .tile-link {
+  opacity: 1;
+}
+/* ----------------------------------- */
+
+/* : Addons Section : */
+.addons-section {}
+.addons-section> h3 {
+  font-size: var(--text-2xl);
+  font-weight: 600;
 }
 /* ----------------------------------- */

@@ -40,7 +40,7 @@
             <button type="submit" class="btn btn-primary" id="btnLogin">
                 {lang key='login'}
             </button>
-            <button type="button" class="btn btn-default" id="btnCancel" onclick="jQuery('#frmCancelLogin').submit()">
+            <button type="button" class="btn btn-light" id="btnCancel" onclick="jQuery('#frmCancelLogin').submit()">
                 {lang key='cancel'}
             </button>
         </div>

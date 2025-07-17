@@ -1,4 +1,4 @@
-<button type="button" class="btn btn-sm btn-default" data-toggle="modal" data-target="#confirmModal{$modalId}">
+<button type="button" class="btn btn-sm btn-light" data-toggle="modal" data-target="#confirmModal{$modalId}">
     {$buttonTitle}
 </button>
 
@@ -26,7 +26,7 @@
                     {$saveBtnTitle}
                 </button>
                 <button type="button"
-                        class="btn btn-sm btn-default"
+                        class="btn btn-sm btn-light"
                         data-dismiss="modal"
                 >
                     {if $closeBtnIcon}

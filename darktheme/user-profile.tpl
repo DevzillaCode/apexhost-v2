@@ -38,7 +38,7 @@
                 </div>
             </div>
             <input class="btn btn-primary" type="submit" name="save" value="{lang key='clientareasavechanges'}" />
-            <input class="btn btn-default" type="reset" value="{lang key='cancel'}" />
+            <input class="btn btn-light" type="reset" value="{lang key='cancel'}" />
         </form>
 
     </div>
@@ -75,7 +75,7 @@
                 </div>
             </div>
             <input class="btn btn-primary" type="submit" name="save" value="{lang key='clientareasavechanges'}" />
-            <input class="btn btn-default" type="reset" value="{lang key='cancel'}" />
+            <input class="btn btn-light" type="reset" value="{lang key='cancel'}" />
         </form>
 
     </div>

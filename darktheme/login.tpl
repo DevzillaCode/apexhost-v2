@@ -23,7 +23,7 @@
         </div>
         {* form-header *}
         <div class="form-header mb-10">
-          <h1 class="title-3 color-foreground mb-2">Welcome Back</h1>
+          <h1 class="title-3 color-foreground font-weight-semibold mb-2">Welcome Back</h1>
           <p class="text-size-base">Enter your email and password to access your account</p>
         </div>
         {include file="$template/includes/flashmessage.tpl"}
@@ -74,18 +74,28 @@
               <span class="checkmark"></span>
               {lang key='loginrememberme'}
             </label>
-            <a href="{routePath('password-reset-begin')}" class="nt-link">{lang key='forgotpw'}</a>
+            <a href="{routePath('password-reset-begin')}" class="theme-link">{lang key='forgotpw'}</a>
           </div>
           {* Login Button *}
           <div class="form-group mt-6">
-            <button type="submit" class="nt-btn nt-btn-default nt-btn-block {$captcha->getButtonClass($captchaForm)}">{lang key='loginbutton'}</button>
+            <button type="submit" class="btn btn-light btn-block {$captcha->getButtonClass($captchaForm)}">{lang key='loginbutton'}</button>
           </div>
           <div class="form-group text-center mt-6 d-flex align-items-center justify-content-center">
-            <p class="text-size-sm color-muted-foreground">{lang key='userLogin.notRegistered'} &nbsp;</p><a href="{$WEB_ROOT}/register.php" class="nt-link">{lang key='userLogin.createAccount'}</a>
+            <p class="text-size-sm color-muted-foreground">{lang key='userLogin.notRegistered'} &nbsp;</p><a href="{$WEB_ROOT}/register.php" class="theme-link">{lang key='userLogin.createAccount'}</a>
           </div>
         </div>
       </form>
+      {* linked-accounts *}
       {include file="$template/includes/linkedaccounts.tpl" linkContext="login" customFeedback=true}
+      {* float-links *}
+      <div class="float-links">
+        <div class="d-flex align-items-center justify-content-center flex-wrap">
+          <a href="{$WEB_ROOT}" class="theme-link mx-3">{lang key='clientareanavhome'}</a>
+          <a href="{$WEB_ROOT}/knowledgebase.php" class="theme-link mx-3">{lang key='knowledgebase'}</a>
+          <a href="{$WEB_ROOT}/announcements.php" class="theme-link mx-3">{lang key='announcements'}</a>
+          <a href="{$WEB_ROOT}/contact.php" class="theme-link mx-3">{lang key='contact'}</a>
+        </div>
+      </div>
     </div>
   </div>
 </div>

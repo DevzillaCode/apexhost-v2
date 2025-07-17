@@ -20,13 +20,13 @@
                 {$category.name}
                 {* edit link *}
                 {if $category.editLink}
-                  <button class="nt-btn nt-btn-outline-default nt-btn-size-xs show-on-hover" id="btnEditCategory-{$category.id}" data-url="{$category.editLink}" type="button">
+                  <button class="btn btn-outline-light btn-xs show-on-hover" id="btnEditCategory-{$category.id}" data-url="{$category.editLink}" type="button">
                     Edit
                   </button>
                 {/if}
               </span>
               {* badge *}
-            <span class="badge badge-default float-right">{lang key="knowledgebase.numArticle{if $category.numarticles != 1}s{/if}" num=$category.numarticles}</span>
+            <span class="badge badge-light float-right">{lang key="knowledgebase.numArticle{if $category.numarticles != 1}s{/if}" num=$category.numarticles}</span>
           </span>
           <p class="text-size-base color-muted-foreground mb-0 mt-2"><small>{$category.description}</small></p>
         </a>

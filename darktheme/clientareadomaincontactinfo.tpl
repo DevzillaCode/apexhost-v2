@@ -88,7 +88,7 @@
                 <button type="submit" class="btn btn-primary">
                     {lang key='clientareasavechanges'}
                 </button>
-                <button type="reset" class="btn btn-default">
+                <button type="reset" class="btn btn-light">
                     {lang key='clientareacancel'}
                 </button>
             </p>
@@ -138,7 +138,7 @@
                     <button type="button" id="IRTPConfirmation-Submit" class="btn btn-primary" onclick="irtpSubmit();return false;">
                         {lang key='supportticketsticketsubmit'}
                     </button>
-                    <button type="button" id="IRTPConfirmation-Cancel" class="btn btn-default" data-dismiss="modal">
+                    <button type="button" id="IRTPConfirmation-Cancel" class="btn btn-light" data-dismiss="modal">
                         {lang key='cancel'}
                     </button>
                 </div>

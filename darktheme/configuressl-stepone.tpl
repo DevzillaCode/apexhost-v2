@@ -165,7 +165,7 @@
 
                     <input type="hidden" name="id" value="{$serviceid}" />
                     <div class="text-center">
-                        <button type="submit" class="btn btn-default">
+                        <button type="submit" class="btn btn-light">
                             {lang key='invoicesbacktoclientarea'}
                         </button>
                     </div>

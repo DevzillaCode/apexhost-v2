@@ -257,7 +257,7 @@
                                     <div class="buy-btn">
                                         <form action="{routePath('cart-order')}" method="post">
                                             <input type="hidden" name="pid" value="{$plan->id}">
-                                            <button type="submit" class="btn {if $plan->is_featured}btn-xovinow{else}btn-default{/if}">
+                                            <button type="submit" class="btn {if $plan->is_featured}btn-xovinow{else}btn-light{/if}">
                                                 {lang key="ordernowbutton"}
                                             </button>
                                         </form>

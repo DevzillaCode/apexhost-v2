@@ -132,13 +132,13 @@
             </div>
             <div class="row">
                 <div class="col-sm-5">
-                     <a href="javascript:history.go(-1)" class="btn btn-default">
+                     <a href="javascript:history.go(-1)" class="btn btn-light">
                         <i class="fas fa-arrow-left"></i>
                         {lang key='back'}
                     </a>
                 </div>
                 <div class="col-sm-7 text-right">
-                    <button type="submit" name="continue" value="1" class="btn btn-default">
+                    <button type="submit" name="continue" value="1" class="btn btn-light">
                         {lang key='orderForm.continueShopping'}
                     </button>
                     <button type="submit" name="checkout" value="1" class="btn btn-primary">

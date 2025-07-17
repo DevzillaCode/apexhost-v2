@@ -1,4 +1,6 @@
+{* Set asset path for template images *}
 {assign var="assetPath" value="{$WEB_ROOT}/templates/{$template}/images/"}
+{* Check if state field is optional *}
 {if in_array('state', $optionalFields)}
   <script>
     var statesTab = 10,
@@ -6,9 +8,11 @@
   </script>
 {/if}
 
+{* Load required JavaScript files *}
 <script src="{$BASE_PATH_JS}/StatesDropdown.js"></script>
 <script src="{$BASE_PATH_JS}/PasswordStrength.js"></script>
 <script>
+  {* Set password strength language strings *}
   window.langPasswordStrength = "{lang key='pwstrength'}";
   window.langPasswordWeak = "{lang key='pwstrengthweak'}";
   window.langPasswordModerate = "{lang key='pwstrengthmoderate'}";
@@ -18,27 +22,31 @@
   });
 </script>
 
-{* auth-page *}
+{* Main registration container *}
 <div class="auth-page hide-labels">
-  {* content *}
   <div class="content d-flex align-items-center justify-content-center flex-column w-100">
+    {* Show message if registration is disabled *}
     {if $registrationDisabled}
       {include file="$template/includes/alert.tpl" type="error" msg="{lang key='registerCreateAccount'}"|cat:' <strong><a href="'|cat:" $WEB_ROOT"|cat:'/cart.php" class="alert-link">'|cat:"{lang key='registerCreateAccountOrder'}"|cat:'</a></strong>'}
     {/if}
+
+    {* Show error message if exists *}
     {if $errormessage}
       {include file="$template/includes/alert.tpl" type="error" errorshtml=$errormessage}
     {/if}
+
+    {* Registration form *}
     {if !$registrationDisabled}
-      {* client-form *}
       <form method="post" action="{$smarty.server.PHP_SELF}" class="wide" role="form" name="orderfrm" id="frmCheckout">
         <input type="hidden" name="register" value="true" />
-        {* linked-accounts *}
+
+        {* Linked accounts section *}
         {include file="$template/includes/linkedaccounts.tpl" linkContext="registration"}
-        {* personal-info *}
+
+        {* Personal information section *}
         <h3 class="title-5 mb-5">{lang key='orderForm.personalInformation'}</h3>
-        {* row *}
         <div class="row small-gutters mb-10" data-gap-y="15px">
-          {* first-name *}
+          {* First name field *}
           <div class="col-md-6">
             <div class="form-group">
               <label for="inputFirstName" class="col-form-label">{lang key='orderForm.firstName'}</label>
@@ -53,7 +61,8 @@
               </div>
             </div>
           </div>
-          {* last-name *}
+
+          {* Last name field *}
           <div class="col-md-6">
             <div class="form-group">
               <label for="inputLastName" class="col-form-label">{lang key='orderForm.lastName'}</label>
@@ -68,7 +77,8 @@
               </div>
             </div>
           </div>
-          {* email *}
+
+          {* Email field *}
           <div class="col-md-6">
             <div class="form-group">
               <label for="inputEmail" class="col-form-label">{lang key='orderForm.emailAddress'}</label>
@@ -83,7 +93,8 @@
               </div>
             </div>
           </div>
-          {* email *}
+
+          {* Phone field *}
           <div class="col-md-6">
             <div class="form-group">
               <label for="inputPhone" class="col-form-label">{lang key='orderForm.phoneNumber'}</label>
@@ -91,11 +102,11 @@
             </div>
           </div>
         </div>
-        {* billing-address *}
+
+        {* Billing address section *}
         <h3 class="title-5 mb-5">{lang key='orderForm.billingAddress'}</h3>
-        {* row *}
         <div class="row small-gutters mb-10" data-gap-y="15px">
-          {* company-name *}
+          {* Company name field *}
           <div class="col-md-6">
             <div class="form-group">
               <label for="inputCompanyName" class="col-form-label">{lang key='orderForm.companyName'}</label>
@@ -115,7 +126,8 @@
               </div>
             </div>
           </div>
-          {* country *}
+
+          {* Country field *}
           <div class="col-md-6">
             <div class="form-group">
               <label for="inputCountry" class="col-form-label">{lang key='orderForm.country'}</label>
@@ -141,7 +153,8 @@
               </div>
             </div>
           </div>
-          {* street-address *}
+
+          {* Address fields *}
           <div class="col-md-6">
             <div class="form-group">
               <label for="inputAddress1" class="col-form-label">{lang key='orderForm.streetAddress'}</label>
@@ -156,7 +169,6 @@
               </div>
             </div>
           </div>
-          {* street-address *}
           <div class="col-md-6">
             <div class="form-group">
               <label for="inputAddress2" class="col-form-label">{lang key='orderForm.streetAddress2'}</label>
@@ -171,7 +183,8 @@
               </div>
             </div>
           </div>
-          {* city *}
+
+          {* City, State, Postcode fields *}
           <div class="col-md-4">
             <div class="form-group">
               <label for="inputCity" class="col-form-label">{lang key='orderForm.city'}</label>
@@ -191,7 +204,6 @@
               </div>
             </div>
           </div>
-          {* state *}
           <div class="col-md-4">
             <div class="form-group">
               <label for="state" class="col-form-label">{lang key='orderForm.state'}</label>
@@ -207,7 +219,6 @@
               </div>
             </div>
           </div>
-          {* postcode *}
           <div class="col-md-4">
             <div class="form-group">
               <label for="inputPostcode" class="col-form-label">{lang key='orderForm.postcode'}</label>
@@ -224,6 +235,8 @@
               </div>
             </div>
           </div>
+
+          {* Tax ID field if enabled *}
           {if $showTaxIdField}
             <div class="col-sm-12">
               <div class="form-group">
@@ -250,10 +263,12 @@
             </div>
           {/if}
         </div>
-        {* additional-info *}
+
+        {* Additional information section *}
         {if $customfields || $currencies}
           <h3 class="title-5 mb-5">{lang key='orderadditionalrequiredinfo'}</h3>
           <div class="row">
+            {* Custom fields *}
             {if $customfields}
               {foreach $customfields as $customfield}
                 <div class="col-sm-6">
@@ -272,6 +287,8 @@
             {if $customfields && count($customfields)%2 > 0 }
               <div class="clearfix"></div>
             {/if}
+
+            {* Currency selection *}
             {if $currencies}
               <div class="col-sm-6">
                 <div class="form-group">
@@ -295,14 +312,13 @@
             {/if}
           </div>
         {/if}
-        {* user-security *}
+
+        {* Account security section *}
         <div id="containerNewUserSecurity" {if $remote_auth_prelinked && !$securityquestions } class="w-hidden" {/if}>
           <h3 class="title-5 mb-5">{lang key='orderForm.accountSecurity'}</h3>
-          {* passowrd-feedback *}
           <div id="passwdFeedback" class="alert alert-info text-center col-sm-12 w-hidden"></div>
-          {* row *}
           <div class="row small-gutters mb-10" data-gap-y="15px">
-            {* password1 *}
+            {* Password fields *}
             <div class="col-md-6">
               <div class="form-group">
                 <label for="inputNewPassword1" class="col-form-label">{lang key='clientareapassword'}</label>
@@ -317,7 +333,6 @@
                 </div>
               </div>
             </div>
-            {* password2 *}
             <div class="col-md-6">
               <div class="form-group">
                 <label for="inputNewPassword2" class="col-form-label">{lang key='clientareaconfirmpassword'}</label>
@@ -332,7 +347,8 @@
                 </div>
               </div>
             </div>
-            {* password-generator-btn *}
+
+            {* Password generator button *}
             <div class="col-xl-2 col-md-3 mr-auto">
               <div class="form-group">
                 <button type="button" class="btn btn-secondary btn-sm generate-password btn-block" data-targetfields="inputNewPassword1,inputNewPassword2">
@@ -340,7 +356,8 @@
                 </button>
               </div>
             </div>
-            {* password-strength *}
+
+            {* Password strength meter *}
             <div class="col-md-6">
               <div class="password-strength-meter">
                 <div class="progress">
@@ -352,12 +369,11 @@
             </div>
           </div>
         </div>
+
+        {* Security questions section *}
         {if $securityquestions}
-          {* security-questions *}
           <h3 class="title-5 mb-5">{lang key='orderForm.securityQuestions'}</h3>
-          {* row *}
           <div class="row small-gutters mb-10" data-gap-y="15px">
-            {* question *}
             <div class="col-6">
               <div class="form-group">
                 <div class="prepend-icon">
@@ -378,7 +394,6 @@
                 </div>
               </div>
             </div>
-            {* answer *}
             <div class="col-6">
               <div class="form-group">
                 <label for="inputSecurityQAns" class="col-form-label">{lang key='clientareasecurityanswer'}</label>
@@ -396,6 +411,8 @@
             </div>
           </div>
         {/if}
+
+        {* Marketing email opt-in *}
         {if $showMarketingEmailOptIn}
           <div class="card mb-4">
             <div class="card-body p-4">
@@ -405,23 +422,26 @@
             </div>
           </div>
         {/if}
-        {* captcha *}
+
+        {* CAPTCHA *}
         {include file="$template/includes/captcha.tpl"}
-        {* terms *}
+
+        {* Terms of service agreement *}
         {if $accepttos}
           <div class="my-6">
             <label class="form-check" for="accepttos">
               <input type="checkbox" id="accepttos" name="accepttos" class="form-check-input accepttos">
               <span class="checkmark"></span>
-              {lang key='ordertosagreement'} <a href="{$tosurl}" class="link" target="_blank">{lang key='ordertos'}</a>
+              {lang key='ordertosagreement'} <a href="{$tosurl}" class="theme-link" target="_blank">{lang key='ordertos'}</a>
             </label>
           </div>
         {/if}
-        {* submit-btn *}
+
+        {* Submit button *}
         <div class="row">
           <div class="col-xl-2 col-lg-3 col-md-3">
             <div class="mt-6">
-              <input class="btn btn-default btn-block px-5{$captcha->getButtonClass($captchaForm)}" type="submit" value="{lang key='clientregistertitle'}" />
+              <input class="btn btn-light btn-block px-5{$captcha->getButtonClass($captchaForm)}" type="submit" value="{lang key='clientregistertitle'}" />
             </div>
           </div>
         </div>

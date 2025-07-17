@@ -461,7 +461,7 @@
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <button type="button" class="btn btn-default btn-sm generate-password" data-targetfields="inputNewPassword1,inputNewPassword2">
+                    <button type="button" class="btn btn-light btn-sm generate-password" data-targetfields="inputNewPassword1,inputNewPassword2">
                         {$LANG.generatePassword.btnLabel}
                     </button>
                 </div>
@@ -582,7 +582,7 @@
                         <div class="input-group">
                             <input type="tel" name="cccvv" id="inputCardCVV2" class="field form-control" placeholder="{$LANG.creditcardcvvnumbershort}" autocomplete="cc-cvc">
                             <span class="input-group-btn input-group-append">
-                                <button type="button" class="btn btn-default" data-toggle="popover" data-placement="bottom" data-content="<img src='{$BASE_PATH_IMG}/ccv.gif' width='210' />">
+                                <button type="button" class="btn btn-light" data-toggle="popover" data-placement="bottom" data-content="<img src='{$BASE_PATH_IMG}/ccv.gif' width='210' />">
                                     ?
                                 </button>
                             </span>
@@ -629,7 +629,7 @@
                         <div class="input-group">
                             <input type="tel" name="cccvv" id="inputCardCVV" class="field form-control" placeholder="{$LANG.creditcardcvvnumbershort}" autocomplete="cc-cvc">
                             <span class="input-group-btn input-group-append">
-                                <button type="button" class="btn btn-default" data-toggle="popover" data-placement="bottom" data-content="<img src='{$BASE_PATH_IMG}/ccv.gif' width='210' />">
+                                <button type="button" class="btn btn-light" data-toggle="popover" data-placement="bottom" data-content="<img src='{$BASE_PATH_IMG}/ccv.gif' width='210' />">
                                     ?
                                 </button>
                             </span><br>

@@ -59,7 +59,7 @@
                   </div>
                   <!-- plan-action -->
                   <div class="plan-action">
-                    <a href="{$product.orderlink}" class="nt-btn nt-btn-default nt-btn-block">{lang key="T_chooseThisPlan"}</a>
+                    <a href="{$product.orderlink}" class="btn btn-light btn-block">{lang key="T_chooseThisPlan"}</a>
                   </div>
                 </div>
                 <!-- plan-features -->

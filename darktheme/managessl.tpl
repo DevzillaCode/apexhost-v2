@@ -41,15 +41,15 @@
                         <td><span class="w-hidden">{$sslProduct->addon->nextDueDate}</span>{$sslProduct->addon->nextDueDateFormatted}</td>
                         <td>
                             {if $sslProduct->status == $sslStatusAwaitingIssuance}
-                                <button class="btn btn-default btn-sm btn-resend-approver-email" data-url="{routePath('clientarea-ssl-certificates-resend-approver-email')}" data-addonid="{$sslProduct->addonId}">{lang key='sslresendmail'}</button>
+                                <button class="btn btn-light btn-sm btn-resend-approver-email" data-url="{routePath('clientarea-ssl-certificates-resend-approver-email')}" data-addonid="{$sslProduct->addonId}">{lang key='sslresendmail'}</button>
                             {/if}
                             {if $sslProduct->status == $sslStatusAwaitingConfiguration}
-                                <a href="{$sslProduct->getConfigurationUrl()}" class="btn btn-default btn-sm">{lang key='sslconfigure'}</a>
+                                <a href="{$sslProduct->getConfigurationUrl()}" class="btn btn-light btn-sm">{lang key='sslconfigure'}</a>
                             {/if}
                             {if $sslProduct->addon->nextDueDateProperties['isFuture']}
                                 <form action="{$sslProduct->getUpgradeUrl()}" method="post">
                                     <input type="hidden" name="id" value="{$sslProduct->id}">
-                                    <button type="submit" class="btn btn-default btn-sm"{if $sslProduct->validationType == 'EV'} disabled="disabled"{/if}>{lang key='upgrade'}</button>
+                                    <button type="submit" class="btn btn-light btn-sm"{if $sslProduct->validationType == 'EV'} disabled="disabled"{/if}>{lang key='upgrade'}</button>
                                 </form>
                             {/if}
                         </td>
@@ -76,10 +76,10 @@
                         <td><span class="w-hidden">{$sslProduct->service->nextDueDate}</span>{$sslProduct->service->nextDueDateFormatted}</td>
                         <td>
                             {if $sslProduct->status == $sslStatusAwaitingIssuance}
-                                <button class="btn btn-default btn-sm btn-resend-approver-email" data-url="{routePath('clientarea-ssl-certificates-resend-approver-email')}" data-serviceid="{$sslProduct->serviceId}">{lang key='sslresendmail'}</button>
+                                <button class="btn btn-light btn-sm btn-resend-approver-email" data-url="{routePath('clientarea-ssl-certificates-resend-approver-email')}" data-serviceid="{$sslProduct->serviceId}">{lang key='sslresendmail'}</button>
                             {/if}
                             {if $sslProduct->status == $sslStatusAwaitingConfiguration}
-                                <a href="{$sslProduct->getConfigurationUrl()}" class="btn btn-default btn-sm">{lang key='sslconfigure'}</a>
+                                <a href="{$sslProduct->getConfigurationUrl()}" class="btn btn-light btn-sm">{lang key='sslconfigure'}</a>
                             {/if}
                         </td>
                     {/if}

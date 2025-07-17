@@ -254,7 +254,7 @@
                                                 {else}
                                                     <span name="{$domain.domain}Price">{$domain.price}</span>
                                                     <div class="dropdown">
-                                                        <button class="btn btn-default btn-default btn-xs dropdown-toggle" type="button" id="{$domain.domain}Pricing" name="{$domain.domain}Pricing" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                        <button class="btn btn-light btn-light btn-xs dropdown-toggle" type="button" id="{$domain.domain}Pricing" name="{$domain.domain}Pricing" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                                             {$domain.regperiod} {$domain.yearsLanguage}
                                                             <span class="caret"></span>
                                                         </button>
@@ -478,7 +478,7 @@
                                             {$promotioncode} - {$promotiondescription}
                                         </div>
                                         <div class="text-center">
-                                            <a href="{$WEB_ROOT}/cart.php?a=removepromo" class="btn btn-default btn-xs">
+                                            <a href="{$WEB_ROOT}/cart.php?a=removepromo" class="btn btn-light btn-xs">
                                                 {$LANG.orderForm.removePromotionCode}
                                             </a>
                                         </div>
@@ -490,7 +490,7 @@
                                                 </label>
                                                 <input type="text" name="promocode" id="inputPromotionCode" class="field form-control" placeholder="{lang key="orderPromoCodePlaceholder"}" required="required">
                                             </div>
-                                            <button type="submit" name="validatepromo" class="btn btn-block btn-default" value="{$LANG.orderpromovalidatebutton}">
+                                            <button type="submit" name="validatepromo" class="btn btn-block btn-light" value="{$LANG.orderpromovalidatebutton}">
                                                 {$LANG.orderpromovalidatebutton}
                                             </button>
                                         </form>
@@ -518,7 +518,7 @@
                                             </div>
                                         </div>
                                         <div class="form-group text-center">
-                                            <button type="submit" class="btn btn-default">
+                                            <button type="submit" class="btn btn-light">
                                                 {$LANG.orderForm.updateTotals}
                                             </button>
                                         </div>
@@ -640,7 +640,7 @@
                             {lang key='cartremoveitemconfirm'}
                         </div>
                         <div class="modal-footer justify-content-center">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">{lang key='no'}</button>
+                            <button type="button" class="btn btn-light" data-dismiss="modal">{lang key='no'}</button>
                             <button type="submit" class="btn btn-primary">{lang key='yes'}</button>
                         </div>
                     </div>
@@ -666,7 +666,7 @@
                             {$LANG.cartemptyconfirm}
                         </div>
                         <div class="modal-footer justify-content-center">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">{$LANG.no}</button>
+                            <button type="button" class="btn btn-light" data-dismiss="modal">{$LANG.no}</button>
                             <button type="submit" class="btn btn-primary">{$LANG.yes}</button>
                         </div>
                     </div>

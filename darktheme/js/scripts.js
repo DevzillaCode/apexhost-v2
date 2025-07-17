@@ -23794,9 +23794,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             // Construct the button object
             buttonContainer = $('<button></button>');
-            buttonContainer.text(' ' + this.__localize(btnText)).addClass('btn-default btn-sm').addClass(btnClass);
+            buttonContainer.text(' ' + this.__localize(btnText)).addClass('btn-light btn-sm').addClass(btnClass);
             if (btnClass.match(/btn\-(primary|success|info|warning|danger|link)/)) {
-              buttonContainer.removeClass('btn-default');
+              buttonContainer.removeClass('btn-light');
             }
             buttonContainer.attr({
               'type': 'button',
@@ -41466,7 +41466,7 @@ return DataTable;
 
             },
             enableHTML: false,
-            buttonClass: 'btn btn-default',
+            buttonClass: 'btn btn-light',
             inheritClass: false,
             buttonWidth: 'auto',
             buttonContainer: '<div class="btn-group" />',
@@ -41500,7 +41500,7 @@ return DataTable;
                 button: '<button type="button" class="multiselect dropdown-toggle" data-toggle="dropdown"><span class="multiselect-selected-text"></span> <b class="caret"></b></button>',
                 ul: '<ul class="multiselect-container dropdown-menu"></ul>',
                 filter: '<li class="multiselect-item filter"><div class="input-group"><span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span><input class="form-control multiselect-search" type="text"></div></li>',
-                filterClearBtn: '<span class="input-group-btn"><button class="btn btn-default multiselect-clear-filter" type="button"><i class="glyphicon glyphicon-remove-circle"></i></button></span>',
+                filterClearBtn: '<span class="input-group-btn"><button class="btn btn-light multiselect-clear-filter" type="button"><i class="glyphicon glyphicon-remove-circle"></i></button></span>',
                 li: '<li><a tabindex="0"><label></label></a></li>',
                 divider: '<li class="multiselect-item divider"></li>',
                 liGroup: '<li class="multiselect-item multiselect-group"><label></label></li>'

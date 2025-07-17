@@ -7,7 +7,7 @@
 {if $unpaidInvoice}
     <div class="alert alert-{if $unpaidInvoiceOverdue}danger{else}warning{/if}" id="alert{if $unpaidInvoiceOverdue}Overdue{else}Unpaid{/if}Invoice">
         <div class="float-right">
-            <a href="viewinvoice.php?id={$unpaidInvoice}" class="btn btn-xs btn-default">
+            <a href="viewinvoice.php?id={$unpaidInvoice}" class="btn btn-xs btn-light">
                 {lang key='payInvoice'}
             </a>
         </div>

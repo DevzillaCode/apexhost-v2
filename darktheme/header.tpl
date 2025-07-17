@@ -5,6 +5,79 @@
   <meta charset="{$charset}" />
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>{if $kbarticle.title}{$kbarticle.title} - {/if}{$pagetitle} - {$companyname}</title>
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="{if $kbarticle.seo_description}{$kbarticle.seo_description}{else}{$pagetitle} - {$companyname} Services{/if}">
+  <meta name="keywords" content="{if $kbarticle.seo_keywords}{$kbarticle.seo_keywords}{else}{$companyname}, hosting, services, support{/if}">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="{$companyname}">
+
+  <!-- Open Graph Tags for Social Media -->
+  <meta property="og:title" content="{if $kbarticle.title}{$kbarticle.title} - {/if}{$pagetitle} - {$companyname}">
+  <meta property="og:description" content="{if $kbarticle.seo_description}{$kbarticle.seo_description}{else}{$pagetitle} - {$companyname} Services{/if}">
+  <meta property="og:type" content="{if $kbarticle.title}article{else}website{/if}">
+  <meta property="og:url" content="{$systemurl}{$smarty.server.REQUEST_URI}">
+  <meta property="og:image" content="{$systemurl}/assets/img/og-image.jpg">
+  <meta property="og:site_name" content="{$companyname}">
+
+  <!-- Twitter Card Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{if $kbarticle.title}{$kbarticle.title} - {/if}{$pagetitle} - {$companyname}">
+  <meta name="twitter:description" content="{if $kbarticle.seo_description}{$kbarticle.seo_description}{else}{$pagetitle} - {$companyname} Services{/if}">
+  <meta name="twitter:image" content="{$systemurl}/assets/img/og-image.jpg">
+
+  <!-- Canonical URL -->
+  <link rel="canonical" href="{$systemurl}{$smarty.server.REQUEST_URI}">
+
+  <!-- Favicon -->
+  <link rel="icon" href="{$systemurl}/assets/img/favicon.ico" type="image/x-icon">
+
+  <!-- Schema Markup for Organization -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "{$companyname}",
+      "url": "{$systemurl}",
+      "logo": "{$systemurl}/assets/img/logo.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "{$companyphone}",
+        "contactType": "customer service"
+      }
+    }
+  </script>
+
+  {if $kbarticle.title}
+    <!-- Schema Markup for Article -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "{$kbarticle.title}",
+        "description": "{if $kbarticle.seo_description}{$kbarticle.seo_description}{else}{$pagetitle} - {$companyname} Services{/if}",
+        "author": {
+          "@type": "Organization",
+          "name": "{$companyname}"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "{$companyname}",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "{$systemurl}/assets/img/logo.png"
+          }
+        },
+        "url": "{$systemurl}{$smarty.server.REQUEST_URI}",
+        "datePublished": "{if $kbarticle.date}{$kbarticle.date}{else}{$smarty.now|date_format:'%Y-%m-%d'}{/if}",
+        "mainEntityOfPage": {
+          "@type": "WebPage",
+          "@id": "{$systemurl}{$smarty.server.REQUEST_URI}"
+        }
+      }
+    </script>
+  {/if}
+
   {include file="$template/includes/head.tpl"}
   {$headoutput}
 </head>
@@ -16,17 +89,19 @@
 
   {include file="$template/components/shared/Preloader.tpl"}
 
-  <header id="header" class="header">
-    {* Topbar - Only visible for logged-in users *}
-    {if $loggedin}
-      {include file="$template/components/sections/shared/navbar/TopBar.tpl"}
-    {/if}
+  {if $templatefile !== 'login' && $templatefile !== 'passwordreset' && $templatefile !== 'contact'}
+    <header id="header" class="header">
+      {* Topbar - Only visible for logged-in users *}
+      {if $loggedin}
+        {include file="$template/components/sections/shared/navbar/TopBar.tpl"}
+      {/if}
 
-    {* Main navigation bar *}
-    {if $templatefile !== 'login' && $templatefile !== 'passwordreset' && $templatefile !== 'contact'}
-      {include file="$template/components/sections/shared/navbar/Navbar.tpl"}
-    {/if}
-  </header>
+      {* Main navigation bar *}
+      {if $templatefile !== 'login' && $templatefile !== 'passwordreset' && $templatefile !== 'contact'}
+        {include file="$template/components/sections/shared/navbar/Navbar.tpl"}
+      {/if}
+    </header>
+  {/if}
 
   {include file="$template/includes/network-issues-notifications.tpl"}
 
@@ -73,7 +148,7 @@
   {/if}
 
   {* Main body section - Exclude login *}
-  {if $templatefile !== 'login' && $templatefile !== ''}
+  {if $templatefile !== 'login' && $templatefile !== 'contact'}
     <section id="main-body">
       <div class="{if !$skipMainBodyContainer}container-fluid{/if}">
         <div class="row main-row" data-gap-y="30px">

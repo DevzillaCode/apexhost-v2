@@ -10,7 +10,7 @@
                     <span class="text">{lang key='verifyEmailAddress'}</span>
                 </div>
                 <div class="col-12 col-sm-4 col-md-3 order-sm-2 order-md-last">
-                    <button id="btnResendVerificationEmail" class="btn btn-default btn-sm btn-block btn-resend-verify-email btn-action" data-email-sent="{lang key='emailSent'}" data-error-msg="{lang key='error'}" data-uri="{routePath('user-email-verification-resend')}">
+                    <button id="btnResendVerificationEmail" class="btn btn-light btn-sm btn-block btn-resend-verify-email btn-action" data-email-sent="{lang key='emailSent'}" data-error-msg="{lang key='error'}" data-uri="{routePath('user-email-verification-resend')}">
                         <span class="loader w-hidden"><i class="fa fa-spinner fa-spin"></i></span>
                         {lang key='resendEmail'}
                     </button>

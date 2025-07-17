@@ -1,3 +1,19 @@
+<!-- Account Details -->
+1. First Name
+2. Last Name
+3. Company Name
+4. Email Address
+5. Address 1
+6. Address 2
+7. City
+8. State
+9. ZIP Code
+10. Country
+11. Phone Number
+12. Payment Mehtod
+13. Default Billing Contact
+14. Language
+
 # z-index:
 - master-loader 9999
 - theme-topbar 99
@@ -5,6 +21,7 @@
 - float-bar-overlay 99
 - float-search-bar 100
 - theme-footer 101
+- alert 102
 
 
 # HOW TO CHOOSE PRODUCTS TO SHOW AT THE HOME PAGE
@@ -15,6 +32,11 @@
 1. Remove the comment form the (blur) props
 2. Change the component name to be camelCase.
 3. Change the icons js code to work with font icons not only svgs.
+4. Create `robots.txt` file
+  ->  User-agent: *
+      Disallow: /admin/
+      Disallow: /cart.php
+      Sitemap: {$systemurl}/sitemap.xml
 
 
 # DOCUMENTATION

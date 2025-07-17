@@ -88,6 +88,6 @@
     </div>
 </div>
 
-<a href="clientarea.php?action=domaindetails&id={$domainid}" class="btn btn-default">
+<a href="clientarea.php?action=domaindetails&id={$domainid}" class="btn btn-light">
     {lang key='clientareabacklink'}
 </a>

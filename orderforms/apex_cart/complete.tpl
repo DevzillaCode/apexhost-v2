@@ -54,7 +54,7 @@
             {/if}
 
             <div class="text-center">
-                <a href="{$WEB_ROOT}/clientarea.php" class="btn btn-default">
+                <a href="{$WEB_ROOT}/clientarea.php" class="btn btn-light">
                     {$LANG.orderForm.continueToClientArea}
                     &nbsp;<i class="fas fa-arrow-circle-right"></i>
                 </a>

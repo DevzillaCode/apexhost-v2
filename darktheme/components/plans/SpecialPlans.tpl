@@ -28,7 +28,7 @@
                 <div class="right-content">
                   {* price *}
                   <div class="price" data-gap-x="5px">
-                    <div class="discount title-3 gradient-text gradient-primary font-bold font-heading">80% OFF</div>
+                    <div class="discount title-3 gradient-text gradient-primary font-weight-bold font-heading">80% OFF</div>
                   </div>
                 </div>
               </div>
@@ -80,7 +80,7 @@
             </ul>
             {* plan-actions *}
             <div class="plan-actions mt-10">
-              <a href="#" class="nt-btn nt-btn-default">{lang key="Configure Plan"}</a>
+              <a href="#" class="btn btn-light">{lang key="Configure Plan"}</a>
             </div>
           </div>
         </div>

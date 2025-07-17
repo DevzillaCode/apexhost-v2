@@ -29,7 +29,7 @@
                 </a>
             {/if}
             {if $allowBankDetails}
-                <a href="{routePathWithQuery('account-paymentmethods-add', null, 'type=bankacct')}" class="btn btn-default">
+                <a href="{routePathWithQuery('account-paymentmethods-add', null, 'type=bankacct')}" class="btn btn-light">
                     {lang key='paymentMethods.addNewBank'}
                 </a>
             {/if}
@@ -58,15 +58,15 @@
                     </td>
                     <td>{$payMethod->getStatus()}{if $payMethod->isDefaultPayMethod()} - {lang key='paymentMethods.default'}{/if}</td>
                     <td>
-                        <a href="{routePath('account-paymentmethods-setdefault', $payMethod->id)}" class="btn btn-sm btn-default btn-set-default{if $payMethod->isDefaultPayMethod() || $payMethod->isExpired()} disabled{/if}">
+                        <a href="{routePath('account-paymentmethods-setdefault', $payMethod->id)}" class="btn btn-sm btn-light btn-set-default{if $payMethod->isDefaultPayMethod() || $payMethod->isExpired()} disabled{/if}">
                             {lang key='paymentMethods.setAsDefault'}
                         </a>
-                        <a href="{routePath('account-paymentmethods-view', $payMethod->id)}" class="btn btn-sm btn-default{if $payMethod->getType() == 'RemoteBankAccount'} disabled{/if}" data-role="edit-payment-method">
+                        <a href="{routePath('account-paymentmethods-view', $payMethod->id)}" class="btn btn-sm btn-light{if $payMethod->getType() == 'RemoteBankAccount'} disabled{/if}" data-role="edit-payment-method">
                             <i class="fas fa-pencil"></i>
                             {lang key='paymentMethods.edit'}
                         </a>
                         {if $allowDelete}
-                            <a href="{routePath('account-paymentmethods-delete', $payMethod->id)}" class="btn btn-sm btn-default btn-delete">
+                            <a href="{routePath('account-paymentmethods-delete', $payMethod->id)}" class="btn btn-sm btn-light btn-delete">
                                 <i class="fas fa-trash"></i>
                                 {lang key='paymentMethods.delete'}
                             </a>
@@ -97,7 +97,7 @@
         <p>{lang key='paymentMethods.deletePaymentMethodConfirm'}</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">{lang key='no'}</button>
+        <button type="button" class="btn btn-light" data-dismiss="modal">{lang key='no'}</button>
         <button type="submit" class="btn btn-primary">{lang key='yes'}</button>
       </div>
     </div>

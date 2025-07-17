@@ -232,7 +232,7 @@
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
-                  <button type="button" class="btn btn-default btn-sm btn-sm-block generate-password" data-targetfields="inputNewPassword1,inputNewPassword2">
+                  <button type="button" class="btn btn-light btn-sm btn-sm-block generate-password" data-targetfields="inputNewPassword1,inputNewPassword2">
                     {lang key='generatePassword.btnLabel'}
                   </button>
                 </div>

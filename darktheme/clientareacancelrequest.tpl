@@ -57,7 +57,7 @@
                         <button type="submit" class="btn btn-danger">
                             {lang key='clientareacancelrequestbutton'}
                         </button>
-                        <a href="clientarea.php?action=productdetails&id={$id}" class="btn btn-default">{lang key='cancel'}</a>
+                        <a href="clientarea.php?action=productdetails&id={$id}" class="btn btn-light">{lang key='cancel'}</a>
                     </div>
                 </fieldset>
 

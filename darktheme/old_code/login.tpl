@@ -30,7 +30,7 @@
           </div>
           <input type="password" class="form-control pw-input" name="password" id="inputPassword" placeholder="{lang key='clientareapassword'}" autocomplete="off">
           <div class="input-group-append">
-            <button class="btn btn-default btn-reveal-pw" type="button" tabindex="-1">
+            <button class="btn btn-light btn-reveal-pw" type="button" tabindex="-1">
               <i class="fas fa-eye"></i>
             </button>
           </div>
