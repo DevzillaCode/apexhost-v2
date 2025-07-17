@@ -23,7 +23,7 @@
         </div>
         {* form-header *}
         <div class="form-header mb-10">
-          <h1 class="title-3 color-foreground mb-2">Welcome Back</h1>
+          <h1 class="title-3 color-foreground font-weight-semibold mb-2">Welcome Back</h1>
           <p class="text-size-base">Enter your email and password to access your account</p>
         </div>
         {include file="$template/includes/flashmessage.tpl"}

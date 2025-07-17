@@ -1,6 +1,5 @@
 {if $message = get_flash_message()}
-  <div class="alert alert-{if $message.type == "error"}danger{elseif $message.type == 'success'}success{elseif $message.type == 'warning'}warning{else}info{/if}{if isset($align)} text-{$align}{/if}">
-
+  <div class="alert alert-float alert-{if $message.type == "error"}danger{elseif $message.type == 'success'}success{elseif $message.type == 'warning'}warning{else}info{/if}{if isset($align)} text-{$align}{/if}">
     {* alert-icon *}
     <div class="alert-icon">
       {if $message.type == "error"}
@@ -34,10 +33,18 @@
         </svg>
       {/if}
     </div>
-
     {* alert-content *}
     <div class="alert-content">
       {$message.text}
+    </div>
+    {* close-alert *}
+    <div class="alert-dismissible">
+      <button type="button" class="btn-square btn-ghost-light btn-xs btn-circle close" data-dismiss="alert" aria-label="Close">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x">
+          <path d="M18 6 6 18" />
+          <path d="m6 6 12 12" />
+        </svg>
+      </button>
     </div>
   </div>
 {/if}
