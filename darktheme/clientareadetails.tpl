@@ -19,15 +19,15 @@
 <script type="text/javascript" src="{$BASE_PATH_JS}/StatesDropdown.js"></script>
 
 {* Form for updating client details *}
-<form method="post" action="?action=details" role="form">
+<form method="post" action="?action=details" role="form" autocomplete="off">
   {* Card container for client details section *}
   <div class="mb-10">
     {* card-body *}
-    <div class="">
+    <div>
       {* card-title *}
       <h3 class="card-title">{lang key='clientareanavdetails'}</h3>
       {* row *}
-      <div class="row small-gutters row-gap-4">
+      <div class="row row-gap-4">
         {* col -> firstname *}
         <div class="col-md-6">
           <div class="form-group">
@@ -39,7 +39,7 @@
                   <circle cx="12" cy="7" r="4" />
                 </svg>
               </div>
-              <input type="text" name="firstname" id="inputFirstName" value="{$clientfirstname}" {if in_array('firstname', $uneditablefields)} disabled="disabled" {/if} class="form-control" />
+              <input type="text" name="firstname" id="inputFirstName" value="{$clientfirstname}" {if in_array('firstname', $uneditablefields)} disabled="disabled" {/if} class="form-control" autocomplete="off" />
             </div>
           </div>
         </div>
@@ -54,7 +54,7 @@
                   <circle cx="12" cy="7" r="4" />
                 </svg>
               </div>
-              <input type="text" name="lastname" id="inputLastName" value="{$clientlastname}" {if in_array('lastname', $uneditablefields)} disabled="disabled" {/if} class="form-control" />
+              <input type="text" name="lastname" id="inputLastName" value="{$clientlastname}" {if in_array('lastname', $uneditablefields)} disabled="disabled" {/if} class="form-control" autocomplete="off" />
             </div>
           </div>
         </div>
@@ -74,7 +74,7 @@
                   <path d="M10 18h4" />
                 </svg>
               </div>
-              <input type="text" name="companyname" id="inputCompanyName" value="{$clientcompanyname}" {if in_array('companyname', $uneditablefields)} disabled="disabled" {/if} class="form-control" />
+              <input type="text" name="companyname" id="inputCompanyName" value="{$clientcompanyname}" {if in_array('companyname', $uneditablefields)} disabled="disabled" {/if} class="form-control" autocomplete="off" />
             </div>
           </div>
         </div>
@@ -89,7 +89,7 @@
                   <rect x="2" y="4" width="20" height="16" rx="2" />
                 </svg>
               </div>
-              <input type="email" name="email" id="inputEmail" value="{$clientemail}" {if in_array('email', $uneditablefields)} disabled="disabled" {/if} class="form-control" />
+              <input type="email" name="email" id="inputEmail" value="{$clientemail}" {if in_array('email', $uneditablefields)} disabled="disabled" {/if} class="form-control" autocomplete="off" />
             </div>
           </div>
         </div>
@@ -104,7 +104,7 @@
                   <circle cx="12" cy="10" r="3"></circle>
                 </svg>
               </div>
-              <input type="text" name="address1" id="inputAddress1" value="{$clientaddress1}" {if in_array('address1', $uneditablefields)} disabled="disabled" {/if} class="form-control" />
+              <input type="text" name="address1" id="inputAddress1" value="{$clientaddress1}" {if in_array('address1', $uneditablefields)} disabled="disabled" {/if} class="form-control" autocomplete="off" />
             </div>
           </div>
         </div>
@@ -119,7 +119,7 @@
                   <circle cx="12" cy="10" r="3"></circle>
                 </svg>
               </div>
-              <input type="text" name="address2" id="inputAddress2" value="{$clientaddress2}" {if in_array('address2', $uneditablefields)} disabled="disabled" {/if} class="form-control" />
+              <input type="text" name="address2" id="inputAddress2" value="{$clientaddress2}" {if in_array('address2', $uneditablefields)} disabled="disabled" {/if} class="form-control" autocomplete="off" />
             </div>
           </div>
         </div>
@@ -138,7 +138,7 @@
                   <path d="M10 18h4" />
                 </svg>
               </div>
-              <input type="text" name="city" id="inputCity" value="{$clientcity}" {if in_array('city', $uneditablefields)} disabled="disabled" {/if} class="form-control" />
+              <input type="text" name="city" id="inputCity" value="{$clientcity}" {if in_array('city', $uneditablefields)} disabled="disabled" {/if} class="form-control" autocomplete="off" />
             </div>
           </div>
         </div>
@@ -154,7 +154,7 @@
                   <path d="M4 6a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h13a2 2 0 0 0 1.152-.365l3.424-2.317a1 1 0 0 0 0-1.635l-3.424-2.318A2 2 0 0 0 17 6z" />
                 </svg>
               </div>
-              <input type="text" name="state" id="inputState" value="{$clientstate}" {if in_array('state', $uneditablefields)} disabled="disabled" {/if} class="form-control" />
+              <input type="text" name="state" id="inputState" value="{$clientstate}" {if in_array('state', $uneditablefields)} disabled="disabled" {/if} class="form-control" autocomplete="off" />
             </div>
           </div>
         </div>
@@ -171,7 +171,7 @@
                   <path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
                 </svg>
               </div>
-              <input type="text" name="postcode" id="inputPostcode" value="{$clientpostcode}" {if in_array('postcode', $uneditablefields)} disabled="disabled" {/if} class="form-control" />
+              <input type="text" name="postcode" id="inputPostcode" value="{$clientpostcode}" {if in_array('postcode', $uneditablefields)} disabled="disabled" {/if} class="form-control" autocomplete="off" />
             </div>
           </div>
         </div>
@@ -198,7 +198,7 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="inputPhone" class="col-form-label">{lang key='clientareaphonenumber'}</label>
-            <input type="tel" name="phonenumber" id="inputPhone" value="{$clientphonenumber}" {if in_array('phonenumber', $uneditablefields)} disabled="disabled" {/if} class="form-control" />
+            <input type="tel" name="phonenumber" id="inputPhone" value="{$clientphonenumber}" {if in_array('phonenumber', $uneditablefields)} disabled="disabled" {/if} class="form-control" autocomplete="off" />
           </div>
         </div>
         <div class="col-md-6">
@@ -280,7 +280,7 @@
                     <circle cx="12" cy="10" r="3"></circle>
                   </svg>
                 </div>
-                <input type="text" name="tax_id" id="inputTaxId" class="form-control" value="{$clientTaxId}" {if in_array('tax_id', $uneditablefields)} disabled="disabled" {/if} />
+                <input type="text" name="tax_id" id="inputTaxId" class="form-control" value="{$clientTaxId}" {if in_array('tax_id', $uneditablefields)} disabled="disabled" {/if} autocomplete="off" />
               </div>
             </div>
           </div>
@@ -312,20 +312,18 @@
   {* Card container for email preferences *}
   {if $emailPreferencesEnabled}
     <div class="mb-10">
-      <div class="">
-        <h3 class="card-title">{lang key='clientareacontactsemails'}</h3>
-        <div class="row small-gutters row-gap-3">
-          {foreach $emailPreferences as $emailType => $value}
-            <div class="col-lg-6">
-              <label class="form-check">
-                <input type="hidden" name="email_preferences[{$emailType}]" value="0">
-                <input type="checkbox" class="form-check-input" name="email_preferences[{$emailType}]" id="{$emailType}Emails" value="1" {if $value} checked="checked" {/if} />
-                <span class="checkmark"></span>
-                {lang key="emailPreferences."|cat:$emailType}
-              </label>
-            </div>
-          {/foreach}
-        </div>
+      <h3 class="card-title">{lang key='clientareacontactsemails'}</h3>
+      <div class="row small-gutters row-gap-3">
+        {foreach $emailPreferences as $emailType => $value}
+          <div class="col-lg-6">
+            <label class="form-check">
+              <input type="hidden" name="email_preferences[{$emailType}]" value="0">
+              <input type="checkbox" class="form-check-input" name="email_preferences[{$emailType}]" id="{$emailType}Emails" value="1" {if $value} checked="checked" {/if} />
+              <span class="checkmark"></span>
+              {lang key="emailPreferences."|cat:$emailType}
+            </label>
+          </div>
+        {/foreach}
       </div>
     </div>
   {/if}
@@ -339,8 +337,8 @@
       </div>
     </div>
   {/if}
-  <div class="form-group d-flex flex-wrap col-gap-2">
-    <input class="btn btn-primary" type="submit" name="save" value="{lang key='clientareasavechanges'}" />
+  <div class="form-group d-flex flex-wrap col-gap-2 justify-content-end">
     <input class="btn btn-ghost-light" type="reset" value="{lang key='cancel'}" />
+    <input class="btn btn-light" type="submit" name="save" value="{lang key='clientareasavechanges'}" />
   </div>
 </form>

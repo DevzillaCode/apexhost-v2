@@ -21934,8 +21934,7 @@ jQuery(document).ready(function() {
     $('.icheck-button').iCheck({
         inheritID: true,
         checkboxClass: 'icheckbox_square-blue',
-        radioClass: 'iradio_square-blue',
-        increaseArea: '20%'
+        radioClass: 'iradio_square-blue'
     });
 
     jQuery('#inputNoStore').on('switchChange.bootstrapSwitch', function(event, state) {

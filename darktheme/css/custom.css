@@ -392,11 +392,6 @@
 }
 @media (max-width: 1199.98px) {
   #main-body .sidebar-col {
-    width: 30%;
-  }
-}
-@media (max-width: 991.98px) {
-  #main-body .sidebar-col {
     width: 100%;
   }
 }
@@ -406,13 +401,7 @@
   padding-right: 1rem;
   transition: all 0.3s ease;
 }
-@media only screen and (max-width: 1199px) {
-  #main-body .content-col {
-    width: 70%;
-    float: none;
-  }
-}
-@media only screen and (max-width: 991.98px) {
+@media only screen and (max-width: 1199.98px) {
   #main-body .content-col {
     width: 100%;
     float: none;
@@ -487,6 +476,14 @@
   color: var(--sidebar-accent-foreground);
 }
 
+/* collapsable-card-body */
+.collapsable-card-body {
+  padding: 0 !important;
+}
+.collapsable-card-body .theme-sidebar-list {
+  padding: 10px !important;
+}
+
 /* tags */
 .theme-sidebar-panel a[href*="/knowledgebase/tag"] {
   padding: 0.25rem 0.5rem;
@@ -535,16 +532,24 @@
 .section-title-heading {
   margin-bottom: 45px;
 }
-
 .section-title-heading .section-headline {
   color: var(--foreground);
   font-size: var(--text-3xl);
 }
-
 .section-title-heading .section-tagline {
   font-size: var(--text-sm);
 }
+/* ----------------------------------- */
 
+/* : Page Header : */
+.page-header {
+  border-bottom: 1px solid var(--border);
+  padding-block-end: 1.5rem;
+  margin-bottom: 1.5rem;
+
+}
+.page-header .headline {}
+.page-header .tagline {}
 /* ----------------------------------- */
 
 /* : Breadcrumbs : */
@@ -1706,7 +1711,7 @@ body.float-bar-open {
   border-radius: var(--radius-md);
   background-clip: border-box;
   font-family: var(--font-family-base);
-  padding: 1rem;
+  padding: 0.5rem;
 }
 .bs-popover-bottom > .arrow::after,
 .bs-popover-auto[x-placement^="bottom"] > .arrow::after {
@@ -1721,14 +1726,13 @@ body.float-bar-open {
   border-bottom: 1px solid var(--border);
   font-size: var(--text-base);
   font-weight: 500;
-  padding-inline-start: 0;
-  padding-bottom: 1rem;
+  padding-inline-start: 0.5rem;
 }
 /* ----------------------------------- */
 
 /* : User Notifications : */
 .popover-user-notifications ul {
-  padding-block: 0.5rem;
+  padding-top: 0.5rem;
 }
 .popover-user-notifications ul li {
   all: unset;
