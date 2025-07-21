@@ -22,8 +22,10 @@
 
     {if $item->hasBodyHtml()}
       {* Optional panel body content *}
-      <div class="panel-body card-body collapsable-card-body">
-        {$item->getBodyHtml()}
+      <div class="panel-body collapsable-card-body">
+        <div class="theme-sidebar-list" role="navigation">
+          {$item->getBodyHtml()}
+        </div>
       </div>
     {/if}
 

@@ -2,7 +2,7 @@
 
                     </div>
                     {if !$inShoppingCart && $secondarySidebar->hasChildren()}
-                      <div class="d-lg-none sidebar sidebar-secondary">
+                      <div class="d-lg-none sidebar sidebar-secondary mt-4">
                         {include file="$template/components/sections/shared/Sidebar.tpl" sidebar=$secondarySidebar}
                       </div>
                     {/if}

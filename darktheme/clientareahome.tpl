@@ -3,7 +3,7 @@
 {* row *}
 <div class="row small-gutters mb-10 row-gap-4">
   {* col -> services *}
-  <div class="col-3">
+  <div class="col-lg-3 col-md-6">
     {* div *}
     <div class="bg-card relative-hover position-relative text-card-foreground rounded-md py-4 px-4 shadow-sm border gap-6 d-flex align-items-center justify-content-between border-bottom-width-2 border-bottom-primary">
       {* text *}
@@ -33,7 +33,7 @@
   </div>
   {if $clientsstats.numdomains || $registerdomainenabled || $transferdomainenabled}
     {* col -> domains *}
-    <div class="col-3">
+    <div class="col-lg-3 col-md-6">
       {* div *}
       <div class="bg-card relative-hover position-relative text-card-foreground rounded-md py-4 px-4 shadow-sm border gap-6 d-flex align-items-center justify-content-between border-bottom-width-2 border-bottom-success">
         {* text *}
@@ -62,7 +62,7 @@
     </div>
   {elseif $condlinks.affiliates && $clientsstats.isAffiliate}
     {* col -> affiliates *}
-    <div class="col-3">
+    <div class="col-lg-3 col-md-6">
       {* div *}
       <div class="bg-card relative-hover position-relative text-card-foreground rounded-md py-4 px-4 shadow-sm border gap-6 d-flex align-items-center justify-content-between border-bottom-width-2 border-bottom-warning">
         {* text *}
@@ -92,7 +92,7 @@
     </div>
   {else}
     {* col -> quotes *}
-    <div class="col-3">
+    <div class="col-lg-3 col-md-6">
       {* div *}
       <div class="bg-card relative-hover position-relative text-card-foreground rounded-md py-4 px-4 shadow-sm border gap-6 d-flex align-items-center justify-content-between border-bottom-width-2 border-bottom-warning">
         {* text *}
@@ -120,7 +120,7 @@
     </div>
   {/if}
   {* col -> tickets *}
-  <div class="col-3">
+  <div class="col-lg-3 col-md-6">
     {* div *}
     <div class="bg-card relative-hover position-relative text-card-foreground rounded-md py-4 px-4 shadow-sm border gap-6 d-flex align-items-center justify-content-between border-bottom-width-2 border-bottom-info">
       {* text *}
@@ -150,7 +150,7 @@
     </div>
   </div>
   {* col -> invoices *}
-  <div class="col-3">
+  <div class="col-lg-3 col-md-6">
     {* div *}
     <div class="bg-card relative-hover position-relative text-card-foreground rounded-md py-4 px-4 shadow-sm border gap-6 d-flex align-items-center justify-content-between border-bottom-width-2 border-bottom-danger">
       {* text *}
@@ -180,56 +180,76 @@
   </div>
 </div>
 
+{* Addons section for additional HTML content *}
 {foreach $addons_html as $addon_html}
   <div class="addons-section">
     {$addon_html}
   </div>
 {/foreach}
 
+{* Client dashboard cards for dynamic panels *}
 <div class="client-home-cards">
   <div class="row small-gutters row-gap-4">
+    {* Full-width panels with colspan *}
     <div class="col-12">
       {function name=outputHomePanels}
         <div menuItemName="{$item->getName()}" class="card rounded-md shadow-sm border{if $item->getClass()} {$item->getClass()}{/if}" {if $item->getAttribute('id')} id="{$item->getAttribute('id')}" {/if}>
+          {* Panel header *}
           <div class="card-header">
             <div class="d-flex align-items-center justify-content-between">
               <h3 class="title-6 font-weight-semibold">
-                {if $item->hasIcon()}<i class="{$item->getIcon()}"></i>&nbsp;{/if}
+                {if $item->hasIcon()}<i class="{$item->getIcon()}"></i> {/if}
                 {$item->getLabel()}
-                {if $item->hasBadge()}&nbsp;<span class="badge">{$item->getBadge()}</span>{/if}
+                {if $item->hasBadge()} <span class="badge">{$item->getBadge()}</span>{/if}
               </h3>
+              {* Optional button for panel *}
               {if $item->getExtra('btn-link') && $item->getExtra('btn-text')}
                 <a href="{$item->getExtra('btn-link')}" class="btn btn-ghost-light btn-xs">
                   {$item->getExtra('btn-text')}
-                  {if $item->getExtra('btn-icon')}<i class="{$item->getExtra('btn-icon')}"></i>{/if}
+                  {if $item->getExtra('btn-icon')}
+                    {if $item->getExtra('btn-icon') == 'fas fa-arrow-right'}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right">
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                      </svg>
+                    {elseif $item->getExtra('btn-icon') == 'fas fa-plus'}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus-icon lucide-plus">
+                        <path d="M5 12h14" />
+                        <path d="M12 5v14" />
+                      </svg>
+                    {/if}
+                  {/if}
                 </a>
               {/if}
             </div>
           </div>
+          {* Panel body content *}
           {if $item->hasBodyHtml()}
             <div class="card-body">
               {$item->getBodyHtml()}
             </div>
           {/if}
+          {* Panel child items *}
           {if $item->hasChildren()}
             <div class="p-4 d-flex flex-column col-gap-4 {if $item->getChildrenAttribute('class')} {$item->getChildrenAttribute('class')}{/if}">
               {foreach $item->getChildren() as $childItem}
                 {if $childItem->getUri()}
                   <a menuItemName="{$childItem->getName()}" href="{$childItem->getUri()}" class="py-2 px-3 rounded-md hover-accent {if $childItem->getClass()} {$childItem->getClass()}{/if}{if $childItem->isCurrent()} active{/if}" {if $childItem->getAttribute('dataToggleTab')} data-toggle="tab" {/if}{if $childItem->getAttribute('target')} target="{$childItem->getAttribute('target')}" {/if} id="{$childItem->getId()}">
-                    {if $childItem->hasIcon()}<i class="{$childItem->getIcon()}"></i>&nbsp;{/if}
+                    {if $childItem->hasIcon()}<i class="{$childItem->getIcon()}"></i> {/if}
                     {$childItem->getLabel()}
-                    {if $childItem->hasBadge()}&nbsp;<span class="badge">{$childItem->getBadge()}</span>{/if}
+                    {if $childItem->hasBadge()} <span class="badge">{$childItem->getBadge()}</span>{/if}
                   </a>
                 {else}
                   <div menuItemName="{$childItem->getName()}" class="p-3 hover-accent{if $childItem->getClass()} {$childItem->getClass()}{/if}" id="{$childItem->getId()}">
-                    {if $childItem->hasIcon()}<i class="{$childItem->getIcon()}"></i>&nbsp;{/if}
+                    {if $childItem->hasIcon()}<i class="{$childItem->getIcon()}"></i> {/if}
                     {$childItem->getLabel()}
-                    {if $childItem->hasBadge()}&nbsp;<span class="badge">{$childItem->getBadge()}</span>{/if}
+                    {if $childItem->hasBadge()} <span class="badge">{$childItem->getBadge()}</span>{/if}
                   </div>
                 {/if}
               {/foreach}
             </div>
           {/if}
+          {* Panel footer content *}
           {if $item->hasFooterHtml()}
             <div class="card-footer">
               {$item->getFooterHtml()}
@@ -238,31 +258,29 @@
         </div>
       {/function}
 
+      {* Render full-width panels with colspan *}
       {foreach $panels as $item}
         {if $item->getExtra('colspan')}
           {outputHomePanels}
           {assign "panels" $panels->removeChild($item->getName())}
         {/if}
       {/foreach}
-
     </div>
+    {* Left column for odd-indexed panels *}
     <div class="col-md-6 col-lg-12 col-xl-6 d-flex flex-column row-gap-4">
-
       {foreach $panels as $item}
         {if $item@iteration is odd}
           {outputHomePanels}
         {/if}
       {/foreach}
-
     </div>
+    {* Right column for even-indexed panels *}
     <div class="col-md-6 col-lg-12 col-xl-6 d-flex flex-column row-gap-4">
-
       {foreach $panels as $item}
         {if $item@iteration is even}
           {outputHomePanels}
         {/if}
       {/foreach}
-
     </div>
   </div>
 </div>
