@@ -1,5 +1,5 @@
 {* Announcements Area *}
-<div class="announcements-area">
+<div class="announcements-area mb-10">
   {* Section Title *}
   {include file="$template/components/heading/SectionTitle.tpl" headline="{lang key="announcementsHeadline"}" tagline="{lang key="announcementsTagline"}"}
   {* announcements *}
@@ -15,8 +15,8 @@
 </div>
 
 {if $prevpage || $nextpage}
-  {* Announcements Pagination *}
-  {include file="$template/components/paginations/AnnouncementsPagination.tpl"}
+  {* Master Pagination *}
+  {include file="$template/components/paginations/MasterPagination.tpl"}
 {/if}
 
 {if $announcementsFbRecommend}
