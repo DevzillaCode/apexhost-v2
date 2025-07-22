@@ -60,9 +60,9 @@
     {* Table for displaying payment methods *}
     <div class="border rounded-md overflow-hidden mb-10">
       <div class="table-responsive">
-        <table class="table table-striped" id="payMethodList">
+        <table class="table" id="payMethodList">
           {* Table header *}
-          <thead class="thead bg-muted">
+          <thead class="thead">
             <tr>
               <th class="order-head"></th>
               <th class="table-head">{lang key="paymentMethods.name"}</th>

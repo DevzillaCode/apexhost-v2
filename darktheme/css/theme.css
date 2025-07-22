@@ -42,6 +42,7 @@
   --space-5: 1.25rem; /* 20px */
   --space-6: 1.5rem; /* 24px */
   --space-8: 2rem; /* 32px */
+  --space-9: 2.25rem; /* 36px */
   --space-10: 2.5rem; /* 40px */
   --space-11: 2.625rem; /* 42px */
   --space-12: 3rem; /* 48px */
@@ -1757,50 +1758,6 @@ pre code {
     margin-left: 91.6666666667%;
   }
 }
-
-/* Table */
-.table-responsive {
-  overflow-x: auto;
-  width: 100%;
-  -webkit-overflow-scrolling: touch;
-}
-.table {
-  width: 100%;
-  border-collapse: collapse;
-  min-width: 1000px;
-}
-.table .table-head {
-  padding: 0.75rem 1rem;
-  font-weight: 500;
-  color: var(--foreground);
-}
-.table-row {
-  transition: all 0.15s var(--transition-function-1);
-}
-.table-row:hover {
-  background-color: color-mix(in srgb, var(--muted) 50%, transparent);
-}
-.table-cell {
-  padding: 0.5rem 1rem;
-  vertical-align: middle;
-}
-.tbody .table-row:not(:last-child) {
-  border-bottom: 1px solid var(--border);
-}
-.thead .order-head + .table-head:nth-child(2),
-.tbody .table-row .order-cell + .table-cell:nth-child(2) {
-  padding-inline-start: 0;
-}
-.order-head,
-.order-cell {
-  width: 40px;
-  text-align: center;
-}
-.order-head svg,
-.order-cell svg {
-  width: 14px;
-  color: var(--muted-foreground);
-}
 /* ----------------------------------- */
 
 /* form-control */
@@ -2799,7 +2756,6 @@ textarea.form-control.is-invalid {
   --btn-hover-bg: color-mix(in srgb, var(--color-indigo-200), transparent 90%);
   --btn-border: transparent;
   --btn-hover-border: transparent;
-  --outline-color: color-mix(in srgb, var(--color-indigo-500), transparent 80%);
 }
 .btn-ghost-secondary {
   --btn-color: var(--color-neutral-500);
@@ -2808,7 +2764,6 @@ textarea.form-control.is-invalid {
   --btn-hover-bg: color-mix(in srgb, var(--color-neutral-200), transparent 90%);
   --btn-border: transparent;
   --btn-hover-border: transparent;
-  --btn-outline-color: color-mix(in srgb, var(--color-neutral-500), transparent 80%);
 }
 .btn-ghost-success {
   --btn-color: var(--color-green-600);
@@ -2817,7 +2772,6 @@ textarea.form-control.is-invalid {
   --btn-hover-bg: color-mix(in srgb, var(--color-green-200), transparent 90%);
   --btn-border: transparent;
   --btn-hover-border: transparent;
-  --btn-outline-color: color-mix(in srgb, var(--color-green-500), transparent 80%);
 }
 .btn-ghost-danger {
   --btn-color: var(--color-red-400);
@@ -2826,7 +2780,6 @@ textarea.form-control.is-invalid {
   --btn-hover-bg: color-mix(in srgb, var(--color-red-200), transparent 90%);
   --btn-border: transparent;
   --btn-hover-border: transparent;
-  --btn-outline-color: color-mix(in srgb, var(--color-red-500), transparent 80%);
 }
 .btn-ghost-warning {
   --btn-color: var(--color-yellow-600);
@@ -2835,7 +2788,6 @@ textarea.form-control.is-invalid {
   --btn-hover-bg: color-mix(in srgb, var(--color-yellow-200), transparent 90%);
   --btn-border: transparent;
   --btn-hover-border: transparent;
-  --btn-outline-color: color-mix(in srgb, var(--color-yellow-500), transparent 80%);
 }
 .btn-ghost-info {
   --btn-color: var(--color-cyan-600);
@@ -2844,7 +2796,6 @@ textarea.form-control.is-invalid {
   --btn-hover-bg: color-mix(in srgb, var(--color-cyan-200), transparent 90%);
   --btn-border: transparent;
   --btn-hover-border: transparent;
-  --btn-outline-color: color-mix(in srgb, var(--color-cyan-500), transparent 80%);
 }
 .btn-ghost-light {
   --btn-color: var(--foreground);
@@ -2853,7 +2804,6 @@ textarea.form-control.is-invalid {
   --btn-hover-bg: color-mix(in srgb, var(--accent), transparent 50%);
   --btn-border: transparent;
   --btn-hover-border: transparent;
-  --btn-outline-color: color-mix(in srgb, var(--accent), transparent 80%);
 }
 .btn-ghost-dark {
   --btn-color: var(--color-gray-500);
@@ -2862,7 +2812,6 @@ textarea.form-control.is-invalid {
   --btn-hover-bg: color-mix(in srgb, var(--color-gray-200), transparent 90%);
   --btn-border: transparent;
   --btn-hover-border: transparent;
-  --btn-outline-color: color-mix(in srgb, var(--color-gray-700), transparent 80%);
 }
 
 /* Ghost Button States */
@@ -2902,7 +2851,6 @@ textarea.form-control.is-invalid {
 .btn-ghost-dark:not(:disabled):focus {
   color: var(--btn-hover-color);
   background-color: var(--btn-hover-bg);
-  outline-color: var(--btn-outline-color);
   border-color: var(--btn-hover-border);
 }
 
@@ -4704,87 +4652,6 @@ input[type="button"].btn-block {
 .accordion > .mc-promo-login > .card-header {
   border-radius: 0;
   margin-bottom: -1px;
-}
-
-.pagination {
-  display: flex;
-  padding-left: 0;
-  list-style: none;
-  border-radius: 0.25rem;
-}
-
-.page-link {
-  position: relative;
-  display: block;
-  padding: 0.5rem 0.75rem;
-  margin-left: -1px;
-  line-height: 1.25;
-  color: #336699;
-  background-color: #fff;
-  border: 1px solid var(--border);
-}
-.page-link:hover {
-  z-index: 2;
-  color: #204060;
-  text-decoration: none;
-  background-color: #e9ecef;
-  border-color: #dee2e6;
-}
-.page-link:focus {
-  z-index: 3;
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(51, 102, 153, 0.25);
-}
-
-.page-item:first-child .page-link {
-  margin-left: 0;
-  border-top-left-radius: 0.25rem;
-  border-bottom-left-radius: 0.25rem;
-}
-.page-item:last-child .page-link {
-  border-top-right-radius: 0.25rem;
-  border-bottom-right-radius: 0.25rem;
-}
-.page-item.active .page-link {
-  z-index: 3;
-  color: #fff;
-  background-color: #336699;
-  border-color: #336699;
-}
-.page-item.disabled .page-link {
-  color: #6c757d;
-  pointer-events: none;
-  cursor: auto;
-  background-color: #fff;
-  border-color: #dee2e6;
-}
-
-.pagination-lg .page-link {
-  padding: 0.75rem 1.5rem;
-  font-size: 1.25rem;
-  line-height: 1.5;
-}
-.pagination-lg .page-item:first-child .page-link {
-  border-top-left-radius: 0.3rem;
-  border-bottom-left-radius: 0.3rem;
-}
-.pagination-lg .page-item:last-child .page-link {
-  border-top-right-radius: 0.3rem;
-  border-bottom-right-radius: 0.3rem;
-}
-
-.pagination-sm .page-link {
-  padding: 0.25rem 0.5rem;
-  font-size: 0.875rem;
-  line-height: 1.5;
-}
-.pagination-sm .page-item:first-child .page-link {
-  border-top-left-radius: 0.2rem;
-  border-bottom-left-radius: 0.2rem;
-}
-.pagination-sm .page-item:last-child .page-link {
-  border-top-right-radius: 0.2rem;
-  border-bottom-right-radius: 0.2rem;
 }
 
 .badge {
@@ -14296,89 +14163,6 @@ div.product-details-tab-container {
 
 .tld-sale-group-new {
   background-color: #2ad588;
-}
-
-.dataTables_wrapper table.table-list {
-  margin: 10px 0 !important;
-  width: 100% !important;
-  border-radius: 4px;
-  border: 1px solid #ddd;
-}
-
-.dataTables_wrapper table.table-list thead th {
-  border-bottom: 4px solid rgba(29, 57, 101, 0.2);
-  font-weight: normal;
-}
-
-.dataTables_wrapper table.table-list thead th:first-child {
-  border-radius: 4px 0 0 0;
-}
-
-.dataTables_wrapper table.table-list thead th:visible:last-child {
-  border-radius: 4px 0 0 0;
-}
-
-.dataTables_wrapper table.table-list tr:last-child td:first-child {
-  border-radius: 0 0 0 4px;
-}
-
-.dataTables_wrapper table.table-list tr:last-child td:visible:last-child {
-  border-radius: 0 0 4px 0;
-}
-
-.dataTables_wrapper table.table-list thead th.sorting_asc,
-.dataTables_wrapper table.table-list thead th.sorting_desc {
-  background-color: #f6f6f6;
-}
-
-.dataTables_wrapper .dataTables_filter {
-  float: right;
-}
-
-.dataTables_wrapper .dataTables_filter label .form-control {
-  background: url("../../../assets/img/search.png") #fff no-repeat 8px 5px;
-  padding: 7px 10px 7px 45px !important;
-  height: auto;
-  font-size: 0.9rem;
-}
-
-@media (max-width: 600px) {
-  .dataTables_wrapper .dataTables_info {
-    padding: 9px 10px 40px;
-  }
-  .dataTables_wrapper .dataTables_filter {
-    float: right;
-    margin-top: 30px;
-    width: 100%;
-  }
-  .dataTables_wrapper .dataTables_filter label {
-    display: block;
-    margin: 5px;
-    padding: 0;
-  }
-  .dataTables_wrapper .dataTables_filter label .form-control {
-    margin: 0;
-    width: 100%;
-  }
-}
-.dataTables_wrapper .dataTables_paginate {
-  float: right;
-}
-
-.pagination > li > a,
-.pagination > li > span {
-  color: #444;
-}
-
-.pagination > .active > a,
-.pagination > .active > a:focus,
-.pagination > .active > a:hover,
-.pagination > .active > span,
-.pagination > .active > span:focus,
-.pagination > .active > span:hover,
-.page-item.active .page-link {
-  background-color: #4f5360;
-  border-color: #4f5360;
 }
 
 table.table-list thead th {
