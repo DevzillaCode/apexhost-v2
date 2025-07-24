@@ -47,22 +47,71 @@
 				{* First Name field *}
 				<div class="form-group">
 					<label for="inputFirstName" class="col-form-label">{lang key='clientareafirstname'}</label>
-					<input type="text" name="firstname" id="inputFirstName" value="{$formdata.firstname}" class="form-control" />
+					{* prepend-icon *}
+					<div class="prepend-icon">
+						{* form-float-icon *}
+						<div class="form-float-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-icon lucide-user">
+								<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+								<circle cx="12" cy="7" r="4"></circle>
+							</svg>
+						</div>
+						{* form-control *}
+						<input type="text" name="firstname" id="inputFirstName" value="{$formdata.firstname}" class="form-control" />
+					</div>
 				</div>
 				{* Last Name field *}
 				<div class="form-group">
 					<label for="inputLastName" class="col-form-label">{lang key='clientarealastname'}</label>
-					<input type="text" name="lastname" id="inputLastName" value="{$formdata.lastname}" class="form-control" />
+					{* prepend-icon *}
+					<div class="prepend-icon">
+						{* form-float-icon *}
+						<div class="form-float-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-icon lucide-user">
+								<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"></path>
+								<circle cx="12" cy="7" r="4"></circle>
+							</svg>
+						</div>
+						{* form-control *}
+						<input type="text" name="lastname" id="inputLastName" value="{$formdata.lastname}" class="form-control" />
+					</div>
 				</div>
 				{* Company Name field *}
 				<div class="form-group">
 					<label for="inputCompanyName" class="col-form-label">{lang key='clientareacompanyname'}</label>
-					<input type="text" name="companyname" id="inputCompanyName" value="{$formdata.companyname}" class="form-control" />
+					{* prepend-icon *}
+					<div class="prepend-icon">
+						{* form-float-icon *}
+						<div class="form-float-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building2-icon lucide-building-2">
+								<path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
+								<path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
+								<path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path>
+								<path d="M10 6h4"></path>
+								<path d="M10 10h4"></path>
+								<path d="M10 14h4"></path>
+								<path d="M10 18h4"></path>
+							</svg>
+						</div>
+						{* form-control *}
+						<input type="text" name="companyname" id="inputCompanyName" value="{$formdata.companyname}" class="form-control" />
+					</div>
 				</div>
 				{* Email field *}
 				<div class="form-group">
 					<label for="inputEmail" class="col-form-label">{lang key='clientareaemail'}</label>
-					<input type="email" name="email" id="inputEmail" value="{$formdata.email}" class="form-control" />
+					{* prepend-icon *}
+					<div class="prepend-icon">
+						{* form-float-icon *}
+						<div class="form-float-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail">
+								<path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7"></path>
+								<rect x="2" y="4" width="20" height="16" rx="2"></rect>
+							</svg>
+						</div>
+						{* form-control *}
+						<input type="email" name="email" id="inputEmail" value="{$formdata.email}" class="form-control" />
+					</div>
 				</div>
 				{* Phone Number field *}
 				<div class="form-group">
@@ -72,7 +121,21 @@
 				{* Tax ID field *}
 				<div class="form-group">
 					<label for="inputTaxId" class="col-form-label">{lang key=$taxIdLabel}</label>
-					<input type="text" name="tax_id" id="inputTaxId" class="form-control" value="{$formdata.tax_id}" />
+					{* prepend-icon *}
+					<div class="prepend-icon">
+						{* form-float-icon *}
+						<div class="form-float-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-id-card-icon lucide-id-card">
+								<path d="M16 10h2" />
+								<path d="M16 14h2" />
+								<path d="M6.17 15a3 3 0 0 1 5.66 0" />
+								<circle cx="9" cy="11" r="2" />
+								<rect x="2" y="5" width="20" height="14" rx="2" />
+							</svg>
+						</div>
+						{* form-control *}
+						<input type="text" name="tax_id" id="inputTaxId" class="form-control" value="{$formdata.tax_id}" />
+					</div>
 				</div>
 			</div>
 			{* Right column for address details *}
@@ -80,32 +143,107 @@
 				{* Address Line 1 field *}
 				<div class="form-group">
 					<label for="inputAddress1" class="col-form-label">{lang key='clientareaaddress1'}</label>
-					<input type="text" name="address1" id="inputAddress1" value="{$formdata.address1}" class="form-control" />
+					{* prepend-icon *}
+					<div class="prepend-icon">
+						{* form-float-icon *}
+						<div class="form-float-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-icon lucide-map-pin">
+								<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+								<circle cx="12" cy="10" r="3"></circle>
+							</svg>
+						</div>
+						{* form-control *}
+						<input type="text" name="address1" id="inputAddress1" value="{$formdata.address1}" class="form-control" />
+					</div>
 				</div>
 				{* Address Line 2 field *}
 				<div class="form-group">
 					<label for="inputAddress2" class="col-form-label">{lang key='clientareaaddress2'}</label>
-					<input type="text" name="address2" id="inputAddress2" value="{$formdata.address2}" class="form-control" />
+					{* prepend-icon *}
+					<div class="prepend-icon">
+						{* form-float-icon *}
+						<div class="form-float-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-icon lucide-map-pin">
+								<path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"></path>
+								<circle cx="12" cy="10" r="3"></circle>
+							</svg>
+						</div>
+						{* form-control *}
+						<input type="text" name="address2" id="inputAddress2" value="{$formdata.address2}" class="form-control" />
+					</div>
 				</div>
 				{* City field *}
 				<div class="form-group">
 					<label for="inputCity" class="col-form-label">{lang key='clientareacity'}</label>
-					<input type="text" name="city" id="inputCity" value="{$formdata.city}" class="form-control" />
+					{* prepend-icon *}
+					<div class="prepend-icon">
+						{* form-float-icon *}
+						<div class="form-float-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building2-icon lucide-building-2">
+								<path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z"></path>
+								<path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2"></path>
+								<path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2"></path>
+								<path d="M10 6h4"></path>
+								<path d="M10 10h4"></path>
+								<path d="M10 14h4"></path>
+								<path d="M10 18h4"></path>
+							</svg>
+						</div>
+						{* form-control *}
+						<input type="text" name="city" id="inputCity" value="{$formdata.city}" class="form-control" />
+					</div>
 				</div>
 				{* State field *}
 				<div class="form-group">
 					<label for="inputState" class="col-form-label">{lang key='clientareastate'}</label>
-					<input type="text" name="state" id="inputState" value="{$formdata.state}" class="form-control" />
+					{* prepend-icon *}
+					<div class="prepend-icon">
+						{* form-float-icon *}
+						<div class="form-float-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-milestone-icon lucide-milestone">
+								<path d="M12 13v8"></path>
+								<path d="M12 3v3"></path>
+								<path d="M4 6a1 1 0 0 0-1 1v5a1 1 0 0 0 1 1h13a2 2 0 0 0 1.152-.365l3.424-2.317a1 1 0 0 0 0-1.635l-3.424-2.318A2 2 0 0 0 17 6z"></path>
+							</svg>
+						</div>
+						{* form-control *}
+						<input type="text" name="state" id="inputState" value="{$formdata.state}" class="form-control" />
+					</div>
 				</div>
 				{* Postcode field *}
 				<div class="form-group">
 					<label for="inputPostcode" class="col-form-label">{lang key='clientareapostcode'}</label>
-					<input type="text" name="postcode" id="inputPostcode" value="{$formdata.postcode}" class="form-control" />
+					{* prepend-icon *}
+					<div class="prepend-icon">
+						{* form-float-icon *}
+						<div class="form-float-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scan-icon lucide-scan">
+								<path d="M3 7V5a2 2 0 0 1 2-2h2"></path>
+								<path d="M17 3h2a2 2 0 0 1 2 2v2"></path>
+								<path d="M21 17v2a2 2 0 0 1-2 2h-2"></path>
+								<path d="M7 21H5a2 2 0 0 1-2-2v-2"></path>
+							</svg>
+						</div>
+						{* form-control *}
+						<input type="text" name="postcode" id="inputPostcode" value="{$formdata.postcode}" class="form-control" />
+					</div>
 				</div>
 				{* Country dropdown *}
 				<div class="form-group">
 					<label class="col-form-label" for="country">{lang key='clientareacountry'}</label>
-					{$countriesdropdown|replace:'<select':'<select class="form-control custom-country-dropdown"'}
+					{* prepend-icon *}
+					<div class="prepend-icon">
+						{* form-float-icon *}
+						<div class="form-float-icon">
+							<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe-icon lucide-globe">
+								<circle cx="12" cy="12" r="10" />
+								<path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+								<path d="M2 12h20" />
+							</svg>
+						</div>
+						{* form-control *}
+						{$countriesdropdown|replace:'<select':'<select class="form-control custom-country-dropdown"'}
+					</div>
 				</div>
 			</div>
 		</div>

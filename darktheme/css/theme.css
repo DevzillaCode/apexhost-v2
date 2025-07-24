@@ -2002,7 +2002,6 @@ textarea.form-control {
   cursor: pointer;
   -webkit-user-select: none;
   user-select: none;
-  flex-wrap: wrap;
 }
 
 /* form-check -> input */

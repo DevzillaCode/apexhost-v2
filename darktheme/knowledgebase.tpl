@@ -1,5 +1,12 @@
+{* page-title *}
+{include file="$template/components/heading/PageTitle.tpl" headline="{lang key='knowledgebasetitle'}" tagline="{lang key='knowledgebasetagline'}"}
+
 {* Search Form *}
-{include file="$template/components/search/KnowledgebaseSearch.tpl"}
+<div class="card mb-8">
+  <div class="card-body">
+    {include file="$template/components/search/KnowledgebaseSearch.tpl"}
+  </div>
+</div>
 
 {if $kbcats}
   <div class="row small-gutters">

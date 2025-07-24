@@ -1,7 +1,7 @@
 {* Announcements Area *}
 <div class="announcements-area mb-10">
-  {* Section Title *}
-  {include file="$template/components/heading/SectionTitle.tpl" headline="{lang key="announcementsHeadline"}" tagline="{lang key="announcementsTagline"}"}
+  {* page-title *}
+  {include file="$template/components/heading/PageTitle.tpl" headline="{lang key='announcementsHeadline'}" tagline="{lang key='announcementsTagline'}"}
   {* announcements *}
   <div class="announcements-list">
     {foreach $announcements as $announcement}
