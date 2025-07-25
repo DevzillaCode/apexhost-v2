@@ -661,8 +661,8 @@
   padding: 0.2em 0.6em 0.3em;
   font-size: 75%;
   font-weight: 600;
-  line-height: 1;
-  color: #fff;
+  /* line-height: 1; */
+  color: var(--foreground);
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
@@ -800,10 +800,16 @@
 .table-cell {
   padding: 0.5rem 1rem;
   vertical-align: middle;
+  min-height: 44px;
 }
 .thead .order-head + .table-head:nth-child(2),
 .tbody .table-row .order-cell + .table-cell:nth-child(2) {
   padding-inline-start: 0;
+}
+
+/* extra-padding-table-cells */
+.extra-padding-table-cells .table-cell {
+  padding: 0.75rem 1rem;
 }
 
 /* order */
@@ -816,6 +822,11 @@
 .order-cell svg {
   width: 14px;
   color: var(--muted-foreground);
+}
+
+/* dataTables_empty */
+.dataTables_empty {
+  padding: 0.75rem 1rem;
 }
 /* ----------------------------------- */
 
@@ -921,7 +932,6 @@
 .pagination .pagination-link svg {
   width: 16px;
 }
-.pagination .previous .pagination-link {}
 @media (max-width: 600px) {
   .pagination {
     display: flex;
@@ -1002,5 +1012,86 @@
     border-top-right-radius: 0.2rem;
     border-bottom-right-radius: 0.2rem;
   }
+}
+/* ----------------------------------- */
+
+/* : Card : */
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: var(--card);
+  background-clip: border-box;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: all 0.15s var(--transition-function-1);
+}
+.card-header {
+  padding: 1rem;
+  margin-bottom: 0;
+  background-color: rgba(0, 0, 0, 0.03);
+  border-bottom: 1px solid var(--border);
+}
+.card-title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  margin-bottom: 1rem
+}
+.card-body {
+  padding: 1rem;
+}
+.card-footer {
+  padding: 14px 20px;
+  border-top: 1px solid var(--border);
+}
+.card-footer:last-child {
+  border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
+}
+/* ----------------------------------- */
+
+/* : Tickets : */
+.posted-by {
+  background-color: color-mix(in srgb, var(--accent), transparent 80%);
+  padding: 0.5rem 1rem;
+}
+.ticket-reply {
+  background-color: color-mix(in srgb, var(--accent), transparent 80%);
+  margin: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+.ticket-message {
+  line-height: 1.6;
+}
+.ticket-message p:not(:last-child) {
+  margin-bottom: 1rem;
+}
+.attachment-list {
+  list-style: none;
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  gap: 1rem;
+}
+.attachment-list .attachment-item {
+  background-color: color-mix(in srgb, var(--accent), transparent 80%);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  transition: all 0.15s var(--transition-function-1);
+}
+.attachment-list .attachment-item:hover {
+  background-color: color-mix(in srgb, var(--accent), transparent 60%);
+}
+.attachment-list .attachment-item figure {
+  margin-bottom: 0.5rem
+}
+.recent-ticket {
+  overflow: hidden;
+  width: 100%;
 }
 /* ----------------------------------- */

@@ -460,6 +460,10 @@
   border-radius: var(--theme-radius);
   color: var(--popover-foreground);
   transition: all 0.15s var(--transition-function-1);
+  overflow: hidden;
+}
+.theme-sidebar-panel .sidebar-list-item.ticket-details-children {
+  display: block;
 }
 .theme-sidebar-panel .sidebar-list-item.no-action {
   color: var(--muted-foreground);

@@ -328,7 +328,7 @@ nav,
 section {
   display: block;
 }
-div, span, label, input, input::placeholder, button, a, ul, li, p {
+div, span:not(.fas, .far), label, input, input::placeholder, button, a, ul, li, p {
   font-family: var(--font-family-base) !important;
   font-weight: 400;
 }
@@ -1777,6 +1777,9 @@ pre code {
   outline: 2px solid transparent;
   outline-offset: 2px;
   transition: all 0.15s var(--transition-function-1, ease-out);
+}
+.form-control[type="file"] {
+  line-height: 1;
 }
 @media (prefers-reduced-motion: reduce) {
   .form-control {
@@ -4379,7 +4382,6 @@ input[type="button"].btn-block {
   top: 1rem;
 }
 
-.card,
 .mc-promo-manage,
 .mc-promo-login {
   position: relative;
@@ -4437,7 +4439,6 @@ input[type="button"].btn-block {
   border-top: 0;
 }
 
-.card-body,
 .mc-promo-manage .content,
 .mc-promo-login .content {
   flex: 1 1 auto;
@@ -4445,7 +4446,6 @@ input[type="button"].btn-block {
   padding: 1.5rem !important;
 }
 
-.card-title,
 .mc-promo-manage .panel-heading h3,
 .mc-promo-login .panel-heading h3,
 .promo-container .header h3 {
@@ -4466,21 +4466,6 @@ input[type="button"].btn-block {
 }
 .card-link + .card-link {
   margin-left: 1.25rem;
-}
-
-.card-header {
-  padding: 1rem;
-  margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.03);
-  border-bottom: 1px solid var(--border);
-}
-
-.card-footer {
-  padding: 14px 20px;
-  border-top: 1px solid var(--border);
-}
-.card-footer:last-child {
-  border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
 }
 
 .card-header-tabs {
@@ -11084,7 +11069,6 @@ header.header .dropdown-item:active {
   margin-left: auto;
   margin-right: auto;
 }
-.primary-content .card-body,
 .primary-content .mc-promo-manage .content,
 .mc-promo-manage .primary-content .content,
 .primary-content .mc-promo-login .content,
@@ -11109,19 +11093,6 @@ header.header .dropdown-item:active {
   .mc-promo-login .primary-content .extra-padding.content {
     padding: 3rem;
   }
-}
-.primary-content .card-title,
-.primary-content .mc-promo-manage .panel-heading h3,
-.mc-promo-manage .panel-heading .primary-content h3,
-.primary-content .mc-promo-login .panel-heading h3,
-.mc-promo-login .panel-heading .primary-content h3,
-.primary-content .promo-container .header h3,
-.promo-container .header .primary-content h3 {
-  margin: 0 0 20px 0;
-  padding: 0;
-  font-size: var(--text-xl);
-  font-weight: 600;
-  color: var(--card-foreground);
 }
 
 footer.footer {
@@ -11764,7 +11735,6 @@ fieldset[disabled] .btn-default.focus {
   color: white;
 }
 
-.sidebar .card-title,
 .sidebar .mc-promo-manage .panel-heading h3,
 .mc-promo-manage .panel-heading .sidebar h3,
 .sidebar .mc-promo-login .panel-heading h3,
@@ -11910,7 +11880,6 @@ fieldset[disabled] .btn-default.focus {
 .client-home-cards .mc-promo-login {
   font-size: 0.9em;
 }
-.client-home-cards .card-title,
 .client-home-cards .mc-promo-manage .panel-heading h3,
 .mc-promo-manage .panel-heading .client-home-cards h3,
 .client-home-cards .mc-promo-login .panel-heading h3,
@@ -11919,7 +11888,6 @@ fieldset[disabled] .btn-default.focus {
 .promo-container .header .client-home-cards h3 {
   font-size: 16px;
 }
-.client-home-cards .card-body,
 .client-home-cards .mc-promo-manage .content,
 .mc-promo-manage .client-home-cards .content,
 .client-home-cards .mc-promo-login .content,
@@ -12392,12 +12360,15 @@ div[menuitemname="Active Products/Services"] .btn-view-more.disabled {
  * -------------------------
  */
 .md-editor {
-  border: 1px solid #ddd;
-  border-radius: 3px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  outline: 2px solid transparent;
 }
 
 .md-editor > .btn-toolbar {
-  background-color: #fff !important;
+  background-color: color-mix(in srgb, var(--border), transparent 80%) !important;
+  padding: 0.5rem;
 }
 
 .md-editor > .btn-toolbar .hidden {
@@ -12406,16 +12377,16 @@ div[menuitemname="Active Products/Services"] .btn-view-more.disabled {
 
 .md-editor > textarea.markdown-editor,
 .md-editor > .md-preview {
-  padding: 15px !important;
-  border-top: 1px solid #ddd !important;
-  border-bottom: 1px solid #ddd !important;
-  background-color: #fff !important;
+  padding: 1rem !important;
+  border-top: 1px solid var(--border) !important;
+  border-bottom: 1px solid var(--border) !important;
+  background-color: var(--input) !important;
 }
 
 div.md-editor.active {
   display: block;
-  border: 1px solid #ddd;
-  outline: 0;
+  outline-color: color-mix(in srgb, var(--ring), transparent 80%);
+  border-color: var(--ring);
   box-shadow: none;
 }
 
@@ -12425,7 +12396,9 @@ div.md-editor.active {
   color: #959694;
   text-align: right;
 }
-
+.md-footer {
+  background-color: color-mix(in srgb, var(--border), transparent 80%) !important;
+}
 .small-font {
   font-size: 0.9em;
 }
@@ -13391,7 +13364,6 @@ div.tweet span {
   margin-right: 6px;
 }
 
-.view-ticket .card-body,
 .view-ticket .mc-promo-manage .content,
 .mc-promo-manage .view-ticket .content,
 .view-ticket .mc-promo-login .content,
