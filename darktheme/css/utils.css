@@ -895,7 +895,7 @@
   font-weight: 500;
   transition: all 0.15s var(--transition-function-1);
 }
-.pagination-item:not(.disabled) .pagination-link:hover {
+.pagination-item:not(.disabled):not(.active) .pagination-link:hover {
   background-color: color-mix(in srgb, var(--accent) 50%, transparent);
   color: var(--foreground);
 }
@@ -907,6 +907,7 @@
   background-color: color-mix(in srgb, var(--input) 70%, transparent);
   border-color: var(--border);
   color: var(--foreground);
+  cursor: default;
 }
 
 /* prev & next */
