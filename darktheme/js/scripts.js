@@ -23793,9 +23793,9 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
             // Construct the button object
             buttonContainer = $('<button></button>');
-            buttonContainer.text(' ' + this.__localize(btnText)).addClass('btn-light btn-sm').addClass(btnClass);
+            buttonContainer.text(' ' + this.__localize(btnText)).addClass('btn-secondary btn-sm').addClass(btnClass);
             if (btnClass.match(/btn\-(primary|success|info|warning|danger|link)/)) {
-              buttonContainer.removeClass('btn-light');
+              buttonContainer.removeClass('btn-secondary').removeClass('btn-sm');
             }
             buttonContainer.attr({
               'type': 'button',
@@ -25119,7 +25119,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
           hotkey: 'Ctrl+P',
           title: 'Preview',
           btnText: 'Preview',
-          btnClass: 'btn btn-primary btn-sm',
+          btnClass: 'btn btn-primary btn-xs',
           icon: {
             glyph: 'glyphicon glyphicon-search',
             fa: 'fa fa-search',

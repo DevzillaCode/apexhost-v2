@@ -382,8 +382,8 @@ $(function () {
     // Element selectors
     selectors: {
       listTable: ".listtable",
-      filter: "#tableEmailsList_filter",
-      info: "#tableEmailsList_info",
+      filter: ".dataTables_filter",
+      info: ".dataTables_info",
     },
 
     // Classes to add to elements

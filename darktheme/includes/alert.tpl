@@ -51,9 +51,9 @@
         <h2 class="alert-title text-size-base font-weight-semibold">{$title}</h2>
       {/if}
       {if isset($message) && is_string($message)}
-        {$message|escape}
+        {$message|strip_tags|escape}
       {else}
-        {$msg|escape}
+        {$msg|strip_tags|escape}
       {/if}
     {/if}
   </div>

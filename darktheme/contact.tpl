@@ -40,7 +40,7 @@
           <form method="post" action="contact.php" role="form">
             <input type="hidden" name="action" value="send" />
             {* Form body *}
-            <div class="form-body">
+            <div class="form-body d-flex flex-column gap-4">
               {* Full Name Input *}
               <div class="form-group">
                 <label for="inputName" class="col-form-label">{lang key='contact.clientName'}</label>
@@ -99,7 +99,7 @@
                 </div>
               {/if}
               {* Submit Button *}
-              <div class="form-group mt-6">
+              <div class="form-group">
                 <button type="submit" name="submit" class="btn btn-light btn-block{$captcha->getButtonClass($captchaForm)}">{lang key='contact.send'}</button>
               </div>
             </div>

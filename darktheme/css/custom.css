@@ -460,6 +460,10 @@
   border-radius: var(--theme-radius);
   color: var(--popover-foreground);
   transition: all 0.15s var(--transition-function-1);
+  overflow: hidden;
+}
+.theme-sidebar-panel .sidebar-list-item.ticket-details-children {
+  display: block;
 }
 .theme-sidebar-panel .sidebar-list-item.no-action {
   color: var(--muted-foreground);
@@ -494,28 +498,6 @@
 }
 .theme-sidebar-panel a[href*="/knowledgebase/tag"]:hover {
   color: var(--foreground);
-}
-/* ----------------------------------- */
-
-/* Cards */
-.nt-card {
-  background-color: var(--card);
-  transition: all 0.15s var(--transition-function-1);
-}
-.nt-card.--has-hover:hover {
-  background-color: var(--popover);
-}
-
-/* nt-card-header */
-.nt-card-header {
-  border-bottom: 1px solid var(--border);
-}
-
-.nt-card .show-on-hover {
-  opacity: 0;
-}
-.nt-card:hover .show-on-hover {
-  opacity: 1;
 }
 /* ----------------------------------- */
 

@@ -52,7 +52,7 @@
     Main emails table structure
     Uses WHMCS table classes for consistent styling
   *}
-  <table id="tableEmailsList" class="table w-hidden overflow-hidden">
+  <table id="tableEmailsList" class="theme_datatable table w-hidden overflow-hidden">
     <thead class="thead">
       <tr class="table-row">
         {* Icon column (no sorting) *}
