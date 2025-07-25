@@ -4369,6 +4369,16 @@ input[type="button"].btn-block {
   color: #fff;
 }
 
+.article-card {
+  position: relative;
+  padding: 1rem;
+}
+.article-card .label {
+  position: absolute;
+  right: 1rem;
+  top: 1rem;
+}
+
 .card,
 .mc-promo-manage,
 .mc-promo-login {
@@ -4381,6 +4391,16 @@ input[type="button"].btn-block {
   background-clip: border-box;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
+  transition: all 0.15s var(--transition-function-1);
+}
+.card.--has-hover:hover {
+  background-color: var(--popover);
+}
+.card .show-on-hover {
+  opacity: 0;
+}
+.card:hover .show-on-hover {
+  opacity: 1;
 }
 .card > hr,
 .mc-promo-manage > hr,
@@ -4453,9 +4473,6 @@ input[type="button"].btn-block {
   margin-bottom: 0;
   background-color: rgba(0, 0, 0, 0.03);
   border-bottom: 1px solid var(--border);
-}
-.card-header:first-child {
-  border-radius: calc(0.25rem - 1px) calc(0.25rem - 1px) 0 0;
 }
 
 .card-footer {
@@ -4816,6 +4833,10 @@ a.badge:focus {
 }
 .alert-content {
   margin-top: 2px;
+}
+
+.alert .fas {
+  margin-top: 0.25rem;
 }
 
 

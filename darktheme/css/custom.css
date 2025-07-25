@@ -497,28 +497,6 @@
 }
 /* ----------------------------------- */
 
-/* Cards */
-.nt-card {
-  background-color: var(--card);
-  transition: all 0.15s var(--transition-function-1);
-}
-.nt-card.--has-hover:hover {
-  background-color: var(--popover);
-}
-
-/* nt-card-header */
-.nt-card-header {
-  border-bottom: 1px solid var(--border);
-}
-
-.nt-card .show-on-hover {
-  opacity: 0;
-}
-.nt-card:hover .show-on-hover {
-  opacity: 1;
-}
-/* ----------------------------------- */
-
 /* : Section Title : */
 .hero-title {
   margin-bottom: 70px;
