@@ -62,7 +62,7 @@
             >
                 <h4 class="font-size-22">Addons</h4>
                 <div>
-                    {include file="orderforms/standard_cart/service-renewal-item.tpl" renewableItems=$renewableItem.addons prefix='a-'}
+                    {include file="orderforms/apex_cart/service-renewal-item.tpl" renewableItems=$renewableItem.addons prefix='a-'}
                 </div>
             </div>
         {/if}

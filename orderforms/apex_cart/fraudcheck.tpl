@@ -1,6 +1,6 @@
-{include file="orderforms/standard_cart/common.tpl"}
+{include file="orderforms/apex_cart/common.tpl"}
 
-<div id="order-standard_cart">
+<div id="order-apex_cart">
 
     <div class="header-lined">
         <h1 class="font-size-36">
@@ -12,7 +12,7 @@
 
         <div class="col-md-10 col-md-offset-1 offset-md-1">
 
-            {include file="orderforms/standard_cart/sidebar-categories-collapsed.tpl"}
+            {include file="orderforms/apex_cart/sidebar-categories-collapsed.tpl"}
 
             <div class="alert alert-danger error-heading">
                 <i class="fas fa-exclamation-triangle"></i>

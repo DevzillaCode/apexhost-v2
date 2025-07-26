@@ -1,12 +1,9 @@
-{include file="orderforms/standard_cart/common.tpl"}
+{include file="orderforms/apex_cart/common.tpl"}
 
-{* Include sidebar toggler *}
-{include file="orderforms/apex_cart/includes/sidebar-toggle.tpl"}
-
-<div id="order-standard_cart">
+<div id="order-apex_cart">
   <div class="row cart-row justify-content-end" id="cart-row">
     <div class="cart-sidebar sidebar" id="cart-sidebar">
-      {include file="orderforms/standard_cart/sidebar-categories.tpl"}
+      {include file="orderforms/apex_cart/sidebar-categories.tpl"}
     </div>
     <div class="cart-body">
       <div class="header-lined">
@@ -19,7 +16,7 @@
           {/if}
         </h1>
       </div>
-      {include file="orderforms/standard_cart/sidebar-categories-collapsed.tpl"}
+      {include file="orderforms/apex_cart/sidebar-categories-collapsed.tpl"}
 
       {if $totalDomainCount == 0}
         <div id="no-domains" class="alert alert-warning text-center" role="alert">

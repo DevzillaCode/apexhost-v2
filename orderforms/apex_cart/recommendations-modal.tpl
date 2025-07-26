@@ -16,7 +16,7 @@
                 <div class="clearfix"></div>
             </div>
             <div class="modal-body">
-                {include file="orderforms/standard_cart/includes/product-recommendations.tpl"}
+                {include file="orderforms/apex_cart/includes/product-recommendations.tpl"}
             </div>
             <div class="modal-footer">
                 <a class="btn btn-primary" href="#" id="btnContinueRecommendationsModal" data-dismiss="modal" role="button">
