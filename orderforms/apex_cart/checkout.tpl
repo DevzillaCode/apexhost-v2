@@ -4,7 +4,7 @@
     // Do not enforce state input client side
     var stateNotRequired = true;
 </script>
-{include file="orderforms/standard_cart/common.tpl"}
+{include file="orderforms/apex_cart/common.tpl"}
 <script type="text/javascript" src="{$BASE_PATH_JS}/StatesDropdown.js"></script>
 <script type="text/javascript" src="{$BASE_PATH_JS}/PasswordStrength.js"></script>
 <script>
@@ -13,17 +13,17 @@
     window.langPasswordModerate = "{$LANG.pwstrengthmoderate}";
     window.langPasswordStrong = "{$LANG.pwstrengthstrong}";
 </script>
-<div id="order-standard_cart">
+<div id="order-apex_cart">
 
     <div class="row">
         <div class="cart-sidebar">
-            {include file="orderforms/standard_cart/sidebar-categories.tpl"}
+            {include file="orderforms/apex_cart/sidebar-categories.tpl"}
         </div>
         <div class="cart-body">
             <div class="header-lined">
                 <h1 class="font-size-36">{$LANG.orderForm.checkout}</h1>
             </div>
-            {include file="orderforms/standard_cart/sidebar-categories-collapsed.tpl"}
+            {include file="orderforms/apex_cart/sidebar-categories-collapsed.tpl"}
 
             <div class="already-registered clearfix">
                 <div class="pull-right float-right">
@@ -139,7 +139,7 @@
                         </button>
                     </div>
 
-                    {include file="orderforms/standard_cart/linkedaccounts.tpl" linkContext="checkout-existing"}
+                    {include file="orderforms/apex_cart/linkedaccounts.tpl" linkContext="checkout-existing"}
                 </div>
                 <div id="containerNewUserSignup" {if
                         $custtype === 'existing'
@@ -152,7 +152,7 @@
                     } class="w-hidden" {/if}>
 
                     <div{if $loggedin} class="w-hidden" {/if}>
-                        {include file="orderforms/standard_cart/linkedaccounts.tpl" linkContext="checkout-new"}
+                        {include file="orderforms/apex_cart/linkedaccounts.tpl" linkContext="checkout-new"}
                 </div>
 
                 <div class="sub-heading">
@@ -570,7 +570,7 @@
         <div class="cc-input-container{if $selectedgatewaytype neq "CC"} w-hidden{/if}" id="creditCardInputFields">
             {if $client}
                 <div id="existingCardsContainer" class="existing-cc-grid">
-                    {include file="orderforms/standard_cart/includes/existing-paymethods.tpl"}
+                    {include file="orderforms/apex_cart/includes/existing-paymethods.tpl"}
                 </div>
             {/if}
             <div class="row cvv-input" id="existingCardInfo">
@@ -747,4 +747,4 @@
 <script>
     var hideCvcOnCheckoutForExistingCard = '{if $canUseCreditOnCheckout && $applyCredit && ($creditBalance->toNumeric() >= $total->toNumeric())}1{else}0{/if}';
 </script>
-{include file="orderforms/standard_cart/recommendations-modal.tpl"}
+{include file="orderforms/apex_cart/recommendations-modal.tpl"}

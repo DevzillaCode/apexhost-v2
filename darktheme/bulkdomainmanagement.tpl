@@ -1,7 +1,3 @@
-{* Include sidebar toggler *}
-<!-- Include sidebar toggle component -->
-{include file="orderforms/apex_cart/includes/sidebar-toggle.tpl"}
-
 <div class="card mb-8">
   <div class="card-body">
 

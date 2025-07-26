@@ -2,7 +2,7 @@
 {include file="orderforms/apex_cart/common.tpl"}
 
 {* Main container for the standard cart order form *}
-<div id="order-standard_cart">
+<div id="order-apex_cart">
   {* row *}
   <div class="row cart-row justify-content-end" id="cart-row">
     {* Sidebar section for cart categories *}

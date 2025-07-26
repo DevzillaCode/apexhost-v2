@@ -2524,7 +2524,7 @@ var domainLookupCallCount,
 
 jQuery(document).ready(function(){
 
-    jQuery('#order-standard_cart').find('input').not('.no-icheck').iCheck({
+    jQuery('#order-apex_cart').find('input').not('.no-icheck').iCheck({
         inheritID: true,
         checkboxClass: 'icheckbox_square-blue',
         radioClass: 'iradio_square-blue',

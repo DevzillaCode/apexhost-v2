@@ -1,10 +1,10 @@
-{include file="orderforms/standard_cart/common.tpl"}
+{include file="orderforms/apex_cart/common.tpl"}
 
-<div id="order-standard_cart">
+<div id="order-apex_cart">
 
     <div class="row">
         <div class="cart-sidebar">
-            {include file="orderforms/standard_cart/sidebar-categories.tpl"}
+            {include file="orderforms/apex_cart/sidebar-categories.tpl"}
         </div>
         <div class="cart-body">
             <div class="header-lined">
@@ -12,7 +12,7 @@
                     {$LANG.registerdomain}
                 </h1>
             </div>
-            {include file="orderforms/standard_cart/sidebar-categories-collapsed.tpl"}
+            {include file="orderforms/apex_cart/sidebar-categories-collapsed.tpl"}
 
             <p>{$LANG.orderForm.findNewDomain}</p>
 

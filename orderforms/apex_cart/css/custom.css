@@ -1,26 +1,26 @@
-#order-standard_cart .cart-row {
+#order-apex_cart .cart-row {
   display: flex;
   flex-wrap: nowrap;
 }
 
-#order-standard_cart .cart-sidebar {
+#order-apex_cart .cart-sidebar {
   width: 20%;
   padding-left: 15px;
   padding-right: 15px;
 }
 @media (max-width: 1199.98px) {
-  #order-standard_cart .cart-sidebar {
+  #order-apex_cart .cart-sidebar {
     display: none !important;
   }
 }
-#order-standard_cart .cart-body {
+#order-apex_cart .cart-body {
   width: 80%;
   padding-left: 15px;
   padding-right: 15px;
   transition: all 0.3s ease;
 }
 @media (max-width: 1199.98px) {
-  #order-standard_cart .cart-body {
+  #order-apex_cart .cart-body {
     width: 100%;
   }
 }

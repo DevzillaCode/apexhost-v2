@@ -1,4 +1,4 @@
-{include file="orderforms/standard_cart/common.tpl"}
+{include file="orderforms/apex_cart/common.tpl"}
 
 <script>
 var _localLang = {
@@ -7,11 +7,11 @@ var _localLang = {
 }
 </script>
 
-<div id="order-standard_cart">
+<div id="order-apex_cart">
 
     <div class="row">
         <div class="cart-sidebar">
-            {include file="orderforms/standard_cart/sidebar-categories.tpl"}
+            {include file="orderforms/apex_cart/sidebar-categories.tpl"}
         </div>
         <div class="cart-body">
 
@@ -19,7 +19,7 @@ var _localLang = {
                 <h1 class="font-size-36">{$LANG.orderconfigure}</h1>
             </div>
 
-            {include file="orderforms/standard_cart/sidebar-categories-collapsed.tpl"}
+            {include file="orderforms/apex_cart/sidebar-categories-collapsed.tpl"}
 
             <form id="frmConfigureProduct">
                 <input type="hidden" name="configure" value="true" />
@@ -355,4 +355,4 @@ var _localLang = {
 
 <script>recalctotals();</script>
 
-{include file="orderforms/standard_cart/recommendations-modal.tpl"}
+{include file="orderforms/apex_cart/recommendations-modal.tpl"}
