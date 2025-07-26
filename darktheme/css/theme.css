@@ -4639,6 +4639,7 @@ input[type="button"].btn-block {
   justify-content: center;
   column-gap: 4px;
   font-size: var(--text-sm);
+  transition: all 0.15s var(--transition-function-1)
 }
 .badge svg {
   width: 1rem;
@@ -4670,8 +4671,8 @@ a.badge:focus {
 }
 
 .badge-primary {
-  background-color: var(--color-indigo-600);
-  color: var(--foreground);
+  background-color: var(--color-indigo-600) !important;
+  color: var(--foreground) !important;
 }
 .badge-secondary {
   background-color: var(--color-neutral-800);
@@ -10404,7 +10405,7 @@ a.close.disabled {
   color: #fff !important;
 }
 .text-primary {
-  color: var(--foreground) !important;
+  color: var(--color-indigo-600) !important;
 }
 a.text-primary:hover,
 a.text-primary:focus {
@@ -13931,15 +13932,14 @@ div.product-details-tab-container {
 
 .featured-tld {
   margin: 0 0 20px 0;
-  border-radius: 4px;
-  background-color: #fff;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+  border-radius: var(--radius-md);
+  background-color: var(--card);
+  overflow: hidden;
 }
 
 .featured-tld .img-container {
   padding: 20px 0;
-  height: 115px;
-  line-height: 75px;
+  height: 80px;
   overflow: hidden;
   text-align: center;
 }
@@ -13951,18 +13951,16 @@ div.product-details-tab-container {
   }
 }
 .featured-tld .img-container img {
-  max-width: 70%;
+  max-width: 100%;
   max-height: 100%;
+  width: 100px;
 }
 
 .featured-tld .price {
-  padding: 5px;
-  background-color: #f9f9f9;
-  color: #555;
-  font-weight: 400;
-  line-height: 28px;
+  padding: 0.5rem;
+  background-color: var(--secondary);
+  font-weight: 500;
   text-align: center;
-  border-radius: 0 0 4px 4px;
 }
 
 .featured-tld .price.blog {
@@ -14051,21 +14049,9 @@ div.product-details-tab-container {
 
 .tld-filters a {
   display: inline-block;
-  margin-bottom: 4px;
-  padding: 5px 6px;
   font-size: 90%;
   font-weight: normal;
-  border-radius: 2px;
-}
-
-.domain-pricing .tld-row {
-  padding-top: 3px;
-  padding-bottom: 3px;
-  border-bottom: 1px solid #f5f5f5;
-}
-
-.domain-pricing .tld-row.highlighted {
-  background: #f3f9fd;
+  border-radius: var(--radius-sm);
 }
 
 .domain-pricing .tld-pricing-header .col-xs-2,

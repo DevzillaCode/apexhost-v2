@@ -790,17 +790,22 @@
   transition: all 0.15s var(--transition-function-1);
 }
 .tbody .table-row:hover {
-  background-color: color-mix(in srgb, var(--accent) 20%, transparent);
+  background-color: color-mix(in srgb, var(--accent) 20%, transparent) !important;
 }
 .tbody .table-row:not(:last-child) {
   border-bottom: 1px solid var(--border);
+}
+
+/* table-striped */
+.table.table-striped .tbody .table-row:nth-of-type(odd) {
+  background-color: color-mix(in srgb, var(--accent) 10%, transparent);
 }
 
 /* table-cell */
 .table-cell {
   padding: 0.5rem 1rem;
   vertical-align: middle;
-  min-height: 44px;
+  height: 48px;
 }
 .thead .order-head + .table-head:nth-child(2),
 .tbody .table-row .order-cell + .table-cell:nth-child(2) {

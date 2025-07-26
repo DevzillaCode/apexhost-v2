@@ -14,8 +14,6 @@
 
 #order-apex_cart {
   margin: 0;
-  padding: 0 0 40px 0;
-  font-size: 14px;
 }
 
 #order-apex_cart .cart-sidebar {
@@ -583,6 +581,7 @@
   font-size: 18px;
   line-height: 1.3333333;
   border-radius: 6px 0 0 6px;
+  color: var(--black);
 }
 #order-apex_cart .form-control-qty {
   width: 70px;
@@ -993,15 +992,6 @@ a.domain-tld-pricing-category {
   text-align: center;
 }
 
-.domain-pricing .tld-row {
-  padding-top: 3px;
-  padding-bottom: 3px;
-  border-bottom: 1px solid #f5f5f5;
-}
-.domain-pricing .tld-row.highlighted {
-  background: #f3f9fd;
-}
-
 .domain-pricing .tld-pricing-header .col-xs-2,
 .domain-pricing .tld-pricing-header .col-sm-2 {
   height: 56px;
@@ -1045,8 +1035,10 @@ a.domain-tld-pricing-category {
 
 .spotlight-tlds {
   margin: 15px 0;
-  padding: 7px 14px;
-  background-color: #f8f8f8;
+  padding: 0.5rem 1rem;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
 }
 .spotlight-tlds-container {
   margin-left: -7px;
@@ -1108,12 +1100,12 @@ a.domain-tld-pricing-category {
   margin: 0;
   padding: 15px 0;
   height: 112px;
-  background-color: #fff;
-  border: 1px solid #ddd;
+  background-color: var(--popover);
+  border: 1px solid var(--border);
   border-radius: 5px;
   text-align: center;
   font-weight: bold;
-  color: #555;
+  color: var(--foreground);
 }
 .spotlight-tld span {
   display: block;
@@ -1125,9 +1117,6 @@ a.domain-tld-pricing-category {
   font-size: 12px;
   line-height: 1.5;
   border-radius: 3px;
-  background-color: #555;
-  border-color: #333;
-  color: #fff;
   width: 85%;
   white-space: nowrap;
   overflow: hidden;
@@ -1229,23 +1218,23 @@ a.domain-tld-pricing-category {
 .suggested-domains .extension {
   font-weight: bold;
 }
-.suggested-domains .promo.hot {
+.suggested-domains .promo {
   padding: 2px 8px;
+  text-transform: uppercase;
+  font-size: 12px;
+  border-radius: 4px;
+}
+.suggested-domains .promo.hot {
   background-color: #f9615a;
   color: #fff;
-  text-transform: uppercase;
 }
 .suggested-domains .promo.sale {
-  padding: 2px 8px;
   background-color: #f7d458;
   color: #fff;
-  text-transform: uppercase;
 }
 .suggested-domains .promo.new {
-  padding: 2px 8px;
   background-color: #2ad588;
   color: #fff;
-  text-transform: uppercase;
 }
 .suggested-domains .actions {
   float: right;
@@ -1259,16 +1248,12 @@ a.domain-tld-pricing-category {
   font-size: 11px;
   line-height: 1.4;
   border-radius: 3px;
-  background-color: #555;
-  border-color: #333;
-  color: #fff;
 }
 .suggested-domains .btn.domain-contact-support {
   padding: 2px 10px;
   font-size: 11px;
   line-height: 1.4;
   border-radius: 3px;
-  color: #fff;
 }
 
 @media (max-width: 767px) {
@@ -1290,19 +1275,12 @@ a.domain-tld-pricing-category {
 }
 
 .domain-promo-box {
-  margin-top: 20px;
-  margin-bottom: 20px;
   padding: 20px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  color: #333;
-  border-radius: 4px;
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
 }
-.domain-promo-box h3 {
-  margin: 0;
-  font-weight: 400;
-}
-.domain-promo-box i {
+.domain-promo-box svg {
   float: right;
 }
 .domain-promo-box p {
