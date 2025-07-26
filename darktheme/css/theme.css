@@ -4901,8 +4901,8 @@ a.badge:focus {
   position: relative;
   display: block;
   padding: 0.75rem 1.25rem;
-  background-color: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.125);
+  background-color: var(--input);
+  border: 1px solid var(--border);
 }
 .list-group-item:first-child {
   border-top-left-radius: inherit;
