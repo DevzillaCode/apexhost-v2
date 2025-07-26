@@ -10,7 +10,7 @@
   {foreach $secondarySidebar as $panel}
     <div class="panel theme-sidebar-panel mb-3">
       {* Include the sidebar categories selector for this panel *}
-      {include file="orderforms/standard_cart/sidebar-categories-selector.tpl"}
+      {include file="orderforms/apex_cart/sidebar-categories-selector.tpl"}
     </div>
   {/foreach}
 

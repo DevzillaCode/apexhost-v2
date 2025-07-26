@@ -29,7 +29,7 @@
   <div class="panel-body card-body">
     <form role="form">
       {* Dropdown select for child categories *}
-      <select class="theme-select" onchange="selectChangeNavigate(this)">
+      <select class="form-control" onchange="selectChangeNavigate(this)">
         {assign var='hasCurrent' value=false}
         {foreach $panel->getChildren() as $child}
           {* Each child becomes an option in the dropdown *}

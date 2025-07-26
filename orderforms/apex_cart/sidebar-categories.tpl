@@ -90,8 +90,8 @@
 
   {if $panel->getExtra('mobileSelect') and $panel->hasChildren()}
     {* Mobile dropdown version of the panel for small screens *}
-    <div class="panel card hidden-lg hidden-md d-md-none{if $panel->getClass()}{$panel->getClass()}{else} panel-default{/if}" {if $panel->getAttribute('id')} id="{$panel->getAttribute('id')}" {/if}>
-      {include file="orderforms/standard_cart/sidebar-categories-selector.tpl"}
+    <div class="panel hidden-lg hidden-md d-md-none{if $panel->getClass()}{$panel->getClass()}{else} panel-default{/if}" {if $panel->getAttribute('id')} id="{$panel->getAttribute('id')}" {/if}>
+      {include file="orderforms/apex_cart/sidebar-categories-selector.tpl"}
     </div>
   {/if}
 {/foreach}

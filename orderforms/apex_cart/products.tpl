@@ -1,9 +1,6 @@
 {* Include the common template file for standard cart *}
 {include file="orderforms/apex_cart/common.tpl"}
 
-{* Include sidebar toggler *}
-{include file="orderforms/apex_cart/includes/sidebar-toggle.tpl"}
-
 {* Main container for the standard cart order form *}
 <div id="order-standard_cart">
   {* row *}
