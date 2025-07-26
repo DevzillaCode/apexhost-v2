@@ -1,6 +1,6 @@
 <div{if !$addingNew} class="w-hidden"{/if}>
     <div class="form-group row bank-details">
-        <label for="inputBankAcctType" class="col-sm-4 text-md-right col-form-label">
+        <label for="inputBankAcctType" class="col-sm-4 text-md-right form-label">
             {lang key='paymentMethodsManage.accountType'}
         </label>
         <div class="col-sm-7">
@@ -15,7 +15,7 @@
         </div>
     </div>
     <div class="form-group row bank-details">
-        <label for="inputBankAcctHolderName" class="col-sm-4 text-md-right col-form-label">
+        <label for="inputBankAcctHolderName" class="col-sm-4 text-md-right form-label">
             {lang key='paymentMethodsManage.accountHolderName'}
         </label>
         <div class="col-sm-7">
@@ -26,7 +26,7 @@
         </div>
     </div>
     <div class="form-group row bank-details">
-        <label for="inputBankName" class="col-sm-4 text-md-right col-form-label">
+        <label for="inputBankName" class="col-sm-4 text-md-right form-label">
             {lang key='paymentMethodsManage.bankName'}
         </label>
         <div class="col-sm-7">
@@ -37,7 +37,7 @@
         </div>
     </div>
     <div class="form-group row bank-details">
-        <label for="inputBankRoutingNum" class="col-sm-4 text-md-right col-form-label">
+        <label for="inputBankRoutingNum" class="col-sm-4 text-md-right form-label">
             {lang key='paymentMethodsManage.sortCodeRoutingNumber'}
         </label>
         <div class="col-sm-7">
@@ -48,7 +48,7 @@
         </div>
     </div>
     <div class="form-group row bank-details">
-        <label for="inputBankAcctNum" class="col-sm-4 text-md-right col-form-label">
+        <label for="inputBankAcctNum" class="col-sm-4 text-md-right form-label">
             {lang key='paymentMethodsManage.accountNumber'}
         </label>
         <div class="col-sm-7">
@@ -59,7 +59,7 @@
         </div>
     </div>
     <div id="inputDescriptionContainer" class="form-group row bank-details">
-        <label for="inputDescription" class="col-sm-4 text-md-right col-form-label">
+        <label for="inputDescription" class="col-sm-4 text-md-right form-label">
             {lang key='paymentMethods.description'}
         </label>
         <div class="col-sm-6">

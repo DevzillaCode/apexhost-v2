@@ -56,7 +56,7 @@
 </div>
 {else}
 <!-- Show message when no knowledgebase categories are available -->
-{include file="$template/includes/alert.tpl" type="info" msg="{lang key='knowledgebasenoarticles'}" textcenter=true}
+{include file="$template/includes/alert.tpl" type="info" msg="{lang key='knowledgebasenoarticles'}"}
 {/if}
 
 <!-- Most popular articles section (only shows if popular articles exist) -->

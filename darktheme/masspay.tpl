@@ -79,7 +79,7 @@
                     <fieldset>
                         <div class="col-md-12">
                             <div class="form-group">
-                                <label for="paymentmethod" class="col-form-label">{lang key='orderpaymentmethod'}:</label><br/>
+                                <label for="paymentmethod" class="form-label">{lang key='orderpaymentmethod'}:</label><br/>
                                 <select name="paymentmethod" id="paymentmethod" class="form-control custom-select">
                                     {foreach $gateways as $gateway}
                                         <option value="{$gateway.sysname}">{$gateway.name}</option>

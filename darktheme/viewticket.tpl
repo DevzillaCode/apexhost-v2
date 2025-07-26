@@ -146,23 +146,23 @@
         {* row *}
         <div class="row row-gap-4 mb-4">
           <div class="form-group col-md-6">
-            <label for="inputName" class="col-form-label">{lang key='supportticketsclientname'}</label>
+            <label for="inputName" class="form-label">{lang key='supportticketsclientname'}</label>
             <input class="form-control" type="text" name="replyname" id="inputName" value="{$replyname}" {if $loggedin} disabled="disabled" {/if}>
           </div>
           <div class="form-group col-md-6">
-            <label for="inputEmail" class="col-form-label">{lang key='supportticketsclientemail'}</label>
+            <label for="inputEmail" class="form-label">{lang key='supportticketsclientemail'}</label>
             <input class="form-control" type="text" name="replyemail" id="inputEmail" value="{$replyemail}" {if $loggedin} disabled="disabled" {/if}>
           </div>
         </div>
         {* message *}
         <div class="form-group mb-4">
-          <label for="inputMessage" class="col-form-label">{lang key='contactmessage'}</label>
+          <label for="inputMessage" class="form-label">{lang key='contactmessage'}</label>
           <textarea name="replymessage" id="inputMessage" rows="12" class="form-control markdown-editor" data-auto-save-name="ctr{$tid}">{$replymessage}</textarea>
         </div>
 
         {* attachments *}
         <div class="form-group mb-8">
-          <label for="inputAttachments" class="col-form-label">{lang key='supportticketsticketattachments'}</label>
+          <label for="inputAttachments" class="form-label">{lang key='supportticketsticketattachments'}</label>
           <div class="input-group mb-1 attachment-group">
             <input type="file" class="form-control form-control-md" name="attachments[]" id="inputAttachment1">
             <div class="input-group-append">

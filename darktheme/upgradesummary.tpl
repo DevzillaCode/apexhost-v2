@@ -1,12 +1,12 @@
 <div class="card">
     <div class="card-body">
         {if $promoerror}
-            {include file="$template/includes/alert.tpl" type="error" msg=$promoerror textcenter=true}
+            {include file="$template/includes/alert.tpl" type="error" msg=$promoerror}
         {/if}
 
         {if $promorecurring}
             {include file="$template/includes/alert.tpl" type="info"
-            msg="{lang key='recurringpromodesc'}"|sprintf2:$promorecurring textcenter=true}
+            msg="{lang key='recurringpromodesc'}"|sprintf2:$promorecurring}
         {/if}
 
         <div class="alert alert-block alert-info text-center">
@@ -64,7 +64,7 @@
         </table>
 
         {if $type eq "package"}
-            {include file="$template/includes/alert.tpl" type="warning" msg="{lang key='upgradeproductlogic'}"|cat:' ('|cat:$upgrade.daysuntilrenewal|cat:' '|cat:"{lang key='days'}"|cat:')' textcenter=true}
+            {include file="$template/includes/alert.tpl" type="warning" msg="{lang key='upgradeproductlogic'}"|cat:' ('|cat:$upgrade.daysuntilrenewal|cat:' '|cat:"{lang key='days'}"|cat:')'}
         {/if}
 
         <div class="row">

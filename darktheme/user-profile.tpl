@@ -8,7 +8,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="inputFirstName" class="col-form-label">
+                        <label for="inputFirstName" class="form-label">
                             {lang key='clientareafirstname'}
                         </label>
                         <input
@@ -23,7 +23,7 @@
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="inputLastName" class="col-form-label">
+                        <label for="inputLastName" class="form-label">
                             {lang key='clientarealastname'}
                         </label>
                         <input
@@ -60,7 +60,7 @@
             <div class="row">
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label for="inputEmail" class="col-form-label">
+                        <label for="inputEmail" class="form-label">
                             {lang key='clientareaemail'}
                         </label>
                         <input

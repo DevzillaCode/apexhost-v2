@@ -1,7 +1,7 @@
 {if !$status}
     <div class="card py-3">
         <div class="card-body text-center">
-            {include file="$template/includes/alert.tpl" type="warning" msg="{lang key='sslinvalidlink'}" textcenter=true}
+            {include file="$template/includes/alert.tpl" type="warning" msg="{lang key='sslinvalidlink'}"}
             <button type="button" onclick="history.go(-1)" class="btn btn-primary">
                 {lang key='clientareabacklink'}
             </button>
@@ -45,7 +45,7 @@
                         <fieldset>
                             {foreach $fields as $vals}
                                 <div class="form-group row">
-                                    <label class="col-md-4 col-form-label text-md-right" for="inputAdditionalField">{$vals.name}</label>
+                                    <label class="col-md-4 form-label text-md-right" for="inputAdditionalField">{$vals.name}</label>
                                     <div class="col-md-8">
                                         {$vals.input} {$vals.description}
                                     </div>
@@ -64,28 +64,28 @@
 
                     <fieldset class="pt-3">
                         <div class="form-group row">
-                            <label class="col-sm-4 col-form-label text-md-right" for="inputFirstName">{lang key='clientareafirstname'}</label>
+                            <label class="col-sm-4 form-label text-md-right" for="inputFirstName">{lang key='clientareafirstname'}</label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" name="firstname" id="inputFirstName" value="{$firstname}" />
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-4 col-form-label text-md-right" for="inputLastName">{lang key='clientarealastname'}</label>
+                            <label class="col-sm-4 form-label text-md-right" for="inputLastName">{lang key='clientarealastname'}</label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" name="lastname" id="inputLastName" value="{$lastname}" />
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-4 col-form-label text-md-right" for="inputOrgName">{lang key='organizationname'}</label>
+                            <label class="col-sm-4 form-label text-md-right" for="inputOrgName">{lang key='organizationname'}</label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" name="orgname" id="inputOrgName" value="{$orgname}" />
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-4 col-form-label text-md-right" for="inputJobTitle">{lang key='jobtitle'}</label>
+                            <label class="col-sm-4 form-label text-md-right" for="inputJobTitle">{lang key='jobtitle'}</label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" name="jobtitle" id="inputJobTitle" value="{$jobtitle}" />
                                 <p class="form-text text-muted">{lang key='jobtitlereqforcompany'}</p>
@@ -93,49 +93,49 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-4 col-form-label text-md-right" for="inputEmail">{lang key='clientareaemail'}</label>
+                            <label class="col-sm-4 form-label text-md-right" for="inputEmail">{lang key='clientareaemail'}</label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" name="email" id="inputEmail" value="{$email}" />
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-4 col-form-label text-md-right" for="inputAddress1">{lang key='clientareaaddress1'}</label>
+                            <label class="col-sm-4 form-label text-md-right" for="inputAddress1">{lang key='clientareaaddress1'}</label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" name="address1" id="inputAddress1" value="{$address1}" />
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-4 col-form-label text-md-right" for="inputAddress2">{lang key='clientareaaddress2'}</label>
+                            <label class="col-sm-4 form-label text-md-right" for="inputAddress2">{lang key='clientareaaddress2'}</label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" name="address2" id="inputAddress2" value="{$address2}" />
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-4 col-form-label text-md-right" for="inputCity">{lang key='clientareacity'}</label>
+                            <label class="col-sm-4 form-label text-md-right" for="inputCity">{lang key='clientareacity'}</label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" name="city" id="inputCity" value="{$city}" />
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-4 col-form-label text-md-right" for="inputState">{lang key='clientareastate'}</label>
+                            <label class="col-sm-4 form-label text-md-right" for="inputState">{lang key='clientareastate'}</label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" name="state" id="inputState" value="{$state}" />
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-4 col-form-label text-md-right" for="inputPostcode">{lang key='clientareapostcode'}</label>
+                            <label class="col-sm-4 form-label text-md-right" for="inputPostcode">{lang key='clientareapostcode'}</label>
                             <div class="col-sm-8">
                                 <input type="text" class="form-control" name="postcode" id="inputPostcode" value="{$postcode}" />
                             </div>
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-4 col-form-label text-md-right" for="inputCountry">{lang key='clientareacountry'}</label>
+                            <label class="col-sm-4 form-label text-md-right" for="inputCountry">{lang key='clientareacountry'}</label>
                             <div class="col-sm-8">
                                 <select name="country" id="inputCountry" class="custom-select">
                                     {foreach $clientcountries as $thisCountryCode => $thisCountryName}
@@ -146,7 +146,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label class="col-sm-4 col-form-label text-md-right" for="inputPhoneNumber">{lang key='clientareaphonenumber'}</label>
+                            <label class="col-sm-4 form-label text-md-right" for="inputPhoneNumber">{lang key='clientareaphonenumber'}</label>
                             <div class="col-sm-8">
                                 <input type="tel" class="form-control" name="phonenumber" id="inputPhoneNumber" value="{$phonenumber}" />
                             </div>
@@ -161,7 +161,7 @@
                     </div>
                 {else}
 
-                    {include file="$template/includes/alert.tpl" type="info" msg="{lang key='sslnoconfigurationpossible'}" textcenter=true}
+                    {include file="$template/includes/alert.tpl" type="info" msg="{lang key='sslnoconfigurationpossible'}"}
 
                     <input type="hidden" name="id" value="{$serviceid}" />
                     <div class="text-center">

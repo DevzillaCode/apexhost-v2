@@ -29881,7 +29881,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 		.append(
 			$('<label/>', {
 				'for': tableId+'_search_input',
-				'class': 'col-form-label d-none'
+				'class': 'form-label d-none'
 			}).text(labelText)
 		)
 		.append( prependIconDiv );

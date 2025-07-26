@@ -5,7 +5,7 @@
 <div class="alert alert-block alert-info">
   <form role="form" method="post" action="{routePath('account-contacts')}">
     <div class="row">
-      <label for="inputContactId" class="col-md-3 col-form-label">{lang key='clientareachoosecontact'}</label>
+      <label for="inputContactId" class="col-md-3 form-label">{lang key='clientareachoosecontact'}</label>
       <div class="col-md-6">
         <select name="contactid" id="inputContactId" onchange="submit()" class="form-control custom-select">
           {foreach $contacts as $contact}
@@ -38,32 +38,32 @@
         <div class="col-md-6">
 
           <div class="form-group">
-            <label for="inputFirstName" class="col-form-label">{lang key='clientareafirstname'}</label>
+            <label for="inputFirstName" class="form-label">{lang key='clientareafirstname'}</label>
             <input type="text" name="firstname" id="inputFirstName" value="{$formdata.firstname}" class="form-control" />
           </div>
 
           <div class="form-group">
-            <label for="inputLastName" class="col-form-label">{lang key='clientarealastname'}</label>
+            <label for="inputLastName" class="form-label">{lang key='clientarealastname'}</label>
             <input type="text" name="lastname" id="inputLastName" value="{$formdata.lastname}" class="form-control" />
           </div>
 
           <div class="form-group">
-            <label for="inputCompanyName" class="col-form-label">{lang key='clientareacompanyname'}</label>
+            <label for="inputCompanyName" class="form-label">{lang key='clientareacompanyname'}</label>
             <input type="text" name="companyname" id="inputCompanyName" value="{$formdata.companyname}" class="form-control" />
           </div>
 
           <div class="form-group">
-            <label for="inputEmail" class="col-form-label">{lang key='clientareaemail'}</label>
+            <label for="inputEmail" class="form-label">{lang key='clientareaemail'}</label>
             <input type="email" name="email" id="inputEmail" value="{$formdata.email}" class="form-control" />
           </div>
 
           <div class="form-group">
-            <label for="inputPhone" class="col-form-label">{lang key='clientareaphonenumber'}</label>
+            <label for="inputPhone" class="form-label">{lang key='clientareaphonenumber'}</label>
             <input type="tel" name="phonenumber" id="inputPhone" value="{$formdata.phonenumber}" class="form-control" />
           </div>
 
           <div class="form-group">
-            <label for="inputTaxId" class="col-form-label">{lang key=$taxIdLabel}</label>
+            <label for="inputTaxId" class="form-label">{lang key=$taxIdLabel}</label>
             <input type="text" name="tax_id" id="inputTaxId" class="form-control" value="{$formdata.tax_id}" />
           </div>
 
@@ -71,32 +71,32 @@
         <div class="col-md-6 col-12 float-right">
 
           <div class="form-group">
-            <label for="inputAddress1" class="col-form-label">{lang key='clientareaaddress1'}</label>
+            <label for="inputAddress1" class="form-label">{lang key='clientareaaddress1'}</label>
             <input type="text" name="address1" id="inputAddress1" value="{$formdata.address1}" class="form-control" />
           </div>
 
           <div class="form-group">
-            <label for="inputAddress2" class="col-form-label">{lang key='clientareaaddress2'}</label>
+            <label for="inputAddress2" class="form-label">{lang key='clientareaaddress2'}</label>
             <input type="text" name="address2" id="inputAddress2" value="{$formdata.address2}" class="form-control" />
           </div>
 
           <div class="form-group">
-            <label for="inputCity" class="col-form-label">{lang key='clientareacity'}</label>
+            <label for="inputCity" class="form-label">{lang key='clientareacity'}</label>
             <input type="text" name="city" id="inputCity" value="{$formdata.city}" class="form-control" />
           </div>
 
           <div class="form-group">
-            <label for="inputState" class="col-form-label">{lang key='clientareastate'}</label>
+            <label for="inputState" class="form-label">{lang key='clientareastate'}</label>
             <input type="text" name="state" id="inputState" value="{$formdata.state}" class="form-control" />
           </div>
 
           <div class="form-group">
-            <label for="inputPostcode" class="col-form-label">{lang key='clientareapostcode'}</label>
+            <label for="inputPostcode" class="form-label">{lang key='clientareapostcode'}</label>
             <input type="text" name="postcode" id="inputPostcode" value="{$formdata.postcode}" class="form-control" />
           </div>
 
           <div class="form-group">
-            <label class="col-form-label" for="country">{lang key='clientareacountry'}</label>
+            <label class="form-label" for="country">{lang key='clientareacountry'}</label>
             {$countriesdropdown}
           </div>
 

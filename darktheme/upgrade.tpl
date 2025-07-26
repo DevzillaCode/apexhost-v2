@@ -5,7 +5,7 @@
         {elseif $existingupgradeinvoice}
             {include file="$template/includes/alert.tpl" type="warning" msg="{lang key='upgradeexistingupgradeinvoice'}"}
         {elseif $upgradenotavailable}
-            {include file="$template/includes/alert.tpl" type="warning" msg="{lang key='upgradeNotPossible'}" textcenter=true}
+            {include file="$template/includes/alert.tpl" type="warning" msg="{lang key='upgradeNotPossible'}"}
         {/if}
 
         {if $overdueinvoice}

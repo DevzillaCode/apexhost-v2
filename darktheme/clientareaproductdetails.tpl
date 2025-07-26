@@ -1,13 +1,13 @@
 {if $modulecustombuttonresult}
     {if $modulecustombuttonresult == "success"}
-        {include file="$template/includes/alert.tpl" type="success" msg="{lang key='moduleactionsuccess'}" textcenter=true idname="alertModuleCustomButtonSuccess"}
+        {include file="$template/includes/alert.tpl" type="success" msg="{lang key='moduleactionsuccess'}" idname="alertModuleCustomButtonSuccess"}
     {else}
-        {include file="$template/includes/alert.tpl" type="error" msg="{lang key='moduleactionfailed'}"|cat:' ':$modulecustombuttonresult textcenter=true idname="alertModuleCustomButtonFailed"}
+        {include file="$template/includes/alert.tpl" type="error" msg="{lang key='moduleactionfailed'}"|cat:' ':$modulecustombuttonresult idname="alertModuleCustomButtonFailed"}
     {/if}
 {/if}
 
 {if $pendingcancellation}
-    {include file="$template/includes/alert.tpl" type="error" msg="{lang key='cancellationrequestedexplanation'}" textcenter=true idname="alertPendingCancellation"}
+    {include file="$template/includes/alert.tpl" type="error" msg="{lang key='cancellationrequestedexplanation'}" idname="alertPendingCancellation"}
 {/if}
 
 {if $unpaidInvoice}
@@ -425,7 +425,7 @@
 
         <h3>{lang key='downloadstitle'}</h3>
 
-        {include file="$template/includes/alert.tpl" type="info" msg="{lang key="clientAreaProductDownloadsAvailable"}" textcenter=true}
+        {include file="$template/includes/alert.tpl" type="info" msg="{lang key="clientAreaProductDownloadsAvailable"}"}
 
         <div class="row">
             {foreach from=$downloads item=download}
@@ -447,7 +447,7 @@
         <h3>{lang key='clientareahostingaddons'}</h3>
 
         {if $addonsavailable}
-            {include file="$template/includes/alert.tpl" type="info" msg="{lang key="clientAreaProductAddonsAvailable"}" textcenter=true}
+            {include file="$template/includes/alert.tpl" type="info" msg="{lang key="clientAreaProductAddonsAvailable"}"}
         {/if}
 
         <div class="row">
@@ -488,9 +488,9 @@
 
                 {if $modulechangepwresult}
                     {if $modulechangepwresult == "success"}
-                        {include file="$template/includes/alert.tpl" type="success" msg=$modulechangepasswordmessage textcenter=true}
+                        {include file="$template/includes/alert.tpl" type="success" msg=$modulechangepasswordmessage}
                     {elseif $modulechangepwresult == "error"}
-                        {include file="$template/includes/alert.tpl" type="error" msg=$modulechangepasswordmessage|strip_tags textcenter=true}
+                        {include file="$template/includes/alert.tpl" type="error" msg=$modulechangepasswordmessage|strip_tags}
                     {/if}
                 {/if}
 
@@ -499,7 +499,7 @@
                     <input type="hidden" name="modulechangepassword" value="true" />
 
                     <div id="newPassword1" class="form-group row has-feedback">
-                        <label for="inputNewPassword1" class="col-xl-4 col-form-label">{lang key='newpassword'}</label>
+                        <label for="inputNewPassword1" class="col-xl-4 form-label">{lang key='newpassword'}</label>
                         <div class="col-xl-5">
                             <input type="password" class="form-control" id="inputNewPassword1" name="newpw" autocomplete="off" />
                             {include file="$template/includes/pwstrength.tpl"}
@@ -511,7 +511,7 @@
                         </div>
                     </div>
                     <div id="newPassword2" class="form-group row has-feedback">
-                        <label for="inputNewPassword2" class="col-xl-4 col-form-label">{lang key='confirmnewpassword'}</label>
+                        <label for="inputNewPassword2" class="col-xl-4 form-label">{lang key='confirmnewpassword'}</label>
                         <div class="col-xl-5">
                             <input type="password" class="form-control" id="inputNewPassword2" name="confirmpw" autocomplete="off" />
                             <div id="inputNewPassword2Msg">

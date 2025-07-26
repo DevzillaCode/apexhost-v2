@@ -1,6 +1,6 @@
 {if $inactive}
 
-    {include file="$template/includes/alert.tpl" type="danger" msg="{lang key='affiliatesdisabled'}" textcenter=true}
+    {include file="$template/includes/alert.tpl" type="danger" msg="{lang key='affiliatesdisabled'}"}
 
 {else}
     {include file="$template/includes/flashmessage.tpl"}

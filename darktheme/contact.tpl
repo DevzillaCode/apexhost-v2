@@ -29,7 +29,7 @@
       <div class="content">
         {* Show success message after form submission *}
         {if $sent}
-          {include file="$template/includes/alert.tpl" type="success" msg="{lang key='contact.success'}" textcenter=true}
+          {include file="$template/includes/alert.tpl" type="success" msg="{lang key='contact.success'}"}
         {/if}
         {* Show error message if form submission fails *}
         {if $errormessage}
@@ -43,7 +43,7 @@
             <div class="form-body d-flex flex-column gap-4">
               {* Full Name Input *}
               <div class="form-group">
-                <label for="inputName" class="col-form-label">{lang key='contact.clientName'}</label>
+                <label for="inputName" class="form-label">{lang key='contact.clientName'}</label>
                 <div class="prepend-icon">
                   <div class="form-float-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-round-icon lucide-user-round">
@@ -56,7 +56,7 @@
               </div>
               {* Email Input *}
               <div class="form-group">
-                <label for="inputEmail" class="col-form-label">{lang key='contact.clientEmail'}</label>
+                <label for="inputEmail" class="form-label">{lang key='contact.clientEmail'}</label>
                 <div class="prepend-icon">
                   <div class="form-float-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail">
@@ -69,7 +69,7 @@
               </div>
               {* Subject Input *}
               <div class="form-group">
-                <label for="inputSubject" class="col-form-label">{lang key='contact.subject'}</label>
+                <label for="inputSubject" class="form-label">{lang key='contact.subject'}</label>
                 <div class="prepend-icon">
                   <div class="form-float-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-marked-icon lucide-book-marked">
@@ -82,7 +82,7 @@
               </div>
               {* Message Input *}
               <div class="form-group">
-                <label for="inputMessage" class="col-form-label">{lang key='contact.message'}</label>
+                <label for="inputMessage" class="form-label">{lang key='contact.message'}</label>
                 <div class="prepend-icon">
                   <div class="form-float-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle-icon lucide-message-circle">

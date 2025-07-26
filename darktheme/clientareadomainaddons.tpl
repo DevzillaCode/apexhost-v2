@@ -14,7 +14,7 @@
 
                     <h3 class="card-title">{lang key='domainaddonsdnsmanagement'}</h3>
 
-                    {include file="$template/includes/alert.tpl" type="info" msg="Domain: <strong>{$domain}</strong>" textcenter=true}
+                    {include file="$template/includes/alert.tpl" type="info" msg="Domain: <strong>{$domain}</strong>"}
 
                     <p>{lang key='domainaddonsdnsmanagementinfo'}</p>
 
@@ -28,7 +28,7 @@
 
                     <h3 class="card-title">{lang key='domainemailforwarding'}</h3>
 
-                    {include file="$template/includes/alert.tpl" type="info" msg="Domain: <strong>{$domain}</strong>" textcenter=true}
+                    {include file="$template/includes/alert.tpl" type="info" msg="Domain: <strong>{$domain}</strong>"}
 
                     <p>{lang key='domainaddonsemailforwardinginfo'}</p>
 
@@ -42,7 +42,7 @@
 
                     <h3 class="card-title">{lang key='domainidprotection'}</h3>
 
-                    {include file="$template/includes/alert.tpl" type="info" msg="Domain: <strong>{$domain}</strong>" textcenter=true}
+                    {include file="$template/includes/alert.tpl" type="info" msg="Domain: <strong>{$domain}</strong>"}
 
                     <p>{lang key='domainaddonsidprotectioninfo'}</p>
 
@@ -64,12 +64,12 @@
                     {/if}
                 </h3>
 
-                {include file="$template/includes/alert.tpl" type="info" msg="Domain: <strong>{$domain}</strong>" textcenter=true}
+                {include file="$template/includes/alert.tpl" type="info" msg="Domain: <strong>{$domain}</strong>"}
 
                 {if $success}
-                    {include file="$template/includes/alert.tpl" type="success" msg="{lang key='domainaddonscancelsuccess'}" textcenter=true}
+                    {include file="$template/includes/alert.tpl" type="success" msg="{lang key='domainaddonscancelsuccess'}"}
                 {elseif $error}
-                    {include file="$template/includes/alert.tpl" type="error" msg="{lang key='domainaddonscancelfailed'}" textcenter=true}
+                    {include file="$template/includes/alert.tpl" type="error" msg="{lang key='domainaddonscancelfailed'}"}
                 {else}
                     <p class="text-center">
                         {lang key='domainaddonscancelareyousure'}

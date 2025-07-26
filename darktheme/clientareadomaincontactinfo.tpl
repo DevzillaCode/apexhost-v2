@@ -1,21 +1,21 @@
 {if $successful}
-    {include file="$template/includes/alert.tpl" type="success" msg="{lang key='changessavedsuccessfully'}" textcenter=true}
+    {include file="$template/includes/alert.tpl" type="success" msg="{lang key='changessavedsuccessfully'}"}
 {/if}
 
 {if $pending}
-    {include file="$template/includes/alert.tpl" type="info" msg=$pendingMessage textcenter=true}
+    {include file="$template/includes/alert.tpl" type="info" msg=$pendingMessage}
 {/if}
 
 {if $domainInformation && !$pending && $domainInformation->getIsIrtpEnabled() && $domainInformation->isContactChangePending()}
     {if $domainInformation->getPendingSuspension()}
-        {include file="$template/includes/alert.tpl" type="warning" msg="<strong>{lang key='domains.verificationRequired'}</strong><br>{lang key='domains.newRegistration'}" textcenter=true}
+        {include file="$template/includes/alert.tpl" type="warning" msg="<strong>{lang key='domains.verificationRequired'}</strong><br>{lang key='domains.newRegistration'}"}
     {else}
-        {include file="$template/includes/alert.tpl" type="info" msg="<strong>{lang key='domains.contactChangePending'}</strong><br>{lang key='domains.contactsChanged'}" textcenter=true}
+        {include file="$template/includes/alert.tpl" type="info" msg="<strong>{lang key='domains.contactChangePending'}</strong><br>{lang key='domains.contactsChanged'}"}
     {/if}
 {/if}
 
 {if $error}
-    {include file="$template/includes/alert.tpl" type="error" msg=$error textcenter=true}
+    {include file="$template/includes/alert.tpl" type="error" msg=$error}
 {/if}
 
 <div class="card">

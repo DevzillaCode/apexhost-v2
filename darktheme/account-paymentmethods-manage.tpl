@@ -20,7 +20,7 @@
 
     {* form-group *}
     <div class="form-group row mb-4">
-      <label for="inputPaymentMethodType" class="col-md-4 col-form-label inline-label">{lang key='paymentMethods.type'}</label>
+      <label for="inputPaymentMethodType" class="col-md-4 form-label inline-label">{lang key='paymentMethods.type'}</label>
       <div class="col-md-8">
         <div class="d-flex flex-wrap gap-4">
           {if $enabledTypes['tokenGateways']}
@@ -52,7 +52,7 @@
     {* fieldgroup *}
     <div class="fieldgroup-auxfields{if $remoteUpdate} w-hidden{/if} mb-4">
       <div class="form-group row">
-        <label for="inputDescription" class="col-md-4 col-form-label inline-label">{lang key='paymentMethods.description'}</label>
+        <label for="inputDescription" class="col-md-4 form-label inline-label">{lang key='paymentMethods.description'}</label>
         <div class="col-md-8">
           <div class="input-group">
             <input type="text" class="form-control" id="inputDescription" name="description" autocomplete="off" value="{$payMethod->description}">
@@ -78,7 +78,7 @@
     <div class="fieldgroup-creditcard{if $editMode && !$payMethod->isCreditCard() || $paymentMethodType == 'bankacct' || $remoteUpdate} w-hidden{/if} mb-4">
       <div class="cc-details d-flex flex-column row-gap-4">
         <div class="form-group row">
-          <label for="inputCardNumber" class="col-md-4 col-form-label inline-label">{lang key='creditcardcardnumber'}</label>
+          <label for="inputCardNumber" class="col-md-4 form-label inline-label">{lang key='creditcardcardnumber'}</label>
           <div class="col-md-8">
             <div class="row">
               <div class="col-md-8">
@@ -90,7 +90,7 @@
         </div>
         {if $startDateEnabled}
           <div class="form-group row">
-            <label for="inputCardStart" class="col-md-4 col-form-label inline-label">{lang key='creditcardcardstart'}</label>
+            <label for="inputCardStart" class="col-md-4 form-label inline-label">{lang key='creditcardcardstart'}</label>
             <div class="col-md-8">
               <div class="row">
                 <div class="col-md-4">
@@ -101,7 +101,7 @@
           </div>
         {/if}
         <div class="form-group row">
-          <label for="inputCardExpiry" class="col-md-4 col-form-label inline-label">{lang key='creditcardcardexpires'}</label>
+          <label for="inputCardExpiry" class="col-md-4 form-label inline-label">{lang key='creditcardcardexpires'}</label>
           <div class="col-md-8">
             <div class="row">
               <div class="col-md-4">
@@ -113,7 +113,7 @@
         </div>
         {if $issueNumberEnabled}
           <div class="form-group row">
-            <label for="inputCardIssue" class="col-md-4 col-12 col-form-label inline-label">{lang key='creditcardcardissuenum'}</label>
+            <label for="inputCardIssue" class="col-md-4 col-12 form-label inline-label">{lang key='creditcardcardissuenum'}</label>
             <div class="col-sm-2 col-4">
               <input type="tel" class="form-control" id="inputCardIssue" name="ccissuenum" autocomplete="off" value="{$creditCard->getIssueNumber()}">
             </div>
@@ -121,7 +121,7 @@
         {/if}
         {if $creditCardCvcFieldEnabled}
           <div class="form-group row">
-            <label for="inputCardCvc" class="col-md-4 col-12 col-form-label inline-label">{lang key='creditcardcvvnumber'}</label>
+            <label for="inputCardCvc" class="col-md-4 col-12 form-label inline-label">{lang key='creditcardcvvnumber'}</label>
             <div class="col-md-8">
               <input type="tel" class="form-control input-inline input-inline-100" id="inputCardCvc" name="cardcvv" autocomplete="off">
               <button id="cvvWhereLink" type="button" class="btn btn-link" data-toggle="popover" data-content="<img src='{$BASE_PATH_IMG}/ccv.gif' width='210'>">
@@ -137,7 +137,7 @@
     {* fieldgroup *}
     <div class="fieldgroup-bankaccount{if $remoteUpdate || ($editMode && $payMethod->isCreditCard()) || ($paymentMethodType != 'bankacct' && !$editMode)} w-hidden{/if} mb-4">
       <div class="form-group row mb-4">
-        <label for="inputBankAcctType" class="col-md-4 col-form-label inline-label">{lang key='paymentMethodsManage.accountType'}</label>
+        <label for="inputBankAcctType" class="col-md-4 form-label inline-label">{lang key='paymentMethodsManage.accountType'}</label>
         <div class="col-md-8">
           <label class="form-check form-check-inline">
             <input type="radio" class="icheck-button" name="bankaccttype" id="inputBankAcctType" value="Checking" {if !$bankAccount->getAccountType() || $bankAccount->getAccountType() == 'Checking'} checked{/if}>
@@ -150,28 +150,28 @@
         </div>
       </div>
       <div class="form-group row mb-4">
-        <label for="inputBankAcctHolderName" class="col-md-4 col-form-label inline-label">{lang key='paymentMethodsManage.accountHolderName'}</label>
+        <label for="inputBankAcctHolderName" class="col-md-4 form-label inline-label">{lang key='paymentMethodsManage.accountHolderName'}</label>
         <div class="col-md-8">
           <input type="tel" class="form-control" id="inputBankAcctHolderName" name="bankacctholdername" autocomplete="off" value="{$bankAccount->getAccountHolderName()}">
           <span class="field-error-msg">{lang key='paymentMethods.fieldRequired'}</span>
         </div>
       </div>
       <div class="form-group row mb-4">
-        <label for="inputBankName" class="col-md-4 col-form-label inline-label">{lang key='paymentMethodsManage.bankName'}</label>
+        <label for="inputBankName" class="col-md-4 form-label inline-label">{lang key='paymentMethodsManage.bankName'}</label>
         <div class="col-md-8">
           <input type="tel" class="form-control" id="inputBankName" name="bankname" autocomplete="off" value="{$bankAccount->getBankName()}">
           <span class="field-error-msg">{lang key='paymentMethods.fieldRequired'}</span>
         </div>
       </div>
       <div class="form-group row mb-4">
-        <label for="inputBankRoutingNum" class="col-md-4 col-form-label inline-label">{lang key='paymentMethodsManage.sortCodeRoutingNumber'}</label>
+        <label for="inputBankRoutingNum" class="col-md-4 form-label inline-label">{lang key='paymentMethodsManage.sortCodeRoutingNumber'}</label>
         <div class="col-md-8">
           <input type="tel" class="form-control" id="inputBankRoutingNum" name="bankroutingnum" autocomplete="off" value="{$bankAccount->getRoutingNumber()}">
           <span class="field-error-msg">{lang key='paymentMethodsManage.routingNumberNotValid'}</span>
         </div>
       </div>
       <div class="form-group row">
-        <label for="inputBankAcctNum" class="col-md-4 col-form-label inline-label">{lang key='paymentMethodsManage.accountNumber'}</label>
+        <label for="inputBankAcctNum" class="col-md-4 form-label inline-label">{lang key='paymentMethodsManage.accountNumber'}</label>
         <div class="col-md-8">
           <input type="tel" class="form-control" id="inputBankAcctNum" name="bankacctnum" autocomplete="off" value="{$bankAccount->getAccountNumber()}">
           <span class="field-error-msg">{lang key='paymentMethodsManage.accountNumberNotValid'}</span>
@@ -181,7 +181,7 @@
     {* fieldgroup *}
     <div class="fieldgroup-auxfields{if $remoteUpdate} w-hidden{/if}">
       <div class="form-group row mb-8">
-        <label for="inputBillingAddress" class="col-md-4 col-12 col-form-label inline-label">{lang key='billingAddress'}</label>
+        <label for="inputBillingAddress" class="col-md-4 col-12 form-label inline-label">{lang key='billingAddress'}</label>
         <div class="col-md-8">
           <div id="billingContactsContainer">
             {include file="$template/account-paymentmethods-billing-contacts.tpl"}
@@ -239,28 +239,28 @@
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
-                <label for="inputFirstName" class="col-form-label">{lang key='clientareafirstname'}</label>
+                <label for="inputFirstName" class="form-label">{lang key='clientareafirstname'}</label>
                 <input type="text" name="firstname" id="inputFirstName" value="{$contactfirstname}" class="form-control">
               </div>
 
               <div class="form-group">
-                <label for="inputLastName" class="col-form-label">{lang key='clientarealastname'}</label>
+                <label for="inputLastName" class="form-label">{lang key='clientarealastname'}</label>
                 <input type="text" name="lastname" id="inputLastName" value="{$contactlastname}" class="form-control">
               </div>
 
               <div class="form-group">
-                <label for="inputCompanyName" class="col-form-label">{lang key='clientareacompanyname'}</label>
+                <label for="inputCompanyName" class="form-label">{lang key='clientareacompanyname'}</label>
                 <input type="text" name="companyname" id="inputCompanyName" value="{$contactcompanyname}" class="form-control">
               </div>
 
               <div class="form-group">
-                <label for="inputPhone" class="col-form-label">{lang key='clientareaphonenumber'}</label>
+                <label for="inputPhone" class="form-label">{lang key='clientareaphonenumber'}</label>
                 <input type="tel" name="phonenumber" id="inputPhone" value="{$contactphonenumber}" class="form-control">
               </div>
 
               {if $showTaxIdField}
                 <div class="form-group">
-                  <label for="inputTaxId" class="col-form-label">{lang key=$taxIdLabel}</label>
+                  <label for="inputTaxId" class="form-label">{lang key=$taxIdLabel}</label>
                   <input type="text" name="tax_id" id="inputTaxId" class="form-control" value="{$contactTaxId}">
                 </div>
               {/if}
@@ -269,32 +269,32 @@
             <div class="col-sm-6">
 
               <div class="form-group">
-                <label for="inputAddress1" class="col-form-label">{lang key='clientareaaddress1'}</label>
+                <label for="inputAddress1" class="form-label">{lang key='clientareaaddress1'}</label>
                 <input type="text" name="address1" id="inputAddress1" value="{$contactaddress1}" class="form-control">
               </div>
 
               <div class="form-group">
-                <label for="inputAddress2" class="col-form-label">{lang key='clientareaaddress2'}</label>
+                <label for="inputAddress2" class="form-label">{lang key='clientareaaddress2'}</label>
                 <input type="text" name="address2" id="inputAddress2" value="{$contactaddress2}" class="form-control">
               </div>
 
               <div class="form-group">
-                <label for="inputCity" class="col-form-label">{lang key='clientareacity'}</label>
+                <label for="inputCity" class="form-label">{lang key='clientareacity'}</label>
                 <input type="text" name="city" id="inputCity" value="{$contactcity}" class="form-control">
               </div>
 
               <div class="form-group">
-                <label for="inputState" class="col-form-label">{lang key='clientareastate'}</label>
+                <label for="inputState" class="form-label">{lang key='clientareastate'}</label>
                 <input type="text" name="state" id="inputState" value="{$contactstate}" class="form-control">
               </div>
 
               <div class="form-group">
-                <label for="inputPostcode" class="col-form-label">{lang key='clientareapostcode'}</label>
+                <label for="inputPostcode" class="form-label">{lang key='clientareapostcode'}</label>
                 <input type="text" name="postcode" id="inputPostcode" value="{$contactpostcode}" class="form-control">
               </div>
 
               <div class="form-group">
-                <label class="col-form-label" for="inputCountry">{lang key='clientareacountry'}</label>
+                <label class="form-label" for="inputCountry">{lang key='clientareacountry'}</label>
                 <select class="form-control custom-select" name="country" id="inputCountry">
                   {foreach $countries as $countryCode => $countryName}
                     <option value="{$countryCode}" {if ($countryCode == $clientCountry)} selected="selected" {/if}>

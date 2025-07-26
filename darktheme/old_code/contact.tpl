@@ -7,7 +7,7 @@
     </div>
 
     {if $sent}
-      {include file="$template/includes/alert.tpl" type="success" msg="{lang key='contactsent'}" textcenter=true}
+      {include file="$template/includes/alert.tpl" type="success" msg="{lang key='contactsent'}"}
     {/if}
 
     {if $errormessage}
@@ -19,25 +19,25 @@
         <input type="hidden" name="action" value="send" />
 
         <div class="form-group row">
-          <label for="inputName" class="col-sm-3 col-form-label text-right font-">{lang key='supportticketsclientname'}</label>
+          <label for="inputName" class="col-sm-3 form-label text-right font-">{lang key='supportticketsclientname'}</label>
           <div class="col-sm-7">
             <input type="text" name="name" value="{$name}" class="form-control" id="inputName" />
           </div>
         </div>
         <div class="form-group row">
-          <label for="inputEmail" class="col-sm-3 col-form-label text-right">{lang key='supportticketsclientemail'}</label>
+          <label for="inputEmail" class="col-sm-3 form-label text-right">{lang key='supportticketsclientemail'}</label>
           <div class="col-sm-7">
             <input type="email" name="email" value="{$email}" class="form-control" id="inputEmail" />
           </div>
         </div>
         <div class="form-group row">
-          <label for="inputSubject" class="col-sm-3 col-form-label text-right">{lang key='supportticketsticketsubject'}</label>
+          <label for="inputSubject" class="col-sm-3 form-label text-right">{lang key='supportticketsticketsubject'}</label>
           <div class="col-sm-7">
             <input type="text" name="subject" value="{$subject}" class="form-control" id="inputSubject" />
           </div>
         </div>
         <div class="form-group row">
-          <label for="inputMessage" class="col-sm-3 col-form-label text-right">{lang key='contactmessage'}</label>
+          <label for="inputMessage" class="col-sm-3 form-label text-right">{lang key='contactmessage'}</label>
           <div class="col-sm-9">
             <textarea name="message" rows="7" class="form-control" id="inputMessage">{$message}</textarea>
           </div>

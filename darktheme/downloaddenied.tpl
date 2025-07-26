@@ -1,6 +1,6 @@
 {if $reason eq "supportandupdates"}
 
-    {include file="$template/includes/alert.tpl" type="error" msg="{lang key='supportAndUpdatesExpiredLicense'}{if $licensekey}: {$licensekey}{else}.{/if}" textcenter=true}
+    {include file="$template/includes/alert.tpl" type="error" msg="{lang key='supportAndUpdatesExpiredLicense'}{if $licensekey}: {$licensekey}{else}.{/if}"}
 
 {/if}
 
@@ -25,9 +25,9 @@
             <p>{lang key='downloadproductrequired'}</p>
 
             {if $prodname}
-                {include file="$template/includes/alert.tpl" type="info" msg=$prodname textcenter=true}
+                {include file="$template/includes/alert.tpl" type="info" msg=$prodname}
             {else}
-                {include file="$template/includes/alert.tpl" type="info" msg=$addonname textcenter=true}
+                {include file="$template/includes/alert.tpl" type="info" msg=$addonname}
             {/if}
 
             {if $pid || $aid}

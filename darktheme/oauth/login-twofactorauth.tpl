@@ -8,7 +8,7 @@
 
         <div id="loginWithBackupCode"{if !$backupcode} class="w-hidden"{/if}>
             <div class="content-padded">
-                {include file="$template/includes/alert.tpl" type="warning" msg="{lang key='twofabackupcodelogin'}" textcenter=true}
+                {include file="$template/includes/alert.tpl" type="warning" msg="{lang key='twofabackupcodelogin'}"}
                 <input type="text" name="code" class="form-control">
                 <br />
                 <button type="submit" name="backupcode" value="1" class="btn btn-primary btn-block" id="btnLogin">
@@ -25,11 +25,11 @@
         <div id="loginWithSecondFactor"{if $backupcode} class="w-hidden"{/if}>
             <div class="content-padded">
                 {if $incorrect}
-                    {include file="$template/includes/alert.tpl" type="error" msg="{lang key='twofa2ndfactorincorrect'}" textcenter=true}
+                    {include file="$template/includes/alert.tpl" type="error" msg="{lang key='twofa2ndfactorincorrect'}"}
                 {elseif $error}
-                    {include file="$template/includes/alert.tpl" type="error" msg=$error textcenter=true}
+                    {include file="$template/includes/alert.tpl" type="error" msg=$error}
                 {else}
-                    {include file="$template/includes/alert.tpl" type="warning" msg="{lang key='twofa2ndfactorreq'}" textcenter=true}
+                    {include file="$template/includes/alert.tpl" type="warning" msg="{lang key='twofa2ndfactorreq'}"}
                 {/if}
                 {$challenge}
             </div>

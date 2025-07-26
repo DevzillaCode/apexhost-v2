@@ -9,7 +9,7 @@
       {include file="$template/components/cards/AnnouncementArticleCard.tpl"}
     {foreachelse}
       {* Announcements Errors *}
-      {include file="$template/includes/alert.tpl" type="info" msg="{lang key='noannouncements'}" textcenter=true}
+      {include file="$template/includes/alert.tpl" type="info" msg="{lang key='noannouncements'}"}
     {/foreach}
   </div>
 </div>

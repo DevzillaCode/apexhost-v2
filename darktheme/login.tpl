@@ -31,12 +31,12 @@
         <div class="form-body d-flex flex-column gap-4">
           {* Email Address Field *}
           <div class="form-group">
-            <label for="inputEmail" class="col-form-label">{lang key='clientareaemail'}</label>
+            <label for="inputEmail" class="form-label">{lang key='clientareaemail'}</label>
             <input type="email" class="form-control" name="username" id="inputEmail" placeholder="name@example.com" aria-label="name@example.com" autofocus autocomplete="off">
           </div>
           {* Password Field *}
           <div class="form-group">
-            <label for="inputPassword" class="col-form-label">{lang key='clientareapassword'}</label>
+            <label for="inputPassword" class="form-label">{lang key='clientareapassword'}</label>
             <input type="password" class="form-control" name="password" id="inputPassword" placeholder="{lang key='clientareapassword'}" aria-label="{lang key='clientareapassword'}" autocomplete="off">
           </div>
           {if $captcha->isEnabled()}

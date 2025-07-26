@@ -4,7 +4,7 @@
 </div>
 
 {if $errorMessage}
-    {include file="$template/includes/alert.tpl" type="error" msg=$errorMessage textcenter=true}
+    {include file="$template/includes/alert.tpl" type="error" msg=$errorMessage}
 {/if}
 
 <form method="post" action="{routePath('password-reset-validate-email')}" role="form">

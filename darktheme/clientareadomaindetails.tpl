@@ -1,8 +1,8 @@
 {* Display success/error alerts for registrar custom button actions *}
 {if $registrarcustombuttonresult=="success"}
-  {include file="$template/includes/alert.tpl" type="success" msg="{lang key='moduleactionsuccess'}" textcenter=true}
+  {include file="$template/includes/alert.tpl" type="success" msg="{lang key='moduleactionsuccess'}"}
 {elseif $registrarcustombuttonresult}
-  {include file="$template/includes/alert.tpl" type="error" msg="{lang key='moduleactionfailed'}" textcenter=true}
+  {include file="$template/includes/alert.tpl" type="error" msg="{lang key='moduleactionfailed'}"}
 {/if}
 
 {* Show unpaid invoice alert with dynamic styling (danger for overdue, warning otherwise) *}
@@ -30,13 +30,13 @@
         {* Display any system alerts (errors, warnings, info messages) *}
         {if $alerts}
           {foreach $alerts as $alert}
-            {include file="$template/includes/alert.tpl" type=$alert.type msg="<strong>{$alert.title}</strong><br>{$alert.description}" textcenter=true}
+            {include file="$template/includes/alert.tpl" type=$alert.type msg="<strong>{$alert.title}</strong><br>{$alert.description}"}
           {/foreach}
         {/if}
 
         {* Show warning if domain status prevents management *}
         {if $systemStatus != 'Active'}
-          <div class="alert alert-warning text-center" role="alert">
+          <div class="alert alert-warning" role="alert">
             {lang key='domainCannotBeManagedUnlessActive'}
           </div>
         {/if}
@@ -221,7 +221,7 @@
 
         {* Success confirmation after changing auto-renew settings *}
         {if $changeAutoRenewStatusSuccessful}
-          {include file="$template/includes/alert.tpl" type="success" msg="{lang key='changessavedsuccessfully'}" textcenter=true}
+          {include file="$template/includes/alert.tpl" type="success" msg="{lang key='changessavedsuccessfully'}"}
         {/if}
 
         {* Explanation of auto-renew functionality *}
@@ -260,14 +260,14 @@
 
         {* Display nameserver-specific error messages *}
         {if $nameservererror}
-          {include file="$template/includes/alert.tpl" type="error" msg=$nameservererror textcenter=true}
+          {include file="$template/includes/alert.tpl" type="error" msg=$nameservererror}
         {/if}
         {* Show result of nameserver save operation *}
         {if $subaction eq "savens"}
           {if $updatesuccess}
-            {include file="$template/includes/alert.tpl" type="success" msg="{lang key='changessavedsuccessfully'}" textcenter=true}
+            {include file="$template/includes/alert.tpl" type="success" msg="{lang key='changessavedsuccessfully'}"}
           {elseif $error}
-            {include file="$template/includes/alert.tpl" type="error" msg=$error textcenter=true}
+            {include file="$template/includes/alert.tpl" type="error" msg=$error}
           {/if}
         {/if}
 
@@ -300,7 +300,7 @@
           <div class="form-group d-flex flex-column gap-4 mb-4">
             {for $num=1 to 5}
               <div class="row">
-                <label for="inputNs{$num}" class="col-sm-4 col-form-label">{lang key='clientareanameserver'} {$num}</label>
+                <label for="inputNs{$num}" class="col-sm-4 form-label">{lang key='clientareanameserver'} {$num}</label>
                 <div class="col-md-7">
                   {* Individual nameserver input with dynamic disable/enable functionality *}
                   <input type="text" name="ns{$num}" class="form-control domnsinputs" id="inputNs{$num}" value="{$nameservers[$num].value}" />
@@ -331,9 +331,9 @@
         {* Display result of lock status change *}
         {if $subaction eq "savereglock"}
           {if $updatesuccess}
-            {include file="$template/includes/alert.tpl" type="success" msg="{lang key='changessavedsuccessfully'}" textcenter=true}
+            {include file="$template/includes/alert.tpl" type="success" msg="{lang key='changessavedsuccessfully'}"}
           {elseif $error}
-            {include file="$template/includes/alert.tpl" type="error" msg=$error textcenter=true}
+            {include file="$template/includes/alert.tpl" type="error" msg=$error}
           {/if}
         {/if}
 
@@ -390,7 +390,7 @@
 
           {* Transfer tag input field *}
           <div class="form-group row mb-4">
-            <label for="inputReleaseTag" class="col-lg-4 col-form-label">{lang key='domainreleasetag'}</label>
+            <label for="inputReleaseTag" class="col-lg-4 form-label">{lang key='domainreleasetag'}</label>
             <div class="col-lg-8">
               <input type="text" class="form-control" id="inputReleaseTag" name="transtag" />
             </div>

@@ -1847,7 +1847,7 @@ select.form-control:focus::-ms-value {
   width: 100%;
 }
 
-.col-form-label {
+.form-label {
   padding-top: calc(0.375rem + 1px);
   padding-bottom: calc(0.375rem + 1px);
   margin-bottom: 0;
@@ -1855,14 +1855,14 @@ select.form-control:focus::-ms-value {
   line-height: 1.5;
 }
 
-.col-form-label-lg {
+.form-label-lg {
   padding-top: calc(0.5rem + 1px);
   padding-bottom: calc(0.5rem + 1px);
   font-size: 1.25rem;
   line-height: 1.5;
 }
 
-.col-form-label-sm {
+.form-label-sm {
   padding-top: calc(0.25rem + 1px);
   padding-bottom: calc(0.25rem + 1px);
   font-size: 0.875rem;
