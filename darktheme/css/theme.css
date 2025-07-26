@@ -2876,27 +2876,6 @@ textarea.form-control.is-invalid {
   height: 16px;
 }
 
-/* Button Group */
-.btn-group {
-  display: inline-flex;
-  vertical-align: middle;
-}
-.btn-group > .btn:not(:first-child),
-.btn-group > .btn-square:not(:first-child) {
-  margin-left: -1px;
-  border-top-left-radius: 0;
-  border-bottom-left-radius: 0;
-}
-.btn-group > .btn:not(:last-child),
-.btn-group > .btn-square:not(:last-child) {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-}
-.btn-group > .btn:focus,
-.btn-group > .btn-square:focus {
-  z-index: 1;
-}
-
 /* General Button Styles */
 button:disabled,
 .btn.disabled,
@@ -2989,15 +2968,13 @@ input[type="button"].btn-block {
   display: none;
   float: left;
   min-width: 10rem;
-  padding: 0.5rem 0;
+  padding: 0.25rem;
   margin: 0.125rem 0 0;
   font-size: 1rem;
-  color: #212529;
-  text-align: left;
+  color: var(--popover-foreground);
   list-style: none;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.15);
+  background-color: var(--popover);
+  border: 1px solid var(--border);
   border-radius: 0.25rem;
 }
 
@@ -3143,16 +3120,19 @@ input[type="button"].btn-block {
 }
 
 .dropdown-item {
-  display: block;
-  width: 100%;
-  padding: 0.25rem 1.5rem;
-  clear: both;
-  font-weight: 400;
-  color: #212529;
-  text-align: inherit;
-  white-space: nowrap;
-  background-color: transparent;
-  border: 0;
+  display: flex;
+  padding: calc(var(--spacing) * 1.5) calc(var(--spacing) * 2);
+  min-width: 220px;
+  align-items: center;
+  border-radius: var(--theme-radius);
+  color: var(--popover-foreground);
+  font-size: var(--text-sm);
+  transition: all 0.15s var(--transition-function-1);
+  gap: 0.5rem;
+}
+.dropdown-item svg {
+  width: var(--space-4);
+  height: var(--space-4);
 }
 .dropdown-item:hover,
 .dropdown-item:focus {
