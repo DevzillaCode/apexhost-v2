@@ -2,10 +2,7 @@
 {include file="$template/includes/tablelist.tpl" tableName="TicketsList" filterColumn="2"}
 
 <!-- Page header with title and tagline -->
-{include file="$template/components/heading/PageTitle.tpl"
-  headline="{lang key='clientareatickets'}"
-tagline="{lang key='clientareaticketstagline'}"
-}
+{include file="$template/components/heading/PageTitle.tpl" headline="{lang key='clientareatickets'}" tagline="{lang key='clientareaticketstagline'}" }
 
 <!-- JavaScript for DataTable initialization and sorting -->
 <script>

@@ -1,4 +1,4 @@
-<div class="card mb-8">
+<div class="card extra-padding mb-8">
   <div class="card-body">
 
     <!-- Bulk domain management form -->
@@ -46,14 +46,14 @@
         </p>
 
         <!-- List of affected domains -->
-        <ul class="list-group mb-4">
+        <ul class="list-group mb-8">
           {foreach $domains as $domain}
             <li class="list-group-item">{$domain}</li>
           {/foreach}
         </ul>
 
         <!-- Radio buttons for nameserver choice -->
-        <div class="d-flex flex-wrap align-items-center gap-2 mb-4">
+        <div class="d-flex flex-wrap align-items-center gap-4 mb-6">
           <!-- Default nameservers option -->
           <label class="form-check" for="nsChoiceDefault">
             <input id="nsChoiceDefault" type="radio" class="form-check-input" name="nschoice" value="default" onclick="disableFields('domnsinputs',true)" checked />

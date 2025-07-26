@@ -428,6 +428,7 @@ a:not([class]):not([href]) {
 }
 a:not([class]):hover {
   color: var(--foreground);
+  text-decoration: underline !important;
 }
 a:not([href]):not([class]) {
   color: inherit;
