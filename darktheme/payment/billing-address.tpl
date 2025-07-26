@@ -1,6 +1,6 @@
 <div{if !$addingNew} class="w-hidden"{/if}>
     <div class="form-group row" id="billingAddressChoice">
-        <label class="col-sm-4 text-md-right col-form-label">{lang key='billingAddress'}</label>
+        <label class="col-sm-4 text-md-right form-label">{lang key='billingAddress'}</label>
         <div class="col-sm-8">
             <label class="billing-contact-0">
                 <input
@@ -58,49 +58,49 @@
 <div{if !$userDetailsValidationError && $billingcontact !== 'new'} class="w-hidden"{/if}>
     <div id="newBillingAddress">
         <div class="form-group row cc-billing-address">
-            <label for="inputFirstName" class="col-sm-4 text-md-right col-form-label">{lang key='clientareafirstname'}</label>
+            <label for="inputFirstName" class="col-sm-4 text-md-right form-label">{lang key='clientareafirstname'}</label>
             <div class="col-sm-6">
                 <input type="text" name="firstname" id="inputFirstName" value="{$firstname}" class="form-control" />
             </div>
         </div>
         <div class="form-group row cc-billing-address">
-            <label for="inputLastName" class="col-sm-4 text-md-right col-form-label">{lang key='clientarealastname'}</label>
+            <label for="inputLastName" class="col-sm-4 text-md-right form-label">{lang key='clientarealastname'}</label>
             <div class="col-sm-6">
                 <input type="text" name="lastname" id="inputLastName" value="{$lastname}" class="form-control" />
             </div>
         </div>
         <div class="form-group row cc-billing-address">
-            <label for="inputAddress1" class="col-sm-4 text-md-right col-form-label">{lang key='clientareaaddress1'}</label>
+            <label for="inputAddress1" class="col-sm-4 text-md-right form-label">{lang key='clientareaaddress1'}</label>
             <div class="col-sm-6">
                 <input type="text" name="address1" id="inputAddress1" value="{$address1}" class="form-control" />
             </div>
         </div>
         <div class="form-group row cc-billing-address">
-            <label for="inputAddress2" class="col-sm-4 text-md-right col-form-label">{lang key='clientareaaddress2'}</label>
+            <label for="inputAddress2" class="col-sm-4 text-md-right form-label">{lang key='clientareaaddress2'}</label>
             <div class="col-sm-6">
                 <input type="text" name="address2" id="inputAddress2" value="{$address2}" class="form-control" />
             </div>
         </div>
         <div class="form-group row cc-billing-address">
-            <label for="inputCity" class="col-sm-4 text-md-right col-form-label">{lang key='clientareacity'}</label>
+            <label for="inputCity" class="col-sm-4 text-md-right form-label">{lang key='clientareacity'}</label>
             <div class="col-sm-6">
                 <input type="text" name="city" id="inputCity" value="{$city}" class="form-control" />
             </div>
         </div>
         <div class="form-group row cc-billing-address">
-            <label for="inputState" class="col-sm-4 text-md-right col-form-label">{lang key='clientareastate'}</label>
+            <label for="inputState" class="col-sm-4 text-md-right form-label">{lang key='clientareastate'}</label>
             <div class="col-sm-6">
                 <input type="text" name="state" id="inputState" value="{$state}" class="form-control" data-custom-select/>
             </div>
         </div>
         <div class="form-group row cc-billing-address">
-            <label for="inputPostcode" class="col-sm-4 text-md-right col-form-label">{lang key='clientareapostcode'}</label>
+            <label for="inputPostcode" class="col-sm-4 text-md-right form-label">{lang key='clientareapostcode'}</label>
             <div class="col-sm-6">
                 <input type="text" name="postcode" id="inputPostcode" value="{$postcode}" class="form-control" />
             </div>
         </div>
         <div class="form-group row cc-billing-address">
-            <label for="inputCountry" class="col-sm-4 text-md-right col-form-label">{lang key='clientareacountry'}</label>
+            <label for="inputCountry" class="col-sm-4 text-md-right form-label">{lang key='clientareacountry'}</label>
             <div class="col-sm-6">
                 <select id="country" name="country" class="custom-select">
                     {foreach $countries as $countryCode => $countryName}
@@ -112,7 +112,7 @@
             </div>
         </div>
         <div class="form-group row cc-billing-address">
-            <label for="inputPhone" class="col-sm-4 text-md-right col-form-label">{lang key='clientareaphonenumber'}</label>
+            <label for="inputPhone" class="col-sm-4 text-md-right form-label">{lang key='clientareaphonenumber'}</label>
             <div class="col-sm-6">
                 <input type="text" name="phonenumber" id="inputPhone" value="{$phonenumber}" class="form-control" />
             </div>

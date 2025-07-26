@@ -19,7 +19,7 @@
                         <p class="text-muted">{$department.description}</p>
                     {/if}
                 {foreachelse}
-                    {include file="$template/includes/alert.tpl" type="info" msg="{lang key='nosupportdepartments'}" textcenter=true}
+                    {include file="$template/includes/alert.tpl" type="info" msg="{lang key='nosupportdepartments'}"}
                 {/foreach}
             </div>
         </div>

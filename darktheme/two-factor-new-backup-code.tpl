@@ -3,7 +3,7 @@
 
         <h3 class="card-title">{lang key='twofactorauth'}</h3>
 
-        {include file="$template/includes/alert.tpl" type="success" msg="{lang key='twofabackupcodereset'}" textcenter=true}
+        {include file="$template/includes/alert.tpl" type="success" msg="{lang key='twofabackupcodereset'}"}
 
         <h5 class="text-center">{lang key='twofanewbackupcodeis'}</h5>
 

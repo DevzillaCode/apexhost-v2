@@ -72,7 +72,7 @@
         <!-- Generate 5 nameserver input fields using a loop -->
         {for $num=1 to 5}
           <div class="form-group row mb-4">
-            <label for="inputNs{$num}" class="col-sm-4 col-form-label">{lang key='clientareanameserver'} {$num}</label>
+            <label for="inputNs{$num}" class="col-sm-4 form-label">{lang key='clientareanameserver'} {$num}</label>
             <div class="col-sm-7">
               <input type="text" name="ns{$num}" class="form-control domnsinputs" id="inputNs{$num}" />
             </div>
@@ -208,7 +208,7 @@
         <p class="mb-2">{lang key='domainbulkmanagementchangesaffect'}</p>
 
         <!-- List of affected domains -->
-        <ul class="list-group mb-4">
+        <ul class="list-group mb-6">
           {foreach $domains as $domain}
             <li class="list-group-item">{$domain}</li>
           {/foreach}
@@ -230,23 +230,31 @@
         </div>
 
         <!-- Tab content for contact information forms -->
-        <div class="tab-content p-4">
+        <div class="tab-content">
           {foreach $contactdetails as $contactdetail => $values}
             <div class="tab-pane fade{if $values@first} show active{/if}" id="tab{$contactdetail}" role="tabpanel">
 
-              <!-- Radio button for using existing contact -->
-              <!-- NOTE: There's a typo in the HTML tag - "laebl" instead of "label" -->
-              <label class="form-check" for="{$contactdetail}1">
-                <input type="radio" class="form-check-input" name="wc[{$contactdetail}]" id="{$contactdetail}1" value="contact" onclick="useDefaultWhois(this.id)" />
-                <span class="checkmark"></span>
-                {lang key='domaincontactusexisting'}
-              </label>
+              {* Radio buttons for using existing or custom contact *}
+              <div class="d-flex flex-wrap align-items-center gap-4 my-4">
+                <!-- Radio button for using existing contact -->
+                <label class="form-check" for="{$contactdetail}1">
+                  <input type="radio" class="form-check-input" name="wc[{$contactdetail}]" id="{$contactdetail}1" value="contact" onclick="useDefaultWhois(this.id)" />
+                  <span class="checkmark"></span>
+                  {lang key='domaincontactusexisting'}
+                </label>
+                <!-- Radio button for using custom contact information -->
+                <label class="form-check" for="{$contactdetail}2">
+                  <input type="radio" class="form-check-input" name="wc[{$contactdetail}]" id="{$contactdetail}2" value="custom" onclick="useCustomWhois(this.id)" checked />
+                  <span class="checkmark"></span>
+                  {lang key='domaincontactusecustom'}
+                </label>
+              </div>
 
               <!-- Dropdown for selecting existing contact -->
-              <div class="row">
-                <div class="offset-1 col-10">
+              <div class="row mb-4">
+                <div class="col-12">
                   <div class="form-group">
-                    <label for="{$contactdetail}3">{lang key='domaincontactchoose'}</label>
+                    <label class="form-label" for="{$contactdetail}3">{lang key='domaincontactchoose'}</label>
                     <input type="hidden" name="sel[{$contactdetail}]" value="">
                     <select id="{$contactdetail}3" class="form-control {$contactdetail}defaultwhois" name="sel[{$contactdetail}]" disabled>
                       <!-- Primary account contact option -->
@@ -260,19 +268,12 @@
                 </div>
               </div>
 
-              <!-- Radio button for using custom contact information -->
-              <label class="form-check" for="{$contactdetail}2">
-                <input type="radio" class="form-check-input" name="wc[{$contactdetail}]" id="{$contactdetail}2" value="custom" onclick="useCustomWhois(this.id)" checked />
-                {lang key='domaincontactusecustom'}
-                <span class="checkmark"></span>
-              </label>
-
               <!-- Generate form fields for each contact detail -->
               {foreach $values as $name => $value}
-                <div class="form-group">
-                  <label>{$contactdetailstranslations[$name]}</label>
+                <div class="form-group mb-4">
+                  <label class="form-label" for="contactdetails[{$contactdetail}][{$name}]">{$contactdetailstranslations[$name]}</label>
                   <!-- Contact field input with IRTP field detection -->
-                  <input type="text" name="contactdetails[{$contactdetail}][{$name}]" value="{$value}" data-original-value="{$value}" class="form-control {$contactdetail}customwhois{if isset($irtpFields[$contactdetail]) && in_array($name, $irtpFields[$contactdetail])} irtp-field{/if}" />
+                  <input type="text" id="contactdetails[{$contactdetail}][{$name}]" name="contactdetails[{$contactdetail}][{$name}]" value="{$value}" data-original-value="{$value}" class="form-control {$contactdetail}customwhois{if isset($irtpFields[$contactdetail]) && in_array($name, $irtpFields[$contactdetail])} irtp-field{/if}" />
                 </div>
               {/foreach}
             </div>
@@ -280,11 +281,9 @@
         </div>
 
         <!-- Submit button for contact information changes -->
-        <div class="text-center">
-          <button type="submit" class="btn btn-primary">
-            {lang key='clientareasavechanges'}
-          </button>
-        </div>
+        <button type="submit" class="btn btn-primary btn-sm">
+          {lang key='clientareasavechanges'}
+        </button>
 
       {/if}
 

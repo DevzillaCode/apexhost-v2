@@ -10,7 +10,7 @@
 		<form role="form" method="post" action="{routePath('account-contacts')}">
 			<div class="row small-gutters">
 				{* Dropdown to select existing contact or add new *}
-				<label for="inputContactId" class="col-md-3 col-form-label inline-label">{lang key='clientareachoosecontact'}</label>
+				<label for="inputContactId" class="col-md-3 form-label inline-label">{lang key='clientareachoosecontact'}</label>
 				<div class="col-md-6 ml-auto">
 					<select name="contactid" id="inputContactId" onchange="submit()" class="form-control">
 						{foreach $contacts as $contact}
@@ -46,7 +46,7 @@
 			<div class="col-md-6 d-flex flex-column row-gap-4">
 				{* First Name field *}
 				<div class="form-group">
-					<label for="inputFirstName" class="col-form-label">{lang key='clientareafirstname'}</label>
+					<label for="inputFirstName" class="form-label">{lang key='clientareafirstname'}</label>
 					{* prepend-icon *}
 					<div class="prepend-icon">
 						{* form-float-icon *}
@@ -62,7 +62,7 @@
 				</div>
 				{* Last Name field *}
 				<div class="form-group">
-					<label for="inputLastName" class="col-form-label">{lang key='clientarealastname'}</label>
+					<label for="inputLastName" class="form-label">{lang key='clientarealastname'}</label>
 					{* prepend-icon *}
 					<div class="prepend-icon">
 						{* form-float-icon *}
@@ -78,7 +78,7 @@
 				</div>
 				{* Company Name field *}
 				<div class="form-group">
-					<label for="inputCompanyName" class="col-form-label">{lang key='clientareacompanyname'}</label>
+					<label for="inputCompanyName" class="form-label">{lang key='clientareacompanyname'}</label>
 					{* prepend-icon *}
 					<div class="prepend-icon">
 						{* form-float-icon *}
@@ -99,7 +99,7 @@
 				</div>
 				{* Email field *}
 				<div class="form-group">
-					<label for="inputEmail" class="col-form-label">{lang key='clientareaemail'}</label>
+					<label for="inputEmail" class="form-label">{lang key='clientareaemail'}</label>
 					{* prepend-icon *}
 					<div class="prepend-icon">
 						{* form-float-icon *}
@@ -115,12 +115,12 @@
 				</div>
 				{* Phone Number field *}
 				<div class="form-group">
-					<label for="inputPhone" class="col-form-label">{lang key='clientareaphonenumber'}</label>
+					<label for="inputPhone" class="form-label">{lang key='clientareaphonenumber'}</label>
 					<input type="tel" name="phonenumber" id="inputPhone" value="{$formdata.phonenumber}" class="form-control" />
 				</div>
 				{* Tax ID field *}
 				<div class="form-group">
-					<label for="inputTaxId" class="col-form-label">{lang key=$taxIdLabel}</label>
+					<label for="inputTaxId" class="form-label">{lang key=$taxIdLabel}</label>
 					{* prepend-icon *}
 					<div class="prepend-icon">
 						{* form-float-icon *}
@@ -142,7 +142,7 @@
 			<div class="col-md-6 col-12 d-flex flex-column row-gap-4">
 				{* Address Line 1 field *}
 				<div class="form-group">
-					<label for="inputAddress1" class="col-form-label">{lang key='clientareaaddress1'}</label>
+					<label for="inputAddress1" class="form-label">{lang key='clientareaaddress1'}</label>
 					{* prepend-icon *}
 					<div class="prepend-icon">
 						{* form-float-icon *}
@@ -158,7 +158,7 @@
 				</div>
 				{* Address Line 2 field *}
 				<div class="form-group">
-					<label for="inputAddress2" class="col-form-label">{lang key='clientareaaddress2'}</label>
+					<label for="inputAddress2" class="form-label">{lang key='clientareaaddress2'}</label>
 					{* prepend-icon *}
 					<div class="prepend-icon">
 						{* form-float-icon *}
@@ -174,7 +174,7 @@
 				</div>
 				{* City field *}
 				<div class="form-group">
-					<label for="inputCity" class="col-form-label">{lang key='clientareacity'}</label>
+					<label for="inputCity" class="form-label">{lang key='clientareacity'}</label>
 					{* prepend-icon *}
 					<div class="prepend-icon">
 						{* form-float-icon *}
@@ -195,7 +195,7 @@
 				</div>
 				{* State field *}
 				<div class="form-group">
-					<label for="inputState" class="col-form-label">{lang key='clientareastate'}</label>
+					<label for="inputState" class="form-label">{lang key='clientareastate'}</label>
 					{* prepend-icon *}
 					<div class="prepend-icon">
 						{* form-float-icon *}
@@ -212,7 +212,7 @@
 				</div>
 				{* Postcode field *}
 				<div class="form-group">
-					<label for="inputPostcode" class="col-form-label">{lang key='clientareapostcode'}</label>
+					<label for="inputPostcode" class="form-label">{lang key='clientareapostcode'}</label>
 					{* prepend-icon *}
 					<div class="prepend-icon">
 						{* form-float-icon *}
@@ -230,7 +230,7 @@
 				</div>
 				{* Country dropdown *}
 				<div class="form-group">
-					<label class="col-form-label" for="country">{lang key='clientareacountry'}</label>
+					<label class="form-label" for="country">{lang key='clientareacountry'}</label>
 					{* prepend-icon *}
 					<div class="prepend-icon">
 						{* form-float-icon *}

@@ -2238,27 +2238,27 @@ select.form-control option {
   width: 100%;
 }
 
-.col-form-label {
+.form-label {
   font-size: var(--text-sm);
   font-weight: 500;
   color: var(--foreground);
   margin-bottom: 0.5rem;
 }
-.col-form-label-lg {
+.form-label-lg {
   font-size: var(--text-base);
   font-weight: 500;
   color: var(--foreground);
   margin-bottom: 0.5rem;
 }
-.col-form-label-sm {
+.form-label-sm {
   font-size: var(--text-sm);
   font-weight: 500;
   color: var(--foreground);
   margin-bottom: 0.5rem;
 }
-.hide-labels .col-form-label,
-.hide-labels .col-form-label-lg,
-.hide-labels .col-form-label-sm {
+.hide-labels .form-label,
+.hide-labels .form-label-lg,
+.hide-labels .form-label-sm {
   display: none;
 }
 

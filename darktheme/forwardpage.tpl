@@ -1,5 +1,5 @@
 <div class="my-2">
-    {include file="$template/includes/alert.tpl" type="info" msg=$message textcenter=true}
+    {include file="$template/includes/alert.tpl" type="info" msg=$message}
 </div>
 
 <div class="mb-5 d-flex flex-column justify-content-center align-items-center">

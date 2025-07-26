@@ -1,4 +1,4 @@
-{include file="$template/includes/alert.tpl" type="info" msg="{lang key='creditcard3dsecure'}" textcenter=true}
+{include file="$template/includes/alert.tpl" type="info" msg="{lang key='creditcard3dsecure'}"}
 
 <div class="card">
     <div class="card-body text-center">

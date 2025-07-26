@@ -1,5 +1,5 @@
 {if $successful}
-  {include file="$template/includes/alert.tpl" type="success" msg="{lang key='changessavedsuccessfully'}" textcenter=true}
+  {include file="$template/includes/alert.tpl" type="success" msg="{lang key='changessavedsuccessfully'}"}
 {/if}
 
 {if $errormessage}
@@ -24,22 +24,22 @@
         <div class="col-md-6 float-md-left">
 
           <div class="form-group">
-            <label for="inputFirstName" class="col-form-label">{lang key='clientareafirstname'}</label>
+            <label for="inputFirstName" class="form-label">{lang key='clientareafirstname'}</label>
             <input type="text" name="firstname" id="inputFirstName" value="{$clientfirstname}" {if in_array('firstname', $uneditablefields)} disabled="disabled" {/if} class="form-control" />
           </div>
 
           <div class="form-group">
-            <label for="inputLastName" class="col-form-label">{lang key='clientarealastname'}</label>
+            <label for="inputLastName" class="form-label">{lang key='clientarealastname'}</label>
             <input type="text" name="lastname" id="inputLastName" value="{$clientlastname}" {if in_array('lastname', $uneditablefields)} disabled="disabled" {/if} class="form-control" />
           </div>
 
           <div class="form-group">
-            <label for="inputCompanyName" class="col-form-label">{lang key='clientareacompanyname'}</label>
+            <label for="inputCompanyName" class="form-label">{lang key='clientareacompanyname'}</label>
             <input type="text" name="companyname" id="inputCompanyName" value="{$clientcompanyname}" {if in_array('companyname', $uneditablefields)} disabled="disabled" {/if} class="form-control" />
           </div>
 
           <div class="form-group">
-            <label for="inputEmail" class="col-form-label">{lang key='clientareaemail'}</label>
+            <label for="inputEmail" class="form-label">{lang key='clientareaemail'}</label>
             <input type="email" name="email" id="inputEmail" value="{$clientemail}" {if in_array('email', $uneditablefields)} disabled="disabled" {/if} class="form-control" />
           </div>
 
@@ -47,37 +47,37 @@
         <div class="col-md-6 col-12 float-md-right">
 
           <div class="form-group">
-            <label for="inputAddress1" class="col-form-label">{lang key='clientareaaddress1'}</label>
+            <label for="inputAddress1" class="form-label">{lang key='clientareaaddress1'}</label>
             <input type="text" name="address1" id="inputAddress1" value="{$clientaddress1}" {if in_array('address1', $uneditablefields)} disabled="disabled" {/if} class="form-control" />
           </div>
 
           <div class="form-group">
-            <label for="inputAddress2" class="col-form-label">{lang key='clientareaaddress2'}</label>
+            <label for="inputAddress2" class="form-label">{lang key='clientareaaddress2'}</label>
             <input type="text" name="address2" id="inputAddress2" value="{$clientaddress2}" {if in_array('address2', $uneditablefields)} disabled="disabled" {/if} class="form-control" />
           </div>
 
           <div class="form-group">
-            <label for="inputCity" class="col-form-label">{lang key='clientareacity'}</label>
+            <label for="inputCity" class="form-label">{lang key='clientareacity'}</label>
             <input type="text" name="city" id="inputCity" value="{$clientcity}" {if in_array('city', $uneditablefields)} disabled="disabled" {/if} class="form-control" />
           </div>
 
           <div class="form-group">
-            <label for="inputState" class="col-form-label">{lang key='clientareastate'}</label>
+            <label for="inputState" class="form-label">{lang key='clientareastate'}</label>
             <input type="text" name="state" id="inputState" value="{$clientstate}" {if in_array('state', $uneditablefields)} disabled="disabled" {/if} class="form-control" />
           </div>
 
           <div class="form-group">
-            <label for="inputPostcode" class="col-form-label">{lang key='clientareapostcode'}</label>
+            <label for="inputPostcode" class="form-label">{lang key='clientareapostcode'}</label>
             <input type="text" name="postcode" id="inputPostcode" value="{$clientpostcode}" {if in_array('postcode', $uneditablefields)} disabled="disabled" {/if} class="form-control" />
           </div>
 
           <div class="form-group">
-            <label class="col-form-label" for="country">{lang key='clientareacountry'}</label>
+            <label class="form-label" for="country">{lang key='clientareacountry'}</label>
             {$clientcountriesdropdown}
           </div>
 
           <div class="form-group">
-            <label for="inputPhone" class="col-form-label">{lang key='clientareaphonenumber'}</label>
+            <label for="inputPhone" class="form-label">{lang key='clientareaphonenumber'}</label>
             <input type="tel" name="phonenumber" id="inputPhone" value="{$clientphonenumber}" {if in_array('phonenumber',$uneditablefields)} disabled="" {/if} class="form-control" />
           </div>
 
@@ -85,7 +85,7 @@
         <div class="col-md-6 col-12 float-md-left">
 
           <div class="form-group">
-            <label for="inputPaymentMethod" class="col-form-label">{lang key='paymentmethod'}</label>
+            <label for="inputPaymentMethod" class="form-label">{lang key='paymentmethod'}</label>
             <select name="paymentmethod" id="inputPaymentMethod" class="form-control custom-select">
               <option value="none">{lang key='paymentmethoddefault'}</option>
               {foreach $paymentmethods as $method}
@@ -95,7 +95,7 @@
           </div>
 
           <div class="form-group">
-            <label for="inputBillingContact" class="col-form-label">{lang key='defaultbillingcontact'}</label>
+            <label for="inputBillingContact" class="form-label">{lang key='defaultbillingcontact'}</label>
             <select name="billingcid" id="inputBillingContact" class="form-control custom-select">
               <option value="0">{lang key='usedefaultcontact'}</option>
               {foreach $contacts as $contact}
@@ -105,7 +105,7 @@
           </div>
 
           <div class="form-group">
-            <label for="inputLanguage" class="col-form-label">{lang key='clientarealanguage'}</label>
+            <label for="inputLanguage" class="form-label">{lang key='clientarealanguage'}</label>
             <select name="accountLanguage" id="inputAccountLanguage" class="form-control custom-select" {if in_array('language', $uneditablefields)} disabled="disabled" {/if}>
               <option value="">{lang key='default'}</option>
               {foreach $languages as $language}
@@ -116,7 +116,7 @@
 
           {if $showTaxIdField}
             <div class="form-group">
-              <label for="inputTaxId" class="col-form-label">{lang key=$taxIdLabel}</label>
+              <label for="inputTaxId" class="form-label">{lang key=$taxIdLabel}</label>
               <input type="text" name="tax_id" id="inputTaxId" class="form-control" value="{$clientTaxId}" {if in_array('tax_id', $uneditablefields)} disabled="disabled" {/if} />
             </div>
           {/if}
@@ -124,7 +124,7 @@
           {if $customfields}
             {foreach $customfields as $customfield}
               <div class="form-group">
-                <label class="col-form-label" for="customfield{$customfield.id}">{$customfield.name}</label>
+                <label class="form-label" for="customfield{$customfield.id}">{$customfield.name}</label>
                 <div class="control">
                   {$customfield.input} {$customfield.description}
                 </div>

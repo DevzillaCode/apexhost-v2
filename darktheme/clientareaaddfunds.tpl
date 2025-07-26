@@ -1,9 +1,9 @@
 {if $addfundsdisabled}
-    {include file="$template/includes/alert.tpl" type="error" msg="{lang key='clientareaaddfundsdisabled'}" textcenter=true}
+    {include file="$template/includes/alert.tpl" type="error" msg="{lang key='clientareaaddfundsdisabled'}"}
 {elseif $notallowed}
-    {include file="$template/includes/alert.tpl" type="error" msg="{lang key='clientareaaddfundsnotallowed'}" textcenter=true}
+    {include file="$template/includes/alert.tpl" type="error" msg="{lang key='clientareaaddfundsnotallowed'}"}
 {elseif $errormessage}
-    {include file="$template/includes/alert.tpl" type="error" errorshtml=$errormessage textcenter=true}
+    {include file="$template/includes/alert.tpl" type="error" errorshtml=$errormessage}
 {/if}
 
 {if !$addfundsdisabled}
@@ -37,12 +37,12 @@
                     <form method="post" action="{$smarty.server.PHP_SELF}?action=addfunds">
                         <fieldset>
                             <div class="form-group">
-                                <label for="amount" class="col-form-label">{lang key='addfundsamount'}:</label>
+                                <label for="amount" class="form-label">{lang key='addfundsamount'}:</label>
                                 <input type="text" name="amount" id="amount"
                                        value="{$amount}" class="form-control" required />
                             </div>
                             <div class="form-group">
-                                <label for="paymentmethod" class="col-form-label">{lang key='orderpaymentmethod'}:</label><br/>
+                                <label for="paymentmethod" class="form-label">{lang key='orderpaymentmethod'}:</label><br/>
                                 <select name="paymentmethod" id="paymentmethod" class="form-control custom-select">
                                     {foreach $gateways as $gateway}
                                         <option value="{$gateway.sysname}">{$gateway.name}</option>

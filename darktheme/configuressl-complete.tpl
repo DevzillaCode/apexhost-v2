@@ -1,12 +1,12 @@
 {if $errormessage}
 
-    {include file="$template/includes/alert.tpl" type="error" errorshtml=$errormessage textcenter=true}
+    {include file="$template/includes/alert.tpl" type="error" errorshtml=$errormessage}
 
 {else}
 
     <div class="card py-3">
         <div class="card-body">
-            {include file="$template/includes/alert.tpl" type="success" msg="{lang key='sslconfigcomplete'}" textcenter=true}
+            {include file="$template/includes/alert.tpl" type="success" msg="{lang key='sslconfigcomplete'}"}
 
             <h4 class="text-center">{lang key='ssl.nextSteps'}</h4>
 
@@ -15,7 +15,7 @@
                 {if !is_null($authData)}
                     <div class="pb-3 text-center">{lang key='ssl.emailInformation'}</div>
                     <div class="form-group row">
-                        <label for="emailApprover" class="control-label col-md-4 col-form-label text-md-right">{lang key='email'}</label>
+                        <label for="emailApprover" class="control-label col-md-4 form-label text-md-right">{lang key='email'}</label>
                         <div class="col-md-8">
                             <input type="text" class="form-control" id="emailApprover" value="{$authData->email}" readonly/>
                         </div>
@@ -25,13 +25,13 @@
                 {include file="$template/includes/alert.tpl" type="info" msg="{lang key='ssl.dnsSteps'}"}
                 <div class="pb-3 text-center">{lang key='ssl.dnsRecordInformation'}</div>
                 <div class="form-group row">
-                    <label for="recordType" class="control-label col-md-4 col-form-label text-md-right">{lang key='ssl.type'}</label>
+                    <label for="recordType" class="control-label col-md-4 form-label text-md-right">{lang key='ssl.type'}</label>
                     <div class="col-md-8">
                         <input type="text" class="form-control" id="recordType" value="{$authData->type}" readonly/>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="host" class="control-label col-md-4 col-form-label text-md-right">{lang key='ssl.host'}</label>
+                    <label for="host" class="control-label col-md-4 form-label text-md-right">{lang key='ssl.host'}</label>
                     <div class="col-md-8">
                         <div class="input-group">
                             <input type="text" class="form-control" id="host" value="{$authData->host}" readonly/>
@@ -44,7 +44,7 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="dnsContents" class="control-label col-md-4 col-form-label text-md-right">{lang key='ssl.value'}</label>
+                    <label for="dnsContents" class="control-label col-md-4 form-label text-md-right">{lang key='ssl.value'}</label>
                     <div class="col-md-8">
                         <div class="input-group">
                             <input type="text" class="form-control" id="dnsContents" value="{$authData->value}" readonly/>
@@ -60,14 +60,14 @@
                 {include file="$template/includes/alert.tpl" type="info" msg="{lang key='ssl.fileSteps'}"}
                 <div class="pb-3 text-center">{lang key='ssl.fileInformation'}</div>
                 <div class="form-group row">
-                    <label for="fileName" class="control-label col-md-4 col-form-label text-md-right">{lang key='ssl.url'}</label>
+                    <label for="fileName" class="control-label col-md-4 form-label text-md-right">{lang key='ssl.url'}</label>
                     <div class="col-md-8">
                         <input type="text" class="form-control" id="fileName"
                                value="http://{$domain}/{$authData->filePath()}" readonly/>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="fileContents" class="control-label col-md-4 col-form-label text-md-right">{lang key='ssl.value'}</label>
+                    <label for="fileContents" class="control-label col-md-4 form-label text-md-right">{lang key='ssl.value'}</label>
                     <div class="col-md-8">
                         <div class="input-group">
                             <input type="text" class="form-control" id="fileContents" value="{$authData->contents}" readonly/>

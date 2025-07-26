@@ -2,10 +2,10 @@
     <div class="card mw-540 mb-4 mt-4">
         <div class="card-body px-md-5 py-5">
             {if $loggedin && $innerTemplate}
-                {include file="$template/includes/alert.tpl" type="error" msg="{lang key='noPasswordResetWhenLoggedIn'}" textcenter=true}
+                {include file="$template/includes/alert.tpl" type="error" msg="{lang key='noPasswordResetWhenLoggedIn'}"}
             {else}
                 {if $successMessage}
-                    {include file="$template/includes/alert.tpl" type="success" msg=$successTitle textcenter=true}
+                    {include file="$template/includes/alert.tpl" type="success" msg=$successTitle}
                     <p>{$successMessage}</p>
                 {else}
                     {if $innerTemplate}

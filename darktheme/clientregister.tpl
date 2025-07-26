@@ -49,7 +49,7 @@
           {* First name field *}
           <div class="col-md-6">
             <div class="form-group">
-              <label for="inputFirstName" class="col-form-label">{lang key='orderForm.firstName'}</label>
+              <label for="inputFirstName" class="form-label">{lang key='orderForm.firstName'}</label>
               <div class="prepend-icon">
                 <div class="form-float-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-round-icon lucide-user-round">
@@ -65,7 +65,7 @@
           {* Last name field *}
           <div class="col-md-6">
             <div class="form-group">
-              <label for="inputLastName" class="col-form-label">{lang key='orderForm.lastName'}</label>
+              <label for="inputLastName" class="form-label">{lang key='orderForm.lastName'}</label>
               <div class="prepend-icon">
                 <div class="form-float-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-round-icon lucide-user-round">
@@ -81,7 +81,7 @@
           {* Email field *}
           <div class="col-md-6">
             <div class="form-group">
-              <label for="inputEmail" class="col-form-label">{lang key='orderForm.emailAddress'}</label>
+              <label for="inputEmail" class="form-label">{lang key='orderForm.emailAddress'}</label>
               <div class="prepend-icon">
                 <div class="form-float-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail">
@@ -97,7 +97,7 @@
           {* Phone field *}
           <div class="col-md-6">
             <div class="form-group">
-              <label for="inputPhone" class="col-form-label">{lang key='orderForm.phoneNumber'}</label>
+              <label for="inputPhone" class="form-label">{lang key='orderForm.phoneNumber'}</label>
               <input type="tel" name="phonenumber" id="inputPhone" class="form-control" placeholder="{lang key='orderForm.phoneNumber'}" value="{$clientphonenumber}" required autocomplete="off">
             </div>
           </div>
@@ -109,7 +109,7 @@
           {* Company name field *}
           <div class="col-md-6">
             <div class="form-group">
-              <label for="inputCompanyName" class="col-form-label">{lang key='orderForm.companyName'}</label>
+              <label for="inputCompanyName" class="form-label">{lang key='orderForm.companyName'}</label>
               <div class="prepend-icon">
                 <div class="form-float-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building2-icon lucide-building-2">
@@ -130,7 +130,7 @@
           {* Country field *}
           <div class="col-md-6">
             <div class="form-group">
-              <label for="inputCountry" class="col-form-label">{lang key='orderForm.country'}</label>
+              <label for="inputCountry" class="form-label">{lang key='orderForm.country'}</label>
               <div class="prepend-icon">
                 <div class="form-float-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building2-icon lucide-building-2">
@@ -157,7 +157,7 @@
           {* Address fields *}
           <div class="col-md-6">
             <div class="form-group">
-              <label for="inputAddress1" class="col-form-label">{lang key='orderForm.streetAddress'}</label>
+              <label for="inputAddress1" class="form-label">{lang key='orderForm.streetAddress'}</label>
               <div class="prepend-icon">
                 <div class="form-float-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-icon lucide-map-pin">
@@ -171,7 +171,7 @@
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <label for="inputAddress2" class="col-form-label">{lang key='orderForm.streetAddress2'}</label>
+              <label for="inputAddress2" class="form-label">{lang key='orderForm.streetAddress2'}</label>
               <div class="prepend-icon">
                 <div class="form-float-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-icon lucide-map-pin">
@@ -187,7 +187,7 @@
           {* City, State, Postcode fields *}
           <div class="col-md-4">
             <div class="form-group">
-              <label for="inputCity" class="col-form-label">{lang key='orderForm.city'}</label>
+              <label for="inputCity" class="form-label">{lang key='orderForm.city'}</label>
               <div class="prepend-icon">
                 <div class="form-float-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building2-icon lucide-building-2">
@@ -206,7 +206,7 @@
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label for="state" class="col-form-label">{lang key='orderForm.state'}</label>
+              <label for="state" class="form-label">{lang key='orderForm.state'}</label>
               <div class="prepend-icon">
                 <div class="form-float-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-milestone-icon lucide-milestone">
@@ -221,7 +221,7 @@
           </div>
           <div class="col-md-4">
             <div class="form-group">
-              <label for="inputPostcode" class="col-form-label">{lang key='orderForm.postcode'}</label>
+              <label for="inputPostcode" class="form-label">{lang key='orderForm.postcode'}</label>
               <div class="prepend-icon">
                 <div class="form-float-icon">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-scan-icon lucide-scan">
@@ -240,7 +240,7 @@
           {if $showTaxIdField}
             <div class="col-sm-12">
               <div class="form-group">
-                <label for="inputTaxId" class="col-form-label">{lang key='orderForm.state'}</label>
+                <label for="inputTaxId" class="form-label">{lang key='orderForm.state'}</label>
                 <div class="prepend-icon">
                   <div class="form-float-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-building-icon lucide-building">
@@ -292,7 +292,7 @@
             {if $currencies}
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="inputPostcode" class="col-form-label">{lang key='changeCurrency'}</label>
+                  <label for="inputPostcode" class="form-label">{lang key='changeCurrency'}</label>
                   <div class="prepend-icon">
                     <div for="inputCurrency" class="form-float-icon">
                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-receipt-cent-icon lucide-receipt-cent">
@@ -321,7 +321,7 @@
             {* Password fields *}
             <div class="col-md-6">
               <div class="form-group">
-                <label for="inputNewPassword1" class="col-form-label">{lang key='clientareapassword'}</label>
+                <label for="inputNewPassword1" class="form-label">{lang key='clientareapassword'}</label>
                 <div class="prepend-icon">
                   <div class="form-float-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock-icon lucide-lock">
@@ -335,7 +335,7 @@
             </div>
             <div class="col-md-6">
               <div class="form-group">
-                <label for="inputNewPassword2" class="col-form-label">{lang key='clientareaconfirmpassword'}</label>
+                <label for="inputNewPassword2" class="form-label">{lang key='clientareaconfirmpassword'}</label>
                 <div class="prepend-icon">
                   <div class="form-float-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock-icon lucide-lock">
@@ -396,7 +396,7 @@
             </div>
             <div class="col-6">
               <div class="form-group">
-                <label for="inputSecurityQAns" class="col-form-label">{lang key='clientareasecurityanswer'}</label>
+                <label for="inputSecurityQAns" class="form-label">{lang key='clientareasecurityanswer'}</label>
                 <div class="prepend-icon">
                   <div class="form-float-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-type-icon lucide-type">

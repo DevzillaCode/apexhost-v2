@@ -15,7 +15,7 @@
 
       {* Search filter box with magnifying glass icon *}
       <div class="form-group">
-        <label for="domainRenewalFilter" class="col-form-label d-none"></label>
+        <label for="domainRenewalFilter" class="form-label d-none"></label>
         <div class="prepend-icon mb-4">
           <div class="form-float-icon">
             {* Search icon SVG *}
@@ -35,7 +35,7 @@
       {* Check if user has any domains to renew *}
       {if $totalDomainCount == 0}
         {* Show message when no domains are available *}
-        <div id="no-domains" class="alert alert-warning text-center" role="alert">
+        <div id="no-domains" class="alert alert-warning" role="alert">
           {$LANG.domainRenewal.noDomains}
         </div>
         {* Return to client area button *}
@@ -51,7 +51,7 @@
           <div class="secondary-cart-body">
             {* Show pagination info if not all domains are displayed *}
             {if $totalResults < $totalDomainCount}
-              <div class="text-center">
+              <div class="mb-2">
                 {lang key='domainRenewal.showingDomains' showing=$totalResults totalCount=$totalDomainCount}
                 <a id="linkShowAll" href="{routePath('cart-domain-renewals')}">{lang key='domainRenewal.showAll'}</a>
               </div>
@@ -115,7 +115,7 @@
                     {else}
                       <form class="form-horizontal mt-4">
                         <div class="form-group row">
-                          <label for="renewalPricing{$renewalData.id}" class="col-form-label inline-label col-md-5">
+                          <label for="renewalPricing{$renewalData.id}" class="form-label inline-label col-md-5">
                             {lang key='domainRenewal.availablePeriods'}
                             {* Add asterisk if domain is in grace period *}
                             {if $renewalData.inGracePeriod || $renewalData.inRedemptionGracePeriod}

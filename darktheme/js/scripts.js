@@ -21780,17 +21780,17 @@ jQuery(document).ready(function() {
 
         var noTlds = jQuery('.tld-row.no-tlds');
 
-        if (jQuery(this).hasClass('badge-success')) {
-            jQuery(this).removeClass('badge-success');
+        if (jQuery(this).hasClass('badge-primary')) {
+            jQuery(this).removeClass('badge-primary');
         } else {
-            jQuery(this).addClass('badge-success');
+            jQuery(this).addClass('badge-primary');
         }
         if (noTlds.is(':visible')) {
             noTlds.hide();
         }
 
         jQuery('.tld-row').removeClass('filtered-row');
-        jQuery('.tld-filters a.badge-success').each(function(index) {
+        jQuery('.tld-filters a.badge-primary').each(function(index) {
             var filterValue = jQuery(this).data('category');
             jQuery('.tld-row[data-category*="' + filterValue + '"]').addClass('filtered-row');
         });
@@ -29881,7 +29881,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 		.append(
 			$('<label/>', {
 				'for': tableId+'_search_input',
-				'class': 'col-form-label d-none'
+				'class': 'form-label d-none'
 			}).text(labelText)
 		)
 		.append( prependIconDiv );

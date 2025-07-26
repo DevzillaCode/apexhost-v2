@@ -26,13 +26,13 @@
             <form method="post" action="{routePath('user-security-question')}">
                 {if $user->hasSecurityQuestion()}
                     <div class="form-group">
-                        <label for="inputCurrentAns" class="col-form-label">{$user->getSecurityQuestion()}</label>
+                        <label for="inputCurrentAns" class="form-label">{$user->getSecurityQuestion()}</label>
                         <input type="password" name="currentsecurityqans" id="inputCurrentAns" class="form-control" autocomplete="off" />
                     </div>
                 {/if}
 
                 <div class="form-group">
-                    <label for="inputSecurityQid" class="col-form-label">{lang key='clientareasecurityquestion'}</label>
+                    <label for="inputSecurityQid" class="form-label">{lang key='clientareasecurityquestion'}</label>
                     <select name="securityqid" id="inputSecurityQid" class="form-control custom-select">
                         {foreach $securityQuestions as $question}
                             <option value="{$question->id}">
@@ -45,13 +45,13 @@
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="inputSecurityAns1" class="col-form-label">{lang key='clientareasecurityanswer'}</label>
+                            <label for="inputSecurityAns1" class="form-label">{lang key='clientareasecurityanswer'}</label>
                             <input type="password" name="securityqans" id="inputSecurityAns1" class="form-control" autocomplete="off" />
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="inputSecurityAns2" class="col-form-label">{lang key='clientareasecurityconfanswer'}</label>
+                            <label for="inputSecurityAns2" class="form-label">{lang key='clientareasecurityconfanswer'}</label>
                             <input type="password" name="securityqans2" id="inputSecurityAns2" class="form-control" autocomplete="off" />
                         </div>
                     </div>

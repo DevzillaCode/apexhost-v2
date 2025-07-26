@@ -6,13 +6,13 @@
         {include file="$template/includes/flashmessage.tpl" align="center"}
 
         {if $newbackupcode}
-            {include file="$template/includes/alert.tpl" type="success" msg="{lang key='twofabackupcodereset'}" textcenter=true}
+            {include file="$template/includes/alert.tpl" type="success" msg="{lang key='twofabackupcodereset'}"}
         {elseif $incorrect}
-            {include file="$template/includes/alert.tpl" type="error" msg="{lang key='twofa2ndfactorincorrect'}" textcenter=true}
+            {include file="$template/includes/alert.tpl" type="error" msg="{lang key='twofa2ndfactorincorrect'}"}
         {elseif $error}
-            {include file="$template/includes/alert.tpl" type="error" msg=$error textcenter=true}
+            {include file="$template/includes/alert.tpl" type="error" msg=$error}
         {else}
-            {include file="$template/includes/alert.tpl" type="warning" msg="{lang key='twofa2ndfactorreq'}" textcenter=true}
+            {include file="$template/includes/alert.tpl" type="warning" msg="{lang key='twofa2ndfactorreq'}"}
         {/if}
 
         <form method="post" action="{routePath('login-two-factor-challenge-verify')}" id="frmTwoFactorChallenge"{if $usingBackup} class="w-hidden"{/if}>

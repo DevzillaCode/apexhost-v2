@@ -1,6 +1,6 @@
 <!-- Display warnings if any exist -->
 {if $warnings}
-  {include file="$template/includes/alert.tpl" type="warning" msg=$warnings textcenter=true}
+  {include file="$template/includes/alert.tpl" type="warning" message=$warnings}
 {/if}
 
 {* Page header with title and tagline for contact management *}

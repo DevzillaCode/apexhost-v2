@@ -29,7 +29,7 @@
   {/foreach}
 </div>
 {else}
-{include file="$template/includes/alert.tpl" type="info" msg="{lang key='downloadsnone'}" textcenter=true}
+{include file="$template/includes/alert.tpl" type="info" msg="{lang key='downloadsnone'}"}
 {/if}
 
 {if $mostdownloads}
