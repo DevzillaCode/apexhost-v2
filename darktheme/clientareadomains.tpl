@@ -3,6 +3,9 @@
   {include file="$template/includes/alert.tpl" type="warning" msg=$warnings textcenter=true}
 {/if}
 
+{* Page header with title and tagline for contact management *}
+{include file="$template/components/heading/PageTitle.tpl" headline="{lang key='clientareadomains'}" tagline="{lang key='clientareadomainstagline'}"}
+
 <div class="tab-content">
   <div class="tab-pane fade show active" id="tabOverview">
     <!-- Include table list component with disabled sorting on first two columns, starting order on column 2, filtering on column 5 -->
