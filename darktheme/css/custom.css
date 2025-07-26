@@ -430,6 +430,11 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
 }
+@media (min-width: 1200px) {
+  .theme-sidebar-panel {
+    border: 1px solid var(--border);
+  }
+}
 
 /* Panel Heading */
 .theme-sidebar-panel .panel-heading {

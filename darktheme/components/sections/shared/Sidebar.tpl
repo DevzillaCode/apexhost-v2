@@ -5,7 +5,7 @@
     {* Panel heading with title, icon, and badge *}
     <div class="panel-heading">
       <h3 class="panel-title d-flex align-items-center justify-content-between mb-0">
-        <div class="panel-header-text d-flex align-items-center" data-gap-x="10px">
+        <div class="panel-header-text d-flex align-items-center gap-3">
           {if $item->hasIcon()}
             <i class="{$item->getIcon()|replace:'fas':'fad'} text-size-sm"></i>
           {/if}
@@ -97,7 +97,7 @@
         </h3>
       </div>
 
-      <div class="panel-body card-body">
+      <div class="panel-body">
         <form role="form">
           <select class="theme-select" onchange="selectChangeNavigate(this)">
             {foreach $item->getChildren() as $childItem}
