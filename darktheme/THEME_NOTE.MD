@@ -104,3 +104,6 @@
 48. `{$addons_html}`    → HTML for product addons (if any)
 49. `{$captcha}`        → Captcha HTML (if enabled)
 50. `{$recaptchahtml}`  → Google reCAPTCHA HTML (if enabled)
+
+# TEMPLATE INCLUDES
+1. Page Title ->  `{include file="$template/components/heading/PageTitle.tpl" headline="{lang key=''}" tagline="{lang key=''}" }`

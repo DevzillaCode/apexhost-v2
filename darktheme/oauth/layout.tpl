@@ -55,6 +55,6 @@
         {lang key='oauth.copyrightFooter' dateYear=$date_year companyName=$companyname}
     </section>
 
-    <script src="{assetPath file='scripts.min.js'}"></script>
+    <script src="{assetPath file='scripts.js'}"></script>
   </body>
 </html>

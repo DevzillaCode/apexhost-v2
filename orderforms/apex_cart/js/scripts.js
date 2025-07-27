@@ -2673,14 +2673,14 @@ jQuery(document).ready(function(){
         var $activeAddon = jQuery(this).parents('.panel-addon');
         $activeAddon.addClass('panel-addon-selected');
         $activeAddon.find('input[type="checkbox"]').iCheck('check');
-        $activeAddon.find('.panel-add').html('<i class="fas fa-shopping-cart"></i> '+localTrans('addedToCartRemove', 'Added to Cart (Remove)'));
+        $activeAddon.find('.panel-add').html('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-shopping-cart-icon lucide-shopping-cart"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg> '+localTrans('addedToCartRemove', 'Added to Cart (Remove)'));
         recalctotals();
     });
     jQuery(".addon-products").on('ifUnchecked', '.panel-addon input', function(event) {
         var $activeAddon = jQuery(this).parents('.panel-addon');
         $activeAddon.removeClass('panel-addon-selected');
         $activeAddon.find('input[type="checkbox"]').iCheck('uncheck');
-        $activeAddon.find('.panel-add').html('<i class="fas fa-plus"></i> '+localTrans('addToCart', 'Add to Cart'));
+        $activeAddon.find('.panel-add').html('<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus-icon lucide-plus"><path d="M5 12h14" /><path d="M12 5v14" /></svg> '+localTrans('addToCart', 'Add to Cart'));
         recalctotals();
     });
 

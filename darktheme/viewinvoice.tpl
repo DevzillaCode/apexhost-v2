@@ -11,7 +11,7 @@
     <link href="{$WEB_ROOT}/assets/css/fontawesome-all.min.css" rel="stylesheet">
     <link href="{assetPath file='invoice.min.css'}?v={$versionHash}" rel="stylesheet">
     <script>var whmcsBaseUrl = "{$WEB_ROOT}";</script>
-    <script src="{assetPath file='scripts.min.js'}?v={$versionHash}"></script>
+    <script src="{assetPath file='scripts.js'}?v={$versionHash}"></script>
 
 </head>
 <body>
