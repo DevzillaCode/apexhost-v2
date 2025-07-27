@@ -7,6 +7,15 @@
  */
 @import url("https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap");
 
+/* : Backgrounds : */
+.primary-bg-color {
+  background-color: var(--background);
+}
+.secondary-bg-color {
+  background-color: var(--secondary-bg);
+}
+/* --------------------------------- */
+
 /* : Dividers : */
 .v-divider {
   width: 1px;
@@ -1102,5 +1111,43 @@
 .recent-ticket {
   overflow: hidden;
   width: 100%;
+}
+/* ----------------------------------- */
+
+/* : Container sub headging : */
+.container-sub-heading {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.container-sub-heading svg {
+  width: 18px;
+  margin-top: 4px;
+  margin-left: -1px;
+}
+.container-sub-heading span {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--foreground);
+}
+.container-sub-heading.has-line::before {
+  position: absolute;
+  content: '';
+  left: 1px;
+  top: 35px;
+  width: 2px;
+  bottom: 6px;
+  border-left: 2px dashed var(--border);
+  opacity: 0.8;
+}
+/* ----------------------------------- */
+
+/* Domain Container */
+.domain-container {
+  border-bottom: 2px dashed var(--border);
+  border-radius: 12px;
+}
+.domain-container .content {
+  padding: 1.5rem;
 }
 /* ----------------------------------- */
