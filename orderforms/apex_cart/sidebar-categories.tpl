@@ -15,7 +15,7 @@
 
 {foreach $secondarySidebar as $panel}
   {* Panel container: Each panel represents a sidebar section *}
-  <div menuItemName="{$panel->getName()}" class="panel theme-sidebar-panel mb-3 toggler-sidebar-panel {if $panel->getClass()}{$panel->getClass()}{else}panel-sidebar{/if}{if $panel->getExtra('mobileSelect') and $panel->hasChildren()} hidden-sm hidden-xs d-none d-md-block{/if}" {if $panel->getAttribute('id')} id="{$panel->getAttribute('id')}" {/if}>
+  <div menuItemName="{$panel->getName()}" class="panel theme-sidebar-panel mb-4 toggler-sidebar-panel {if $panel->getClass()}{$panel->getClass()}{else}panel-sidebar{/if}{if $panel->getExtra('mobileSelect') and $panel->hasChildren()} hidden-sm hidden-xs d-none d-md-block{/if}" {if $panel->getAttribute('id')} id="{$panel->getAttribute('id')}" {/if}>
     {* Panel heading with title, icon, and badge *}
     <div class="panel-heading">
       <h3 class="panel-title d-flex align-items-center justify-content-between mb-0">

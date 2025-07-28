@@ -281,7 +281,7 @@
         </div>
 
         <!-- Submit button for contact information changes -->
-        <button type="submit" class="btn btn-primary btn-sm">
+        <button type="submit" class="btn btn-primary btn-sm mt-4">
           {lang key='clientareasavechanges'}
         </button>
 

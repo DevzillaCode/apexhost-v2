@@ -59,7 +59,7 @@
 
             {* Container for all domain renewal items *}
             <div id="domainRenewals" class="card">
-              <div class="card-body">
+              <div class="card-body d-flex flex-column row-gap-4">
                 {* Loop through each domain available for renewal *}
                 {foreach $renewalsData as $renewalData}
                   <div class="domain-renewal" data-domain="{$renewalData.domain}">
@@ -100,7 +100,7 @@
                     </div>
 
                     {* Domain name as heading *}
-                    <h3 class="text-size-lg font-weight-bold mb-2">{$renewalData.domain}</h3>
+                    <h3 class="text-size-base font-weight-bold mb-2">{$renewalData.domain}</h3>
 
                     {* Display expiry date in both absolute and relative format *}
                     <p class="text-muted">{lang key='clientareadomainexpirydate'}: {$renewalData.expiryDate->format('j M Y')} ({$renewalData.expiryDate->diffForHumans()})</p>
@@ -191,6 +191,7 @@
                     <path d="m4.9 4.9 2.9 2.9" />
                   </svg>
                 </div>
+                {* Order summary title *}
                 <h2 class="order-summary-title">{lang key='ordersummary'}</h2>
                 {* Dynamic content container for cart totals *}
                 <div class="summary-container" id="producttotal"></div>
