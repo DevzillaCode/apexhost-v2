@@ -429,6 +429,7 @@
   background: var(--sidebar);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
+  overflow: hidden;
 }
 @media (min-width: 1200px) {
   .theme-sidebar-panel {
@@ -440,6 +441,7 @@
 .theme-sidebar-panel .panel-heading {
   padding: 14px 20px;
   cursor: pointer;
+  background-color: var(--header-bg);
 }
 .theme-sidebar-panel .panel-heading .panel-header-label {
   line-height: 1;

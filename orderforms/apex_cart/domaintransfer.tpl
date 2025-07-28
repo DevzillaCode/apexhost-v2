@@ -1,8 +1,11 @@
 {* Include common template components *}
 {include file="orderforms/apex_cart/common.tpl"}
 
+{* Main container *}
 <div id="order-apex_cart">
+  {* row *}
   <div class="row">
+
     {* Left sidebar with categories *}
     <div class="cart-sidebar">
       {include file="orderforms/apex_cart/sidebar-categories.tpl"}

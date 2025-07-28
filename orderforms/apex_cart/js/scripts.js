@@ -2553,69 +2553,6 @@ jQuery(document).ready(function(){
         existingCvv.payment('formatCardCVC');
     }
 
-    var $orderSummaryEl = jQuery("#orderSummary");
-    if ($orderSummaryEl.length) {
-        var offset = jQuery("#scrollingPanelContainer").parent('.row').offset();
-        var maxTopOffset = jQuery("#scrollingPanelContainer").parent('.row').outerHeight() - 35;
-        var topPadding = 15;
-        jQuery(window).resize(function() {
-            offset = jQuery("#scrollingPanelContainer").parent('.row').offset();
-            maxTopOffset = jQuery("#scrollingPanelContainer").parent('.row').outerHeight() - 35;
-            repositionScrollingSidebar();
-        });
-        jQuery(window).scroll(function() {
-            repositionScrollingSidebar();
-        });
-        repositionScrollingSidebar();
-    }
-
-    function repositionScrollingSidebar() {
-        if (jQuery('#scrollingPanelContainer').css('float') === 'none') {
-            $orderSummaryEl.stop().css('margin-top', '0');
-            return false;
-        }
-        var heightOfOrderSummary =  $orderSummaryEl.outerHeight();
-        var offsetTop = 0;
-        var productListing = jQuery("#scrollingPanelContainer").prev('div.secondary-cart-body');
-        if (typeof offset !== "undefined") {
-            offsetTop = offset.top;
-        }
-        var newTopOffset = jQuery(window).scrollTop() - offsetTop + topPadding;
-        if (heightOfOrderSummary < jQuery(window).height()) {
-            productListing.stop().animate({
-                marginTop: 0
-            });
-            if (newTopOffset > maxTopOffset - heightOfOrderSummary) {
-                newTopOffset = maxTopOffset - heightOfOrderSummary;
-            }
-            if (jQuery(window).scrollTop() > offsetTop) {
-                $orderSummaryEl.stop().animate({
-                    marginTop: newTopOffset
-                });
-            } else {
-                $orderSummaryEl.stop().animate({
-                    marginTop: 0
-                });
-            }
-        } else {
-            $orderSummaryEl.stop().animate({
-                marginTop: 0
-            });
-            if (newTopOffset + productListing.height() > $orderSummaryEl.height()) {
-                return false;
-            }
-            if (jQuery(window).scrollTop() > offsetTop) {
-                productListing.stop().animate({
-                    marginTop: newTopOffset
-                });
-            } else {
-                productListing.stop().animate({
-                    marginTop: 0
-                });
-            }
-        }
-    }
-
     jQuery("#frmConfigureProduct").submit(function(e) {
         e.preventDefault();
 

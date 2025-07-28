@@ -1,6 +1,6 @@
 {foreach $sidebar as $item}
   {* Panel container: Each panel represents a sidebar section *}
-  <div menuItemName="{$item->getName()}" class="panel theme-sidebar-panel mb-3 toggler-sidebar-panel{if $item->getClass()} {$item->getClass()}{/if}{if $item->getExtra('mobileSelect') and $item->hasChildren()} d-none d-md-block{/if}" {if $item->getAttribute('id')} id="{$item->getAttribute('id')}" {/if}>
+  <div menuItemName="{$item->getName()}" class="panel theme-sidebar-panel mb-4 toggler-sidebar-panel{if $item->getClass()} {$item->getClass()}{/if}{if $item->getExtra('mobileSelect') and $item->hasChildren()} d-none d-md-block{/if}" {if $item->getAttribute('id')} id="{$item->getAttribute('id')}" {/if}>
 
     {* Panel heading with title, icon, and badge *}
     <div class="panel-heading">
