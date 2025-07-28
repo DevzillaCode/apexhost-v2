@@ -494,6 +494,9 @@
 .collapsable-card-body .theme-sidebar-list {
   padding: 10px !important;
 }
+.collapsable-card-body .theme-sidebar-list .text-center {
+  text-align: start !important;
+}
 
 /* tags */
 .theme-sidebar-panel a[href*="/knowledgebase/tag"] {
