@@ -82,7 +82,7 @@
 
     {if $panel->hasFooterHtml()}
       {* Optional panel footer content *}
-      <div class="panel-footer card-footer clearfix">
+      <div class="panel-footer clearfix">
         {$panel->getFooterHtml()}
       </div>
     {/if}

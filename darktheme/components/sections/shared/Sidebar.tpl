@@ -68,8 +68,10 @@
     {/if}
 
     {if $item->hasFooterHtml()}
-      <div class="panel-footer card-footer clearfix">
-        {$item->getFooterHtml()}
+      <div class="panel-footer clearfix">
+        <div class="row">
+          {$item->getFooterHtml()}
+        </div>
       </div>
     {/if}
   </div>

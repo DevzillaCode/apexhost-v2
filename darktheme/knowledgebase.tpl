@@ -20,7 +20,7 @@
       <div class="col-xl-6 mb-4">
         {* Card *}
         <!-- Category card with hover effect -->
-        <div class="card --has-hover border-0 rounded-md">
+        <div class="card --has-hover rounded-md">
           {* title *}
           <!-- Category link wrapping the entire card content -->
           <a href="{routePath('knowledgebase-category-view', {$category.id}, {$category.urlfriendlyname})}" class="card-body d-flex flex-column" data-id="{$category.id}">

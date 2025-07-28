@@ -4,7 +4,7 @@
 <!-- Page header with title and tagline -->
 {include file="$template/components/heading/PageTitle.tpl"
   headline="{lang key='clientareaquotes'}"
-  tagline="{lang key='clientareaquotestagline'}"
+tagline="{lang key='clientareaquotestagline'}"
 }
 
 {* JavaScript to initialize and configure DataTable for quotes list *}
@@ -43,7 +43,7 @@
       </tr>
     </thead>
     {* Table body with quote entries *}
-    <tbody>
+    <tbody class="tbody">
       {foreach $quotes as $quote}
         <tr class="table-row" onclick="clickableSafeRedirect(event, 'viewquote.php?id={$quote.id}', true)">
           {* Order indicator cell *}
@@ -69,7 +69,7 @@
               <input type="hidden" name="type" value="q" />
               <input type="hidden" name="id" value="{$quote.id}" />
               <button type="submit" class="btn btn-ghost-info btn-xs">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--foreground)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download-icon lucide-download">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download-icon lucide-download">
                   <path d="M12 15V3" />
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
                   <path d="m7 10 5 5 5-5" />

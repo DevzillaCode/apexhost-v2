@@ -4,7 +4,7 @@
 {/if}
 
 {* Main article container *}
-<div class="nt-card rounded-md p-8 mb-6">
+<div class="nt-card rounded-md mb-8">
   {* Article header with title and print button *}
   <h1 class="title-4 font-weight-semibold color-foreground mb-4">
     {$kbarticle.title}
@@ -129,13 +129,17 @@
 
 {* Navigation buttons section *}
 {* Back button *}
-<a href="javascript:history.go(-1)" class="btn btn-light px-5">
+<a href="javascript:history.go(-1)" class="btn btn-light btn-wide">
+  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left-icon lucide-arrow-left">
+    <path d="m12 19-7-7 7-7" />
+    <path d="M19 12H5" />
+  </svg>
   {lang key='clientareabacklink'}
 </a>
 
 {* Edit button - only show if user has edit permissions *}
 {if $kbarticle.editLink}
-  <a href="{$kbarticle.editLink}" class="btn btn-outline-default float-right">
+  <a href="{$kbarticle.editLink}" class="btn btn-outline-info float-right">
     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil-icon lucide-pencil">
       <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" />
       <path d="m15 5 4 4" />

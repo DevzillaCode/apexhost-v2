@@ -1,19 +1,3 @@
-<!-- Account Details -->
-1. First Name
-2. Last Name
-3. Company Name
-4. Email Address
-5. Address 1
-6. Address 2
-7. City
-8. State
-9. ZIP Code
-10. Country
-11. Phone Number
-12. Payment Mehtod
-13. Default Billing Contact
-14. Language
-
 # z-index:
 - master-loader 9999
 - theme-topbar 99
@@ -37,6 +21,7 @@
       Disallow: /admin/
       Disallow: /cart.php
       Sitemap: {$systemurl}/sitemap.xml
+5. Edit status colors.
 
 
 # DOCUMENTATION
