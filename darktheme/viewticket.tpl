@@ -11,7 +11,7 @@
 
 {if !$invalidTicketId}
   {* card *}
-  <div class="card mb-4">
+  <div class="card extra-padding mb-4">
     {* card header *}
     <div class="card-header">
       {* row *}
@@ -55,7 +55,7 @@
       </div>
     </div>
     {* card-body *}
-    <div class="card-body p-0">
+    <div class="card-body d-flex flex-column row-gap-4">
       {foreach $descreplies as $reply}
         <div class="ticket-reply{if $reply.admin} staff{/if}">
           {* posted-by *}
@@ -137,7 +137,7 @@
     </div>
   </div>
   {* card *}
-  <div class="card d-print-none" id="ticketReplyContainer">
+  <div class="card extra-padding d-print-none" id="ticketReplyContainer">
     <div class="card-body">
       {* card-title *}
       <h3 class="card-title mb-4">{lang key='supportticketsreply'}</h3>
@@ -188,7 +188,7 @@
           </div>
         </div>
 
-        <div class="form-group d-flex justify-content-end col-gap-2">
+        <div class="card-footer d-flex justify-content-end col-gap-2">
           <input class="btn btn-ghost-light btn-wide" type="reset" value="{lang key='cancel'}" onclick="jQuery('#ticketReply').click()" />
           <button class="btn btn-primary btn-wide" type="submit" name="save"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-forward-icon lucide-forward">
               <path d="m15 17 5-5-5-5" />

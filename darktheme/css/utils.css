@@ -782,6 +782,7 @@
   width: 100%;
   border-collapse: collapse;
   min-width: 1000px;
+  background-color: var(--card);
 }
 
 /* thead */
@@ -1041,11 +1042,12 @@
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   transition: all 0.15s var(--transition-function-1);
+  overflow: hidden;
 }
 .card-header {
   padding: 0.75rem;
   margin-bottom: 0;
-  background-color: rgba(0, 0, 0, 0.03);
+  background-color: var(--header-bg);
   border-bottom: 1px solid var(--border);
 }
 .card-title {
@@ -1056,17 +1058,20 @@
 .card-body {
   padding: 1rem;
 }
+.card.extra-padding .card-body {
+  padding: 1.5rem;
+}
 .card-footer {
-  padding: 14px 20px;
+  padding-top: 1rem;
   border-top: 1px solid var(--border);
+}
+.card.extra-padding .card-footer {
+  padding-top: 1.5rem
 }
 .card-footer:last-child {
   border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
 }
 
-.card.extra-padding .card-body {
-  padding: 1.5rem;
-}
 /* ----------------------------------- */
 
 /* : Tickets : */
@@ -1076,7 +1081,6 @@
 }
 .ticket-reply {
   background-color: color-mix(in srgb, var(--accent), transparent 80%);
-  margin: 1rem;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
   overflow: hidden;
@@ -1111,6 +1115,12 @@
 .recent-ticket {
   overflow: hidden;
   width: 100%;
+}
+.recent-ticket > small {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 0.25rem;
 }
 /* ----------------------------------- */
 
