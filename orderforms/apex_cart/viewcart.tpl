@@ -99,6 +99,200 @@
                 {* View cart items *}
                 <div class="view-cart-items">
 
+                  {* Products *}
+                  {foreach $products as $num => $product}
+                    {* items *}
+                    <div class="item">
+                      {* row *}
+                      <div class="row">
+                        {* col - product *}
+                        <div class="col-sm-5">
+                          {* item-title *}
+                          <span class="item-title">
+                            {$product.productinfo.name}
+                          </span>
+                          {* item-group *}
+                          <span class="item-group">
+                            {$product.productinfo.groupname}
+                          </span>
+                          {* item-domain *}
+                          {if $product.domain}
+                            <span class="item-domain">
+                              {$product.domain}
+                            </span>
+                          {/if}
+                          {if $product.configoptions}
+                            <small>
+                              {foreach key=confnum item=configoption from=$product.configoptions}
+                                &nbsp;&raquo; {$configoption.name}: {if $configoption.type eq 1 || $configoption.type eq 2}{$configoption.option}{elseif $configoption.type eq 3}{if $configoption.qty}{$configoption.option}{else}{$LANG.no}{/if}{elseif $configoption.type eq 4}{$configoption.qty} x {$configoption.option}{/if}<br />
+                              {/foreach}
+                            </small>
+                          {/if}
+                        </div>
+                        {* col - quantity *}
+                        {if $showqtyoptions}
+                          <div class="col-sm-2 item-qty">
+                            {if $product.allowqty}
+                              <input type="number" name="qty[{$num}]" value="{$product.qty}" class="form-control text-center" min="0" />
+                              <button type="submit" class="btn btn-xs">
+                                {$LANG.orderForm.update}
+                              </button>
+                            {/if}
+                          </div>
+                        {/if}
+                        {* col - price *}
+                        <div class="{if $showqtyoptions}col-sm-4{else}col-sm-6{/if} item-price">
+                          <div class="d-flex align-items-center justify-content-end gap-4">
+                            <span>{$product.pricing.totalTodayExcludingTaxSetup}</span>
+                            <span class="cycle">{$product.billingcyclefriendly}</span>
+                            {if $product.pricing.productonlysetup}
+                              {$product.pricing.productonlysetup->toPrefixed()} {$LANG.ordersetupfee}
+                            {/if}
+                            {if $product.proratadate}<br />({$LANG.orderprorata} {$product.proratadate}){/if}
+                          </div>
+                        </div>
+                        {* col - actions *}
+                        <div class="col-12">
+                          {* actions *}
+                          <div class="cart-items-actions">
+                            <a href="{$WEB_ROOT}/cart.php?a=confproduct&i={$num}" class="btn btn-ghost-info btn-xs">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil-line-icon lucide-pencil-line">
+                                <path d="M13 21h8" />
+                                <path d="m15 5 4 4" />
+                                <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" />
+                              </svg>
+                              {$LANG.orderForm.edit}
+                            </a>
+                            <button type="button" class="btn btn-ghost-danger btn-xs btn-remove-from-cart" onclick="removeItem('p','{$num}')">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash-icon lucide-trash">
+                                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                                <path d="M3 6h18" />
+                                <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                              </svg>
+                              {$LANG.orderForm.remove}
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {* Product Addons *}
+                    {foreach $product.addons as $addonnum => $addon}
+                      {* items *}
+                      <div class="item">
+                        {* row *}
+                        <div class="row">
+                          {* col - addon *}
+                          <div class="col-sm-5">
+                            {* item-title *}
+                            <span class="item-title">
+                              {$addon.name}
+                            </span>
+                            {* item-group *}
+                            <span class="item-group">
+                              {$LANG.orderaddon}
+                            </span>
+                          </div>
+                          {* col - quantity *}
+                          {if $showAddonQtyOptions}
+                            <div class="col-sm-2 item-qty">
+                              {if $addon.allowqty === 2}
+                                <input type="number" name="paddonqty[{$num}][{$addonnum}]" value="{$addon.qty}" class="form-control text-center" min="0" />
+                                <button type="submit" class="btn btn-xs">
+                                  {$LANG.orderForm.update}
+                                </button>
+                              {/if}
+                            </div>
+                          {/if}
+                          {* col - price *}
+                          <div class="{if $showAddonQtyOptions}col-sm-4{else}col-sm-6{/if} item-price">
+                            <div class="d-flex align-items-center justify-content-end gap-4">
+                              <span>{$addon.totaltoday}</span>
+                              <span class="cycle">{$addon.billingcyclefriendly}</span>
+                              {if $addon.setup}{$addon.setup->toPrefixed()} {$LANG.ordersetupfee}{/if}
+                              {if $addon.isProrated}<br />({$LANG.orderprorata} {$addon.prorataDate}){/if}
+                            </div>
+                          </div>
+                          {* col - actions *}
+                          <div class="col-12">
+                            {* actions *}
+                            <div class="cart-items-actions">
+                              <button type="button" class="btn btn-ghost-danger btn-xs btn-remove-from-cart" onclick="removeItem('pa','{$num}_{$addonnum}')">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash-icon lucide-trash">
+                                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                                  <path d="M3 6h18" />
+                                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                                </svg>
+                                {$LANG.orderForm.remove}
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    {/foreach}
+                  {/foreach}
+
+                  {* Standalone Addons *}
+                  {foreach $addons as $num => $addon}
+                    {* items *}
+                    <div class="item">
+                      {* row *}
+                      <div class="row">
+                        {* col - addon *}
+                        <div class="col-sm-5">
+                          {* item-title *}
+                          <span class="item-title">
+                            {$addon.name}
+                          </span>
+                          {* item-group *}
+                          <span class="item-group">
+                            {$addon.productname}
+                          </span>
+                          {* item-domain *}
+                          {if $addon.domainname}
+                            <span class="item-domain">
+                              {$addon.domainname}
+                            </span>
+                          {/if}
+                        </div>
+                        {* col - quantity *}
+                        {if $showAddonQtyOptions}
+                          <div class="col-sm-2 item-qty">
+                            {if $addon.allowqty === 2}
+                              <input type="number" name="addonqty[{$num}]" value="{$addon.qty}" class="form-control text-center" min="0" />
+                              <button type="submit" class="btn btn-xs">
+                                {$LANG.orderForm.update}
+                              </button>
+                            {/if}
+                          </div>
+                        {/if}
+                        {* col - price *}
+                        <div class="{if $showAddonQtyOptions}col-sm-4{else}col-sm-6{/if} item-price">
+                          <div class="d-flex align-items-center justify-content-end gap-4">
+                            <span>{$addon.totaltoday}</span>
+                            <span class="cycle">{$addon.billingcyclefriendly}</span>
+                            {if $addon.setup}{$addon.setup->toPrefixed()} {$LANG.ordersetupfee}{/if}
+                            {if $addon.isProrated}<br />({$LANG.orderprorata} {$addon.prorataDate}){/if}
+                          </div>
+                        </div>
+                        {* col - actions *}
+                        <div class="col-12">
+                          {* actions *}
+                          <div class="cart-items-actions">
+                            <button type="button" class="btn btn-ghost-danger btn-xs btn-remove-from-cart" onclick="removeItem('a','{$num}')">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash-icon lucide-trash">
+                                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                                <path d="M3 6h18" />
+                                <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                              </svg>
+                              {$LANG.orderForm.remove}
+                            </button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  {/foreach}
+
                   {* Domains *}
                   {foreach $domains as $num => $domain}
                     {* items *}

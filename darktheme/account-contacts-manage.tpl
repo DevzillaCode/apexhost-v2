@@ -273,7 +273,7 @@
 			{* Reset form button *}
 			<input class="btn btn-ghost-light" type="reset" value="{lang key='cancel'}" />
 			{* Save changes button *}
-			<input class="btn btn-light" type="submit" name="save" value="{lang key='clientareasavechanges'}" />
+			<input class="btn btn-primary" type="submit" name="save" value="{lang key='clientareasavechanges'}" />
 		</div>
 	</form>
 </div>

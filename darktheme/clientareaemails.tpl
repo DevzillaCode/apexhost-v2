@@ -1,37 +1,8 @@
-{*
-  Email History Template
-  Displays a list of emails sent to the client in a sortable DataTable
-  Requires: tablelist.tpl, PageTitle.tpl components
-*}
-
-{*
-  Include the standard table list template which provides:
-  - Table styling
-  - Search/filter functionality
-  - Pagination controls
-  The noSortColumns="-1" prevents sorting on the first column (icon column)
-*}
 {include file="$template/includes/tablelist.tpl" tableName="EmailsList" noSortColumns="-1"}
 
-{*
-  Page header section with title and descriptive tagline
-  Uses language strings for multilingual support:
-  - clientareaemailhistory: Main page title
-  - clientareaemailhistorytagline: Descriptive subtitle
-*}
-{include file="$template/components/heading/PageTitle.tpl"
-  headline="{lang key='clientareaemailhistory'}"
-  tagline="{lang key='clientareaemailhistorytagline'}"
-}
+{include file="$template/components/heading/PageTitle.tpl" headline="{lang key='clientareaemailhistory'}" tagline="{lang key='clientareaemailhistorytagline'}"}
 
 <script>
-  {*
-    Initialize DataTables when DOM is ready
-    Handles:
-    - Showing the hidden table
-    - Applying initial sorting if specified
-    - Hiding the loading indicator
-  *}
   jQuery(document).ready(function() {
     var table = jQuery('#tableEmailsList').show().DataTable();
 
@@ -48,10 +19,6 @@
 </script>
 
 <div class="clearfix">
-  {*
-    Main emails table structure
-    Uses WHMCS table classes for consistent styling
-  *}
   <table id="tableEmailsList" class="theme_datatable table w-hidden overflow-hidden">
     <thead class="thead">
       <tr class="table-row">
@@ -73,47 +40,28 @@
       {* Loop through each email record *}
       {foreach $emails as $email}
         <tr class="table-row">
-          {*
-            Icon cell - shows a right-arrow icon
-            Uses Lucide icon set (included with WHMCS)
-          *}
           <td class="order-cell">
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-corner-down-right-icon lucide-corner-down-right">
               <path d="m15 10 5 5-5 5" />
               <path d="M4 4v7a4 4 0 0 0 4 4h12" />
             </svg>
           </td>
-
-          {*
-            Date cell
-            - hidden span with normalized date for sorting
-            - formatted date for display
-          *}
           <td class="table-cell">
             <span class="w-hidden">{$email.normalisedDate}</span>
             {$email.date}
           </td>
 
-          {*
-            Subject cell
-            - Shows paperclip icon if attachments exist
-            - Uses Font Awesome for the attachment icon
-          *}
           <td class="table-cell">
             {$email.subject}
             {if $email.attachmentCount > 0}
               <i class="fal fa-paperclip"></i>
             {/if}
           </td>
-
-          {*
-            Action cell - View button
-            Opens email in popup window with standard dimensions
-          *}
           <td class="table-cell">
-            <button type="button"
-                    class="btn btn-ghost-info btn-xs text-nowrap"
-                    onclick="popupWindow('viewemail.php?id={$email.id}', 'emailWin', '800', '600', 'scrollbars=1,')">
+            <button type="button" class="btn btn-ghost-info btn-xxs text-nowrap" onclick="popupWindow('viewemail.php?id={$email.id}', 'emailWin', '800', '600', 'scrollbars=1,')">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square-icon lucide-message-square">
+                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+              </svg>
               {lang key='emailviewmessage'} {* Uses language string *}
             </button>
           </td>
@@ -122,10 +70,6 @@
     </tbody>
   </table>
 
-  {*
-    Loading indicator shown while table initializes
-    Uses Font Awesome spinner and language string
-  *}
   <div class="text-center" id="tableLoading">
     <p><i class="fas fa-spinner fa-spin"></i> {lang key='loading'}</p>
   </div>
