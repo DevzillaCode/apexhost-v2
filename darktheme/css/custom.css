@@ -486,7 +486,18 @@
 .theme-sidebar-panel .sidebar-list-item.active {
   color: var(--sidebar-accent-foreground);
 }
-
+.theme-sidebar-panel .panel-footer .row:has(> .row) {
+  all: unset;
+}
+.theme-sidebar-panel .panel-footer .row > .row {
+  margin-inline: -0.5rem;
+}
+.theme-sidebar-panel .panel-footer .row > .row > [class*="col-"] {
+  padding-inline: 0.5rem;
+}
+.theme-sidebar-panel .panel-footer .row:not(:has(> .row)):not(:has(> .col)) {
+  margin-inline: 0;
+}
 .theme-sidebar-panel .panel-footer {
   padding: 0.75rem;
   border-top: 1px solid var(--border);
@@ -846,7 +857,7 @@ body.float-bar-open {
   align-items: center;
   justify-content: center;
   color: var(--foreground);
-  background-color: color-mix(in srgb, var(--color-red-300), transparent 90%);
+  background-color: color-mix(in srgb, var(--red), transparent 90%);
   border-radius: calc(var(--space-12) / 3.2);
 }
 
@@ -867,21 +878,21 @@ body.float-bar-open {
 
 /* colors */
 .quick-actions-header .action-item.color-variant-1 .action-icon {
-  background-color: color-mix(in srgb, var(--color-red-300), transparent 90%);
+  background-color: color-mix(in srgb, var(--red), transparent 90%);
 }
 
 .quick-actions-header .action-item.color-variant-2 .action-icon {
-  background-color: color-mix(in srgb, var(--color-blue-300), transparent 80%);
+  background-color: color-mix(in srgb, var(--blue), transparent 80%);
 }
 
 .quick-actions-header .action-item.color-variant-3 .action-icon {
-  background-color: color-mix(in srgb, var(--color-green-300), transparent 80%);
+  background-color: color-mix(in srgb, var(--green), transparent 80%);
 }
 
 .quick-actions-header .action-item.color-variant-4 .action-icon {
   background-color: color-mix(
     in srgb,
-    var(--color-yellow-300),
+    var(--yellow),
     transparent 80%
   );
 }
@@ -889,33 +900,33 @@ body.float-bar-open {
 .quick-actions-header .action-item.color-variant-5 .action-icon {
   background-color: color-mix(
     in srgb,
-    var(--color-purple-300),
+    var(--purple),
     transparent 80%
   );
 }
 
 .quick-actions-header .action-item.color-variant-6 .action-icon {
-  background-color: color-mix(in srgb, var(--color-pink-300), transparent 80%);
+  background-color: color-mix(in srgb, var(--pink), transparent 80%);
 }
 
 .quick-actions-header .action-item.color-variant-7 .action-icon {
   background-color: color-mix(
     in srgb,
-    var(--color-orange-300),
+    var(--orange),
     transparent 80%
   );
 }
 
 .quick-actions-header .action-item.color-variant-8 .action-icon {
-  background-color: color-mix(in srgb, var(--color-gray-300), transparent 80%);
+  background-color: color-mix(in srgb, var(--gray), transparent 80%);
 }
 
 .quick-actions-header .action-item.color-variant-9 .action-icon {
-  background-color: color-mix(in srgb, var(--color-teal-300), transparent 80%);
+  background-color: color-mix(in srgb, var(--teal), transparent 80%);
 }
 
 .quick-actions-header .action-item.color-variant-10 .action-icon {
-  background-color: color-mix(in srgb, var(--color-cyan-300), transparent 80%);
+  background-color: color-mix(in srgb, var(--cyan), transparent 80%);
 }
 
 /* ----------------------------------- */
@@ -1001,7 +1012,7 @@ body.float-bar-open {
   appearance: none;
 }
 .home-domain-search .domain-search-form .custom-input:focus {
-  border-color: var(--color-indigo-500);
+  border-color: var(--indigo);
   outline-color: color-mix(in srgb, var(--ring), transparent 80%);
   outline-width: 2px;
 }
@@ -1145,7 +1156,7 @@ body.float-bar-open {
   background: color-mix(in srgb, var(--card), transparent 0%);
 }
 .regular-plan-card.popular .plan-header .icon {
-  background: var(--color-indigo-500);
+  background: var(--indigo);
 }
 
 /* features-list */
@@ -1264,7 +1275,7 @@ body.float-bar-open {
 /* icon */
 .section-features .line .icon {
   width: 22px;
-  fill: var(--color-indigo-500);
+  fill: var(--indigo);
 }
 /* ----------------------------------- */
 
@@ -1335,7 +1346,7 @@ body.float-bar-open {
   width: 20px;
 }
 .servers-locations-section .location-info i {
-  color: var(--color-indigo-500);
+  color: var(--indigo);
 }
 .servers-locations-section .map-image {
   -webkit-user-select: none;
@@ -1455,7 +1466,7 @@ body.float-bar-open {
   display: flex;
   align-items: center;
   padding: 10px 20px;
-  color: var(--color-neutral-300);
+  color: var(--foreground-text);
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   font-weight: 500;
@@ -1545,7 +1556,7 @@ body.float-bar-open {
 .theme-footer .footer-list .list-link > a {
   font-size: var(--text-sm);
   font-weight: 400;
-  color: var(--color-neutral-300);
+  color: var(--foreground-text);
 }
 .theme-footer .footer-list .list-link > a:hover {
   text-decoration: underline !important;
@@ -1614,7 +1625,8 @@ body.float-bar-open {
   top: 3px;
   bottom: 3px;
   width: 1px;
-  background-color: var(--color-neutral-500);
+  background-color: var(--white);
+  opacity: 0.2;
 }
 .theme-footer .footer-bottom .links li a {
   font-size: var(--text-sm);
@@ -1629,7 +1641,7 @@ body.float-bar-open {
 .theme-footer .footer-bottom .para-3 {
   font-size: var(--text-sm);
   font-weight: 500;
-  color: var(--color-neutral-300);
+  color: var(--foreground-text);
 }
 .theme-footer .footer-bottom .para-3 a {
   color: var(--foreground);
@@ -1637,7 +1649,7 @@ body.float-bar-open {
   text-decoration: underline !important;
 }
 .theme-footer .footer-bottom .para-3 a:hover {
-  color: var(--color-indigo-500);
+  color: var(--indigo);
 }
 
 /* social-list */
@@ -1845,9 +1857,118 @@ body.float-bar-open {
 /* ----------------------------------- */
 
 /* : Addons Section : */
-.addons-section {}
 .addons-section> h3 {
   font-size: var(--text-2xl);
   font-weight: 600;
+}
+/* ----------------------------------- */
+
+/* : Custom Product Status : */
+.custom-product-status {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  flex: 0 0 100%;
+  border-radius: var(--theme-radius);
+  background-color: var(--surface-bg);
+  border: 1px solid var(--border);
+}
+
+.custom-product-status .main-info-se {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 1.5rem;
+  border-right: 1px solid var(--border);
+  width: 20%;
+}
+.custom-product-status .main-info-se .product-title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 0.25rem;
+}
+.custom-product-status .main-info-se .product-subtitle {
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--muted-foreground);
+  margin-bottom: 1rem;
+}
+@media only screen and (max-width: 1599.98px) {
+  .custom-product-status .main-info-se {
+    flex: 0 0 100%;
+    width: unset;
+    border-right: 0;
+  }
+}
+@media only screen and (max-width: 991.98px) {
+  .custom-product-status .main-info-se {
+    flex: 0 0 100%;
+    border-right: 0;
+  }
+}
+
+.custom-product-status .details-se {
+  display: flex;
+  width: 20%;
+}
+.custom-product-status .details-se:not(.last-details-se) {
+  border-right: 1px solid var(--border);
+}
+.custom-product-status .text-bar {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%;
+}
+.custom-product-status .text-bar .text {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  height: 50%;
+  padding: 15px 15px 15px 15px;
+  min-width: 212px;
+  row-gap: 4px;
+}
+.custom-product-status .text-bar .text:not(:last-of-type) {
+  border-bottom: 1px solid var(--border);
+}
+.custom-product-status .text-bar .text p {
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+@media only screen and (max-width: 1599.98px) {
+  .custom-product-status .details-se {
+    flex: 0 0 50%;
+    border-top: 1px solid var(--border);
+  }
+  .custom-product-status .details-se:not(.last-details-se) {
+    border-right: 0;
+  }
+  .custom-product-status .details-se:nth-child(2),
+  .custom-product-status .details-se:nth-child(4) {
+    border-right: 1px solid var(--border);
+  }
+}
+@media only screen and (max-width: 991.98px) {
+  .custom-product-status .details-se {
+    flex: 0 0 100%;
+  }
+  .custom-product-status .details-se:nth-child(2),
+  .custom-product-status .details-se:nth-child(4) {
+    border-right: 0;
+  }
+}
+
+.custom-product-status .product-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 1rem 1.5rem;
+  border-top: 1px solid var(--border);
+  width: 100%;
 }
 /* ----------------------------------- */

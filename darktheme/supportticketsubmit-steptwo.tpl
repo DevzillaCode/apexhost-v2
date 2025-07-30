@@ -130,9 +130,9 @@
         <div class="card-footer d-flex justify-content-end col-gap-2">
           <a href="supporttickets.php" class="btn btn-ghost-light btn-wide">{lang key='cancel'}</a>
           <button type="submit" id="openTicketSubmit" class="btn btn-primary btn-wide disable-on-click{$captcha->getButtonClass($captchaForm)}">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-forward-icon lucide-forward">
-              <path d="m15 17 5-5-5-5" />
-              <path d="M4 18v-2a4 4 0 0 1 4-4h12" />
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send-horizontal-icon lucide-send-horizontal">
+              <path d="M3.714 3.048a.498.498 0 0 0-.683.627l2.843 7.627a2 2 0 0 1 0 1.396l-2.842 7.627a.498.498 0 0 0 .682.627l18-8.5a.5.5 0 0 0 0-.904z" />
+              <path d="M6 12h16" />
             </svg>
             {lang key='supportticketsticketsubmit'}
           </button>

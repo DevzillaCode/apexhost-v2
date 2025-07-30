@@ -9,7 +9,7 @@
   <h1 class="title-4 font-weight-semibold color-foreground mb-4">
     {$kbarticle.title}
     {* Print button - positioned to the right *}
-    <a href="#" class="btn btn-light btn-sm float-right" onclick="window.print();return false">
+    <a href="#" class="btn btn-semi-ghost-secondary btn-sm float-right" onclick="window.print();return false">
       {* Printer icon SVG *}
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-printer-icon lucide-printer">
         <path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2" />
@@ -37,8 +37,11 @@
     {/if}
 
     {* Display useful votes count *}
-    <li class="list-inline-item text-size-sm pr-2 color-muted-foreground mx-4">
-      <i class="fas fa-thumbs-up mr-2"></i>{$kbarticle.useful}
+    <li class="list-inline-item text-size-sm pr-2 color-muted-foreground mx-4 d-flex align-items-center col-gap-2">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-thumbs-up-icon lucide-thumbs-up">
+        <path d="M7 10v12" />
+        <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z" />
+      </svg>{$kbarticle.useful}
     </li>
   </ul>
 
@@ -63,9 +66,9 @@
       <input type="hidden" name="useful" value="vote">
 
       {* Vote buttons container *}
-      <div>
+      <div class="d-flex col-gap-2">
         {* Yes/Helpful button *}
-        <button class="btn btn-outline-light btn-sm" type="submit" name="vote" value="yes">
+        <button class="btn btn-semi-ghost-info btn-xxs" type="submit" name="vote" value="yes">
           {* Thumbs up icon *}
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-thumbs-up-icon lucide-thumbs-up">
             <path d="M7 10v12" />
@@ -75,7 +78,7 @@
         </button>
 
         {* No/Not helpful button *}
-        <button class="btn btn-outline-light btn-sm" type="submit" name="vote" value="no">
+        <button class="btn btn-semi-ghost-danger btn-xxs" type="submit" name="vote" value="no">
           {* Thumbs down icon *}
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-thumbs-down-icon lucide-thumbs-down">
             <path d="M17 14V2" />
@@ -109,7 +112,7 @@
 
           {* Edit button - only show if user has edit permissions *}
           {if $kbarticle.editLink}
-            <button class="btn btn-sm btn-light show-on-card-hover" id="btnEditArticle-{$kbarticle.id}" data-url="{$kbarticle.editLink}" type="button">
+            <button class="btn btn-xxs btn-secondary show-on-card-hover" id="btnEditArticle-{$kbarticle.id}" data-url="{$kbarticle.editLink}" type="button">
               {lang key="edit"}
             </button>
           {/if}
@@ -128,22 +131,27 @@
 {/if}
 
 {* Navigation buttons section *}
-{* Back button *}
-<a href="javascript:history.go(-1)" class="btn btn-light btn-wide">
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left-icon lucide-arrow-left">
-    <path d="m12 19-7-7 7-7" />
-    <path d="M19 12H5" />
-  </svg>
-  {lang key='clientareabacklink'}
-</a>
+<div class="page-footer">
+  <div class="d-flex align-items-center justify-content-between">
+    {* Back button *}
+    <a href="javascript:history.go(-1)" class="btn btn-semi-ghost-secondary btn-wide">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left-icon lucide-arrow-left">
+        <path d="m12 19-7-7 7-7" />
+        <path d="M19 12H5" />
+      </svg>
+      {lang key='clientareabacklink'}
+    </a>
 
-{* Edit button - only show if user has edit permissions *}
-{if $kbarticle.editLink}
-  <a href="{$kbarticle.editLink}" class="btn btn-outline-info float-right">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil-icon lucide-pencil">
-      <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" />
-      <path d="m15 5 4 4" />
-    </svg>
-    {lang key='edit'}
-  </a>
-{/if}
+    {* Edit button - only show if user has edit permissions *}
+    {if $kbarticle.editLink}
+      <a href="{$kbarticle.editLink}" class="btn btn-semi-ghost-info btn-wide">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-pencil-line-icon lucide-pencil-line">
+          <path d="M13 21h8" />
+          <path d="m15 5 4 4" />
+          <path d="M21.174 6.812a1 1 0 0 0-3.986-3.987L3.842 16.174a2 2 0 0 0-.5.83l-1.321 4.352a.5.5 0 0 0 .623.622l4.353-1.32a2 2 0 0 0 .83-.497z" />
+        </svg>
+        {lang key='edit'}
+      </a>
+    {/if}
+  </div>
+</div>

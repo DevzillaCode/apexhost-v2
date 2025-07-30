@@ -27,13 +27,16 @@
         {* col *}
         <div class="col-lg-4">
           <div class="actions d-flex align-items-center justify-content-end col-gap-2">
-            <button id="ticketReply" type="button" class="btn btn-light btn-xs" onclick="smoothScroll('#ticketReplyContainer')">
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-reply-icon lucide-reply"><path d="M20 18v-2a4 4 0 0 0-4-4H4"/><path d="m9 17-5-5 5-5"/></svg>
+            <button id="ticketReply" type="button" class="btn btn-semi-ghost-info btn-xs" onclick="smoothScroll('#ticketReplyContainer')">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-reply-icon lucide-reply">
+                <path d="M20 18v-2a4 4 0 0 0-4-4H4" />
+                <path d="m9 17-5-5 5-5" />
+              </svg>
               {lang key='supportticketsreply'}
             </button>
             {if $showCloseButton}
               {if $closedticket}
-                <button class="btn btn-danger btn-xs" disabled="disabled">
+                <button class="btn btn-semi-ghostdanger btn-xs" disabled="disabled">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x">
                     <path d="M18 6 6 18" />
                     <path d="m6 6 12 12" />
@@ -41,7 +44,7 @@
                   {lang key='supportticketsstatusclosed'}
                 </button>
               {else}
-                <button class="btn btn-danger btn-xs" onclick="window.location='?tid={$tid}&amp;c={$c}&amp;closeticket=true'">
+                <button class="btn btn-semi-ghost-danger btn-xs" onclick="window.location='?tid={$tid}&amp;c={$c}&amp;closeticket=true'">
                   <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x">
                     <path d="M18 6 6 18" />
                     <path d="m6 6 12 12" />
@@ -190,9 +193,9 @@
 
         <div class="card-footer d-flex justify-content-end col-gap-2">
           <input class="btn btn-ghost-light btn-wide" type="reset" value="{lang key='cancel'}" onclick="jQuery('#ticketReply').click()" />
-          <button class="btn btn-primary btn-wide" type="submit" name="save"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-forward-icon lucide-forward">
-              <path d="m15 17 5-5-5-5" />
-              <path d="M4 18v-2a4 4 0 0 1 4-4h12" />
+          <button class="btn btn-primary btn-wide" type="submit" name="save"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send-horizontal-icon lucide-send-horizontal">
+              <path d="M3.714 3.048a.498.498 0 0 0-.683.627l2.843 7.627a2 2 0 0 1 0 1.396l-2.842 7.627a.498.498 0 0 0 .682.627l18-8.5a.5.5 0 0 0 0-.904z" />
+              <path d="M6 12h16" />
             </svg>{lang key='supportticketsticketsubmit'}</button>
         </div>
       </form>

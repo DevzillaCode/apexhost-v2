@@ -339,6 +339,6 @@
   {/if}
   <div class="form-group d-flex flex-wrap col-gap-2 justify-content-end">
     <input class="btn btn-ghost-light" type="reset" value="{lang key='cancel'}" />
-    <input class="btn btn-light" type="submit" name="save" value="{lang key='clientareasavechanges'}" />
+    <input class="btn btn-primary" type="submit" name="save" value="{lang key='clientareasavechanges'}" />
   </div>
 </form>

@@ -116,10 +116,10 @@
 
         <!-- Enable/disable auto-renew buttons -->
         <div class="d-flex flex-wrap align-items-center gap-2">
-          <button type="submit" name="enable" class="btn btn-success btn-sm">
+          <button type="submit" name="enable" class="btn btn-semi-ghost-success btn-sm">
             {lang key='domainsautorenewenable'}
           </button>
-          <button type="submit" name="disable" class="btn btn-danger btn-sm">
+          <button type="submit" name="disable" class="btn btn-semi-ghost-danger btn-sm">
             {lang key='domainsautorenewdisable'}
           </button>
         </div>
@@ -167,10 +167,10 @@
 
         <!-- Enable/disable registration lock buttons -->
         <div class="d-flex flex-wrap align-items-center gap-2">
-          <button type="submit" name="enable" class="btn btn-success">
+          <button type="submit" name="enable" class="btn btn-semi-ghost-success">
             {lang key='domainreglockenable'}
           </button>
-          <button type="submit" name="disable" class="btn btn-danger">
+          <button type="submit" name="disable" class="btn btn-semi-ghost-danger">
             {lang key='domainreglockdisable'}
           </button>
         </div>
@@ -293,14 +293,16 @@
 </div>
 
 <!-- Back to domains list button -->
-<a href="clientarea.php?action=domains" class="btn btn-light">
-  <!-- Left arrow icon -->
-  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left-icon lucide-arrow-left">
-    <path d="m12 19-7-7 7-7" />
-    <path d="M19 12H5" />
-  </svg>
-  {lang key='clientareabacklink'}
-</a>
+<div class="page-footer">
+  <a href="clientarea.php?action=domains" class="btn btn-semi-ghost-secondary btn-wide">
+    <!-- Left arrow icon -->
+    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-left-icon lucide-arrow-left">
+      <path d="m12 19-7-7 7-7" />
+      <path d="M19 12H5" />
+    </svg>
+    {lang key='clientareabacklink'}
+  </a>
+</div>
 
 <!-- JavaScript variable to disable internal tab selection -->
 <script type="text/javascript">

@@ -257,7 +257,7 @@
   width: 1.25rem;
   height: 1.25rem;
   border-radius: var(--radius-full);
-  background-color: var(--color-indigo-600);
+  background-color: var(--indigo);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -284,7 +284,7 @@
   justify-content: center;
   gap: 4px;
   padding: 0.5rem;
-  background-color: var(--color-indigo-600);
+  background-color: var(--indigo);
   color: var(--foreground);
 }
 #order-apex_cart .panel-addon .panel-add svg {
@@ -295,7 +295,7 @@
   opacity: 1;
 }
 #order-apex_cart .panel-addon-selected .panel-add {
-  background-color: var(--color-indigo-700);
+  background-color: var(--indigo);
 }
 
 /**
@@ -695,7 +695,7 @@
   font-size: 1.2em;
 }
 #order-apex_cart .view-cart-items .item-domain {
-  color: var(--color-indigo-500);
+  color: var(--indigo);
   font-size: var(--text-sm);
 }
 #order-apex_cart .view-cart-items .item-price {
@@ -785,7 +785,7 @@
   margin: 0 0 20px 0;
 }
 #order-apex_cart .view-cart-tabs .nav-tabs {
-  padding-left: 20px;
+  padding-inline-start: 1.5rem;
   font-size: 0.8em;
   margin-bottom: -1px;
 }
@@ -1434,9 +1434,10 @@ a.domain-tld-pricing-category {
 
 #order-apex_cart .mc-promo {
   margin: 0 0 10px 0;
-  background-color: #fff;
-  border: 1px dashed #ccc;
-  border-bottom: 4px solid #9abb3a;
+  background-color: var(--header-bg);
+  border: 1px dashed var(--border);
+  border-radius: var(--theme-radius);
+  border-bottom: 4px solid var(--indigo);
 }
 #order-apex_cart .mc-promo .cta {
   float: right;
@@ -1471,8 +1472,8 @@ a.domain-tld-pricing-category {
 }
 #order-apex_cart .mc-promo .body {
   padding: 10px 15px;
-  border-top: 10px solid #eaeaea;
-  background-color: #f8f8f8;
+  border-top: 10px solid var(--border);
+  background-color: var(--card);
   font-size: 0.85em;
   display: none;
 }

@@ -118,6 +118,8 @@
   {include file="$template/includes/verifyemail.tpl"}
 
   {if $templatefile == 'homepage'}
+
+    {include file="$template/components/sections/Inputs.tpl"}
     {* {include file="$template/components/sections/header/QuickActionsHeader.tpl"} *}
     {* Domain Search & Features - Only if domain services are enabled *}
     {if $registerdomainenabled || $transferdomainenabled}

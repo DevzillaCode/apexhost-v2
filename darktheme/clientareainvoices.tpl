@@ -55,7 +55,7 @@ tagline="{lang key='clientareainvoicestagline'}"
       <!-- Loop through each invoice -->
       {foreach $invoices as $invoice}
         <!-- Clickable table row that navigates to invoice view -->
-        <tr class="table-row" onclick="clickableSafeRedirect(event, 'viewinvoice.php?id={$invoice.id}', false)">
+        <tr class="table-row">
 
           <!-- Action arrow icon column -->
           <td class="order-cell">
@@ -66,7 +66,11 @@ tagline="{lang key='clientareainvoicestagline'}"
           </td>
 
           <!-- Invoice number -->
-          <td class="table-cell">{$invoice.invoicenum}</td>
+          <td class="table-cell">
+            <a href="viewinvoice.php?id={$invoice.id}">
+              {$invoice.invoicenum}
+            </a>
+          </td>
 
           <!-- Date created with hidden normalized date for sorting -->
           <td class="table-cell">
@@ -85,7 +89,15 @@ tagline="{lang key='clientareainvoicestagline'}"
 
           <!-- Invoice status with color-coded label -->
           <td class="table-cell">
-            <span class="label status status-{$invoice.statusClass}">{$invoice.status}</span>
+            {* Check if invoice status contains span tag and extract text only *}
+            {assign var="cleanStatus" value=$invoice.status}
+            {if $invoice.status|strpos:'<span' !== false}
+              {* Remove span tags and extract only the text content *}
+              {assign var="cleanStatus" value=$invoice.status|regex_replace:'/<span[^>]*>/':''}
+              {assign var="cleanStatus" value=$cleanStatus|regex_replace:'/<\/span>/':''}
+              {assign var="cleanStatus" value=$cleanStatus|strip_tags|trim}
+            {/if}
+            <span class="label status status-{$invoice.statusClass}">{$cleanStatus}</span>
           </td>
         </tr>
       {/foreach}

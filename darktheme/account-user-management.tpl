@@ -257,7 +257,7 @@
           <button type="button" class="btn btn-ghost-light btn-xs btn-wide" data-dismiss="modal">
             {lang key="cancel"}
           </button>
-          <button type="submit" class="btn btn-light btn-xs btn-wide" id="btnCancelInviteConfirm">
+          <button type="submit" class="btn btn-danger btn-xs btn-wide" id="btnCancelInviteConfirm">
             {lang key="confirm"}
           </button>
         </div>

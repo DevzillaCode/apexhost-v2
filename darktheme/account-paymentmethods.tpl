@@ -156,7 +156,7 @@
           <button type="button" class="btn btn-ghost-light btn-xs btn-wide" data-dismiss="modal">
             {lang key="no"}
           </button>
-          <button type="submit" class="btn btn-light btn-xs btn-wide" id="btnRemoveUserConfirm">
+          <button type="submit" class="btn btn-danger btn-xs btn-wide" id="btnRemoveUserConfirm">
             {lang key="yes"}
           </button>
         </div>

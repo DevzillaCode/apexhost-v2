@@ -2729,11 +2729,11 @@ textarea.form-control.is-invalid {
 .btn-primary {
   --btn-color: var(--foreground);
   --btn-hover-color: var(--foreground);
-  --btn-bg: var(--color-indigo-600);
-  --btn-hover-bg: var(--color-indigo-700);
-  --btn-border: var(--color-indigo-600);
-  --btn-hover-border: var(--color-indigo-700);
-  --btn-outline-color: color-mix(in srgb, var(--color-indigo-300), transparent 80%);
+  --btn-bg: var(--indigo);
+  --btn-hover-bg: var(--indigo);
+  --btn-border: var(--indigo);
+  --btn-hover-border: var(--indigo);
+  --btn-outline-color: color-mix(in srgb, var(--indigo), transparent 80%);
 }
 .btn-secondary {
   --btn-color: var(--foreground);
@@ -2747,11 +2747,11 @@ textarea.form-control.is-invalid {
 .btn-success {
   --btn-color: var(--foreground);
   --btn-hover-color: var(--foreground);
-  --btn-bg: var(--color-green-600);
-  --btn-hover-bg: var(--color-green-700);
-  --btn-border: var(--color-green-600);
-  --btn-hover-border: var(--color-green-700);
-  --btn-outline-color: color-mix(in srgb, var(--color-green-300), transparent 80%);
+  --btn-bg: var(--green);
+  --btn-hover-bg: var(--green);
+  --btn-border: var(--green);
+  --btn-hover-border: var(--green);
+  --btn-outline-color: color-mix(in srgb, var(--green), transparent 80%);
 }
 .btn-danger {
   --btn-color: var(--foreground);
@@ -2774,11 +2774,11 @@ textarea.form-control.is-invalid {
 .btn-info {
   --btn-color: var(--foreground);
   --btn-hover-color: var(--foreground);
-  --btn-bg: var(--color-cyan-600);
-  --btn-hover-bg: var(--color-cyan-700);
-  --btn-border: var(--color-cyan-600);
-  --btn-hover-border: var(--color-cyan-700);
-  --btn-outline-color: color-mix(in srgb, var(--color-cyan-300), transparent 80%);
+  --btn-bg: var(--blue);
+  --btn-hover-bg: var(--blue);
+  --btn-border: var(--blue);
+  --btn-hover-border: var(--blue);
+  --btn-outline-color: color-mix(in srgb, var(--blue-300), transparent 80%);
 }
 .btn-light {
   --btn-color: var(--background);
@@ -2875,11 +2875,11 @@ textarea.form-control.is-invalid {
 
 /* Button Variations (Outline) */
 .btn-outline-primary {
-  --btn-color: var(--color-indigo-600);
+  --btn-color: var(--indigo);
   --btn-hover-color: var(--foreground);
   --btn-bg: transparent;
-  --btn-hover-bg: var(--color-indigo-600);
-  --btn-border: var(--color-indigo-600);
+  --btn-hover-bg: var(--indigo);
+  --btn-border: var(--indigo);
   --outline-color: color-mix(in srgb, var(--color-blue-500), transparent 80%);
 }
 .btn-outline-secondary {
@@ -2891,12 +2891,12 @@ textarea.form-control.is-invalid {
   --outline-color: color-mix(in srgb, var(--color-neutral-500), transparent 80%);
 }
 .btn-outline-success {
-  --btn-color: var(--color-green-600);
+  --btn-color: var(--green);
   --btn-hover-color: var(--foreground);
   --btn-bg: transparent;
-  --btn-hover-bg: var(--color-green-600);
-  --btn-border: var(--color-green-600);
-  --outline-color: color-mix(in srgb, var(--color-green-500), transparent 80%);
+  --btn-hover-bg: var(--green);
+  --btn-border: var(--green);
+  --outline-color: color-mix(in srgb, var(--green0), transparent 80%);
 }
 .btn-outline-danger {
   --btn-color: var(--color-red-600);
@@ -2915,12 +2915,12 @@ textarea.form-control.is-invalid {
   --outline-color: color-mix(in srgb, var(--color-yellow-500), transparent 80%);
 }
 .btn-outline-info {
-  --btn-color: var(--color-cyan-600);
+  --btn-color: var(--blue);
   --btn-hover-color: var(--foreground);
   --btn-bg: transparent;
-  --btn-hover-bg: var(--color-cyan-600);
-  --btn-border: var(--color-cyan-600);
-  --outline-color: color-mix(in srgb, var(--color-cyan-500), transparent 80%);
+  --btn-hover-bg: var(--blue);
+  --btn-border: var(--blue);
+  --outline-color: color-mix(in srgb, var(--blue-500), transparent 80%);
 }
 .btn-outline-light {
   --btn-color: var(--color-gray-300);
@@ -6323,16 +6323,16 @@ a.close.disabled {
 
 /* Background */
 .bg-primary {
-  background-color: var(--color-indigo-600) !important;
+  background-color: var(--indigo) !important;
 }
 .bg-secondary {
   background-color: var(--color-neutral-800) !important;
 }
 .bg-success {
-  background-color: var(--color-green-600) !important;
+  background-color: var(--green) !important;
 }
 .bg-info {
-  background-color: var(--color-cyan-600) !important;
+  background-color: var(--blue) !important;
 }
 .bg-warning {
   background-color:var(--color-yellow-600) !important;
@@ -6385,16 +6385,16 @@ a.close.disabled {
   border-left: 0 !important;
 }
 .border-primary {
-  border-color: var(--color-indigo-600) !important;
+  border-color: var(--indigo) !important;
 }
 .border-secondary {
   border-color: var(--color-neutral-800) !important;
 }
 .border-success {
-  border-color: var(--color-green-600) !important;
+  border-color: var(--green) !important;
 }
 .border-info {
-  border-color: var(--color-cyan-600) !important;
+  border-color: var(--blue) !important;
 }
 .border-warning {
   border-color: var(--color-yellow-600) !important;
@@ -10915,7 +10915,7 @@ a.close.disabled {
   color: var(--accent) !important;
 }
 .color-primary-500 {
-  color: var(--color-indigo-500) !important;
+  color: var(--indigo) !important;
 }
 .text-white {
   color: #fff !important;
@@ -10925,7 +10925,7 @@ a.close.disabled {
 }
 a.text-primary:hover,
 a.text-primary:focus {
-  color: var(--color-indigo-500) !important;
+  color: var(--indigo) !important;
 }
 .text-gray {
   color: var(--color-neutral-300) !important;
@@ -10935,18 +10935,18 @@ a.text-gray:focus {
   color: var(--color-neutral-500) !important;
 }
 .text-success {
-  color: var(--color-green-600) !important;
+  color: var(--green) !important;
 }
 a.text-success:hover,
 a.text-success:focus {
-  color: var(--color-green-700) !important;
+  color: var(--green) !important;
 }
 .text-info {
-  color: var(--color-cyan-600) !important;
+  color: var(--blue) !important;
 }
 a.text-info:hover,
 a.text-info:focus {
-  color: var(--color-cyan-700) !important;
+  color: var(--blue) !important;
 }
 .text-warning {
   color: var(--color-yellow-600) !important;
