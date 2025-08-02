@@ -944,3 +944,110 @@
     </div>
   </div>
 </div>
+
+
+
+{* order-summary *}
+<div class="order-summary" id="orderSummary">
+  {* Loading spinner for order summary *}
+  <div class="loader w-hidden" id="orderSummaryLoader">
+    <svg class="fa-spin" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-loader-icon lucide-loader">
+      <path d="M12 2v4" />
+      <path d="m16.2 7.8 2.9-2.9" />
+      <path d="M18 12h4" />
+      <path d="m16.2 16.2 2.9 2.9" />
+      <path d="M12 18v4" />
+      <path d="m4.9 19.1 2.9-2.9" />
+      <path d="M2 12h4" />
+      <path d="m4.9 4.9 2.9 2.9" />
+    </svg>
+  </div>
+  {* Order summary title *}
+  <h2 class="order-summary-title">{$LANG.ordersummary}</h2>
+  {* Dynamic content container for cart totals *}
+  <div class="summary-container">
+    {* subtotal *}
+    <div class="subtotal clearfix">
+      <span class="pull-left float-left">{$LANG.ordersubtotal}</span>
+      <span id="subtotal" class="pull-right float-right">{$subtotal}</span>
+    </div>
+    {* tax *}
+    {if $promotioncode || $taxrate || $taxrate2}
+      <div class="bordered-totals">
+        {if $promotioncode}
+          <div class="clearfix">
+            <span class="pull-left float-left">{$promotiondescription}</span>
+            <span id="discount" class="pull-right float-right">{$discount}</span>
+          </div>
+        {/if}
+        {if $taxrate}
+          <div class="clearfix">
+            <span class="pull-left float-left">{$taxname} @ {$taxrate}%</span>
+            <span id="taxTotal1" class="pull-right float-right">{$taxtotal}</span>
+          </div>
+        {/if}
+        {if $taxrate2}
+          <div class="clearfix">
+            <span class="pull-left float-left">{$taxname2} @ {$taxrate2}%</span>
+            <span id="taxTotal2" class="pull-right float-right">{$taxtotal2}</span>
+          </div>
+        {/if}
+      </div>
+    {/if}
+    {* recurring *}
+    <div class="recurring-totals clearfix">
+      <span class="pull-left float-left">{$LANG.orderForm.totals}</span>
+      <span id="recurring" class="pull-right float-right recurring-charges">
+        <span id="recurringMonthly" {if !$totalrecurringmonthly}style="display:none;" {/if}>
+          <span class="cost">{$totalrecurringmonthly}</span> {$LANG.orderpaymenttermmonthly}<br />
+        </span>
+        <span id="recurringQuarterly" {if !$totalrecurringquarterly}style="display:none;" {/if}>
+          <span class="cost">{$totalrecurringquarterly}</span> {$LANG.orderpaymenttermquarterly}<br />
+        </span>
+        <span id="recurringSemiAnnually" {if !$totalrecurringsemiannually}style="display:none;" {/if}>
+          <span class="cost">{$totalrecurringsemiannually}</span> {$LANG.orderpaymenttermsemiannually}<br />
+        </span>
+        <span id="recurringAnnually" {if !$totalrecurringannually}style="display:none;" {/if}>
+          <span class="cost">{$totalrecurringannually}</span> {$LANG.orderpaymenttermannually}<br />
+        </span>
+        <span id="recurringBiennially" {if !$totalrecurringbiennially}style="display:none;" {/if}>
+          <span class="cost">{$totalrecurringbiennially}</span> {$LANG.orderpaymenttermbiennially}<br />
+        </span>
+        <span id="recurringTriennially" {if !$totalrecurringtriennially}style="display:none;" {/if}>
+          <span class="cost">{$totalrecurringtriennially}</span> {$LANG.orderpaymenttermtriennially}<br />
+        </span>
+      </span>
+    </div>
+
+    {* total due today *}
+    <div class="total-due-today total-due-today-padded">
+      <span id="totalDueToday" class="amt">{$total}</span>
+      <span>{$LANG.ordertotalduetoday}</span>
+    </div>
+
+    {* express checkout buttons *}
+    <div class="express-checkout-buttons">
+      {foreach $expressCheckoutButtons as $checkoutButton}
+        {$checkoutButton}
+        <div class="separator">
+          - {$LANG.or|strtoupper} -
+        </div>
+      {/foreach}
+    </div>
+
+    {* actions *}
+    <div class="d-flex col-gap-2 justify-content-end">
+      <a href="{$WEB_ROOT}/cart.php" class="btn btn-ghost-secondary btn-sm btn-continue-shopping" id="continueShopping">
+        {$LANG.orderForm.continueShopping}
+      </a>
+      <a href="{$WEB_ROOT}/cart.php?a=checkout&e=false" class="btn btn-success btn-checkout{if $cartitems == 0} disabled{/if}" id="checkout">
+        {$LANG.orderForm.checkout}
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right">
+          <path d="M5 12h14" />
+          <path d="m12 5 7 7-7 7" />
+        </svg>
+      </a>
+    </div>
+
+  </div>
+</div>
