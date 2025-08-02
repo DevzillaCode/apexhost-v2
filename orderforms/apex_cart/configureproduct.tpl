@@ -1,5 +1,7 @@
+{* Include common template components *}
 {include file="orderforms/apex_cart/common.tpl"}
 
+{* JavaScript variables *}
 <script>
   var _localLang = {
     'addToCart': '{$LANG.orderForm.addToCart|escape}',
@@ -7,17 +9,20 @@
   }
 </script>
 
+{* Main cart container *}
 <div id="order-apex_cart">
 
+  {* Main layout row *}
   <div class="row">
+    {* Left sidebar with categories *}
     <div class="cart-sidebar">
       {include file="orderforms/apex_cart/sidebar-categories.tpl"}
     </div>
+    {* Main content area *}
     <div class="cart-body">
 
-      <div class="header-lined">
-        <h1 class="font-size-36">{$LANG.orderconfigure}</h1>
-      </div>
+      <!-- Page header with title and tagline -->
+      {include file="$template/components/heading/PageTitle.tpl" headline="{lang key='orderconfigure'}" tagline="{lang key='orderForm.configureDesiredOptions'}" }
 
       {include file="orderforms/apex_cart/sidebar-categories-collapsed.tpl"}
 
@@ -27,8 +32,6 @@
 
         <div class="row">
           <div class="secondary-cart-body">
-
-            <p>{$LANG.orderForm.configureDesiredOptions}</p>
 
             <div class="product-info">
               <p class="product-title">{$productinfo.name}</p>
@@ -43,9 +46,9 @@
             {if $pricing.type eq "recurring"}
               <div class="field-container">
                 <div class="form-group">
-                  <label for="inputBillingcycle">{$LANG.cartchoosecycle}</label>
+                  <label for="inputBillingcycle" class="form-label">{$LANG.cartchoosecycle}</label>
                   <br>
-                  <select name="billingcycle" id="inputBillingcycle" class="form-control select-inline custom-select" onchange="updateConfigurableOptions({$i}, this.value); return false">
+                  <select name="billingcycle" id="inputBillingcycle" class="form-control select-inline" onchange="updateConfigurableOptions({$i}, this.value); return false">
                     {if $pricing.monthly}
                       <option value="monthly" {if $billingcycle eq "monthly"} selected{/if}>
                         {$pricing.monthly}

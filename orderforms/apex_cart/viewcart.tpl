@@ -376,7 +376,6 @@
                                 <div class="config-item">
                                   <div class="config-item-title">{lang key="orderdomain"}</div>
                                   <div class="config-item-value">{$domain.domain}</div>
-                                  <div class="config-item-price ml-auto text-right"><a href="{$domain.domain}" class="btn btn-xxs btn-primary" target="_blank">{$domain.domain}</a></div>
                                 </div>
                               </div>
 
@@ -1075,9 +1074,11 @@
                     {if $taxrate}
                       <div class="bordered-totals">
                         <h4 class="bordered-totals-title">{lang key="taxes"}</h4>
-                        <div class="bordered-totals-item">
-                          <span class="text-left">{$taxname} @ {$taxrate}%</span>
-                          <span id="taxTotal1" class="text-right">{$taxtotal}</span>
+                        <div class="bordered-totals-items">
+                          <div class="bordered-totals-item">
+                            <span class="text-left">{$taxname} @ {$taxrate}%</span>
+                            <span id="taxTotal1" class="text-right">{$taxtotal}</span>
+                          </div>
                         </div>
                       </div>
                     {/if}
@@ -1085,9 +1086,11 @@
                     {if $taxrate2}
                       <div class="bordered-totals">
                         <h4 class="bordered-totals-title">{lang key="taxes"}</h4>
-                        <div class="bordered-totals-item">
-                          <span class="text-left">{$taxname2} @ {$taxrate2}%</span>
-                          <span id="taxTotal2" class="text-right">{$taxtotal2}</span>
+                        <div class="bordered-totals-items">
+                          <div class="bordered-totals-item">
+                            <span class="text-left">{$taxname2} @ {$taxrate2}%</span>
+                            <span id="taxTotal2" class="text-right">{$taxtotal2}</span>
+                          </div>
                         </div>
                       </div>
                     {/if}
@@ -1096,34 +1099,36 @@
                   {if $totalrecurringmonthly || $totalrecurringquarterly || $totalrecurringsemiannually || $totalrecurringannually || $totalrecurringbiennially || $totalrecurringtriennially}
                     <div class="bordered-totals">
                       <h4 class="bordered-totals-title">{$LANG.recurring}</h4>
-                      <div class="bordered-totals-item">
-                        <span class="text-left">{$LANG.ordertotalrecurring}</span>
-                        <span id="recurring" class="text-right">
-                          <span id="recurringMonthly" {if !$totalrecurringmonthly}style="display:none;" {/if}>
-                            <span class="cost text-right mr-1">{$totalrecurringmonthly}</span>
-                            <span class="period">{$LANG.orderpaymenttermmonthly}</span>
+                      <div class="bordered-totals-items">
+                        <div class="bordered-totals-item">
+                          <span class="text-left">{$LANG.ordertotalrecurring}</span>
+                          <span id="recurring" class="text-right">
+                            <span id="recurringMonthly" {if !$totalrecurringmonthly}style="display:none;" {/if}>
+                              <span class="cost text-right mr-1">{$totalrecurringmonthly}</span>
+                              <span class="period">{$LANG.orderpaymenttermmonthly}</span>
+                            </span>
+                            <span id="recurringQuarterly" {if !$totalrecurringquarterly}style="display:none;" {/if}>
+                              <span class="cost text-right mr-1">{$totalrecurringquarterly}</span>
+                              <span class="period">{$LANG.orderpaymenttermquarterly}</span>
+                            </span>
+                            <span id="recurringSemiAnnually" {if !$totalrecurringsemiannually}style="display:none;" {/if}>
+                              <span class="cost text-right mr-1">{$totalrecurringsemiannually}</span>
+                              <span class="period">{$LANG.orderpaymenttermsemiannually}</span>
+                            </span>
+                            <span id="recurringAnnually" {if !$totalrecurringannually}style="display:none;" {/if}>
+                              <span class="cost text-right mr-1">{$totalrecurringannually}</span>
+                              <span class="period">{$LANG.orderpaymenttermannually}</span>
+                            </span>
+                            <span id="recurringBiennially" {if !$totalrecurringbiennially}style="display:none;" {/if}>
+                              <span class="cost text-right mr-1">{$totalrecurringbiennially}</span>
+                              <span class="period">{$LANG.orderpaymenttermbiennially}</span>
+                            </span>
+                            <span id="recurringTriennially" {if !$totalrecurringtriennially}style="display:none;" {/if}>
+                              <span class="cost text-right mr-1">{$totalrecurringtriennially}</span>
+                              <span class="period">{$LANG.orderpaymenttermtriennially}</span>
+                            </span>
                           </span>
-                          <span id="recurringQuarterly" {if !$totalrecurringquarterly}style="display:none;" {/if}>
-                            <span class="cost text-right mr-1">{$totalrecurringquarterly}</span>
-                            <span class="period">{$LANG.orderpaymenttermquarterly}</span>
-                          </span>
-                          <span id="recurringSemiAnnually" {if !$totalrecurringsemiannually}style="display:none;" {/if}>
-                            <span class="cost text-right mr-1">{$totalrecurringsemiannually}</span>
-                            <span class="period">{$LANG.orderpaymenttermsemiannually}</span>
-                          </span>
-                          <span id="recurringAnnually" {if !$totalrecurringannually}style="display:none;" {/if}>
-                            <span class="cost text-right mr-1">{$totalrecurringannually}</span>
-                            <span class="period">{$LANG.orderpaymenttermannually}</span>
-                          </span>
-                          <span id="recurringBiennially" {if !$totalrecurringbiennially}style="display:none;" {/if}>
-                            <span class="cost text-right mr-1">{$totalrecurringbiennially}</span>
-                            <span class="period">{$LANG.orderpaymenttermbiennially}</span>
-                          </span>
-                          <span id="recurringTriennially" {if !$totalrecurringtriennially}style="display:none;" {/if}>
-                            <span class="cost text-right mr-1">{$totalrecurringtriennially}</span>
-                            <span class="period">{$LANG.orderpaymenttermtriennially}</span>
-                          </span>
-                        </span>
+                        </div>
                       </div>
                     </div>
                   {/if}
