@@ -152,6 +152,11 @@
 }
 
 /* bordered-totals-item */
+#order-apex_cart .order-summary .bordered-totals-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
 #order-apex_cart .order-summary .bordered-totals-item {
   display: flex;
   justify-content: space-between;
