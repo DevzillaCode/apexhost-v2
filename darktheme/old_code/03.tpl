@@ -1,941 +1,746 @@
-{* Module Custom Button Alert *}
-{if $modulecustombuttonresult}
-  {if $modulecustombuttonresult == "success"}
-    {include file="$template/includes/alert.tpl" type="success" msg="{lang key='moduleactionsuccess'}" idname="alertModuleCustomButtonSuccess"}
-  {else}
-    {include file="$template/includes/alert.tpl" type="error" msg="{lang key='moduleactionfailed'}"|cat:' ':$modulecustombuttonresult idname="alertModuleCustomButtonFailed"}
-  {/if}
-{/if}
+{*
+  Shopping Cart Template
+  This template handles the display of the shopping cart, including products, domains, addons, and checkout process.
+*}
 
-{* Pending Cancellation Alert *}
-{if $pendingcancellation}
-  {include file="$template/includes/alert.tpl" type="error" msg="{lang key='cancellationrequestedexplanation'}" idname="alertPendingCancellation"}
-{/if}
+{* Include checkout template if in checkout mode *}
+{if $checkout}
+  {include file="orderforms/$carttpl/checkout.tpl"}
+{else}
 
-{* Unpaid invoice Alert *}
-{if $unpaidInvoice}
-  <div class="alert alert-{if $unpaidInvoiceOverdue}danger{else}warning{/if}" id="alert{if $unpaidInvoiceOverdue}Overdue{else}Unpaid{/if}Invoice">
-    <div class="d-flex align-items-center flex-wrap gap-4">
-      <a href="viewinvoice.php?id={$unpaidInvoice}" class="btn btn-semi-ghost-info btn-xs">
-        {lang key='payInvoice'}
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right-icon lucide-chevron-right">
-          <path d="m9 18 6-6-6-6" />
-        </svg>
-      </a>
-      {$unpaidInvoiceMessage}
-    </div>
-  </div>
-{/if}
+  {* JavaScript variables for state handling *}
+  <script>
+    // Define state tab index value
+    var statesTab = 10;
+    var stateNotRequired = true;
+  </script>
 
-{* Tab Content *}
-<div class="tab-content">
-  {* Tab Overview *}
-  <div class="tab-pane fade show active" role="tabpanel" id="tabOverview">
-    {* Tab Content *}
-    {if $tplOverviewTabOutput}
-      {$tplOverviewTabOutput}
-    {else}
-      <div class="d-flex flex-column row-gap-4">
-        {* Card *}
-        <div class="card">
-          <div class="card-body">
-            {* Product Details *}
-            <div class="product-details">
-              {* Row *}
-              <div class="row">
-                {* Col *}
-                <div class="col-md-6">
-                  {* Product Status *}
-                  <div class="product-status">
-                    {* Product Icon *}
-                    <div class="product-icon d-flex flex-column align-items-center">
-                      {* icon-container *}
-                      <div class="icon-container d-flex align-items-center justify-content-center mb-4">
-                        {if $type eq "hostingaccount" || $type == "reselleraccount"}
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hard-drive-icon lucide-hard-drive">
-                            <line x1="22" x2="2" y1="12" y2="12" />
-                            <path d="M5.45 5.11 2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z" />
-                            <line x1="6" x2="6.01" y1="16" y2="16" />
-                            <line x1="10" x2="10.01" y1="16" y2="16" />
+  {* Include common template components *}
+  {include file="orderforms/apex_cart/common.tpl"}
+
+  {* Include StatesDropdown JavaScript *}
+  <script type="text/javascript" src="{$BASE_PATH_JS}/StatesDropdown.js"></script>
+
+  {* Main cart container *}
+  <div id="order-apex_cart">
+    {* row *}
+    <div class="row">
+
+      {* Left sidebar with categories *}
+      <div class="cart-sidebar">
+        {include file="orderforms/apex_cart/sidebar-categories.tpl"}
+      </div>
+
+      {* Main content area *}
+      <div class="cart-body">
+
+        {* Page header with title and tagline *}
+        {include file="$template/components/heading/PageTitle.tpl" headline="{lang key='cartreviewcheckout'}" tagline="{lang key='clientareacheckouttagline'}" }
+
+        {* Mobile collapsed sidebar *}
+        {include file="orderforms/apex_cart/sidebar-categories-collapsed.tpl"}
+
+        {* row *}
+        <div class="row">
+          {* Primary cart content *}
+          <div class="secondary-cart-body">
+
+            {* Promotions and error messages container *}
+            <div class="d-flex flex-column row-gap-4">
+
+              {* Display promotion/error messages *}
+              {if $promoerrormessage}
+                <div class="alert alert-warning" role="alert">
+                  {$promoerrormessage}
+                </div>
+              {elseif $errormessage}
+                <div class="alert alert-danger" role="alert">
+                  <p>{$LANG.orderForm.correctErrors}:</p>
+                  <ul>
+                    {$errormessage}
+                  </ul>
+                </div>
+              {elseif $promotioncode && $rawdiscount eq "0.00"}
+                <div class="alert alert-info" role="alert">
+                  {$LANG.promoappliedbutnodiscount}
+                </div>
+              {elseif $promoaddedsuccess}
+                <div class="alert alert-success" role="alert">
+                  {$LANG.orderForm.promotionAccepted}
+                </div>
+              {/if}
+
+              {* Display bundle requirements warnings *}
+              {if $bundlewarnings}
+                <div class="alert alert-warning" role="alert">
+                  <strong>{$LANG.bundlereqsnotmet}</strong><br />
+                  <ul>
+                    {foreach from=$bundlewarnings item=warning}
+                      <li>{$warning}</li>
+                    {/foreach}
+                  </ul>
+                </div>
+              {/if}
+
+              {* Main cart form *}
+              <form method="post" action="{$smarty.server.PHP_SELF}?a=view">
+                {* Cart items container *}
+                <div class="view-cart-items">
+
+                  {* Loop through products *}
+                  {foreach $products as $num => $product}
+                    {* Product item *}
+                    <div class="item">
+                      {* Product title with collapse toggle *}
+                      <h4 class="item-title">{$product.productinfo.groupname}<span class="item-name ml-auto">{$product.productinfo.name}</span>
+                        <button class="btn-square btn-semi-ghost-secondary btn-xxs rounded-circle rotate-180" data-toggle="collapse" type="button" data-target="#collapse-{$num}" aria-expanded="false" aria-controls="collapse-{$num}">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down">
+                            <path d="m6 9 6 6 6-6" />
                           </svg>
-                        {elseif $type eq "server"}
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-database-icon lucide-database">
-                            <ellipse cx="12" cy="5" rx="9" ry="3" />
-                            <path d="M3 5V19A9 3 0 0 0 21 19V5" />
-                            <path d="M3 12A9 3 0 0 0 21 12" />
-                          </svg>
-                        {else}
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-archive-icon lucide-archive">
-                            <rect width="20" height="5" x="2" y="3" rx="1" />
-                            <path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8" />
-                            <path d="M10 12h4" />
-                          </svg>
-                        {/if}
+                        </button>
+                      </h4>
+
+                      {* Product details (collapsible) *}
+                      <div class="collapse" id="collapse-{$num}">
+                        <div class="item-content">
+                          <div class="product-config">
+                            <div class="row row-gap-1">
+                              {* Display domain if available *}
+                              {if $product.domain}
+                                <div class="col-12">
+                                  <div class="config-item">
+                                    <div class="config-item-title">{lang key="orderdomain"}</div>
+                                    <div class="config-item-value">{$product.domain}</div>
+                                  </div>
+                                </div>
+                              {/if}
+
+                              {* Display configurable options *}
+                              {if $product.configoptions}
+                                {foreach key=confnum item=configoption from=$product.configoptions}
+                                  <div class="col-12">
+                                    <div class="config-item">
+                                      <div class="config-item-title">{$configoption.name}</div>
+                                      <div class="config-item-value">{$configoption.optionname}</div>
+                                      {if $configoption.recurring}
+                                        <div class="config-item-price ml-auto text-right">
+                                          {$configoption.recurring->toFull()}
+                                        </div>
+                                      {elseif $configoption.optionprice}
+                                        <div class="config-item-price ml-auto text-right">
+                                          {$configoption.optionprice}
+                                        </div>
+                                      {else}
+                                        <div class="config-item-price ml-auto text-right">
+                                          {lang key='orderfree'}
+                                        </div>
+                                      {/if}
+                                    </div>
+                                  </div>
+                                {/foreach}
+                              {/if}
+
+                              {* Display quantity if not shown elsewhere *}
+                              {if !$showqtyoptions && !$product.allowqty}
+                                <div class="col-12">
+                                  <div class="config-item">
+                                    <div class="config-item-title">{lang key="quantity"}</div>
+                                    <div class="config-item-value">{$product.qty}</div>
+                                    <div class="config-item-price ml-auto text-right">{$product.pricing.baseprice->toFull()}</div>
+                                  </div>
+                                </div>
+                              {/if}
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      {* text *}
-                      <h3 class="title-4 mb-2">{$product}</h3>
-                      <h4 class="title-6 text-muted">{$groupname}</h4>
-                    </div>
-                    {* Product Status Text *}
-                    <div class="product-status-text product-status-{$rawstatus|strtolower}">
-                      {$status}
-                    </div>
-                  </div>
 
-                  {* Actions *}
-                  {if $showRenewServiceButton === true || $showcancelbutton === true || $packagesupgrade === true}
-                    <div class="row product-actions-wrapper row-gap-2 mt-4">
-                      {if $packagesupgrade}
-                        <div class="col-12">
-                          <a href="upgrade.php?type=package&amp;id={$id}" class="btn btn-block btn-semi-ghost-success">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-arrow-up-icon lucide-circle-arrow-up">
-                              <circle cx="12" cy="12" r="10" />
-                              <path d="m16 12-4-4-4 4" />
-                              <path d="M12 16V8" />
-                            </svg>
-                            {lang key='upgrade'}
-                          </a>
+                      {* Product footer with pricing and actions *}
+                      <div class="item-footer">
+                        <div class="row align-items-end">
+                          <div class="col-6 d-flex flex-column row-gap-2">
+                            <div class="item-footer-total">
+                              {$LANG.total}: <span class="item-footer-total-price">{$product.pricing.totalTodayExcludingTaxSetup}</span>
+                            </div>
+                            <div class="d-flex align-items-center col-gap-2">
+                              <span class="fee-label label label-secondary">{$product.billingcyclefriendly}</span>
+                              {if $product.pricing.productonlysetup}
+                                <span class="fee-label label label-secondary">{$product.pricing.productonlysetup->toPrefixed()} {$LANG.ordersetupfee}</span>
+                              {/if}
+                              {if $product.proratadate}
+                                <span class="fee-label label label-secondary">({$LANG.orderprorata} {$product.proratadate})</span>
+                              {/if}
+                            </div>
+                          </div>
+                          <div class="col-6">
+                            {* Product action buttons *}
+                            <div class="item-actions">
+                              <a href="{$WEB_ROOT}/cart.php?a=confproduct&i={$num}" class="btn btn-semi-ghost-info btn-xxs">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings-icon lucide-settings">
+                                  <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
+                                  <circle cx="12" cy="12" r="3" />
+                                </svg>
+                                {$LANG.orderForm.edit}
+                              </a>
+                              <button type="button" class="btn btn-semi-ghost-danger btn-xxs btn-remove-from-cart" onclick="removeItem('p','{$num}')">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2-icon lucide-trash-2">
+                                  <path d="M10 11v6" />
+                                  <path d="M14 11v6" />
+                                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                                  <path d="M3 6h18" />
+                                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                                </svg>
+                                {$LANG.orderForm.remove}
+                              </button>
+                            </div>
+                          </div>
                         </div>
-                      {/if}
-                      {if $showRenewServiceButton === true}
-                        <div class="col-12">
-                          <a href="{routePath('service-renewals-service', $id)}" class="btn btn-block btn-semi-ghost-info">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-ccw-icon lucide-refresh-ccw">
-                              <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
-                              <path d="M3 3v5h5" />
-                              <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16" />
-                              <path d="M16 16h5v5" />
-                            </svg>
-                            {lang key='renewService.titleSingular'}
-                          </a>
+                      </div>
+                    </div>
+
+                    {* Display product addons *}
+                    {foreach $product.addons as $addonnum => $addon}
+                      <div class="item">
+                        <div class="row">
+                          <div class="col-sm-5">
+                            <span class="item-title">
+                              {$addon.name}
+                            </span>
+                            <span class="item-group">
+                              {$LANG.orderaddon}
+                            </span>
+                          </div>
+                          {* Quantity selector for addons if enabled *}
+                          {if $showAddonQtyOptions}
+                            <div class="col-sm-2 item-qty">
+                              {if $addon.allowqty === 2}
+                                <input type="number" name="paddonqty[{$num}][{$addonnum}]" value="{$addon.qty}" class="form-control text-center" min="0" />
+                                <button type="submit" class="btn btn-xs">
+                                  {$LANG.orderForm.update}
+                                </button>
+                              {/if}
+                            </div>
+                          {/if}
+                          <div class="{if $showAddonQtyOptions}col-sm-4{else}col-sm-6{/if} item-price">
+                            <div class="d-flex align-items-center justify-content-end gap-4">
+                              <span>{$addon.totaltoday}</span>
+                              <span class="cycle">{$addon.billingcyclefriendly}</span>
+                              {if $addon.setup}{$addon.setup->toPrefixed()} {$LANG.ordersetupfee}{/if}
+                              {if $addon.isProrated}<br />({$LANG.orderprorata} {$addon.prorataDate}){/if}
+                            </div>
+                          </div>
+                          <div class="col-12">
+                            <div class="cart-items-actions">
+                              <button type="button" class="btn btn-ghost-danger btn-xs btn-remove-from-cart" onclick="removeItem('pa','{$num}_{$addonnum}')">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash-icon lucide-trash">
+                                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                                  <path d="M3 6h18" />
+                                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                                </svg>
+                                {$LANG.orderForm.remove}
+                              </button>
+                            </div>
+                          </div>
                         </div>
-                      {/if}
-                      {if $showcancelbutton}
-                        <div class="col-12">
-                          <a href="clientarea.php?action=cancel&amp;id={$id}" class="btn btn-block btn-semi-ghost-danger {if $pendingcancellation}disabled{/if}">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ban-icon lucide-ban">
-                              <path d="M4.929 4.929 19.07 19.071" />
-                              <circle cx="12" cy="12" r="10" />
-                            </svg>
-                            {if $pendingcancellation}
-                              {lang key='cancellationrequested'}
-                            {else}
-                              {lang key='clientareacancelrequestbutton'}
-                            {/if}
-                          </a>
+                      </div>
+                    {/foreach}
+                  {/foreach}
+
+                  {* Display standalone addons *}
+                  {foreach $addons as $num => $addon}
+                    <div class="item">
+                      <h4 class="item-title">
+                        {$addon.name}
+                        <span class="item-name ml-auto">{$addon.productname}</span>
+                        <button class="btn-square btn-semi-ghost-secondary btn-xxs rounded-circle rotate-180" data-toggle="collapse" type="button" data-target="#collapse-addon-{$num}" aria-expanded="false" aria-controls="collapse-addon-{$num}">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down">
+                            <path d="m6 9 6 6 6-6" />
+                          </svg>
+                        </button>
+                      </h4>
+
+                      <div class="collapse" id="collapse-addon-{$num}">
+                        <div class="item-content">
+                          <div class="product-config">
+                            <div class="row row-gap-1">
+                              {if $addon.domainname}
+                                <div class="col-12">
+                                  <div class="config-item">
+                                    <div class="config-item-title">{lang key="orderdomain"}</div>
+                                    <div class="config-item-value">{$addon.domainname}</div>
+                                  </div>
+                                </div>
+                              {/if}
+                              {if $showAddonQtyOptions && $addon.allowqty === 2}
+                                <div class="col-12">
+                                  <div class="config-item">
+                                    <div class="config-item-title"></div>
+                                    <div class="config-item-value">
+                                      <input type="number" name="addonqty[{$num}]" value="{$addon.qty}" class="form-control text-center" min="0" />
+                                    </div>
+                                    <div class="config-item-price ml-auto text-right">
+                                      <button type="submit" class="btn btn-semi-ghost-secondary btn-xxs">
+                                        {$LANG.orderForm.update}
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              {/if}
+                            </div>
+                          </div>
                         </div>
-                      {/if}
+                      </div>
+
+                      <div class="item-footer">
+                        <div class="row align-items-end">
+                          <div class="col-6 d-flex flex-column row-gap-2">
+                            <div class="item-footer-total">
+                              {$LANG.total}: <span class="item-footer-total-price">{$addon.totaltoday}</span>
+                            </div>
+                            <div class="d-flex align-items-center col-gap-2">
+                              <span class="fee-label label label-secondary">{$addon.billingcyclefriendly}</span>
+                              {if $addon.setup}
+                                <span class="fee-label label label-secondary">{$addon.setup->toPrefixed()} {$LANG.ordersetupfee}</span>
+                              {/if}
+                              {if $addon.isProrated}
+                                <span class="fee-label label label-secondary">({$LANG.orderprorata} {$addon.prorataDate})</span>
+                              {/if}
+                            </div>
+                          </div>
+                          <div class="col-6">
+                            <div class="item-actions">
+                              <button type="button" class="btn btn-semi-ghost-danger btn-xxs btn-remove-from-cart" onclick="removeItem('a','{$num}')">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2-icon lucide-trash-2">
+                                  <path d="M10 11v6" />
+                                  <path d="M14 11v6" />
+                                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                                  <path d="M3 6h18" />
+                                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                                </svg>
+                                {$LANG.orderForm.remove}
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  {/foreach}
+
+                  {* Display domains *}
+                  {foreach $domains as $num => $domain}
+                    <div class="item">
+                      <h4 class="item-title">
+                        {if $domain.type eq "register"}{$LANG.orderdomainregistration}{else}{$LANG.orderdomaintransfer}{/if}
+                        <span class="item-name ml-auto">{$domain.domain}</span>
+                        <button class="btn-square btn-semi-ghost-secondary btn-xxs rounded-circle rotate-180" data-toggle="collapse" type="button" data-target="#collapse-domain-{$num}" aria-expanded="false" aria-controls="collapse-domain-{$num}">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down">
+                            <path d="m6 9 6 6 6-6" />
+                          </svg>
+                        </button>
+                      </h4>
+
+                      <div class="collapse" id="collapse-domain-{$num}">
+                        <div class="item-content">
+                          <div class="product-config">
+                            <div class="row row-gap-1">
+                              <div class="col-12">
+                                <div class="config-item">
+                                  <div class="config-item-title">{lang key="orderdomain"}</div>
+                                  <div class="config-item-value">{$domain.domain}</div>
+                                </div>
+                              </div>
+
+                              {if $domain.dnsmanagement || $domain.emailforwarding || $domain.idprotection}
+                                <div class="col-12">
+                                  <div class="config-item">
+                                    <div class="config-item-title">{lang key="domainAddons"}</div>
+                                    <div class="config-item-value">
+                                      <ul class="addons-list">
+                                        {if $domain.dnsmanagement}
+                                          <li>{$LANG.domaindnsmanagement}</li>
+                                        {/if}
+                                        {if $domain.emailforwarding}
+                                          <li>{$LANG.domainemailforwarding}</li>
+                                        {/if}
+                                        {if $domain.idprotection}
+                                          <li>{$LANG.domainidprotection}</li>
+                                        {/if}
+                                      </ul>
+                                    </div>
+                                  </div>
+                                </div>
+                              {/if}
+
+                              <div class="col-12">
+                                <div class="config-item">
+                                  <div class="config-item-title">{$LANG.orderregperiod}</div>
+                                  {if count($domain.pricing) == 1 || $domain.type == 'transfer'}
+                                    <div class="config-item-value">{$domain.regperiod} {$domain.yearsLanguage}</div>
+                                  {else}
+                                    <div class="dropdown">
+                                      <button class="btn btn-semi-ghost-secondary btn-xxs dropdown-toggle" type="button" id="{$domain.domain}Pricing" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        {$domain.regperiod} {$domain.yearsLanguage}
+                                      </button>
+                                      <ul class="dropdown-menu" aria-labelledby="{$domain.domain}Pricing">
+                                        {foreach $domain.pricing as $years => $price}
+                                          <li class="dropdown-item">
+                                            <a href="#" class="dropdown-link" onclick="selectDomainPeriodInCart('{$domain.domain}', '{$price.register}', {$years}, '{if $years == 1}{lang key='orderForm.year'}{else}{lang key='orderForm.years'}{/if}');return false;">
+                                              {$years} {if $years == 1}{lang key='orderForm.year'}{else}{lang key='orderForm.years'}{/if} @ {$price.register}
+                                            </a>
+                                          </li>
+                                        {/foreach}
+                                      </ul>
+                                    </div>
+                                  {/if}
+                                  <div class="config-item-price ml-auto text-right">{$domain.price}</div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="item-footer">
+                        <div class="row align-items-end">
+                          <div class="col-6 d-flex flex-column row-gap-2">
+                            <div class="item-footer-total">
+                              {$LANG.total}: <span class="item-footer-total-price">{$domain.price}</span>
+                            </div>
+                            <div class="d-flex align-items-center col-gap-2">
+                              <span class="fee-label label label-secondary">{$domain.regperiod} {$domain.yearsLanguage}</span>
+                              {if isset($domain.renewprice)}
+                                <span class="fee-label label label-secondary">
+                                  {lang key='domainrenewalprice'} {$domain.renewprice->toPrefixed()}{$domain.shortRenewalYearsLanguage}
+                                </span>
+                              {/if}
+                            </div>
+                          </div>
+                          <div class="col-6">
+                            <div class="item-actions">
+                              <a href="{$WEB_ROOT}/cart.php?a=confdomains" class="btn btn-semi-ghost-info btn-xxs">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings-icon lucide-settings">
+                                  <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
+                                  <circle cx="12" cy="12" r="3" />
+                                </svg>
+                                {$LANG.orderForm.edit}
+                              </a>
+                              <button type="button" class="btn btn-semi-ghost-danger btn-xxs btn-remove-from-cart" onclick="removeItem('d','{$num}')">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2-icon lucide-trash-2">
+                                  <path d="M10 11v6" />
+                                  <path d="M14 11v6" />
+                                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                                  <path d="M3 6h18" />
+                                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                                </svg>
+                                {$LANG.orderForm.remove}
+                              </button>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  {/foreach}
+
+                  {* Display empty cart message if no items *}
+                  {if $cartitems == 0}
+                    <div class="view-cart-empty">
+                      {$LANG.cartempty}
                     </div>
                   {/if}
-
                 </div>
-                {* Col *}
-                <div class="col-md-6 text-center">
-                  <div class="d-flex flex-column align-items-center row-gap-4">
-                    <div>
-                      <h4 class="title-6 mb-1">{lang key='clientareahostingregdate'}</h4>
-                      <p class="text-size-sm text-muted">
-                        {$regdate}
-                      </p>
-                    </div>
-                    {if $firstpaymentamount neq $recurringamount}
-                      <div>
-                        <h4 class="title-6 mb-1">{lang key='firstpaymentamount'}</h4>
-                        <p class="text-size-sm text-muted">
-                          {$firstpaymentamount}
-                        </p>
-                      </div>
-                    {/if}
-                    {if $billingcycle != "{lang key='orderpaymenttermonetime'}" && $billingcycle != "{lang key='orderfree'}"}
-                      <div>
-                        <h4 class="title-6 mb-1">{lang key='recurringamount'}</h4>
-                        <p class="text-size-sm text-muted">
-                          {$recurringamount}
-                        </p>
-                      </div>
-                    {/if}
-                    {if $quantitySupported && $quantity > 1}
-                      <div>
-                        <h4 class="title-6 mb-1">{lang key='quantity'}</h4>
-                        <p class="text-size-sm text-muted">
-                          {$quantity}
-                        </p>
-                      </div>
-                    {/if}
-                    <div>
-                      <h4 class="title-6 mb-1">{lang key='orderbillingcycle'}</h4>
-                      <p class="text-size-sm text-muted">
-                        {$billingcycle}
-                      </p>
-                    </div>
-                    <div>
-                      <h4 class="title-6 mb-1">{lang key='clientareahostingnextduedate'}</h4>
-                      <p class="text-size-sm text-muted">
-                        {$nextduedate}
-                      </p>
-                    </div>
-                    <div>
-                      <h4 class="title-6 mb-1">{lang key='orderpaymentmethod'}</h4>
-                      <p class="text-size-sm text-muted">
-                        {$paymentmethod}
-                      </p>
-                    </div>
-                    {if $suspendreason}
-                      <div>
-                        <h4 class="title-6 mb-2">{lang key='suspendreason'}</h4>
-                        <p class="text-size-sm text-muted">
-                          {$suspendreason}
-                        </p>
-                      </div>
-                    {/if}
-                  </div>
 
-                </div>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-        {* Hook *}
-        {foreach $hookOutput as $output}
-          <div>
-            {$output}
-          </div>
-        {/foreach}
-
-        {if $domain || $moduleclientarea || $configurableoptions || $customfields || $lastupdate}
-
-          <div>
-            <ul class="nav nav-tabs responsive-tabs-sm">
-              {if $domain}
-                <li class="nav-item">
-                  <a href="#domain" data-toggle="tab" class="nav-link active"><i class="fas fa-globe fa-fw"></i> {if $type eq "server"}{lang key='sslserverinfo'}{elseif ($type eq "hostingaccount" || $type eq "reselleraccount") && $serverdata}{lang key='hostingInfo'}{else}{lang key='clientareahostingdomain'}{/if}</a>
-                </li>
-              {elseif $moduleclientarea}
-                <li class="nav-item">
-                  <a href="#manage" data-toggle="tab" class="nav-link active"><i class="fas fa-globe fa-fw"></i> {lang key='manage'}</a>
-                </li>
-              {/if}
-              {if $configurableoptions}
-                <li class="nav-item">
-                  <a href="#configoptions" data-toggle="tab" class="nav-link{if !$domain && !$moduleclientarea} active{/if}"><i class="fas fa-cubes fa-fw"></i> {lang key='orderconfigpackage'}</a>
-                </li>
-              {/if}
-              {if $metricStats}
-                <li class="nav-item">
-                  <a href="#metrics" data-toggle="tab" class="nav-link{if !$domain && !$moduleclientarea && !$configurableoptions} active{/if}"><i class="fas fa-chart-line fa-fw"></i> {lang key='metrics.title'}</a>
-                </li>
-              {/if}
-              {if $customfields}
-                <li class="nav-item">
-                  <a href="#additionalinfo" data-toggle="tab" class="nav-link{if !$domain && !$moduleclientarea && !$metricStats && !$configurableoptions} active{/if}"><i class="fas fa-info fa-fw"></i> {lang key='additionalInfo'}</a>
-                </li>
-              {/if}
-              {if $lastupdate}
-                <li class="nav-item">
-                  <a href="#resourceusage" data-toggle="tab" class="nav-link{if !$domain && !$moduleclientarea && !$configurableoptions && !$customfields} active{/if}"><i class="fas fa-inbox fa-fw"></i> {lang key='resourceUsage'}</a>
-                </li>
-              {/if}
-            </ul>
-            <div class="responsive-tabs-sm-connector">
-              <div class="channel"></div>
-              <div class="bottom-border"></div>
-            </div>
-            <div class="tab-content product-details-tab-container">
-              {if $domain}
-                <div class="tab-pane fade show active text-center" role="tabpanel" id="domain">
-                  {if $type eq "server"}
-                    <div class="row mb-2">
-                      <div class="col-sm-5 text-right">
-                        <strong>{lang key='serverhostname'}</strong>
-                      </div>
-                      <div class="col-sm-7 text-left">
-                        {$domain}
-                      </div>
-                    </div>
-                    {if $dedicatedip}
-                      <div class="row mb-2">
-                        <div class="col-sm-5 text-right">
-                          <strong>{lang key='primaryIP'}</strong>
-                        </div>
-                        <div class="col-sm-7 text-left">
-                          {$dedicatedip}
-                        </div>
-                      </div>
-                    {/if}
-                    {if $assignedips}
-                      <div class="row mb-2">
-                        <div class="col-sm-5 text-right">
-                          <strong>{lang key='assignedIPs'}</strong>
-                        </div>
-                        <div class="col-sm-7 text-left">
-                          {$assignedips|nl2br}
-                        </div>
-                      </div>
-                    {/if}
-                    {if $ns1 || $ns2}
-                      <div class="row mb-2">
-                        <div class="col-sm-5 text-right">
-                          <strong>{lang key='domainnameservers'}</strong>
-                        </div>
-                        <div class="col-sm-7 text-left">
-                          {$ns1}<br />{$ns2}
-                        </div>
-                      </div>
-                    {/if}
-                  {else}
-                    {if $domain}
-                      <div class="row mb-2">
-                        <div class="col-sm-5 text-right">
-                          <strong>{lang key='orderdomain'}</strong>
-                        </div>
-                        <div class="col-sm-7 text-left">
-                          {$domain}
-                        </div>
-                      </div>
-                    {/if}
-                    {if $username}
-                      <div class="row mb-2">
-                        <div class="col-sm-5 text-right">
-                          <strong>{lang key='serverusername'}</strong>
-                        </div>
-                        <div class="col-sm-7 text-left">
-                          {$username}
-                        </div>
-                      </div>
-                    {/if}
-                    {if $serverdata}
-                      <div class="row mb-2">
-                        <div class="col-sm-5 text-right">
-                          <strong>{lang key='servername'}</strong>
-                        </div>
-                        <div class="col-sm-7 text-left">
-                          {$serverdata.hostname}
-                        </div>
-                      </div>
-                      <div class="row mb-2">
-                        <div class="col-sm-5 text-right">
-                          <strong>{lang key='domainregisternsip'}</strong>
-                        </div>
-                        <div class="col-sm-7 text-left">
-                          {$serverdata.ipaddress}
-                        </div>
-                      </div>
-                      {if $serverdata.nameserver1 || $serverdata.nameserver2 || $serverdata.nameserver3 || $serverdata.nameserver4 || $serverdata.nameserver5}
-                        <div class="row mb-2">
-                          <div class="col-sm-5 text-right">
-                            <strong>{lang key='domainnameservers'}</strong>
-                          </div>
-                          <div class="col-sm-7 text-left">
-                            {if $serverdata.nameserver1}{$serverdata.nameserver1} ({$serverdata.nameserver1ip})<br />{/if}
-                            {if $serverdata.nameserver2}{$serverdata.nameserver2} ({$serverdata.nameserver2ip})<br />{/if}
-                            {if $serverdata.nameserver3}{$serverdata.nameserver3} ({$serverdata.nameserver3ip})<br />{/if}
-                            {if $serverdata.nameserver4}{$serverdata.nameserver4} ({$serverdata.nameserver4ip})<br />{/if}
-                            {if $serverdata.nameserver5}{$serverdata.nameserver5} ({$serverdata.nameserver5ip})<br />{/if}
-                          </div>
-                        </div>
-                      {/if}
-                    {/if}
-                    {if $domain && $sslStatus}
-                      <div class="row mb-2">
-                        <div class="col-sm-5 text-right">
-                          <strong>{lang key='sslState.sslStatus'}</strong>
-                        </div>
-                        <div class="col-sm-7 text-left{if $sslStatus->isInactive()} ssl-inactive{/if}">
-                          <img src="{$sslStatus->getImagePath()}" width="12" data-type="service" data-domain="{$domain}" data-showlabel="1" class="{$sslStatus->getClass()}" />
-                          <span id="statusDisplayLabel">
-                            {if !$sslStatus->needsResync()}
-                              {$sslStatus->getStatusDisplayLabel()}
-                            {else}
-                              {lang key='loading'}
-                            {/if}
-                          </span>
-                        </div>
-                      </div>
-                      {if $sslStatus->isActive() || $sslStatus->needsResync()}
-                        <div class="row mb-2">
-                          <div class="col-sm-5 text-right">
-                            <strong>{lang key='sslState.startDate'}</strong>
-                          </div>
-                          <div class="col-sm-7 text-left" id="ssl-startdate">
-                            {if !$sslStatus->needsResync() || $sslStatus->startDate}
-                              {$sslStatus->startDate->toClientDateFormat()}
-                            {else}
-                              {lang key='loading'}
-                            {/if}
-                          </div>
-                        </div>
-                        <div class="row mb-2">
-                          <div class="col-sm-5 text-right">
-                            <strong>{lang key='sslState.expiryDate'}</strong>
-                          </div>
-                          <div class="col-sm-7 text-left" id="ssl-expirydate">
-                            {if !$sslStatus->needsResync() || $sslStatus->expiryDate}
-                              {$sslStatus->expiryDate->toClientDateFormat()}
-                            {else}
-                              {lang key='loading'}
-                            {/if}
-                          </div>
-                        </div>
-                        <div class="row mb-2">
-                          <div class="col-sm-5 text-right">
-                            <strong>{lang key='sslState.issuerName'}</strong>
-                          </div>
-                          <div class="col-sm-7 text-left" id="ssl-issuer">
-                            {if !$sslStatus->needsResync() || $sslStatus->issuerName}
-                              {$sslStatus->issuerName}
-                            {else}
-                              {lang key='loading'}
-                            {/if}
-                          </div>
-                        </div>
-                      {/if}
-                    {/if}
-                    <br>
-                    <p>
-                      <a href="http://{$domain}" class="btn btn-semi-ghost-info btn-sm" target="_blank">
-                        {lang key='visitwebsite'}
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right">
-                          <path d="M5 12h14" />
-                          <path d="m12 5 7 7-7 7" />
-                        </svg>
-                      </a>
-                      {if $domainId}
-                        <a href="clientarea.php?action=domaindetails&id={$domainId}" class="btn btn-light btn-sm" target="_blank">{lang key='managedomain'}</a>
-                      {/if}
-                    </p>
-                  {/if}
-                  {if $moduleclientarea}
-                    <div class="text-center module-client-area">
-                      {$moduleclientarea}
-                    </div>
-                  {/if}
-                </div>
-                {if $sslStatus}
-                  <div class="tab-pane fade text-center" role="tabpanel" id="ssl-info">
-                    {if $sslStatus->isActive()}
-                      <div class="alert alert-success" role="alert">
-                        {lang key='sslActive' expiry=$sslStatus->expiryDate->toClientDateFormat()}
-                      </div>
-                    {else}
-                      <div class="alert alert-warning ssl-required" role="alert">
-                        {lang key='sslInactive'}
-                      </div>
-                    {/if}
+                {* Empty cart button *}
+                {if $cartitems > 0}
+                  <div class="mt-4 text-right">
+                    <button type="button" class="btn btn-ghost-danger btn-xs" id="btnEmptyCart">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brush-cleaning-icon lucide-brush-cleaning">
+                        <path d="m16 22-1-4" />
+                        <path d="M19 13.99a1 1 0 0 0 1-1V12a2 2 0 0 0-2-2h-3a1 1 0 0 1-1-1V4a2 2 0 0 0-4 0v5a1 1 0 0 1-1 1H6a2 2 0 0 0-2 2v.99a1 1 0 0 0 1 1" />
+                        <path d="M5 14h14l1.973 6.767A1 1 0 0 1 20 22H4a1 1 0 0 1-.973-1.233z" />
+                        <path d="m8 22 1-4" />
+                      </svg>
+                      <span>{$LANG.emptycart}</span>
+                    </button>
                   </div>
                 {/if}
-              {elseif $moduleclientarea}
-                <div class="tab-pane fade{if !$domain} show active{/if} text-center" role="tabpanel" id="manage">
-                  {if $moduleclientarea}
-                    <div class="text-center module-client-area">
-                      {$moduleclientarea}
+              </form>
+
+              {* Display hook output *}
+              {foreach $hookOutput as $output}
+                <div class="view-cart-hook">
+                  {$output}
+                </div>
+              {/foreach}
+
+              {* Display gateway output *}
+              {foreach $gatewaysoutput as $gatewayoutput}
+                <div class="view-cart-gateway-checkout">
+                  {$gatewayoutput}
+                </div>
+              {/foreach}
+
+              {* Promo code and tax tabs *}
+              <div class="view-cart-tabs mt-4">
+                <ul class="nav nav-tabs" role="tablist">
+                  <li role="presentation" class="nav-item active">
+                    <a href="#applyPromo" class="nav-link active" aria-controls="applyPromo" role="tab" data-toggle="tab" {if $template == 'twenty-one'} aria-selected="true" {else} aria-expanded="true" {/if}>
+                      {$LANG.orderForm.applyPromoCode}
+                    </a>
+                  </li>
+                  {if $taxenabled && !$loggedin}
+                    <li role="presentation" class="nav-item">
+                      <a href="#calcTaxes" class="nav-link" aria-controls="calcTaxes" role="tab" data-toggle="tab" {if $template == 'twenty-one'} aria-selected="false" {else} aria-expanded="false" {/if}>
+                        {$LANG.orderForm.estimateTaxes}
+                      </a>
+                    </li>
+                  {/if}
+                </ul>
+                <div class="tab-content d-flex flex-column row-gap-4">
+                  {* Promo code tab *}
+                  <div role="tabpanel" class="tab-pane active promo" id="applyPromo">
+                    {if $promotioncode}
+                      <div class="view-cart-promotion-code mb-4">
+                        {$promotioncode} - {$promotiondescription}
+                      </div>
+                      <div class="text-center">
+                        <a href="{$WEB_ROOT}/cart.php?a=removepromo" class="btn btn-danger btn-xs">
+                          {$LANG.orderForm.removePromotionCode}
+                        </a>
+                      </div>
+                    {else}
+                      <form method="post" action="{$WEB_ROOT}/cart.php?a=view">
+                        <div class="form-group mb-4">
+                          <label for="promocode" class="form-label">{lang key='clientareafirstname'}</label>
+                          <div class="prepend-icon">
+                            <div class="form-float-icon">
+                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ticket-icon lucide-ticket">
+                                <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+                                <path d="M13 5v2" />
+                                <path d="M13 17v2" />
+                                <path d="M13 11v2" />
+                              </svg>
+                            </div>
+                            <input type="text" name="promocode" id="inputPromotionCode" class="form-control" placeholder="{lang key="orderPromoCodePlaceholder"}" required="required">
+                          </div>
+                        </div>
+                        <button type="submit" name="validatepromo" class="btn btn-block btn-light" value="{$LANG.orderpromovalidatebutton}">
+                          {$LANG.orderpromovalidatebutton}
+                        </button>
+                      </form>
+                    {/if}
+                  </div>
+
+                  {* Tax estimation tab *}
+                  <div role="tabpanel" class="tab-pane" id="calcTaxes">
+                    <form method="post" action="{$WEB_ROOT}/cart.php?a=setstateandcountry" class="d-flex flex-column row-gap-4">
+                      <div class="form-group row">
+                        <label for="inputState" class="pt-sm-2 col-sm-4 control-label">{$LANG.orderForm.state}</label>
+                        <div class="col-sm-8">
+                          <input type="text" name="state" id="inputState" value="{$clientsdetails.state}" class="form-control" {if $loggedin} disabled="disabled" {/if} />
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="inputCountry" class="pt-sm-2 col-sm-4 control-label">{$LANG.orderForm.country}</label>
+                        <div class="col-sm-8">
+                          <select name="country" id="inputCountry" class="form-control">
+                            {foreach $countries as $countrycode => $countrylabel}
+                              <option value="{$countrycode}" {if (!$country && $countrycode == $defaultcountry) || $countrycode eq $country} selected{/if}>
+                                {$countrylabel}
+                              </option>
+                            {/foreach}
+                          </select>
+                        </div>
+                      </div>
+                      <div class="form-group text-right">
+                        <button type="submit" class="btn btn-light btn-sm">
+                          {$LANG.orderForm.updateTotals}
+                        </button>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {* Order summary sidebar *}
+          <div class="secondary-cart-sidebar">
+            <div class="order-summary" id="orderSummary">
+              <div class="loader w-hidden" id="orderSummaryLoader">
+                <svg class="fa-spin" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-loader-icon lucide-loader">
+                  <path d="M12 2v4" />
+                  <path d="m16.2 7.8 2.9-2.9" />
+                  <path d="M18 12h4" />
+                  <path d="m16.2 16.2 2.9 2.9" />
+                  <path d="M12 18v4" />
+                  <path d="m4.9 19.1 2.9-2.9" />
+                  <path d="M2 12h4" />
+                  <path d="m4.9 4.9 2.9 2.9" />
+                </svg>
+              </div>
+              <h2 class="order-summary-title">{$LANG.ordersummary}</h2>
+              <div class="summary-container">
+                {if $cartitems}
+                  {foreach $products as $num => $product}
+                    <div class="bordered-totals">
+                      <h4 class="bordered-totals-title">{$product.productinfo.groupname} - {$product.productinfo.name} <span class="title-price">{$product.pricing.baseprice->toFull()}</span></h4>
+                    </div>
+                  {/foreach}
+
+                  {* Display taxes *}
+                  {if $taxrate || $taxrate2}
+                    {if $taxrate}
+                      <div class="bordered-totals">
+                        <h4 class="bordered-totals-title">{lang key="taxes"}</h4>
+                        <div class="bordered-totals-item">
+                          <span class="text-left">{$taxname} @ {$taxrate}%</span>
+                          <span id="taxTotal1" class="text-right">{$taxtotal}</span>
+                        </div>
+                      </div>
+                    {/if}
+                    {if $taxrate2}
+                      <div class="bordered-totals">
+                        <h4 class="bordered-totals-title">{lang key="taxes"}</h4>
+                        <div class="bordered-totals-item">
+                          <span class="text-left">{$taxname2} @ {$taxrate2}%</span>
+                          <span id="taxTotal2" class="text-right">{$taxtotal2}</span>
+                        </div>
+                      </div>
+                    {/if}
+                  {/if}
+
+                  {* Display recurring totals *}
+                  <div class="bordered-totals">
+                    <h4 class="bordered-totals-title">{$LANG.recurring}</h4>
+                    <div class="bordered-totals-item">
+                      <span class="text-left">{$LANG.ordertotalrecurring}</span>
+                      <span id="recurring" class="text-right">
+                        {foreach ['monthly', 'quarterly', 'semiannually', 'annually', 'biennially', 'triennially'] as $cycle}
+                          {if ${"totalrecurring$cycle"}}
+                            <span id="recurring{ucfirst($cycle)}">
+                              <span class="cost text-right mr-1">${"totalrecurring$cycle"}</span>
+                              <span class="period">{$LANG["orderpaymentterm$cycle"]}</span>
+                            </span>
+                          {/if}
+                        {/foreach}
+                      </span>
+                    </div>
+                  </div>
+
+                  {* Display discount if applied *}
+                  {if $promotioncode}
+                    <div class="bordered-totals">
+                      <h4 class="bordered-totals-title">
+                        <span class="title-span">
+                          {$LANG.orderdiscount}
+                          <svg data-toggle="tooltip" data-placement="top" title="{$promotiondescription}" data-html="true" class="tooltip-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-question-mark-icon lucide-circle-question-mark">
+                            <circle cx="12" cy="12" r="10" />
+                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
+                            <path d="M12 17h.01" />
+                          </svg>
+                        </span>
+                        <span id="discount" class="title-price">{$discount}</span>
+                      </h4>
                     </div>
                   {/if}
-                </div>
-              {/if}
-              {if $configurableoptions}
-                <div class="tab-pane fade{if !$domain && !$moduleclientarea} show active{/if} text-center" role="tabpanel" id="configoptions">
-                  {foreach from=$configurableoptions item=configoption}
-                    <div class="row">
-                      <div class="col-sm-5">
-                        <strong>{$configoption.optionname}</strong>
-                      </div>
-                      <div class="col-sm-7 text-left">
-                        {if $configoption.optiontype eq 3}{if $configoption.selectedqty}{lang key='yes'}{else}{lang key='no'}{/if}{elseif $configoption.optiontype eq 4}{$configoption.selectedqty} x {$configoption.selectedoption}{else}{$configoption.selectedoption}{/if}
-                      </div>
-                    </div>
-                  {/foreach}
-                </div>
-              {/if}
-              {if $metricStats}
-                <div class="tab-pane fade{if !$domain && !$moduleclientarea && !$configurableoptions} show active{/if}" role="tabpanel" id="metrics">
-                  {include file="$template/clientareaproductusagebilling.tpl"}
-                </div>
-              {/if}
-              {if $customfields}
-                <div class="tab-pane fade{if !$domain && !$moduleclientarea && !$configurableoptions && !$metricStats} show active{/if} text-center" role="tabpanel" id="additionalinfo">
-                  {foreach from=$customfields item=field}
-                    <div class="row">
-                      <div class="col-sm-5">
-                        <strong>{$field.name}</strong>
-                      </div>
-                      <div class="col-sm-7 text-left">
-                        {$field.value}
-                      </div>
-                    </div>
-                  {/foreach}
-                </div>
-              {/if}
-              {if $lastupdate}
-                <div class="tab-pane fade text-center" role="tabpanel" id="resourceusage">
-                  <div class="row">
-                    <div class="col-sm-10 offset-sm-1">
-                      <div class="row">
-                        <div class="col-sm-6">
-                          <h4>{lang key='diskSpace'}</h4>
-                          <input type="text" value="{$diskpercent|substr:0:-1}" class="form-control dial-usage" data-width="100" data-height="100" data-min="0" data-readOnly="true" />
-                          <p>{$diskusage}MB / {$disklimit}MB</p>
-                        </div>
-                        <div class="col-sm-6">
-                          <h4>{lang key='bandwidth'}</h4>
-                          <input type="text" value="{$bwpercent|substr:0:-1}" class="form-control dial-usage" data-width="100" data-height="100" data-min="0" data-readOnly="true" />
-                          <p>{$bwusage}MB / {$bwlimit}MB</p>
-                        </div>
-                      </div>
+
+                  {* Display order total *}
+                  <div class="total">
+                    <div>
+                      <span>{$LANG.total}</span>
+                      <span class="total-price">
+                        <span class="old-price">{$subtotal}</span>{$total}
+                      </span>
                     </div>
                   </div>
-                  <p class="text-muted mb-0">{lang key='clientarealastupdated'}: {$lastupdate}</p>
-                  <script src="{$BASE_PATH_JS}/jquery.knob.js"></script>
-                  <script>
-                    jQuery(function() {
-                      jQuery(".dial-usage").knob({
-                        'format': function(v) {
-                          alert(v);
-                        }
-                      });
-                    });
-                  </script>
-                </div>
 
-              {/if}
+                  {* Express checkout buttons *}
+                  <div class="express-checkout-buttons">
+                    {foreach $expressCheckoutButtons as $checkoutButton}
+                      {$checkoutButton}
+                      <div class="separator">
+                        - {$LANG.or|strtoupper} -
+                      </div>
+                    {/foreach}
+                  </div>
+
+                  {* Checkout button *}
+                  <div class="actions">
+                    <a href="{$WEB_ROOT}/cart.php?a=checkout&e=false" class="btn btn-primary btn-block btn-checkout{if $cartitems == 0} disabled{/if}" id="checkout">
+                      {$LANG.orderForm.checkout}
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right">
+                        <path d="M5 12h14" />
+                        <path d="m12 5 7 7-7 7" />
+                      </svg>
+                    </a>
+                    <a href="{$WEB_ROOT}/cart.php" class="d-none btn btn-ghost-secondary btn-sm btn-block btn-continue-shopping" id="continueShopping">
+                      {$LANG.orderForm.continueShopping}
+                    </a>
+                  </div>
+                {else}
+                  <div class="view-cart-empty">
+                    {$LANG.cartempty}
+                  </div>
+                {/if}
+              </div>
             </div>
           </div>
-        {/if}
-      </div>
-    {/if}
-  </div>
-</div>
+        </div>
 
-
-
-
-
-
-
-
-
-<!-- Success Alert -->
-<div class="alert alert-success" id="alertModuleCustomButtonSuccess">
-  Module action was successful.
-</div>
-
-<!-- Error Alert -->
-<div class="alert alert-danger" id="alertModuleCustomButtonFailed">
-  Module action failed: Something went wrong.
-</div>
-
-<!-- Pending Cancellation -->
-<div class="alert alert-danger" id="alertPendingCancellation">
-  Cancellation requested. The service will terminate at the end of the billing period.
-</div>
-
-<!-- Unpaid Invoice (Overdue Example) -->
-<div class="alert alert-danger" id="alertOverdueInvoice">
-  <div class="d-flex align-items-center flex-wrap gap-4">
-    <a href="viewinvoice.php?id=1234" class="btn btn-xs btn-semi-ghost-info">Pay Invoice
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right-icon lucide-chevron-right">
-        <path d="m9 18 6-6-6-6" />
-      </svg>
-    </a>
-    Your invoice #1234 is overdue. Please make payment immediately.
-  </div>
-</div>
-
-<div class="tab-content">
-  {* tab-overview *}
-  <div class="tab-pane fade show active" role="tabpanel" id="tabOverview">
-    {* card *}
-    <div class="card">
-      <div class="card-body">
-        <div class="product-details">
-          <div class="row row-gap-4">
-            {* col *}
-            <div class="col-12">
-              {* custom-product-status *}
-              <div class="custom-product-status">
-                {* main-info-se *}
-                <div class="main-info-se">
-                  <h3 class="product-title">Basic Hosting Plan</h3>
-                  <h4 class="product-subtitle">Shared Hosting</h4>
-                  <span class="label status status-active">Active</span>
-                </div>
-                {* details-se *}
-                <div class="details-se">
-                  <div class="text-bar">
-                    <!-- text -->
-                    <div class="text">
-                      <p class="font-weight-semibold">Registration Date</p>
-                      <p class="text-muted">2023-01-01</p>
-                    </div>
-                    <!-- text -->
-                    <div class="text">
-                      <p class="font-weight-semibold">First Payment Amount</p>
-                      <p class="text-muted">$10.00 USD</p>
-                    </div>
-                  </div>
-                </div>
-                {* details-se *}
-                <div class="details-se">
-                  <div class="text-bar">
-                    <!-- text -->
-                    <div class="text">
-                      <p class="font-weight-semibold">Recurring Amount</p>
-                      <p class="text-muted">$5.00 USD</p>
-                    </div>
-                    <!-- text -->
-                    <div class="text">
-                      <p class="font-weight-semibold">Quantity</p>
-                      <p class="text-muted">2</p>
-                    </div>
-                  </div>
-                </div>
-                {* details-se *}
-                <div class="details-se">
-                  <div class="text-bar">
-                    <!-- text -->
-                    <div class="text">
-                      <p class="font-weight-semibold">Billing Cycle</p>
-                      <p class="text-muted">Monthly</p>
-                    </div>
-                    <!-- text -->
-                    <div class="text">
-                      <p class="font-weight-semibold">Monthly</p>
-                      <p class="text-muted">2025-08-15</p>
-                    </div>
-                  </div>
-                </div>
-                {* details-se *}
-                <div class="details-se last-details-se">
-                  <div class="text-bar">
-                    <!-- text -->
-                    <div class="text">
-                      <p class="font-weight-semibold">Payment Method</p>
-                      <p class="text-muted">PayPal</p>
-                    </div>
-                    <!-- text -->
-                    <div class="text">
-                      <p class="font-weight-semibold">Suspend Reason</p>
-                      <p class="text-muted">Payment overdue</p>
-                    </div>
-                  </div>
-                </div>
-                {* actions *}
-                <div class="product-actions">
-                  <a href="upgrade.php?type=package&id=1" class="btn btn-semi-ghost-success btn-xs">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-fading-arrow-up-icon lucide-circle-fading-arrow-up">
-                      <path d="M12 2a10 10 0 0 1 7.38 16.75" />
-                      <path d="m16 12-4-4-4 4" />
-                      <path d="M12 16V8" />
-                      <path d="M2.5 8.875a10 10 0 0 0-.5 3" />
-                      <path d="M2.83 16a10 10 0 0 0 2.43 3.4" />
-                      <path d="M4.636 5.235a10 10 0 0 1 .891-.857" />
-                      <path d="M8.644 21.42a10 10 0 0 0 7.631-.38" />
+        {* Remove item modal *}
+        <form method="post" action="{$WEB_ROOT}/cart.php">
+          <input type="hidden" name="a" value="remove" />
+          <input type="hidden" name="r" value="" id="inputRemoveItemType" />
+          <input type="hidden" name="i" value="" id="inputRemoveItemRef" />
+          <input type="hidden" name="rt" value="" id="inputRemoveItemRenewalType">
+          <div class="modal fade modal-remove-item" id="modalRemoveItem" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">{lang key='orderForm.removeItem'}</h4>
+                  <button type="button" class="close-btn btn-square btn-ghost-light btn-xs rounded-circle" data-dismiss="modal" aria-label="Close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x">
+                      <path d="M18 6 6 18"></path>
+                      <path d="m6 6 12 12"></path>
                     </svg>
-                    Upgrade
-                  </a>
-                  <a href="/clientarea.php?action=renew&id=1" class="btn btn-semi-ghost-info btn-xs">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-ccw-icon lucide-refresh-ccw">
-                      <path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8" />
-                      <path d="M3 3v5h5" />
-                      <path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16" />
-                      <path d="M16 16h5v5" />
-                    </svg>
-                    Renew
-                  </a>
-                  <a href="clientarea.php?action=cancel&id=1" class="btn btn-semi-ghost-danger btn-xs">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ban-icon lucide-ban">
-                      <path d="M4.929 4.929 19.07 19.071" />
-                      <circle cx="12" cy="12" r="10" />
-                    </svg>
-                    Cancellation Requested
-                  </a>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <p>{lang key='cartremoveitemconfirm'}</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-ghost-light btn-xs btn-wide" data-dismiss="modal">
+                    {$LANG.cancel}
+                  </button>
+                  <button type="submit" class="btn btn-danger btn-xs btn-wide" id="btnRemoveUserConfirm">
+                    {$LANG.confirm}
+                  </button>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-    {* hook *}
-    {foreach $hookOutput as $output}
-      <div class="my-4">
-        {$output}
-      </div>
-    {/foreach}
-    <ul class="nav nav-tabs responsive-tabs-sm">
-      <li class="nav-item">
-        <a href="#domain" data-toggle="tab" class="nav-link active">
-          <i class="fas fa-globe fa-fw"></i> Hosting Info
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#manage" data-toggle="tab" class="nav-link">
-          <i class="fas fa-globe fa-fw"></i> Manage
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#configoptions" data-toggle="tab" class="nav-link">
-          <i class="fas fa-globe fa-fw"></i> Configuration
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#metrics" data-toggle="tab" class="nav-link">
-          <i class="fas fa-globe fa-fw"></i> Metrics
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#additionalinfo" data-toggle="tab" class="nav-link">
-          <i class="fas fa-globe fa-fw"></i> Additional Info
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#resourceusage" data-toggle="tab" class="nav-link">
-          <i class="fas fa-globe fa-fw"></i> Resource Usage
-        </a>
-      </li>
-      <li class="nav-item">
-        <a href="#tabDownloads" data-toggle="tab" class="nav-link">
-          <i class="fas fa-globe fa-fw"></i> Downloads
-        </a>
-      </li>
-    </ul>
-    <div class="tab-content product-details-tab-container">
-      {* domain *}
-      <div class="tab-pane fade show active" role="tabpanel" id="domain">
-        <div class="d-flex flex-column row-gap-2">
-          <div class="row">
-            <div class="col-sm-2"><strong>Domain</strong></div>
-            <div class="col-sm-9">example.com</div>
-          </div>
+        </form>
 
-          <div class="row">
-            <div class="col-sm-2"><strong>Username</strong></div>
-            <div class="col-sm-9">user123</div>
-          </div>
-
-          <div class="row">
-            <div class="col-sm-2"><strong>Server Name</strong></div>
-            <div class="col-sm-9">server1.hostingco.com</div>
-          </div>
-
-          <div class="row">
-            <div class="col-sm-2"><strong>Server IP</strong></div>
-            <div class="col-sm-9">192.168.0.1</div>
-          </div>
-
-          <div class="row">
-            <div class="col-sm-2"><strong>Nameservers</strong></div>
-            <div class="col-sm-9">
-              ns1.hostingco.com (192.168.0.2)<br>
-              ns2.hostingco.com (192.168.0.3)
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-sm-2"><strong>SSL Status</strong></div>
-            <div class="col-sm-9">
-              <img src="path/to/ssl/active.png" width="12" />
-              <span>Active</span>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="col-sm-2"><strong>SSL Start Date</strong></div>
-            <div class="col-sm-9">2025-01-01</div>
-          </div>
-
-          <div class="row">
-            <div class="col-sm-2"><strong>SSL Expiry Date</strong></div>
-            <div class="col-sm-9">2026-01-01</div>
-          </div>
-
-          <div class="row">
-            <div class="col-sm-2"><strong>SSL Issuer</strong></div>
-            <div class="col-sm-9">Let's Encrypt</div>
-          </div>
-        </div>
-
-        <br>
-        <div class="d-flex flex-wrap gap-2">
-          <a href="http://example.com" class="btn btn-semi-ghost-info btn-sm" target="_blank">
-            Visit Website
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right">
-              <path d="M5 12h14" />
-              <path d="m12 5 7 7-7 7" />
-            </svg></a>
-          <a href="clientarea.php?action=domaindetails&id=1" class="btn btn-semi-ghost-secondary btn-sm" target="_blank">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings-icon lucide-settings">
-              <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
-              <circle cx="12" cy="12" r="3" />
-            </svg>
-            Manage Domain
-          </a>
-        </div>
-      </div>
-      {* moduleclientarea *}
-      <div class="tab-pane fade" role="tabpanel" id="manage">
-        <div class="text-center module-client-area">
-          {$moduleclientarea}
-        </div>
-      </div>
-      {* configoptions *}
-      <div class="tab-pane fade" role="tabpanel" id="configoptions">
-        <div class="d-flex flex-column row-gap-2">
-          <div class="row">
-            <div class="col-sm-2"><strong>Backup Option</strong></div>
-            <div class="col-sm-9">Yes</div>
-          </div>
-          <div class="row">
-            <div class="col-sm-2"><strong>Storage Space</strong></div>
-            <div class="col-sm-9">5 x 10GB</div>
-          </div>
-        </div>
-      </div>
-      {* metrics *}
-      <div class="tab-pane fade" role="tabpanel" id="metrics">
-        <div class="text-center p-3">
-          <h4 class="title-6 mb-2">Usage Metrics</h4>
-          <p>No billing data available (static preview).</p>
-        </div>
-      </div>
-      {* additionalinfo *}
-      <div class="tab-pane fade" role="tabpanel" id="additionalinfo">
-        <div class="d-flex flex-column row-gap-2">
-          <div class="row">
-            <div class="col-sm-2"><strong>Site Purpose</strong></div>
-            <div class="col-sm-9">Portfolio Website</div>
-          </div>
-          <div class="row">
-            <div class="col-sm-2"><strong>Account Manager</strong></div>
-            <div class="col-sm-9">John Doe</div>
-          </div>
-        </div>
-      </div>
-      {* resourceusage *}
-      <div class="tab-pane fade" role="tabpanel" id="resourceusage">
-        <div class="row">
-          <div class="col-12">
-            <div class="row">
-              <div class="col-sm-6">
-                <h4 class="title-6 mb-2">Disk Space</h4>
-                <input type="text" value="40" class="form-control dial-usage" data-width="100" data-height="100" data-min="0" data-readOnly="true" />
-                <p class="text-muted mt-2">4GB / 10GB</p>
-              </div>
-              <div class="col-sm-6">
-                <h4 class="title-6 mb-2">Bandwidth</h4>
-                <input type="text" value="60" class="form-control dial-usage" data-width="100" data-height="100" data-min="0" data-readOnly="true" />
-                <p class="text-muted mt-2">60GB / 100GB</p>
-              </div>
-            </div>
-          </div>
-        </div>
-        <p class="text-muted mt-2">Last Updated: 2025-07-29</p>
-      </div>
-    </div>
-
-  </div>
-
-  {* downloads *}
-  <div class="tab-pane fade active show" role="tabpanel" id="tabDownloads">
-    <div class="card">
-      <div class="card-body">
-        <h3 class="card-title">Available Downloads</h3>
-
-        <div class="alert alert-info">Downloads available for this product.</div>
-
-        <div class="row">
-          <div class="col-12">
-            <h4 class="title-6 mb-2">User Manual PDF</h4>
-            <p class="text-muted mb-4">Complete product documentation and usage guide.</p>
-            <p>
-              <a href="/downloads/manual.pdf" class="btn btn-semi-ghost-info btn-sm">
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download-icon lucide-download">
-                  <path d="M12 15V3" />
-                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                  <path d="m7 10 5 5 5-5" />
-                </svg>
-                Download
-              </a>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  {* addons *}
-  <div class="tab-pane fade show active" id="tabAddons">
-    <div class="card">
-      <div class="card-body">
-        <h3 class="card-title">Product Addons</h3>
-
-        <div class="alert alert-info">Addons are available for this product.</div>
-
-        <div class="row">
-          <div class="col-12">
-            <div class="card">
-              <div class="card-header">
-                Extra IP Address
-                <div class="float-right label status-active">Active</div>
-              </div>
-              <div class="row card-body">
-                <div class="col-md-6">
-                  <p>$2.00/mo</p>
-                  <p>Registered: 2024-10-01</p>
-                  <p>Next Due Date: 2025-10-01</p>
+        {* Empty cart modal *}
+        <form method="post" action="{$WEB_ROOT}/cart.php">
+          <input type="hidden" name="a" value="empty" />
+          <div class="modal fade modal-remove-item" id="modalEmptyCart" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h4 class="modal-title">{$LANG.emptycart}</h4>
                 </div>
-              </div>
-              <div class="card-footer">
-                <a href="#" class="btn btn-semi-ghost-secondary btn-sm">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings-icon lucide-settings">
-                    <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
-                    <circle cx="12" cy="12" r="3" />
-                  </svg>
-                  Manage
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </div>
-
-  {* change-password *}
-  <div class="tab-pane fade show active" id="tabChangepw">
-    <div class="card">
-      <div class="card-body">
-        <h3 class="card-title">Change Password</h3>
-
-        <form class="using-password-strength" method="post" action="#">
-          <input type="hidden" name="id" value="1" />
-          <input type="hidden" name="modulechangepassword" value="true" />
-
-          <div class="form-group row has-feedback mb-4">
-            <label class="col-xl-4 form-label">New Password</label>
-            <div class="col-xl-5">
-              <input type="password" class="form-control" name="newpw" />
-              <!-- pwstrength.tpl can be skipped in test -->
-            </div>
-            <div class="col-xl-3">
-              <button type="button" class="btn btn-light btn-block btn-sm">Generate Password</button>
-            </div>
-          </div>
-
-          <div class="form-group row has-feedback mb-4">
-            <label class="col-xl-4 form-label">Confirm New Password</label>
-            <div class="col-xl-5">
-              <input type="password" class="form-control" name="confirmpw" />
-            </div>
-          </div>
-
-          <div class="form-group row">
-            <div class="offset-xl-4 col-xl-6">
-              <div class="d-flex col-gap-2">
-                <input class="btn btn-primary btn-sm" type="submit" value="Save Changes" />
-                <input class="btn btn-semi-ghost-secondary btn-sm" type="reset" value="Cancel" />
+                <div class="modal-body">
+                  <p>{$LANG.cartemptyconfirm}</p>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-ghost-light btn-xs btn-wide" data-dismiss="modal">
+                    {$LANG.cancel}
+                  </button>
+                  <button type="submit" class="btn btn-danger btn-xs btn-wide" id="btnRemoveUserConfirm">
+                    {$LANG.confirm}
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -943,111 +748,7 @@
       </div>
     </div>
   </div>
-</div>
 
-
-
-{* order-summary *}
-<div class="order-summary" id="orderSummary">
-  {* Loading spinner for order summary *}
-  <div class="loader w-hidden" id="orderSummaryLoader">
-    <svg class="fa-spin" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-loader-icon lucide-loader">
-      <path d="M12 2v4" />
-      <path d="m16.2 7.8 2.9-2.9" />
-      <path d="M18 12h4" />
-      <path d="m16.2 16.2 2.9 2.9" />
-      <path d="M12 18v4" />
-      <path d="m4.9 19.1 2.9-2.9" />
-      <path d="M2 12h4" />
-      <path d="m4.9 4.9 2.9 2.9" />
-    </svg>
-  </div>
-  {* Order summary title *}
-  <h2 class="order-summary-title">{$LANG.ordersummary}</h2>
-  {* Dynamic content container for cart totals *}
-  <div class="summary-container">
-    {* subtotal *}
-    <div class="subtotal clearfix">
-      <span class="pull-left float-left">{$LANG.ordersubtotal}</span>
-      <span id="subtotal" class="pull-right float-right">{$subtotal}</span>
-    </div>
-    {* tax *}
-    {if $promotioncode || $taxrate || $taxrate2}
-      <div class="bordered-totals">
-        {if $promotioncode}
-          <div class="clearfix">
-            <span class="pull-left float-left">{$promotiondescription}</span>
-            <span id="discount" class="pull-right float-right">{$discount}</span>
-          </div>
-        {/if}
-        {if $taxrate}
-          <div class="clearfix">
-            <span class="pull-left float-left">{$taxname} @ {$taxrate}%</span>
-            <span id="taxTotal1" class="pull-right float-right">{$taxtotal}</span>
-          </div>
-        {/if}
-        {if $taxrate2}
-          <div class="clearfix">
-            <span class="pull-left float-left">{$taxname2} @ {$taxrate2}%</span>
-            <span id="taxTotal2" class="pull-right float-right">{$taxtotal2}</span>
-          </div>
-        {/if}
-      </div>
-    {/if}
-    {* recurring *}
-    <div class="recurring-totals clearfix">
-      <span class="pull-left float-left">{$LANG.orderForm.totals}</span>
-      <span id="recurring" class="pull-right float-right recurring-charges">
-        <span id="recurringMonthly" {if !$totalrecurringmonthly}style="display:none;" {/if}>
-          <span class="cost">{$totalrecurringmonthly}</span> {$LANG.orderpaymenttermmonthly}<br />
-        </span>
-        <span id="recurringQuarterly" {if !$totalrecurringquarterly}style="display:none;" {/if}>
-          <span class="cost">{$totalrecurringquarterly}</span> {$LANG.orderpaymenttermquarterly}<br />
-        </span>
-        <span id="recurringSemiAnnually" {if !$totalrecurringsemiannually}style="display:none;" {/if}>
-          <span class="cost">{$totalrecurringsemiannually}</span> {$LANG.orderpaymenttermsemiannually}<br />
-        </span>
-        <span id="recurringAnnually" {if !$totalrecurringannually}style="display:none;" {/if}>
-          <span class="cost">{$totalrecurringannually}</span> {$LANG.orderpaymenttermannually}<br />
-        </span>
-        <span id="recurringBiennially" {if !$totalrecurringbiennially}style="display:none;" {/if}>
-          <span class="cost">{$totalrecurringbiennially}</span> {$LANG.orderpaymenttermbiennially}<br />
-        </span>
-        <span id="recurringTriennially" {if !$totalrecurringtriennially}style="display:none;" {/if}>
-          <span class="cost">{$totalrecurringtriennially}</span> {$LANG.orderpaymenttermtriennially}<br />
-        </span>
-      </span>
-    </div>
-
-    {* total due today *}
-    <div class="total-due-today total-due-today-padded">
-      <span id="totalDueToday" class="amt">{$total}</span>
-      <span>{$LANG.ordertotalduetoday}</span>
-    </div>
-
-    {* express checkout buttons *}
-    <div class="express-checkout-buttons">
-      {foreach $expressCheckoutButtons as $checkoutButton}
-        {$checkoutButton}
-        <div class="separator">
-          - {$LANG.or|strtoupper} -
-        </div>
-      {/foreach}
-    </div>
-
-    {* actions *}
-    <div class="d-flex col-gap-2 justify-content-end">
-      <a href="{$WEB_ROOT}/cart.php" class="btn btn-ghost-secondary btn-sm btn-continue-shopping" id="continueShopping">
-        {$LANG.orderForm.continueShopping}
-      </a>
-      <a href="{$WEB_ROOT}/cart.php?a=checkout&e=false" class="btn btn-success btn-checkout{if $cartitems == 0} disabled{/if}" id="checkout">
-        {$LANG.orderForm.checkout}
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right">
-          <path d="M5 12h14" />
-          <path d="m12 5 7 7-7 7" />
-        </svg>
-      </a>
-    </div>
-
-  </div>
-</div>
+  {* Include recommendations modal *}
+  {include file="orderforms/apex_cart/recommendations-modal.tpl"}
+{/if}

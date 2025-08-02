@@ -1,9 +1,14 @@
-{* Include checkout template components *}
+{*
+  Shopping Cart Template
+  This template handles the display of the shopping cart, including products, domains, addons, and checkout process.
+*}
+
+{* Include checkout template if in checkout mode *}
 {if $checkout}
   {include file="orderforms/$carttpl/checkout.tpl"}
 {else}
 
-  {* Script *}
+  {* JavaScript variables for state handling *}
   <script>
     // Define state tab index value
     var statesTab = 10;
@@ -13,10 +18,10 @@
   {* Include common template components *}
   {include file="orderforms/apex_cart/common.tpl"}
 
-  {* Script *}
+  {* Include StatesDropdown JavaScript *}
   <script type="text/javascript" src="{$BASE_PATH_JS}/StatesDropdown.js"></script>
 
-  {* Main container *}
+  {* Main cart container *}
   <div id="order-apex_cart">
     {* row *}
     <div class="row">
@@ -37,10 +42,10 @@
 
         {* row *}
         <div class="row">
-          {* content *}
+          {* Primary cart content *}
           <div class="secondary-cart-body">
 
-            {* Promotions *}
+            {* Promotions and error messages container *}
             <div class="d-flex flex-column row-gap-4">
 
               {* Promotion message *}
@@ -65,7 +70,7 @@
                 </div>
               {/if}
 
-              {* Bundle requirements *}
+              {* Display bundle requirements warnings *}
               {if $bundlewarnings}
                 <div class="alert alert-warning" role="alert">
                   <strong>{$LANG.bundlereqsnotmet}</strong><br />
@@ -77,7 +82,7 @@
                 </div>
               {/if}
 
-              {* Form *}
+              {* Main cart form *}
               <form method="post" action="{$smarty.server.PHP_SELF}?a=view">
                 {* View cart items *}
                 <div class="view-cart-items">
@@ -94,6 +99,7 @@
                           </svg>
                         </button>
                       </h4>
+
                       {* item-content *}
                       <div class="collapse" id="collapse-{$num}">
                         <div class="item-content">
@@ -150,6 +156,7 @@
                           </div>
                         </div>
                       </div>
+
                       {* item-footer *}
                       <div class="item-footer">
                         {* row *}
@@ -369,6 +376,7 @@
                                 <div class="config-item">
                                   <div class="config-item-title">{lang key="orderdomain"}</div>
                                   <div class="config-item-value">{$domain.domain}</div>
+                                  <div class="config-item-price ml-auto text-right"><a href="{$domain.domain}" class="btn btn-xxs btn-primary" target="_blank">{$domain.domain}</a></div>
                                 </div>
                               </div>
 
@@ -1085,38 +1093,40 @@
                     {/if}
                   {/if}
                   {* recurring *}
-                  <div class="bordered-totals">
-                    <h4 class="bordered-totals-title">{$LANG.recurring}</h4>
-                    <div class="bordered-totals-item">
-                      <span class="text-left">{$LANG.ordertotalrecurring}</span>
-                      <span id="recurring" class="text-right">
-                        <span id="recurringMonthly" {if !$totalrecurringmonthly}style="display:none;" {/if}>
-                          <span class="cost text-right mr-1">{$totalrecurringmonthly}</span>
-                          <span class="period">{$LANG.orderpaymenttermmonthly}</span>
+                  {if $totalrecurringmonthly || $totalrecurringquarterly || $totalrecurringsemiannually || $totalrecurringannually || $totalrecurringbiennially || $totalrecurringtriennially}
+                    <div class="bordered-totals">
+                      <h4 class="bordered-totals-title">{$LANG.recurring}</h4>
+                      <div class="bordered-totals-item">
+                        <span class="text-left">{$LANG.ordertotalrecurring}</span>
+                        <span id="recurring" class="text-right">
+                          <span id="recurringMonthly" {if !$totalrecurringmonthly}style="display:none;" {/if}>
+                            <span class="cost text-right mr-1">{$totalrecurringmonthly}</span>
+                            <span class="period">{$LANG.orderpaymenttermmonthly}</span>
+                          </span>
+                          <span id="recurringQuarterly" {if !$totalrecurringquarterly}style="display:none;" {/if}>
+                            <span class="cost text-right mr-1">{$totalrecurringquarterly}</span>
+                            <span class="period">{$LANG.orderpaymenttermquarterly}</span>
+                          </span>
+                          <span id="recurringSemiAnnually" {if !$totalrecurringsemiannually}style="display:none;" {/if}>
+                            <span class="cost text-right mr-1">{$totalrecurringsemiannually}</span>
+                            <span class="period">{$LANG.orderpaymenttermsemiannually}</span>
+                          </span>
+                          <span id="recurringAnnually" {if !$totalrecurringannually}style="display:none;" {/if}>
+                            <span class="cost text-right mr-1">{$totalrecurringannually}</span>
+                            <span class="period">{$LANG.orderpaymenttermannually}</span>
+                          </span>
+                          <span id="recurringBiennially" {if !$totalrecurringbiennially}style="display:none;" {/if}>
+                            <span class="cost text-right mr-1">{$totalrecurringbiennially}</span>
+                            <span class="period">{$LANG.orderpaymenttermbiennially}</span>
+                          </span>
+                          <span id="recurringTriennially" {if !$totalrecurringtriennially}style="display:none;" {/if}>
+                            <span class="cost text-right mr-1">{$totalrecurringtriennially}</span>
+                            <span class="period">{$LANG.orderpaymenttermtriennially}</span>
+                          </span>
                         </span>
-                        <span id="recurringQuarterly" {if !$totalrecurringquarterly}style="display:none;" {/if}>
-                          <span class="cost text-right mr-1">{$totalrecurringquarterly}</span>
-                          <span class="period">{$LANG.orderpaymenttermquarterly}</span>
-                        </span>
-                        <span id="recurringSemiAnnually" {if !$totalrecurringsemiannually}style="display:none;" {/if}>
-                          <span class="cost text-right mr-1">{$totalrecurringsemiannually}</span>
-                          <span class="period">{$LANG.orderpaymenttermsemiannually}</span>
-                        </span>
-                        <span id="recurringAnnually" {if !$totalrecurringannually}style="display:none;" {/if}>
-                          <span class="cost text-right mr-1">{$totalrecurringannually}</span>
-                          <span class="period">{$LANG.orderpaymenttermannually}</span>
-                        </span>
-                        <span id="recurringBiennially" {if !$totalrecurringbiennially}style="display:none;" {/if}>
-                          <span class="cost text-right mr-1">{$totalrecurringbiennially}</span>
-                          <span class="period">{$LANG.orderpaymenttermbiennially}</span>
-                        </span>
-                        <span id="recurringTriennially" {if !$totalrecurringtriennially}style="display:none;" {/if}>
-                          <span class="cost text-right mr-1">{$totalrecurringtriennially}</span>
-                          <span class="period">{$LANG.orderpaymenttermtriennially}</span>
-                        </span>
-                      </span>
+                      </div>
                     </div>
-                  </div>
+                  {/if}
                   {* promotioncode *}
                   {if $promotioncode}
                     <div class="bordered-totals">

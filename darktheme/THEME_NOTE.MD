@@ -22,6 +22,8 @@
       Disallow: /cart.php
       Sitemap: {$systemurl}/sitemap.xml
 5. Edit status colors.
+6. `cart.php` ->  1. Add button to the domain to go to the domain page.
+                  2.
 
 
 # DOCUMENTATION
