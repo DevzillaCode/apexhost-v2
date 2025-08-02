@@ -129,6 +129,7 @@
   --foreground-hover: #d1d5dc;
   --foreground-text: #d1d5dc;
   --surface-bg: color-mix(in srgb, var(--accent) 20%, transparent);
+  --surface-bg-2: color-mix(in srgb, var(--accent) 40%, transparent);
   --header-bg:  color-mix(in srgb, var(--accent) 40%, transparent);
 
   /* Gradients */

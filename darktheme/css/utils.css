@@ -70,6 +70,7 @@
 .btn-square svg {
   width: 20px;
   height: 20px;
+  transition: all 0.15s var(--transition-function-1);
 }
 .btn-square.btn-xxs svg {
   width: 14px;
@@ -553,18 +554,19 @@
 .btn svg {
   width: 18px;
   height: 18px;
+  transition: all 0.15s var(--transition-function-1);
 }
 .btn.btn-xxs svg {
   width: 14px;
   height: 14px;
 }
 .btn.btn-xs svg {
-  width: 16px;
-  height: 16px;
+  width: 14px;
+  height: 14px;
 }
 .btn.btn-sm svg {
-  width: 16px;
-  height: 16px;
+  width: 15px;
+  height: 15px;
 }
 .btn.btn-lg svg {
   width: 20px;
@@ -601,6 +603,11 @@ input[type="submit"].btn-block,
 input[type="reset"].btn-block,
 input[type="button"].btn-block {
   width: 100%;
+}
+
+/* btn-rotate */
+.rotate-180[aria-expanded="true"] svg {
+  transform: rotate(180deg);
 }
 /* --------------------------------- */
 
@@ -1552,9 +1559,9 @@ a.badge:focus {
   white-space: nowrap;
   vertical-align: middle;
 }
-.label-default {
-  background-color: color-mix(in srgb, var(--gray), transparent 90%);
-  color: var(--gray);
+.label-secondary {
+  background-color: color-mix(in srgb, var(--secondary), transparent 20%);
+  color: var(--foreground-text);
 }
 .label-success {
   background-color: color-mix(in srgb, var(--green), transparent 90%);
@@ -1657,8 +1664,7 @@ a.badge:focus {
 .table {
   width: 100%;
   border-collapse: collapse;
-  min-width: 1000px;
-  background-color: var(--card);
+  background-color: var(--surface-bg);
 }
 
 /* thead */
@@ -1942,7 +1948,9 @@ a.badge:focus {
   border-top: 1px solid var(--border);
 }
 .card.extra-padding .card-footer {
-  padding-top: 1.5rem
+  padding: unset;
+  padding-top: 1.5rem;
+  padding-bottom: 0;
 }
 .card-footer:last-child {
   border-radius: 0 0 calc(0.25rem - 1px) calc(0.25rem - 1px);
