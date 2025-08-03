@@ -1,571 +1,338 @@
-{*
-  Shopping Cart Template
-  This template handles the display of the shopping cart, including products, domains, addons, and checkout process.
-*}
+{* Include common template components *}
+{include file="orderforms/apex_cart/common.tpl"}
 
-{* Include checkout template if in checkout mode *}
-{if $checkout}
-  {include file="orderforms/$carttpl/checkout.tpl"}
-{else}
+{* JavaScript variables *}
+<script>
+  var _localLang = {
+    'addToCart': '{$LANG.orderForm.addToCart|escape}',
+    'addedToCartRemove': '{$LANG.orderForm.addedToCartRemove|escape}'
+  }
+</script>
 
-  {* JavaScript variables for state handling *}
-  <script>
-    // Define state tab index value
-    var statesTab = 10;
-    var stateNotRequired = true;
-  </script>
+{* Main cart container *}
+<div id="order-apex_cart">
 
-  {* Include common template components *}
-  {include file="orderforms/apex_cart/common.tpl"}
+  {* Main layout row *}
+  <div class="row">
+    {* Left sidebar with categories *}
+    <div class="cart-sidebar">
+      {include file="orderforms/apex_cart/sidebar-categories.tpl"}
+    </div>
+    {* Main content area *}
+    <div class="cart-body">
 
-  {* Include StatesDropdown JavaScript *}
-  <script type="text/javascript" src="{$BASE_PATH_JS}/StatesDropdown.js"></script>
+      <!-- Page header with title and tagline -->
+      {include file="$template/components/heading/PageTitle.tpl" headline="{lang key='orderconfigure'}" tagline="{lang key='orderForm.configureDesiredOptions'}" }
 
-  {* Main cart container *}
-  <div id="order-apex_cart">
-    {* row *}
-    <div class="row">
+      {include file="orderforms/apex_cart/sidebar-categories-collapsed.tpl"}
 
-      {* Left sidebar with categories *}
-      <div class="cart-sidebar">
-        {include file="orderforms/apex_cart/sidebar-categories.tpl"}
-      </div>
+      <form id="frmConfigureProduct">
+        <input type="hidden" name="configure" value="true" />
+        <input type="hidden" name="i" value="{$i}" />
 
-      {* Main content area *}
-      <div class="cart-body">
-
-        {* Page header with title and tagline *}
-        {include file="$template/components/heading/PageTitle.tpl" headline="{lang key='cartreviewcheckout'}" tagline="{lang key='clientareacheckouttagline'}" }
-
-        {* Mobile collapsed sidebar *}
-        {include file="orderforms/apex_cart/sidebar-categories-collapsed.tpl"}
-
-        {* row *}
         <div class="row">
-          {* Primary cart content *}
           <div class="secondary-cart-body">
 
-            {* Promotions and error messages container *}
-            <div class="d-flex flex-column row-gap-4">
+            <div class="product-info">
+              <p class="product-title">{$productinfo.name}</p>
+              <p>{$productinfo.description}</p>
+            </div>
 
-              {* Display promotion/error messages *}
-              {if $promoerrormessage}
-                <div class="alert alert-warning" role="alert">
-                  {$promoerrormessage}
-                </div>
-              {elseif $errormessage}
-                <div class="alert alert-danger" role="alert">
-                  <p>{$LANG.orderForm.correctErrors}:</p>
-                  <ul>
-                    {$errormessage}
-                  </ul>
-                </div>
-              {elseif $promotioncode && $rawdiscount eq "0.00"}
-                <div class="alert alert-info" role="alert">
-                  {$LANG.promoappliedbutnodiscount}
-                </div>
-              {elseif $promoaddedsuccess}
-                <div class="alert alert-success" role="alert">
-                  {$LANG.orderForm.promotionAccepted}
-                </div>
-              {/if}
+            <div class="alert alert-danger w-hidden" role="alert" id="containerProductValidationErrors">
+              <p>{$LANG.orderForm.correctErrors}:</p>
+              <ul id="containerProductValidationErrorsList"></ul>
+            </div>
 
-              {* Display bundle requirements warnings *}
-              {if $bundlewarnings}
-                <div class="alert alert-warning" role="alert">
-                  <strong>{$LANG.bundlereqsnotmet}</strong><br />
-                  <ul>
-                    {foreach from=$bundlewarnings item=warning}
-                      <li>{$warning}</li>
-                    {/foreach}
-                  </ul>
-                </div>
-              {/if}
-
-              {* Main cart form *}
-              <form method="post" action="{$smarty.server.PHP_SELF}?a=view">
-                {* Cart items container *}
-                <div class="view-cart-items">
-
-                  {* Loop through products *}
-                  {foreach $products as $num => $product}
-                    {* Product item *}
-                    <div class="item">
-                      {* Product title with collapse toggle *}
-                      <h4 class="item-title">{$product.productinfo.groupname}<span class="item-name ml-auto">{$product.productinfo.name}</span>
-                        <button class="btn-square btn-semi-ghost-secondary btn-xxs rounded-circle rotate-180" data-toggle="collapse" type="button" data-target="#collapse-{$num}" aria-expanded="false" aria-controls="collapse-{$num}">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down">
-                            <path d="m6 9 6 6 6-6" />
-                          </svg>
-                        </button>
-                      </h4>
-
-                      {* Product details (collapsible) *}
-                      <div class="collapse" id="collapse-{$num}">
-                        <div class="item-content">
-                          <div class="product-config">
-                            <div class="row row-gap-1">
-                              {* Display domain if available *}
-                              {if $product.domain}
-                                <div class="col-12">
-                                  <div class="config-item">
-                                    <div class="config-item-title">{lang key="orderdomain"}</div>
-                                    <div class="config-item-value">{$product.domain}</div>
-                                  </div>
-                                </div>
-                              {/if}
-
-                              {* Display configurable options *}
-                              {if $product.configoptions}
-                                {foreach key=confnum item=configoption from=$product.configoptions}
-                                  <div class="col-12">
-                                    <div class="config-item">
-                                      <div class="config-item-title">{$configoption.name}</div>
-                                      <div class="config-item-value">{$configoption.optionname}</div>
-                                      {if $configoption.recurring}
-                                        <div class="config-item-price ml-auto text-right">
-                                          {$configoption.recurring->toFull()}
-                                        </div>
-                                      {elseif $configoption.optionprice}
-                                        <div class="config-item-price ml-auto text-right">
-                                          {$configoption.optionprice}
-                                        </div>
-                                      {else}
-                                        <div class="config-item-price ml-auto text-right">
-                                          {lang key='orderfree'}
-                                        </div>
-                                      {/if}
-                                    </div>
-                                  </div>
-                                {/foreach}
-                              {/if}
-
-                              {* Display quantity if not shown elsewhere *}
-                              {if !$showqtyoptions && !$product.allowqty}
-                                <div class="col-12">
-                                  <div class="config-item">
-                                    <div class="config-item-title">{lang key="quantity"}</div>
-                                    <div class="config-item-value">{$product.qty}</div>
-                                    <div class="config-item-price ml-auto text-right">{$product.pricing.baseprice->toFull()}</div>
-                                  </div>
-                                </div>
-                              {/if}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      {* Product footer with pricing and actions *}
-                      <div class="item-footer">
-                        <div class="row align-items-end">
-                          <div class="col-6 d-flex flex-column row-gap-2">
-                            <div class="item-footer-total">
-                              {$LANG.total}: <span class="item-footer-total-price">{$product.pricing.totalTodayExcludingTaxSetup}</span>
-                            </div>
-                            <div class="d-flex align-items-center col-gap-2">
-                              <span class="fee-label label label-secondary">{$product.billingcyclefriendly}</span>
-                              {if $product.pricing.productonlysetup}
-                                <span class="fee-label label label-secondary">{$product.pricing.productonlysetup->toPrefixed()} {$LANG.ordersetupfee}</span>
-                              {/if}
-                              {if $product.proratadate}
-                                <span class="fee-label label label-secondary">({$LANG.orderprorata} {$product.proratadate})</span>
-                              {/if}
-                            </div>
-                          </div>
-                          <div class="col-6">
-                            {* Product action buttons *}
-                            <div class="item-actions">
-                              <a href="{$WEB_ROOT}/cart.php?a=confproduct&i={$num}" class="btn btn-semi-ghost-info btn-xxs">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings-icon lucide-settings">
-                                  <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
-                                  <circle cx="12" cy="12" r="3" />
-                                </svg>
-                                {$LANG.orderForm.edit}
-                              </a>
-                              <button type="button" class="btn btn-semi-ghost-danger btn-xxs btn-remove-from-cart" onclick="removeItem('p','{$num}')">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2-icon lucide-trash-2">
-                                  <path d="M10 11v6" />
-                                  <path d="M14 11v6" />
-                                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
-                                  <path d="M3 6h18" />
-                                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-                                </svg>
-                                {$LANG.orderForm.remove}
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {* Display product addons *}
-                    {foreach $product.addons as $addonnum => $addon}
-                      <div class="item">
-                        <div class="row">
-                          <div class="col-sm-5">
-                            <span class="item-title">
-                              {$addon.name}
-                            </span>
-                            <span class="item-group">
-                              {$LANG.orderaddon}
-                            </span>
-                          </div>
-                          {* Quantity selector for addons if enabled *}
-                          {if $showAddonQtyOptions}
-                            <div class="col-sm-2 item-qty">
-                              {if $addon.allowqty === 2}
-                                <input type="number" name="paddonqty[{$num}][{$addonnum}]" value="{$addon.qty}" class="form-control text-center" min="0" />
-                                <button type="submit" class="btn btn-xs">
-                                  {$LANG.orderForm.update}
-                                </button>
-                              {/if}
-                            </div>
-                          {/if}
-                          <div class="{if $showAddonQtyOptions}col-sm-4{else}col-sm-6{/if} item-price">
-                            <div class="d-flex align-items-center justify-content-end gap-4">
-                              <span>{$addon.totaltoday}</span>
-                              <span class="cycle">{$addon.billingcyclefriendly}</span>
-                              {if $addon.setup}{$addon.setup->toPrefixed()} {$LANG.ordersetupfee}{/if}
-                              {if $addon.isProrated}<br />({$LANG.orderprorata} {$addon.prorataDate}){/if}
-                            </div>
-                          </div>
-                          <div class="col-12">
-                            <div class="cart-items-actions">
-                              <button type="button" class="btn btn-ghost-danger btn-xs btn-remove-from-cart" onclick="removeItem('pa','{$num}_{$addonnum}')">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash-icon lucide-trash">
-                                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
-                                  <path d="M3 6h18" />
-                                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-                                </svg>
-                                {$LANG.orderForm.remove}
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    {/foreach}
-                  {/foreach}
-
-                  {* Display standalone addons *}
-                  {foreach $addons as $num => $addon}
-                    <div class="item">
-                      <h4 class="item-title">
-                        {$addon.name}
-                        <span class="item-name ml-auto">{$addon.productname}</span>
-                        <button class="btn-square btn-semi-ghost-secondary btn-xxs rounded-circle rotate-180" data-toggle="collapse" type="button" data-target="#collapse-addon-{$num}" aria-expanded="false" aria-controls="collapse-addon-{$num}">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down">
-                            <path d="m6 9 6 6 6-6" />
-                          </svg>
-                        </button>
-                      </h4>
-
-                      <div class="collapse" id="collapse-addon-{$num}">
-                        <div class="item-content">
-                          <div class="product-config">
-                            <div class="row row-gap-1">
-                              {if $addon.domainname}
-                                <div class="col-12">
-                                  <div class="config-item">
-                                    <div class="config-item-title">{lang key="orderdomain"}</div>
-                                    <div class="config-item-value">{$addon.domainname}</div>
-                                  </div>
-                                </div>
-                              {/if}
-                              {if $showAddonQtyOptions && $addon.allowqty === 2}
-                                <div class="col-12">
-                                  <div class="config-item">
-                                    <div class="config-item-title"></div>
-                                    <div class="config-item-value">
-                                      <input type="number" name="addonqty[{$num}]" value="{$addon.qty}" class="form-control text-center" min="0" />
-                                    </div>
-                                    <div class="config-item-price ml-auto text-right">
-                                      <button type="submit" class="btn btn-semi-ghost-secondary btn-xxs">
-                                        {$LANG.orderForm.update}
-                                      </button>
-                                    </div>
-                                  </div>
-                                </div>
-                              {/if}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="item-footer">
-                        <div class="row align-items-end">
-                          <div class="col-6 d-flex flex-column row-gap-2">
-                            <div class="item-footer-total">
-                              {$LANG.total}: <span class="item-footer-total-price">{$addon.totaltoday}</span>
-                            </div>
-                            <div class="d-flex align-items-center col-gap-2">
-                              <span class="fee-label label label-secondary">{$addon.billingcyclefriendly}</span>
-                              {if $addon.setup}
-                                <span class="fee-label label label-secondary">{$addon.setup->toPrefixed()} {$LANG.ordersetupfee}</span>
-                              {/if}
-                              {if $addon.isProrated}
-                                <span class="fee-label label label-secondary">({$LANG.orderprorata} {$addon.prorataDate})</span>
-                              {/if}
-                            </div>
-                          </div>
-                          <div class="col-6">
-                            <div class="item-actions">
-                              <button type="button" class="btn btn-semi-ghost-danger btn-xxs btn-remove-from-cart" onclick="removeItem('a','{$num}')">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2-icon lucide-trash-2">
-                                  <path d="M10 11v6" />
-                                  <path d="M14 11v6" />
-                                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
-                                  <path d="M3 6h18" />
-                                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-                                </svg>
-                                {$LANG.orderForm.remove}
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  {/foreach}
-
-                  {* Display domains *}
-                  {foreach $domains as $num => $domain}
-                    <div class="item">
-                      <h4 class="item-title">
-                        {if $domain.type eq "register"}{$LANG.orderdomainregistration}{else}{$LANG.orderdomaintransfer}{/if}
-                        <span class="item-name ml-auto">{$domain.domain}</span>
-                        <button class="btn-square btn-semi-ghost-secondary btn-xxs rounded-circle rotate-180" data-toggle="collapse" type="button" data-target="#collapse-domain-{$num}" aria-expanded="false" aria-controls="collapse-domain-{$num}">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down">
-                            <path d="m6 9 6 6 6-6" />
-                          </svg>
-                        </button>
-                      </h4>
-
-                      <div class="collapse" id="collapse-domain-{$num}">
-                        <div class="item-content">
-                          <div class="product-config">
-                            <div class="row row-gap-1">
-                              <div class="col-12">
-                                <div class="config-item">
-                                  <div class="config-item-title">{lang key="orderdomain"}</div>
-                                  <div class="config-item-value">{$domain.domain}</div>
-                                </div>
-                              </div>
-
-                              {if $domain.dnsmanagement || $domain.emailforwarding || $domain.idprotection}
-                                <div class="col-12">
-                                  <div class="config-item">
-                                    <div class="config-item-title">{lang key="domainAddons"}</div>
-                                    <div class="config-item-value">
-                                      <ul class="addons-list">
-                                        {if $domain.dnsmanagement}
-                                          <li>{$LANG.domaindnsmanagement}</li>
-                                        {/if}
-                                        {if $domain.emailforwarding}
-                                          <li>{$LANG.domainemailforwarding}</li>
-                                        {/if}
-                                        {if $domain.idprotection}
-                                          <li>{$LANG.domainidprotection}</li>
-                                        {/if}
-                                      </ul>
-                                    </div>
-                                  </div>
-                                </div>
-                              {/if}
-
-                              <div class="col-12">
-                                <div class="config-item">
-                                  <div class="config-item-title">{$LANG.orderregperiod}</div>
-                                  {if count($domain.pricing) == 1 || $domain.type == 'transfer'}
-                                    <div class="config-item-value">{$domain.regperiod} {$domain.yearsLanguage}</div>
-                                  {else}
-                                    <div class="dropdown">
-                                      <button class="btn btn-semi-ghost-secondary btn-xxs dropdown-toggle" type="button" id="{$domain.domain}Pricing" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        {$domain.regperiod} {$domain.yearsLanguage}
-                                      </button>
-                                      <ul class="dropdown-menu" aria-labelledby="{$domain.domain}Pricing">
-                                        {foreach $domain.pricing as $years => $price}
-                                          <li class="dropdown-item">
-                                            <a href="#" class="dropdown-link" onclick="selectDomainPeriodInCart('{$domain.domain}', '{$price.register}', {$years}, '{if $years == 1}{lang key='orderForm.year'}{else}{lang key='orderForm.years'}{/if}');return false;">
-                                              {$years} {if $years == 1}{lang key='orderForm.year'}{else}{lang key='orderForm.years'}{/if} @ {$price.register}
-                                            </a>
-                                          </li>
-                                        {/foreach}
-                                      </ul>
-                                    </div>
-                                  {/if}
-                                  <div class="config-item-price ml-auto text-right">{$domain.price}</div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-
-                      <div class="item-footer">
-                        <div class="row align-items-end">
-                          <div class="col-6 d-flex flex-column row-gap-2">
-                            <div class="item-footer-total">
-                              {$LANG.total}: <span class="item-footer-total-price">{$domain.price}</span>
-                            </div>
-                            <div class="d-flex align-items-center col-gap-2">
-                              <span class="fee-label label label-secondary">{$domain.regperiod} {$domain.yearsLanguage}</span>
-                              {if isset($domain.renewprice)}
-                                <span class="fee-label label label-secondary">
-                                  {lang key='domainrenewalprice'} {$domain.renewprice->toPrefixed()}{$domain.shortRenewalYearsLanguage}
-                                </span>
-                              {/if}
-                            </div>
-                          </div>
-                          <div class="col-6">
-                            <div class="item-actions">
-                              <a href="{$WEB_ROOT}/cart.php?a=confdomains" class="btn btn-semi-ghost-info btn-xxs">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings-icon lucide-settings">
-                                  <path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915" />
-                                  <circle cx="12" cy="12" r="3" />
-                                </svg>
-                                {$LANG.orderForm.edit}
-                              </a>
-                              <button type="button" class="btn btn-semi-ghost-danger btn-xxs btn-remove-from-cart" onclick="removeItem('d','{$num}')">
-                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-trash2-icon lucide-trash-2">
-                                  <path d="M10 11v6" />
-                                  <path d="M14 11v6" />
-                                  <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
-                                  <path d="M3 6h18" />
-                                  <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
-                                </svg>
-                                {$LANG.orderForm.remove}
-                              </button>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  {/foreach}
-
-                  {* Display empty cart message if no items *}
-                  {if $cartitems == 0}
-                    <div class="view-cart-empty">
-                      {$LANG.cartempty}
-                    </div>
-                  {/if}
-                </div>
-
-                {* Empty cart button *}
-                {if $cartitems > 0}
-                  <div class="mt-4 text-right">
-                    <button type="button" class="btn btn-ghost-danger btn-xs" id="btnEmptyCart">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-brush-cleaning-icon lucide-brush-cleaning">
-                        <path d="m16 22-1-4" />
-                        <path d="M19 13.99a1 1 0 0 0 1-1V12a2 2 0 0 0-2-2h-3a1 1 0 0 1-1-1V4a2 2 0 0 0-4 0v5a1 1 0 0 1-1 1H6a2 2 0 0 0-2 2v.99a1 1 0 0 0 1 1" />
-                        <path d="M5 14h14l1.973 6.767A1 1 0 0 1 20 22H4a1 1 0 0 1-.973-1.233z" />
-                        <path d="m8 22 1-4" />
-                      </svg>
-                      <span>{$LANG.emptycart}</span>
-                    </button>
-                  </div>
-                {/if}
-              </form>
-
-              {* Display hook output *}
-              {foreach $hookOutput as $output}
-                <div class="view-cart-hook">
-                  {$output}
-                </div>
-              {/foreach}
-
-              {* Display gateway output *}
-              {foreach $gatewaysoutput as $gatewayoutput}
-                <div class="view-cart-gateway-checkout">
-                  {$gatewayoutput}
-                </div>
-              {/foreach}
-
-              {* Promo code and tax tabs *}
-              <div class="view-cart-tabs mt-4">
-                <ul class="nav nav-tabs" role="tablist">
-                  <li role="presentation" class="nav-item active">
-                    <a href="#applyPromo" class="nav-link active" aria-controls="applyPromo" role="tab" data-toggle="tab" {if $template == 'twenty-one'} aria-selected="true" {else} aria-expanded="true" {/if}>
-                      {$LANG.orderForm.applyPromoCode}
-                    </a>
-                  </li>
-                  {if $taxenabled && !$loggedin}
-                    <li role="presentation" class="nav-item">
-                      <a href="#calcTaxes" class="nav-link" aria-controls="calcTaxes" role="tab" data-toggle="tab" {if $template == 'twenty-one'} aria-selected="false" {else} aria-expanded="false" {/if}>
-                        {$LANG.orderForm.estimateTaxes}
-                      </a>
-                    </li>
-                  {/if}
-                </ul>
-                <div class="tab-content d-flex flex-column row-gap-4">
-                  {* Promo code tab *}
-                  <div role="tabpanel" class="tab-pane active promo" id="applyPromo">
-                    {if $promotioncode}
-                      <div class="view-cart-promotion-code mb-4">
-                        {$promotioncode} - {$promotiondescription}
-                      </div>
-                      <div class="text-center">
-                        <a href="{$WEB_ROOT}/cart.php?a=removepromo" class="btn btn-danger btn-xs">
-                          {$LANG.orderForm.removePromotionCode}
-                        </a>
-                      </div>
-                    {else}
-                      <form method="post" action="{$WEB_ROOT}/cart.php?a=view">
-                        <div class="form-group mb-4">
-                          <label for="promocode" class="form-label">{lang key='clientareafirstname'}</label>
-                          <div class="prepend-icon">
-                            <div class="form-float-icon">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ticket-icon lucide-ticket">
-                                <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
-                                <path d="M13 5v2" />
-                                <path d="M13 17v2" />
-                                <path d="M13 11v2" />
-                              </svg>
-                            </div>
-                            <input type="text" name="promocode" id="inputPromotionCode" class="form-control" placeholder="{lang key="orderPromoCodePlaceholder"}" required="required">
-                          </div>
-                        </div>
-                        <button type="submit" name="validatepromo" class="btn btn-block btn-light" value="{$LANG.orderpromovalidatebutton}">
-                          {$LANG.orderpromovalidatebutton}
-                        </button>
-                      </form>
+            {if $pricing.type eq "recurring"}
+              <div class="field-container">
+                <div class="form-group">
+                  <label for="inputBillingcycle" class="form-label">{$LANG.cartchoosecycle}</label>
+                  <br>
+                  <select name="billingcycle" id="inputBillingcycle" class="form-control select-inline" onchange="updateConfigurableOptions({$i}, this.value); return false">
+                    {if $pricing.monthly}
+                      <option value="monthly" {if $billingcycle eq "monthly"} selected{/if}>
+                        {$pricing.monthly}
+                      </option>
                     {/if}
-                  </div>
+                    {if $pricing.quarterly}
+                      <option value="quarterly" {if $billingcycle eq "quarterly"} selected{/if}>
+                        {$pricing.quarterly}
+                      </option>
+                    {/if}
+                    {if $pricing.semiannually}
+                      <option value="semiannually" {if $billingcycle eq "semiannually"} selected{/if}>
+                        {$pricing.semiannually}
+                      </option>
+                    {/if}
+                    {if $pricing.annually}
+                      <option value="annually" {if $billingcycle eq "annually"} selected{/if}>
+                        {$pricing.annually}
+                      </option>
+                    {/if}
+                    {if $pricing.biennially}
+                      <option value="biennially" {if $billingcycle eq "biennially"} selected{/if}>
+                        {$pricing.biennially}
+                      </option>
+                    {/if}
+                    {if $pricing.triennially}
+                      <option value="triennially" {if $billingcycle eq "triennially"} selected{/if}>
+                        {$pricing.triennially}
+                      </option>
+                    {/if}
+                  </select>
+                </div>
+              </div>
+            {/if}
 
-                  {* Tax estimation tab *}
-                  <div role="tabpanel" class="tab-pane" id="calcTaxes">
-                    <form method="post" action="{$WEB_ROOT}/cart.php?a=setstateandcountry" class="d-flex flex-column row-gap-4">
-                      <div class="form-group row">
-                        <label for="inputState" class="pt-sm-2 col-sm-4 control-label">{$LANG.orderForm.state}</label>
-                        <div class="col-sm-8">
-                          <input type="text" name="state" id="inputState" value="{$clientsdetails.state}" class="form-control" {if $loggedin} disabled="disabled" {/if} />
-                        </div>
-                      </div>
-                      <div class="form-group row">
-                        <label for="inputCountry" class="pt-sm-2 col-sm-4 control-label">{$LANG.orderForm.country}</label>
-                        <div class="col-sm-8">
-                          <select name="country" id="inputCountry" class="form-control">
-                            {foreach $countries as $countrycode => $countrylabel}
-                              <option value="{$countrycode}" {if (!$country && $countrycode == $defaultcountry) || $countrycode eq $country} selected{/if}>
-                                {$countrylabel}
+            {if count($metrics) > 0}
+              <div class="sub-heading">
+                <span class="primary-bg-color">{$LANG.metrics.title}</span>
+              </div>
+
+              <p>{$LANG.metrics.explanation}</p>
+
+              <ul>
+                {foreach $metrics as $metric}
+                  <li>
+                    {$metric.displayName}
+                    -
+                    {if count($metric.pricing) > 1}
+                      {$LANG.metrics.startingFrom} {$metric.lowestPrice} / {if $metric.unitName}{$metric.unitName}{else}{$LANG.metrics.unit}{/if}
+                      <button type="button" class="btn btn-light btn-sm" data-toggle="modal" data-target="#modalMetricPricing-{$metric.systemName}">
+                        {$LANG.metrics.viewPricing}
+                      </button>
+                    {elseif count($metric.pricing) == 1}
+                      {$metric.lowestPrice} / {if $metric.unitName}{$metric.unitName}{else}{$LANG.metrics.unit}{/if}
+                      {if $metric.includedQuantity > 0} ({$metric.includedQuantity} {$LANG.metrics.includedNotCounted}){/if}
+                    {/if}
+                    {include file="$template/usagebillingpricing.tpl"}
+                  </li>
+                {/foreach}
+              </ul>
+
+              <br>
+            {/if}
+
+            {if $productinfo.type eq "server"}
+              <div class="sub-heading">
+                <span class="primary-bg-color">{$LANG.cartconfigserver}</span>
+              </div>
+
+              <div class="field-container">
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="inputHostname">{$LANG.serverhostname}</label>
+                      <input type="text" name="hostname" class="form-control" id="inputHostname" value="{$server.hostname}" placeholder="servername.example.com">
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="inputRootpw">{$LANG.serverrootpw}</label>
+                      <input type="password" name="rootpw" class="form-control" id="inputRootpw" value="{$server.rootpw}">
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="inputNs1prefix">{$LANG.serverns1prefix}</label>
+                      <input type="text" name="ns1prefix" class="form-control" id="inputNs1prefix" value="{$server.ns1prefix}" placeholder="ns1">
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <label for="inputNs2prefix">{$LANG.serverns2prefix}</label>
+                      <input type="text" name="ns2prefix" class="form-control" id="inputNs2prefix" value="{$server.ns2prefix}" placeholder="ns2">
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            {/if}
+
+            {if $configurableoptions}
+              <div class="sub-heading">
+                <span class="primary-bg-color">{$LANG.orderconfigpackage}</span>
+              </div>
+              <div class="product-configurable-options" id="productConfigurableOptions">
+                <div class="row">
+                  {foreach $configurableoptions as $num => $configoption}
+                    {if $configoption.optiontype eq 1}
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="inputConfigOption{$configoption.id}">{$configoption.optionname}</label>
+                          <select name="configoption[{$configoption.id}]" id="inputConfigOption{$configoption.id}" class="form-control">
+                            {foreach key=num2 item=options from=$configoption.options}
+                              <option value="{$options.id}" {if $configoption.selectedvalue eq $options.id} selected="selected" {/if}>
+                                {$options.name}
                               </option>
                             {/foreach}
                           </select>
                         </div>
                       </div>
-                      <div class="form-group text-right">
-                        <button type="submit" class="btn btn-light btn-sm">
-                          {$LANG.orderForm.updateTotals}
-                        </button>
+                    {elseif $configoption.optiontype eq 2}
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="inputConfigOption{$configoption.id}">{$configoption.optionname}</label>
+                          {foreach key=num2 item=options from=$configoption.options}
+                            <br />
+                            <label>
+                              <input type="radio" name="configoption[{$configoption.id}]" value="{$options.id}" {if $configoption.selectedvalue eq $options.id} checked="checked" {/if} />
+                              {if $options.name}
+                                {$options.name}
+                              {else}
+                                {$LANG.enable}
+                              {/if}
+                            </label>
+                          {/foreach}
+                        </div>
                       </div>
-                    </form>
-                  </div>
+                    {elseif $configoption.optiontype eq 3}
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <label for="inputConfigOption{$configoption.id}">{$configoption.optionname}</label>
+                          <br />
+                          <label>
+                            <input type="checkbox" name="configoption[{$configoption.id}]" id="inputConfigOption{$configoption.id}" value="1" {if $configoption.selectedqty} checked{/if} />
+                            {if $configoption.options.0.name}
+                              {$configoption.options.0.name}
+                            {else}
+                              {$LANG.enable}
+                            {/if}
+                          </label>
+                        </div>
+                      </div>
+                    {elseif $configoption.optiontype eq 4}
+                      <div class="col-sm-12">
+                        <div class="form-group">
+                          <label for="inputConfigOption{$configoption.id}">{$configoption.optionname}</label>
+                          {if $configoption.qtymaximum}
+                            {if !$rangesliderincluded}
+                              <script type="text/javascript" src="{$BASE_PATH_JS}/ion.rangeSlider.min.js"></script>
+                              <link href="{$BASE_PATH_CSS}/ion.rangeSlider.css" rel="stylesheet">
+                              <link href="{$BASE_PATH_CSS}/ion.rangeSlider.skinModern.css" rel="stylesheet">
+                              {assign var='rangesliderincluded' value=true}
+                            {/if}
+                            <input type="text" name="configoption[{$configoption.id}]" value="{if $configoption.selectedqty}{$configoption.selectedqty}{else}{$configoption.qtyminimum}{/if}" id="inputConfigOption{$configoption.id}" class="form-control" />
+                            <script>
+                              var sliderTimeoutId = null;
+                              var sliderRangeDifference = {$configoption.qtymaximum} - {$configoption.qtyminimum};
+                              // The largest size that looks nice on most screens.
+                              var sliderStepThreshold = 25;
+                              // Check if there are too many to display individually.
+                              var setLargerMarkers = sliderRangeDifference > sliderStepThreshold;
+
+                              jQuery("#inputConfigOption{$configoption.id}").ionRangeSlider({
+                              min: {$configoption.qtyminimum},
+                              max: {$configoption.qtymaximum},
+                              grid: true,
+                                grid_snap: setLargerMarkers ? false : true,
+                                onChange: function() {
+                                  if (sliderTimeoutId) {
+                                    clearTimeout(sliderTimeoutId);
+                                  }
+
+                                  sliderTimeoutId = setTimeout(function() {
+                                    sliderTimeoutId = null;
+                                    recalctotals();
+                                  }, 250);
+                                }
+                              });
+                            </script>
+                          {else}
+                            <div>
+                              <input type="number" name="configoption[{$configoption.id}]" value="{if $configoption.selectedqty}{$configoption.selectedqty}{else}{$configoption.qtyminimum}{/if}" id="inputConfigOption{$configoption.id}" min="{$configoption.qtyminimum}" onchange="recalctotals()" onkeyup="recalctotals()" class="form-control form-control-qty" />
+                              <span class="form-control-static form-control-static-inline">
+                                x {$configoption.options.0.name}
+                              </span>
+                            </div>
+                          {/if}
+                        </div>
+                      </div>
+                    {/if}
+                    {if $num % 2 != 0}
+                    </div>
+                    <div class="row">
+                    {/if}
+                  {/foreach}
                 </div>
               </div>
-            </div>
-          </div>
 
-          {* Order summary sidebar *}
-          <div class="secondary-cart-sidebar">
+            {/if}
+
+            {if $customfields}
+
+              <div class="sub-heading pb-1">
+                <span class="primary-bg-color">{$LANG.orderadditionalrequiredinfo}<br><i><small>{lang key='orderForm.requiredField'}</small></i></span>
+              </div>
+
+              <div class="field-container">
+                {foreach $customfields as $customfield}
+                  <div class="form-group">
+                    <label for="customfield{$customfield.id}">{$customfield.name} {$customfield.required}</label>
+                    {$customfield.input}
+                    {if $customfield.description}
+                      <span class="field-help-text">
+                        {$customfield.description}
+                      </span>
+                    {/if}
+                  </div>
+                {/foreach}
+              </div>
+
+            {/if}
+
+            {if $addons || count($addonsPromoOutput) > 0}
+
+              <div id="productAddonsContainer">
+                <div class="sub-heading">
+                  <span class="primary-bg-color">{$LANG.cartavailableaddons}</span>
+                </div>
+
+                {foreach $addonsPromoOutput as $output}
+                  <div>
+                    {$output}
+                  </div>
+                {/foreach}
+
+                <div class="row addon-products">
+                  {foreach $addons as $addon}
+                    <div class="col-sm-{if count($addons) > 1}6{else}12{/if}">
+                      <div class="panel card panel-default panel-addon{if $addon.status} panel-addon-selected{/if}">
+                        <div class="panel-body card-body">
+                          <label>
+                            <input type="checkbox" name="addons[{$addon.id}]" {if $addon.status} checked{/if} />
+                            {$addon.name}
+                          </label><br />
+                          {$addon.description}
+                        </div>
+                        <div class="panel-price">
+                          {$addon.pricing}
+                        </div>
+                        <div class="panel-add">
+                          <i class="fas fa-plus"></i>
+                          {$LANG.addtocart}
+                        </div>
+                      </div>
+                    </div>
+                  {/foreach}
+                </div>
+              </div>
+            {/if}
+
+            <div class="alert alert-warning info-text-sm">
+              <i class="fas fa-question-circle"></i>
+              {$LANG.orderForm.haveQuestionsContact} <a href="{$WEB_ROOT}/contact.php" target="_blank" class="alert-link">{$LANG.orderForm.haveQuestionsClickHere}</a>
+            </div>
+
+          </div>
+          <div class="secondary-cart-sidebar" id="scrollingPanelContainer">
+
             <div class="order-summary" id="orderSummary">
+              {* Loading spinner for order summary *}
               <div class="loader w-hidden" id="orderSummaryLoader">
                 <svg class="fa-spin" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-loader-icon lucide-loader">
                   <path d="M12 2v4" />
@@ -578,177 +345,33 @@
                   <path d="m4.9 4.9 2.9 2.9" />
                 </svg>
               </div>
+              {* Order summary title *}
               <h2 class="order-summary-title">{$LANG.ordersummary}</h2>
-              <div class="summary-container">
-                {if $cartitems}
-                  {foreach $products as $num => $product}
-                    <div class="bordered-totals">
-                      <h4 class="bordered-totals-title">{$product.productinfo.groupname} - {$product.productinfo.name} <span class="title-price">{$product.pricing.baseprice->toFull()}</span></h4>
-                    </div>
-                  {/foreach}
-
-                  {* Display taxes *}
-                  {if $taxrate || $taxrate2}
-                    {if $taxrate}
-                      <div class="bordered-totals">
-                        <h4 class="bordered-totals-title">{lang key="taxes"}</h4>
-                        <div class="bordered-totals-item">
-                          <span class="text-left">{$taxname} @ {$taxrate}%</span>
-                          <span id="taxTotal1" class="text-right">{$taxtotal}</span>
-                        </div>
-                      </div>
-                    {/if}
-                    {if $taxrate2}
-                      <div class="bordered-totals">
-                        <h4 class="bordered-totals-title">{lang key="taxes"}</h4>
-                        <div class="bordered-totals-item">
-                          <span class="text-left">{$taxname2} @ {$taxrate2}%</span>
-                          <span id="taxTotal2" class="text-right">{$taxtotal2}</span>
-                        </div>
-                      </div>
-                    {/if}
-                  {/if}
-
-                  {* Display recurring totals *}
-                  <div class="bordered-totals">
-                    <h4 class="bordered-totals-title">{$LANG.recurring}</h4>
-                    <div class="bordered-totals-item">
-                      <span class="text-left">{$LANG.ordertotalrecurring}</span>
-                      <span id="recurring" class="text-right">
-                        {foreach ['monthly', 'quarterly', 'semiannually', 'annually', 'biennially', 'triennially'] as $cycle}
-                          {if ${"totalrecurring$cycle"}}
-                            <span id="recurring{ucfirst($cycle)}">
-                              <span class="cost text-right mr-1">${"totalrecurring$cycle"}</span>
-                              <span class="period">{$LANG["orderpaymentterm$cycle"]}</span>
-                            </span>
-                          {/if}
-                        {/foreach}
-                      </span>
-                    </div>
-                  </div>
-
-                  {* Display discount if applied *}
-                  {if $promotioncode}
-                    <div class="bordered-totals">
-                      <h4 class="bordered-totals-title">
-                        <span class="title-span">
-                          {$LANG.orderdiscount}
-                          <svg data-toggle="tooltip" data-placement="top" title="{$promotiondescription}" data-html="true" class="tooltip-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-question-mark-icon lucide-circle-question-mark">
-                            <circle cx="12" cy="12" r="10" />
-                            <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3" />
-                            <path d="M12 17h.01" />
-                          </svg>
-                        </span>
-                        <span id="discount" class="title-price">{$discount}</span>
-                      </h4>
-                    </div>
-                  {/if}
-
-                  {* Display order total *}
-                  <div class="total">
-                    <div>
-                      <span>{$LANG.total}</span>
-                      <span class="total-price">
-                        <span class="old-price">{$subtotal}</span>{$total}
-                      </span>
-                    </div>
-                  </div>
-
-                  {* Express checkout buttons *}
-                  <div class="express-checkout-buttons">
-                    {foreach $expressCheckoutButtons as $checkoutButton}
-                      {$checkoutButton}
-                      <div class="separator">
-                        - {$LANG.or|strtoupper} -
-                      </div>
-                    {/foreach}
-                  </div>
-
-                  {* Checkout button *}
-                  <div class="actions">
-                    <a href="{$WEB_ROOT}/cart.php?a=checkout&e=false" class="btn btn-primary btn-block btn-checkout{if $cartitems == 0} disabled{/if}" id="checkout">
-                      {$LANG.orderForm.checkout}
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right">
-                        <path d="M5 12h14" />
-                        <path d="m12 5 7 7-7 7" />
-                      </svg>
-                    </a>
-                    <a href="{$WEB_ROOT}/cart.php" class="d-none btn btn-ghost-secondary btn-sm btn-block btn-continue-shopping" id="continueShopping">
-                      {$LANG.orderForm.continueShopping}
-                    </a>
-                  </div>
-                {else}
-                  <div class="view-cart-empty">
-                    {$LANG.cartempty}
-                  </div>
-                {/if}
+              {* Dynamic content container for cart totals *}
+              <div class="summary-container" id="producttotal"></div>
+              {* actions *}
+              <div class="text-center">
+                <button type="submit" id="btnCompleteProductConfig" class="btn btn-primary btn-block">
+                  {$LANG.continue}
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right">
+                    <path d="M5 12h14" />
+                    <path d="m12 5 7 7-7 7" />
+                  </svg>
+                </button>
               </div>
             </div>
+
           </div>
+
         </div>
 
-        {* Remove item modal *}
-        <form method="post" action="{$WEB_ROOT}/cart.php">
-          <input type="hidden" name="a" value="remove" />
-          <input type="hidden" name="r" value="" id="inputRemoveItemType" />
-          <input type="hidden" name="i" value="" id="inputRemoveItemRef" />
-          <input type="hidden" name="rt" value="" id="inputRemoveItemRenewalType">
-          <div class="modal fade modal-remove-item" id="modalRemoveItem" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h4 class="modal-title">{lang key='orderForm.removeItem'}</h4>
-                  <button type="button" class="close-btn btn-square btn-ghost-light btn-xs rounded-circle" data-dismiss="modal" aria-label="Close">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x">
-                      <path d="M18 6 6 18"></path>
-                      <path d="m6 6 12 12"></path>
-                    </svg>
-                  </button>
-                </div>
-                <div class="modal-body">
-                  <p>{lang key='cartremoveitemconfirm'}</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-ghost-light btn-xs btn-wide" data-dismiss="modal">
-                    {$LANG.cancel}
-                  </button>
-                  <button type="submit" class="btn btn-danger btn-xs btn-wide" id="btnRemoveUserConfirm">
-                    {$LANG.confirm}
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </form>
-
-        {* Empty cart modal *}
-        <form method="post" action="{$WEB_ROOT}/cart.php">
-          <input type="hidden" name="a" value="empty" />
-          <div class="modal fade modal-remove-item" id="modalEmptyCart" tabindex="-1" role="dialog">
-            <div class="modal-dialog" role="document">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h4 class="modal-title">{$LANG.emptycart}</h4>
-                </div>
-                <div class="modal-body">
-                  <p>{$LANG.cartemptyconfirm}</p>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-ghost-light btn-xs btn-wide" data-dismiss="modal">
-                    {$LANG.cancel}
-                  </button>
-                  <button type="submit" class="btn btn-danger btn-xs btn-wide" id="btnRemoveUserConfirm">
-                    {$LANG.confirm}
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div>
+      </form>
     </div>
   </div>
+</div>
 
-  {* Include recommendations modal *}
-  {include file="orderforms/apex_cart/recommendations-modal.tpl"}
-{/if}
+<script>
+  recalctotals();
+</script>
+
+{include file="orderforms/apex_cart/recommendations-modal.tpl"}

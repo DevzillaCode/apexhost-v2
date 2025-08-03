@@ -1896,7 +1896,7 @@ textarea.form-control {
 /* form-check */
 .form-check {
   position: relative;
-  display: inline-flex;
+  display: flex;
   gap: 0.5rem;
   font-size: var(--text-sm);
   font-weight: 500;
@@ -1907,7 +1907,8 @@ textarea.form-control {
 }
 
 /* form-check -> input */
-.form-check-input {
+.form-check-input,
+.addon-selector {
   position: absolute;
   opacity: 0;
   height: 0;
@@ -1938,24 +1939,31 @@ textarea.form-control {
   border-radius: 4px;
   transition: all 0.2s ease-in-out;
 }
+.radio-inline {
+  position: relative;
+}
+
 .form-check input[type="radio"] + .checkmark,
 .iradio_square-blue + .checkmark {
   border-radius: var(--radius-full) !important;
 }
+
 .form-check input[type="checkbox"]:checked + .checkmark,
 .form-check input[type="radio"]:checked + .checkmark,
 .icheckbox_square-blue.checked + .checkmark,
 .iradio_square-blue.checked + .checkmark {
-  background-color: var(--foreground); /* blue-600 */
+  background-color: var(--foreground);
   border-color: var(--foreground);
 }
-.form-check .checkmark::after {
+
+.form-check .checkmark::after{
   position: absolute;
   content: "✓";
   display: none;
   color: var(--background);
   font-weight: 700;
 }
+
 .form-check input[type="radio"] + .checkmark::after,
 .iradio_square-blue.checked + .checkmark::after {
   content: "";
@@ -1964,12 +1972,14 @@ textarea.form-control {
   border-radius: var(--radius-full);
   background-color: var(--background);
 }
+
 .form-check input[type="checkbox"]:checked + .checkmark::after,
 .form-check input[type="radio"]:checked + .checkmark::after,
 .icheckbox_square-blue.checked + .checkmark::after,
 .iradio_square-blue.checked + .checkmark::after {
   display: block;
 }
+
 /* form-check -> sizes */
 .form-check.form-control-lg {
   font-size: var(--text-base);

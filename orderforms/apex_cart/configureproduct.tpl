@@ -29,60 +29,65 @@
       <form id="frmConfigureProduct">
         <input type="hidden" name="configure" value="true" />
         <input type="hidden" name="i" value="{$i}" />
-
+        {* row *}
         <div class="row">
+          {* Secondary cart body *}
           <div class="secondary-cart-body">
 
-            <div class="product-info">
-              <p class="product-title">{$productinfo.name}</p>
-              <p>{$productinfo.description}</p>
+            {* view-cart-items *}
+            <div class="view-cart-items">
+              <div class="item">
+                {* item-title *}
+                <h4 class="item-title">{$productinfo.name}<span class="item-name ml-auto">{$productinfo.group_name}</span>
+                </h4>
+                {* item-content *}
+                <div class="item-content">
+                  {if $pricing.type eq "recurring"}
+                    <div class="form-group">
+                      <label for="inputBillingcycle" class="form-label">{$LANG.cartchoosecycle}</label>
+                      <br>
+                      <select name="billingcycle" id="inputBillingcycle" class="form-control" onchange="updateConfigurableOptions({$i}, this.value); return false">
+                        {if $pricing.monthly}
+                          <option value="monthly" {if $billingcycle eq "monthly"} selected{/if}>
+                            {$pricing.monthly}
+                          </option>
+                        {/if}
+                        {if $pricing.quarterly}
+                          <option value="quarterly" {if $billingcycle eq "quarterly"} selected{/if}>
+                            {$pricing.quarterly}
+                          </option>
+                        {/if}
+                        {if $pricing.semiannually}
+                          <option value="semiannually" {if $billingcycle eq "semiannually"} selected{/if}>
+                            {$pricing.semiannually}
+                          </option>
+                        {/if}
+                        {if $pricing.annually}
+                          <option value="annually" {if $billingcycle eq "annually"} selected{/if}>
+                            {$pricing.annually}
+                          </option>
+                        {/if}
+                        {if $pricing.biennially}
+                          <option value="biennially" {if $billingcycle eq "biennially"} selected{/if}>
+                            {$pricing.biennially}
+                          </option>
+                        {/if}
+                        {if $pricing.triennially}
+                          <option value="triennially" {if $billingcycle eq "triennially"} selected{/if}>
+                            {$pricing.triennially}
+                          </option>
+                        {/if}
+                      </select>
+                    </div>
+                  {/if}
+                </div>
+              </div>
             </div>
 
             <div class="alert alert-danger w-hidden" role="alert" id="containerProductValidationErrors">
               <p>{$LANG.orderForm.correctErrors}:</p>
               <ul id="containerProductValidationErrorsList"></ul>
             </div>
-
-            {if $pricing.type eq "recurring"}
-              <div class="field-container">
-                <div class="form-group">
-                  <label for="inputBillingcycle" class="form-label">{$LANG.cartchoosecycle}</label>
-                  <br>
-                  <select name="billingcycle" id="inputBillingcycle" class="form-control select-inline" onchange="updateConfigurableOptions({$i}, this.value); return false">
-                    {if $pricing.monthly}
-                      <option value="monthly" {if $billingcycle eq "monthly"} selected{/if}>
-                        {$pricing.monthly}
-                      </option>
-                    {/if}
-                    {if $pricing.quarterly}
-                      <option value="quarterly" {if $billingcycle eq "quarterly"} selected{/if}>
-                        {$pricing.quarterly}
-                      </option>
-                    {/if}
-                    {if $pricing.semiannually}
-                      <option value="semiannually" {if $billingcycle eq "semiannually"} selected{/if}>
-                        {$pricing.semiannually}
-                      </option>
-                    {/if}
-                    {if $pricing.annually}
-                      <option value="annually" {if $billingcycle eq "annually"} selected{/if}>
-                        {$pricing.annually}
-                      </option>
-                    {/if}
-                    {if $pricing.biennially}
-                      <option value="biennially" {if $billingcycle eq "biennially"} selected{/if}>
-                        {$pricing.biennially}
-                      </option>
-                    {/if}
-                    {if $pricing.triennially}
-                      <option value="triennially" {if $billingcycle eq "triennially"} selected{/if}>
-                        {$pricing.triennially}
-                      </option>
-                    {/if}
-                  </select>
-                </div>
-              </div>
-            {/if}
 
             {if count($metrics) > 0}
               <div class="sub-heading">
@@ -157,107 +162,112 @@
               <div class="sub-heading">
                 <span class="primary-bg-color">{$LANG.orderconfigpackage}</span>
               </div>
-              <div class="product-configurable-options" id="productConfigurableOptions">
-                <div class="row">
-                  {foreach $configurableoptions as $num => $configoption}
-                    {if $configoption.optiontype eq 1}
-                      <div class="col-sm-6">
-                        <div class="form-group">
-                          <label for="inputConfigOption{$configoption.id}">{$configoption.optionname}</label>
-                          <select name="configoption[{$configoption.id}]" id="inputConfigOption{$configoption.id}" class="form-control">
-                            {foreach key=num2 item=options from=$configoption.options}
-                              <option value="{$options.id}" {if $configoption.selectedvalue eq $options.id} selected="selected" {/if}>
-                                {$options.name}
-                              </option>
-                            {/foreach}
-                          </select>
-                        </div>
-                      </div>
-                    {elseif $configoption.optiontype eq 2}
-                      <div class="col-sm-6">
-                        <div class="form-group">
-                          <label for="inputConfigOption{$configoption.id}">{$configoption.optionname}</label>
-                          {foreach key=num2 item=options from=$configoption.options}
-                            <br />
-                            <label>
-                              <input type="radio" name="configoption[{$configoption.id}]" value="{$options.id}" {if $configoption.selectedvalue eq $options.id} checked="checked" {/if} />
-                              {if $options.name}
-                                {$options.name}
-                              {else}
-                                {$LANG.enable}
-                              {/if}
-                            </label>
-                          {/foreach}
-                        </div>
-                      </div>
-                    {elseif $configoption.optiontype eq 3}
-                      <div class="col-sm-6">
-                        <div class="form-group">
-                          <label for="inputConfigOption{$configoption.id}">{$configoption.optionname}</label>
-                          <br />
-                          <label>
-                            <input type="checkbox" name="configoption[{$configoption.id}]" id="inputConfigOption{$configoption.id}" value="1" {if $configoption.selectedqty} checked{/if} />
-                            {if $configoption.options.0.name}
-                              {$configoption.options.0.name}
-                            {else}
-                              {$LANG.enable}
-                            {/if}
-                          </label>
-                        </div>
-                      </div>
-                    {elseif $configoption.optiontype eq 4}
-                      <div class="col-sm-12">
-                        <div class="form-group">
-                          <label for="inputConfigOption{$configoption.id}">{$configoption.optionname}</label>
-                          {if $configoption.qtymaximum}
-                            {if !$rangesliderincluded}
-                              <script type="text/javascript" src="{$BASE_PATH_JS}/ion.rangeSlider.min.js"></script>
-                              <link href="{$BASE_PATH_CSS}/ion.rangeSlider.css" rel="stylesheet">
-                              <link href="{$BASE_PATH_CSS}/ion.rangeSlider.skinModern.css" rel="stylesheet">
-                              {assign var='rangesliderincluded' value=true}
-                            {/if}
-                            <input type="text" name="configoption[{$configoption.id}]" value="{if $configoption.selectedqty}{$configoption.selectedqty}{else}{$configoption.qtyminimum}{/if}" id="inputConfigOption{$configoption.id}" class="form-control" />
-                            <script>
-                              var sliderTimeoutId = null;
-                              var sliderRangeDifference = {$configoption.qtymaximum} - {$configoption.qtyminimum};
-                              // The largest size that looks nice on most screens.
-                              var sliderStepThreshold = 25;
-                              // Check if there are too many to display individually.
-                              var setLargerMarkers = sliderRangeDifference > sliderStepThreshold;
-
-                              jQuery("#inputConfigOption{$configoption.id}").ionRangeSlider({
-                              min: {$configoption.qtyminimum},
-                              max: {$configoption.qtymaximum},
-                              grid: true,
-                                grid_snap: setLargerMarkers ? false : true,
-                                onChange: function() {
-                                  if (sliderTimeoutId) {
-                                    clearTimeout(sliderTimeoutId);
-                                  }
-
-                                  sliderTimeoutId = setTimeout(function() {
-                                    sliderTimeoutId = null;
-                                    recalctotals();
-                                  }, 250);
-                                }
-                              });
-                            </script>
-                          {else}
-                            <div>
-                              <input type="number" name="configoption[{$configoption.id}]" value="{if $configoption.selectedqty}{$configoption.selectedqty}{else}{$configoption.qtyminimum}{/if}" id="inputConfigOption{$configoption.id}" min="{$configoption.qtyminimum}" onchange="recalctotals()" onkeyup="recalctotals()" class="form-control form-control-qty" />
-                              <span class="form-control-static form-control-static-inline">
-                                x {$configoption.options.0.name}
-                              </span>
-                            </div>
-                          {/if}
-                        </div>
-                      </div>
-                    {/if}
-                    {if $num % 2 != 0}
-                    </div>
+              <div class="card extra-padding">
+                <div class="card-body">
+                  <div class="product-configurable-options d-flex flex-column row-gap-4" id="productConfigurableOptions">
                     <div class="row">
-                    {/if}
-                  {/foreach}
+                      {foreach $configurableoptions as $num => $configoption}
+                        {if $configoption.optiontype eq 1}
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="inputConfigOption{$configoption.id}" class="form-label">{$configoption.optionname}</label>
+                              <select name="configoption[{$configoption.id}]" id="inputConfigOption{$configoption.id}" class="form-control">
+                                {foreach key=num2 item=options from=$configoption.options}
+                                  <option value="{$options.id}" {if $configoption.selectedvalue eq $options.id} selected="selected" {/if}>
+                                    {$options.name}
+                                  </option>
+                                {/foreach}
+                              </select>
+                            </div>
+                          </div>
+                        {elseif $configoption.optiontype eq 2}
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="inputConfigOption{$configoption.id}" class="form-label">{$configoption.optionname}</label>
+                              {foreach key=num2 item=options from=$configoption.options}
+                                <br />
+                                <label>
+                                  <input type="radio" name="configoption[{$configoption.id}]" value="{$options.id}" {if $configoption.selectedvalue eq $options.id} checked="checked" {/if} />
+                                  {if $options.name}
+                                    {$options.name}
+                                  {else}
+                                    {$LANG.enable}
+                                  {/if}
+                                </label>
+                              {/foreach}
+                            </div>
+                          </div>
+                        {elseif $configoption.optiontype eq 3}
+                          <div class="col-sm-6">
+                            <div class="form-group">
+                              <label for="inputConfigOption{$configoption.id}" class="form-label">{$configoption.optionname}</label>
+                              <label class="form-check">
+                                <input type="checkbox" name="configoption[{$configoption.id}]" id="inputConfigOption{$configoption.id}" value="1" {if $configoption.selectedqty} checked{/if} />
+                                <span class="checkmark"></span>
+                                {$configoption.optionname}
+                                {if $configoption.options.0.name}
+                                  {$configoption.options.0.name}
+                                {else}
+                                  {$LANG.enable}
+                                {/if}
+                              </label>
+                            </div>
+                          </div>
+                        {elseif $configoption.optiontype eq 4}
+                          <div class="col-sm-12">
+                            <div class="form-group">
+                              <label for="inputConfigOption{$configoption.id}" class="form-label">{$configoption.optionname}</label>
+                              {if $configoption.qtymaximum}
+                                {if !$rangesliderincluded}
+                                  <script type="text/javascript" src="{$BASE_PATH_JS}/ion.rangeSlider.min.js"></script>
+                                  <link href="{$BASE_PATH_CSS}/ion.rangeSlider.css" rel="stylesheet">
+                                  <link href="{$BASE_PATH_CSS}/ion.rangeSlider.skinModern.css" rel="stylesheet">
+                                  {assign var='rangesliderincluded' value=true}
+                                {/if}
+                                <input type="text" name="configoption[{$configoption.id}]" value="{if $configoption.selectedqty}{$configoption.selectedqty}{else}{$configoption.qtyminimum}{/if}" id="inputConfigOption{$configoption.id}" class="form-control" />
+                                <script>
+                                  var sliderTimeoutId = null;
+                                  var sliderRangeDifference = {$configoption.qtymaximum} - {$configoption.qtyminimum};
+                                  // The largest size that looks nice on most screens.
+                                  var sliderStepThreshold = 25;
+                                  // Check if there are too many to display individually.
+                                  var setLargerMarkers = sliderRangeDifference > sliderStepThreshold;
+
+                                  jQuery("#inputConfigOption{$configoption.id}").ionRangeSlider({
+                                  min: {$configoption.qtyminimum},
+                                  max: {$configoption.qtymaximum},
+                                  grid: true,
+                                    grid_snap: setLargerMarkers ? false : true,
+                                    onChange: function() {
+                                      if (sliderTimeoutId) {
+                                        clearTimeout(sliderTimeoutId);
+                                      }
+
+                                      sliderTimeoutId = setTimeout(function() {
+                                        sliderTimeoutId = null;
+                                        recalctotals();
+                                      }, 250);
+                                    }
+                                  });
+                                </script>
+                              {else}
+                                <div>
+                                  <input type="number" name="configoption[{$configoption.id}]" value="{if $configoption.selectedqty}{$configoption.selectedqty}{else}{$configoption.qtyminimum}{/if}" id="inputConfigOption{$configoption.id}" min="{$configoption.qtyminimum}" onchange="recalctotals()" onkeyup="recalctotals()" class="form-control form-control-qty" />
+                                  <span class="form-control-static form-control-static-inline">
+                                    x {$configoption.options.0.name}
+                                  </span>
+                                </div>
+                              {/if}
+                            </div>
+                          </div>
+                        {/if}
+                        {if $num % 2 != 0}
+                        </div>
+                        <div class="row">
+                        {/if}
+                      {/foreach}
+                    </div>
+                  </div>
                 </div>
               </div>
 
@@ -292,11 +302,13 @@
                   <span class="primary-bg-color">{$LANG.cartavailableaddons}</span>
                 </div>
 
-                {foreach $addonsPromoOutput as $output}
-                  <div>
-                    {$output}
-                  </div>
-                {/foreach}
+                <div class="d-flex flex-column row-gap-4">
+                  {foreach $addonsPromoOutput as $output}
+                    <div>
+                      {$output}
+                    </div>
+                  {/foreach}
+                </div>
 
                 <div class="row addon-products">
                   {foreach $addons as $addon}
@@ -323,12 +335,13 @@
               </div>
             {/if}
 
-            <div class="alert alert-warning info-text-sm">
+            <div class="alert alert-warning info-text-sm mt-4">
               <i class="fas fa-question-circle"></i>
               {$LANG.orderForm.haveQuestionsContact} <a href="{$WEB_ROOT}/contact.php" target="_blank" class="alert-link">{$LANG.orderForm.haveQuestionsClickHere}</a>
             </div>
 
           </div>
+          {* Secondary cart sidebar *}
           <div class="secondary-cart-sidebar" id="scrollingPanelContainer">
 
             <div class="order-summary" id="orderSummary">

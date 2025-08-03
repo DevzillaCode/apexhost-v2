@@ -11,7 +11,7 @@
 
   // Cached vars
   var _iCheck = 'iCheck',
-    _iCheckHelper = _iCheck + '-helper',
+    _iCheckHelper = 'checkmark',
     _checkbox = 'checkbox',
     _radio = 'radio',
     _checked = 'checked',
@@ -118,19 +118,7 @@
           // Layer styles
           offset = -area + '%',
           size = 100 + (area * 2) + '%',
-          layer = {
-            position: 'absolute',
-            top: offset,
-            left: offset,
-            display: 'block',
-            width: size,
-            height: size,
-            margin: 0,
-            padding: 0,
-            background: '#fff',
-            border: 0,
-            opacity: 0
-          },
+          layer = {},
 
           // Choose how to hide input
           hide = _mobile ? {
@@ -177,7 +165,7 @@
         parent = self.wrap(parent + '/>')[_callback]('ifCreated').parent().append(settings.insert);
 
         // Layer addition
-        helper = $('<ins class="' + _iCheckHelper + '"/>').css(layer).appendTo(parent);
+        helper = $('<span class="' + _iCheckHelper + '"/>').css(layer).appendTo(parent);
 
         // Finalize customization
         self.data(_iCheck, {o: settings, s: self.attr('style')}).css(hide);
@@ -2527,7 +2515,7 @@ jQuery(document).ready(function(){
     jQuery('#order-apex_cart').find('input').not('.no-icheck').iCheck({
         inheritID: true,
         checkboxClass: 'icheckbox_square-blue',
-        radioClass: 'iradio_square-blue',
+        radioClass: 'form-check',
         increaseArea: '20%'
     });
 

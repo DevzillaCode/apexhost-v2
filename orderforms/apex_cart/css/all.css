@@ -143,8 +143,8 @@
   height: 0;
   border-top: 1px solid var(--border);
   text-align: center;
-  margin-top: 20px;
-  margin-bottom: 30px;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
 #order-apex_cart .sub-heading-borderless {
@@ -614,6 +614,9 @@
 }
 
 #order-apex_cart .view-cart-items .item .item-content {
+  padding: 1rem 0 0;
+}
+#order-apex_cart .view-cart-items .item:has(.item-footer) .item-content {
   padding: 1rem 0;
   border-bottom: 1px solid var(--border);
 }
@@ -1414,13 +1417,20 @@ a.domain-tld-pricing-category {
  */
 
 #order-apex_cart .addon-promo-container {
-  margin: 20px 0;
-  padding: 20px;
-  border: 1px solid #eee;
+  padding: 1rem;
+  border: 1px solid var(--border);
   font-size: 0.9em;
+  background-color: var(--surface-bg) !important;
+  border-radius: var(--theme-radius);
+}
+#order-apex_cart .addon-promo-container br {
+  display: none;
 }
 #order-apex_cart .addon-promo-container h3 {
-  margin: 0 0 10px 0;
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--foreground);
+  margin-bottom: 1rem;
 }
 #order-apex_cart .addon-promo-container .logo {
   float: right;
@@ -1435,11 +1445,15 @@ a.domain-tld-pricing-category {
   margin: 10px 0;
 }
 #order-apex_cart .addon-promo-container label {
-  margin-top: 3px;
-  width: 98%;
+  display: flex;
+  margin-top: 0.75rem;
+  cursor: pointer;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  color: var(--foreground-text);
 }
 #order-apex_cart .addon-promo-container a {
-  text-decoration: underline;
+  text-decoration: underline !important;
 }
 
 #order-apex_cart .mc-promos {
