@@ -30,16 +30,18 @@
                 <fieldset>
                     <div class="form-group">
                         <label for="cancellationreason">{lang key='clientareacancelreason'}</label>
-                    <textarea name="cancellationreason" id="cancellationreason" class="form-control fullwidth" rows="6"></textarea>
+                        <textarea name="cancellationreason" id="cancellationreason" class="form-control fullwidth" rows="6"></textarea>
                     </div>
 
                     {if $domainid}
                         <div class="alert alert-warning">
-                            <p><strong>{lang key='cancelrequestdomain'}</strong></p>
-                            <p>{"{lang key='cancelrequestdomaindesc'}"|sprintf2:$domainnextduedate:$domainprice:$domainregperiod}</p>
-                            <label class="form-check text-center">
-                                <input type="checkbox" class="form-check-input" name="canceldomain" id="canceldomain" /> {lang key='cancelrequestdomainconfirm'}
-                            </label>
+                            <div>
+                                <p><strong>{lang key='cancelrequestdomain'}</strong></p>
+                                <p>{"{lang key='cancelrequestdomaindesc'}"|sprintf2:$domainnextduedate:$domainprice:$domainregperiod}</p>
+                                <label class="form-check text-center">
+                                    <input type="checkbox" class="form-check-input" name="canceldomain" id="canceldomain" /> {lang key='cancelrequestdomainconfirm'}
+                                </label>
+                            </div>
                         </div>
                     {/if}
 

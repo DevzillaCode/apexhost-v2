@@ -10,7 +10,9 @@
         {/if}
 
         <div class="alert alert-block alert-info text-center">
-            {lang key='upgradecurrentconfig'}: <strong>{$groupname} - {$productname}</strong>{if $domain} ({$domain}){/if}
+            <div>
+                {lang key='upgradecurrentconfig'}: <strong>{$groupname} - {$productname}</strong>{if $domain} ({$domain}){/if}
+            </div>
         </div>
 
         <table class="table table-striped">

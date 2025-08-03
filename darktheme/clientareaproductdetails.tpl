@@ -3,12 +3,16 @@
   {if $modulecustombuttonresult == "success"}
     <!-- Success Alert -->
     <div class="alert alert-success" id="alertModuleCustomButtonSuccess">
-      {lang key='moduleactionsuccess'}
+      <div>
+        {lang key='moduleactionsuccess'}
+      </div>
     </div>
   {else}
     <!-- Error Alert -->
     <div class="alert alert-danger" id="alertModuleCustomButtonFailed">
-      {lang key='moduleactionfailed'} {$modulecustombuttonresult}
+      <div>
+        {lang key='moduleactionfailed'} {$modulecustombuttonresult}
+      </div>
     </div>
   {/if}
 {/if}
@@ -17,7 +21,9 @@
 {if $pendingcancellation}
   <!-- Pending Cancellation -->
   <div class="alert alert-danger" id="alertPendingCancellation">
-    {lang key='cancellationrequestedexplanation'}
+    <div>
+      {lang key='cancellationrequestedexplanation'}
+    </div>
   </div>
 {/if}
 
@@ -481,7 +487,11 @@
         <h3 class="card-title">{lang key='downloadstitle'}</h3>
 
         {if $downloads}
-          <div class="alert alert-info">{lang key="clientAreaProductDownloadsAvailable"}</div>
+          <div class="alert alert-info">
+            <div>
+              {lang key="clientAreaProductDownloadsAvailable"}
+            </div>
+          </div>
 
           <div class="row">
             {foreach from=$downloads item=download}
@@ -502,7 +512,11 @@
             {/foreach}
           </div>
         {else}
-          <div class="alert alert-info">No downloads available for this product.</div>
+          <div class="alert alert-info">
+            <div>
+              {lang key="noDownloads"}
+            </div>
+          </div>
         {/if}
       </div>
     </div>
@@ -515,7 +529,11 @@
         <h3 class="card-title">{lang key='clientareahostingaddons'}</h3>
 
         {if $addonsavailable}
-          <div class="alert alert-info">{lang key="clientAreaProductAddonsAvailable"}</div>
+          <div class="alert alert-info">
+            <div>
+              {lang key="clientAreaProductAddonsAvailable"}
+            </div>
+          </div>
         {/if}
 
         <div class="row">
@@ -560,11 +578,15 @@
         {if $modulechangepwresult}
           {if $modulechangepwresult == "success"}
             <div class="alert alert-success">
-              {$modulechangepasswordmessage}
+              <div>
+                {$modulechangepasswordmessage}
+              </div>
             </div>
           {elseif $modulechangepwresult == "error"}
             <div class="alert alert-danger">
-              {$modulechangepasswordmessage|strip_tags}
+              <div>
+                {$modulechangepasswordmessage|strip_tags}
+              </div>
             </div>
           {/if}
         {/if}

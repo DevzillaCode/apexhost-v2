@@ -1,12 +1,14 @@
 {if $errorMessage}
     <p class="alert alert-danger text-center">
+    <div>
         {$errorMessage}
+    </div>
     </p>
 {/if}
 
 <p>{lang key='pwresetsecurityquestionrequired'}</p>
 
-<form method="post" action="{routePath('password-reset-security-verify')}"  class="form-stacked">
+<form method="post" action="{routePath('password-reset-security-verify')}" class="form-stacked">
     <div class="form-group">
         <label for="inputAnswer">{$securityQuestion}</label>
         <input type="text" name="answer" class="form-control" id="inputAnswer" autofocus>

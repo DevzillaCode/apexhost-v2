@@ -43,10 +43,12 @@
       {* Error messages *}
       {if $errormessage}
         <div class="alert alert-danger checkout-error-feedback" role="alert">
-          <p>{$LANG.orderForm.correctErrors}:</p>
-          <ul>
-            {$errormessage}
-          </ul>
+          <div>
+            <p>{$LANG.orderForm.correctErrors}:</p>
+            <ul>
+              {$errormessage}
+            </ul>
+          </div>
         </div>
         <div class="clearfix"></div>
       {/if}
@@ -682,7 +684,7 @@
         </div>
 
         <div class="alert alert-success large-text" role="alert" id="totalDueToday">
-          {$LANG.ordertotalduetoday}: &nbsp; <strong id="totalCartPrice">{$total}</strong>
+          <div>{$LANG.ordertotalduetoday}: &nbsp; <strong id="totalCartPrice">{$total}</strong></div>
         </div>
 
         <div id="applyCreditContainer" class="apply-credit-container{if !$canUseCreditOnCheckout} w-hidden{/if}" data-apply-credit="{$applyCredit}">
@@ -963,9 +965,11 @@
 
       {if $servedOverSsl}
         <div class="alert alert-warning checkout-security-msg">
-          <i class="fas fa-lock"></i>
-          {$LANG.ordersecure} (<strong>{$ipaddress}</strong>) {$LANG.ordersecure2}
-          <div class="clearfix"></div>
+          <div>
+            <i class="fas fa-lock"></i>
+            {$LANG.ordersecure} (<strong>{$ipaddress}</strong>) {$LANG.ordersecure2}
+            <div class="clearfix"></div>
+          </div>
         </div>
       {/if}
     </div>

@@ -62,7 +62,9 @@
 
         {if $servedOverSsl}
             <div class="alert alert-warning" role="alert">
-                <i class="fas fa-lock"></i> &nbsp; {lang key='creditcardsecuritynotice'}
+                <div>
+                    <i class="fas fa-lock"></i> &nbsp; {lang key='creditcardsecuritynotice'}
+                </div>
             </div>
         {/if}
 

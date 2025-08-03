@@ -85,8 +85,10 @@
             </div>
 
             <div class="alert alert-danger w-hidden" role="alert" id="containerProductValidationErrors">
-              <p>{$LANG.orderForm.correctErrors}:</p>
-              <ul id="containerProductValidationErrorsList"></ul>
+              <div>
+                <p>{$LANG.orderForm.correctErrors}:</p>
+                <ul id="containerProductValidationErrorsList"></ul>
+              </div>
             </div>
 
             {if count($metrics) > 0}
@@ -336,8 +338,10 @@
             {/if}
 
             <div class="alert alert-warning info-text-sm mt-4">
-              <i class="fas fa-question-circle"></i>
-              {$LANG.orderForm.haveQuestionsContact} <a href="{$WEB_ROOT}/contact.php" target="_blank" class="alert-link">{$LANG.orderForm.haveQuestionsClickHere}</a>
+              <div>
+                <i class="fas fa-question-circle"></i>
+                {$LANG.orderForm.haveQuestionsContact} <a href="{$WEB_ROOT}/contact.php" target="_blank" class="alert-link">{$LANG.orderForm.haveQuestionsClickHere}</a>
+              </div>
             </div>
 
           </div>

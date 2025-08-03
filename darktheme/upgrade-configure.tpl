@@ -3,7 +3,9 @@
        <div class="card-body">
            {if !$serviceToBeUpgraded && $errorMessage}
            <div class="alert alert-warning">
-               {$errorMessage}
+                <div>
+                    {$errorMessage}
+                </div>
            </div>
            {else}
            <h4>{lang key="upgradeService.serviceBeingUpgraded"}</h4>
@@ -43,7 +45,9 @@
         <div class="card-body">
             {if $errorMessage}
                 <div class="alert alert-warning">
-                    {$errorMessage}
+                    <div>
+                        {$errorMessage}
+                    </div>
                 </div>
             {/if}
 

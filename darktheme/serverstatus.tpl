@@ -1,17 +1,21 @@
 <!-- Success alert when no open network issues exist -->
 {if $opencount == 0}
   <div class="alert alert-success">
-    <i class="fas fa-check fa-fw"></i>
-    {"{lang key='networkstatusnone'}"|sprintf:"{lang key='networkissuesstatusopen'}"}
+    <div>
+      <i class="fas fa-check fa-fw"></i>
+      {"{lang key='networkstatusnone'}"|sprintf:"{lang key='networkissuesstatusopen'}"}
+    </div>
   </div>
 {/if}
 
 <!-- Info alert when scheduled maintenance exists -->
 {if $scheduledcount > 0}
   <div class="alert alert-info">
-    <i class="fas fa-exclamation-triangle fa-fw"></i>
-    {lang key='networkIssues.scheduled' count=$scheduledcount}
-    <a href="serverstatus.php?view=scheduled" class="alert-link">{lang key='learnmore'}...</a>
+    <div>
+      <i class="fas fa-exclamation-triangle fa-fw"></i>
+      {lang key='networkIssues.scheduled' count=$scheduledcount}
+      <a href="serverstatus.php?view=scheduled" class="alert-link">{lang key='learnmore'}...</a>
+    </div>
   </div>
 {/if}
 
@@ -138,7 +142,9 @@
       <!-- Warning alert if issue affects the current client -->
       {if $issue.clientaffected}
         <div class="alert alert-warning p-1 text-center">
-          {lang key='networkIssues.affectingYou'}
+          <div>
+            {lang key='networkIssues.affectingYou'}
+          </div>
         </div>
       {/if}
 
@@ -161,7 +167,7 @@
       <a class="pagination-link" href="?{if $view}view={$view}&amp;{/if}page={$prevpage}">
         <!-- Left chevron icon -->
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left-icon lucide-chevron-left">
-          <path d="m15 18-6-6 6-6"/>
+          <path d="m15 18-6-6 6-6" />
         </svg>
         {lang key='previouspage'}
       </a>
@@ -173,7 +179,7 @@
         {lang key='nextpage'}
         <!-- Right chevron icon -->
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right-icon lucide-chevron-right">
-          <path d="m9 18 6-6-6-6"/>
+          <path d="m9 18 6-6-6-6" />
         </svg>
       </a>
     </li>

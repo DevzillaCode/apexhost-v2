@@ -8,7 +8,9 @@
         <h5 class="text-center">{lang key='twofanewbackupcodeis'}</h5>
 
         <div class="alert alert-warning text-center h4">
-            {$newBackupCode}
+            <div>
+                {$newBackupCode}
+            </div>
         </div>
 
         <p class="text-center">{lang key='twofabackupcodeexpl'}</p>

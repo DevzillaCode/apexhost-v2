@@ -6,8 +6,10 @@
     {include file="$template/includes/flashmessage.tpl"}
     {if $withdrawrequestsent}
         <div class="alert alert-success">
-            <i class="fas fa-check fa-fw"></i>
-            {lang key='affiliateswithdrawalrequestsuccessful'}
+            <div>
+                <i class="fas fa-check fa-fw"></i>
+                {lang key='affiliateswithdrawalrequestsuccessful'}
+            </div>
         </div>
     {/if}
 
@@ -113,15 +115,15 @@
                 </tr>
             </thead>
             <tbody>
-            {foreach $referrals as $referral}
-                <tr class="text-center">
-                    <td><span class="w-hidden">{$referral.datets}</span>{$referral.date}</td>
-                    <td>{$referral.service}</td>
-                    <td data-order="{$referral.amountnum}">{$referral.amountdesc}</td>
-                    <td data-order="{$referral.commissionnum}">{$referral.commission}</td>
-                    <td><span class='label status status-{$referral.rawstatus|strtolower}'>{$referral.status}</span></td>
-                </tr>
-            {/foreach}
+                {foreach $referrals as $referral}
+                    <tr class="text-center">
+                        <td><span class="w-hidden">{$referral.datets}</span>{$referral.date}</td>
+                        <td>{$referral.service}</td>
+                        <td data-order="{$referral.amountnum}">{$referral.amountdesc}</td>
+                        <td data-order="{$referral.commissionnum}">{$referral.commission}</td>
+                        <td><span class='label status status-{$referral.rawstatus|strtolower}'>{$referral.status}</span></td>
+                    </tr>
+                {/foreach}
             </tbody>
         </table>
         <div class="text-center" id="tableLoading">

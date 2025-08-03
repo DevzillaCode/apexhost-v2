@@ -32,7 +32,7 @@
             {include file="orderforms/apex_cart/sidebar-categories-collapsed.tpl"}
             {if $totalServiceCount == 0}
                 <div id="no-services" class="alert alert-warning text-center" role="alert">
-                    {lang key='renewService.noServices'}
+                    <div>{lang key='renewService.noServices'}</div>
                 </div>
                 <p class="text-center">
                     <a href="" class="btn btn-light">
