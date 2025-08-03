@@ -465,9 +465,9 @@
 
 #order-apex_cart .cc-input-container {
   padding: 15px 15px 10px 15px;
-  background-color: #f3f3f3;
-  border: 1px solid #d9d9d9;
-  border-radius: 4px;
+  background-color: var(--surface-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--theme-radius);
 }
 #order-apex_cart .cc-input-container .form-group {
   margin-top: 10px;
@@ -1731,22 +1731,22 @@ a.domain-tld-pricing-category {
 
 #order-apex_cart .account-select-container {
   margin: 0;
-  border-right: 1px solid #eee;
+  background-color: var(--surface-bg);
+  border: 1px solid var(--border);
+  border-radius: var(--theme-radius);
+  overflow: hidden;
 }
 #order-apex_cart .account-select-container div {
   padding: 0;
 }
 #order-apex_cart .account-select-container div.account {
-  background: #f6f6f6;
-  border: 1px solid #eee;
-  border-right: 0;
   padding: 10px;
 }
 #order-apex_cart .account-select-container div.account:not(.border-bottom) {
   border-bottom: 0;
 }
 #order-apex_cart .account-select-container div.account.active {
-  background: #fff;
+  background: var(--surface-bg);
 }
 #order-apex_cart .recaptcha-container {
   display: inline-block;

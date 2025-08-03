@@ -21526,6 +21526,7 @@ jQuery(document).ready(function() {
             generatedPassword.val('');
         });
 
+
     /**
      * If we are logged into the admin area and can edit a category and click edit,
      * we need to stop the default and click the edit instead since its nested.
