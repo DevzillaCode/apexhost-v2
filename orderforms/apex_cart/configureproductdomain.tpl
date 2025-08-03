@@ -30,7 +30,6 @@
             <div class="option option-selected">
               <label class="form-check w-100" for="selincart">
                 <input type="radio" class="form-check-input" name="domainoption" value="incart" id="selincart" {if $domainoption eq "incart"} checked{/if} />
-                <span class="checkmark"></span>
                 {$LANG.cartproductdomainuseincart}
               </label>
               {* Dropdown to select from domains in cart *}
@@ -66,7 +65,6 @@
             <div class="option {if !$incartdomains}option-selected{/if}">
               <label class="form-check w-100" for="selregister">
                 <input type="radio" class="form-check-input" name="domainoption" value="register" id="selregister" {if $domainoption eq "register"} checked{/if} />
-                <span class="checkmark"></span>
                 {$LANG.cartregisterdomainchoice|sprintf2:$companyname}
               </label>
               {* Domain name input fields *}
@@ -114,7 +112,6 @@
             <div class="option">
               <label class="form-check w-100" for="seltransfer">
                 <input type="radio" class="form-check-input" name="domainoption" value="transfer" id="seltransfer" {if $domainoption eq "transfer"} checked{/if} />
-                <span class="checkmark"></span>
                 {$LANG.carttransferdomainchoice|sprintf2:$companyname}
               </label>
               {* Domain transfer input fields *}
@@ -164,7 +161,6 @@
             <div class="option">
               <label class="form-check w-100" for="owndomain">
                 <input type="radio" class="form-check-input" name="domainoption" value="owndomain" id="selowndomain" {if $domainoption eq "owndomain"} checked{/if} />
-                <span class="checkmark"></span>
                 {$LANG.cartexistingdomainchoice|sprintf2:$companyname}
               </label>
               {* Own domain input fields *}
@@ -208,7 +204,6 @@
             <div class="option">
               <label class="form-check w-100" for="selsubdomain">
                 <input type="radio" class="form-check-input" name="domainoption" value="subdomain" id="selsubdomain" {if $domainoption eq "subdomain"} checked{/if} />
-                <span class="checkmark"></span>
                 {$LANG.cartsubdomainchoice|sprintf2:$companyname}
               </label>
               {* Subdomain input fields *}

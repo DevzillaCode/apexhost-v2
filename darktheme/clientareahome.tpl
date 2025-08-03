@@ -182,7 +182,7 @@
 
 {* Addons section for additional HTML content *}
 {foreach $addons_html as $addon_html}
-  <div class="addons-section">
+  <div class="addons-section mb-4">
     {$addon_html}
   </div>
 {/foreach}

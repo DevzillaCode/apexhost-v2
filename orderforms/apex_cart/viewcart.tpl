@@ -953,94 +953,96 @@
               {/foreach}
 
               {* tabs *}
-              <div class="view-cart-tabs mt-4">
-                <ul class="nav nav-tabs" role="tablist">
-                  <li role="presentation" class="nav-item active">
-                    <a href="#applyPromo" class="nav-link active" aria-controls="applyPromo" role="tab" data-toggle="tab" {if $template == 'twenty-one'} aria-selected="true" {else} aria-expanded="true" {/if}>
-                      {$LANG.orderForm.applyPromoCode}
-                    </a>
-                  </li>
-                  {if $taxenabled && !$loggedin}
-                    <li role="presentation" class="nav-item">
-                      <a href="#calcTaxes" class="nav-link" aria-controls="calcTaxes" role="tab" data-toggle="tab" {if $template == 'twenty-one'} aria-selected="false" {else} aria-expanded="false" {/if}>
-                        {$LANG.orderForm.estimateTaxes}
+              {if $cartitems > 0}
+                <div class="view-cart-tabs mt-4">
+                  <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="nav-item active">
+                      <a href="#applyPromo" class="nav-link active" aria-controls="applyPromo" role="tab" data-toggle="tab" {if $template == 'twenty-one'} aria-selected="true" {else} aria-expanded="true" {/if}>
+                        {$LANG.orderForm.applyPromoCode}
                       </a>
                     </li>
-                  {/if}
-                </ul>
-                {* tab-content *}
-                <div class="tab-content d-flex flex-column row-gap-4">
-                  {* tab-pane *}
-                  <div role="tabpanel" class="tab-pane active promo" id="applyPromo">
-                    {* promo *}
-                    {if $promotioncode}
-                      <div class="view-cart-promotion-code mb-4">
-                        {$promotioncode} - {$promotiondescription}
-                      </div>
-                      <div class="text-center">
-                        <a href="{$WEB_ROOT}/cart.php?a=removepromo" class="btn btn-danger btn-xs">
-                          {$LANG.orderForm.removePromotionCode}
+                    {if $taxenabled && !$loggedin}
+                      <li role="presentation" class="nav-item">
+                        <a href="#calcTaxes" class="nav-link" aria-controls="calcTaxes" role="tab" data-toggle="tab" {if $template == 'twenty-one'} aria-selected="false" {else} aria-expanded="false" {/if}>
+                          {$LANG.orderForm.estimateTaxes}
                         </a>
-                      </div>
-                    {else}
-                      <form method="post" action="{$WEB_ROOT}/cart.php?a=view">
-                        <div class="form-group mb-4">
-                          <label for="promocode" class="form-label">{lang key='clientareafirstname'}</label>
-                          {* prepend-icon *}
-                          <div class="prepend-icon">
-                            {* form-float-icon *}
-                            <div class="form-float-icon">
-                              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ticket-icon lucide-ticket">
-                                <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
-                                <path d="M13 5v2" />
-                                <path d="M13 17v2" />
-                                <path d="M13 11v2" />
-                              </svg>
+                      </li>
+                    {/if}
+                  </ul>
+                  {* tab-content *}
+                  <div class="tab-content d-flex flex-column row-gap-4">
+                    {* tab-pane *}
+                    <div role="tabpanel" class="tab-pane active promo" id="applyPromo">
+                      {* promo *}
+                      {if $promotioncode}
+                        <div class="view-cart-promotion-code mb-4">
+                          {$promotioncode} - {$promotiondescription}
+                        </div>
+                        <div class="text-center">
+                          <a href="{$WEB_ROOT}/cart.php?a=removepromo" class="btn btn-danger btn-xs">
+                            {$LANG.orderForm.removePromotionCode}
+                          </a>
+                        </div>
+                      {else}
+                        <form method="post" action="{$WEB_ROOT}/cart.php?a=view">
+                          <div class="form-group mb-4">
+                            <label for="promocode" class="form-label">{lang key='clientareafirstname'}</label>
+                            {* prepend-icon *}
+                            <div class="prepend-icon">
+                              {* form-float-icon *}
+                              <div class="form-float-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-ticket-icon lucide-ticket">
+                                  <path d="M2 9a3 3 0 0 1 0 6v2a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-2a3 3 0 0 1 0-6V7a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2Z" />
+                                  <path d="M13 5v2" />
+                                  <path d="M13 17v2" />
+                                  <path d="M13 11v2" />
+                                </svg>
+                              </div>
+                              {* form-control *}
+                              <input type="text" name="promocode" id="inputPromotionCode" class="form-control" placeholder="{lang key="orderPromoCodePlaceholder"}" required="required">
                             </div>
-                            {* form-control *}
-                            <input type="text" name="promocode" id="inputPromotionCode" class="form-control" placeholder="{lang key="orderPromoCodePlaceholder"}" required="required">
+                          </div>
+                          <button type="submit" name="validatepromo" class="btn btn-block btn-light" value="{$LANG.orderpromovalidatebutton}">
+                            {$LANG.orderpromovalidatebutton}
+                          </button>
+                        </form>
+                      {/if}
+                    </div>
+                    {* tab-pane *}
+                    <div role="tabpanel" class="tab-pane" id="calcTaxes">
+                      {* form *}
+                      <form method="post" action="{$WEB_ROOT}/cart.php?a=setstateandcountry" class="d-flex flex-column row-gap-4">
+                        {* form-group - row *}
+                        <div class="form-group row">
+                          <label for="inputState" class="pt-sm-2 col-sm-4 control-label">{$LANG.orderForm.state}</label>
+                          <div class="col-sm-8">
+                            <input type="text" name="state" id="inputState" value="{$clientsdetails.state}" class="form-control" {if $loggedin} disabled="disabled" {/if} />
                           </div>
                         </div>
-                        <button type="submit" name="validatepromo" class="btn btn-block btn-light" value="{$LANG.orderpromovalidatebutton}">
-                          {$LANG.orderpromovalidatebutton}
-                        </button>
+                        {* form-group - row *}
+                        <div class="form-group row">
+                          <label for="inputCountry" class="pt-sm-2 col-sm-4 control-label">{$LANG.orderForm.country}</label>
+                          <div class="col-sm-8">
+                            <select name="country" id="inputCountry" class="form-control">
+                              {foreach $countries as $countrycode => $countrylabel}
+                                <option value="{$countrycode}" {if (!$country && $countrycode == $defaultcountry) || $countrycode eq $country} selected{/if}>
+                                  {$countrylabel}
+                                </option>
+                              {/foreach}
+                            </select>
+                          </div>
+                        </div>
+                        <div class="form-group text-right">
+                          <button type="submit" class="btn btn-light btn-sm">
+                            {$LANG.orderForm.updateTotals}
+                          </button>
+                        </div>
                       </form>
-                    {/if}
-                  </div>
-                  {* tab-pane *}
-                  <div role="tabpanel" class="tab-pane" id="calcTaxes">
-                    {* form *}
-                    <form method="post" action="{$WEB_ROOT}/cart.php?a=setstateandcountry" class="d-flex flex-column row-gap-4">
-                      {* form-group - row *}
-                      <div class="form-group row">
-                        <label for="inputState" class="pt-sm-2 col-sm-4 control-label">{$LANG.orderForm.state}</label>
-                        <div class="col-sm-8">
-                          <input type="text" name="state" id="inputState" value="{$clientsdetails.state}" class="form-control" {if $loggedin} disabled="disabled" {/if} />
-                        </div>
-                      </div>
-                      {* form-group - row *}
-                      <div class="form-group row">
-                        <label for="inputCountry" class="pt-sm-2 col-sm-4 control-label">{$LANG.orderForm.country}</label>
-                        <div class="col-sm-8">
-                          <select name="country" id="inputCountry" class="form-control">
-                            {foreach $countries as $countrycode => $countrylabel}
-                              <option value="{$countrycode}" {if (!$country && $countrycode == $defaultcountry) || $countrycode eq $country} selected{/if}>
-                                {$countrylabel}
-                              </option>
-                            {/foreach}
-                          </select>
-                        </div>
-                      </div>
-                      <div class="form-group text-right">
-                        <button type="submit" class="btn btn-light btn-sm">
-                          {$LANG.orderForm.updateTotals}
-                        </button>
-                      </div>
-                    </form>
 
+                    </div>
                   </div>
                 </div>
-              </div>
+              {/if}
             </div>
 
           </div>

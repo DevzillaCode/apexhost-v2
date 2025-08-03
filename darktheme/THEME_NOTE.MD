@@ -11,19 +11,13 @@
 # HOW TO CHOOSE PRODUCTS TO SHOW AT THE HOME PAGE
 1. Change `$group.name` at the `plans.tpl`
 
-
 # IMPORTANT:
 1. Remove the comment form the (blur) props
-2. Change the component name to be camelCase.
-3. Change the icons js code to work with font icons not only svgs.
 4. Create `robots.txt` file
   ->  User-agent: *
       Disallow: /admin/
       Disallow: /cart.php
       Sitemap: {$systemurl}/sitemap.xml
-5. Edit status colors.
-6. `cart.php` ->  1. Add button to the domain to go to the domain page.
-7. Register page -> the password section and generate password model
 
 
 # DOCUMENTATION
@@ -31,8 +25,6 @@
 2. How to the domains features.
 3. How to the home page sections.
 4. Change `$group.name` at the `plans.tpl`
-
-
 
 # NOTES
 1. Fonts Sizes for each website element
