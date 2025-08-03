@@ -176,25 +176,16 @@
 }
 
 #order-apex_cart .products .product {
-  padding: 1px 0 10px 0;
-  margin: 0 0 20px 0;
-  background: #fff;
-  border-radius: 3px;
-  border: 1px solid #ddd;
-}
-
-#order-apex_cart .products .product header {
-  position: relative;
-  padding: 10px 20px;
-  margin: 0 1px;
-  background: #f8f8f8;
-  border-radius: 3px 3px 0 0;
+  padding: 1.5rem;
+  background: var(--surface-bg);
+  border-radius: var(--theme-radius);
+  border: 1px solid var(--border);
 }
 
 #order-apex_cart .products .product header span {
-  margin: 0;
-  color: #333;
-  font-size: 1.2em;
+  color: var(--foreground);
+  font-size: var(--text-lg);
+  font-weight: 600;
 }
 
 #order-apex_cart .products .product header .qty {
@@ -206,9 +197,8 @@
 
 #order-apex_cart .products .product div.product-desc {
   float: left;
-  width: 60%;
-  padding: 8px 14px;
-  font-size: 0.8em;
+  width: 100%;
+  font-size: var(--text-sm);
 }
 
 #order-apex_cart .products .product div.product-desc-full-width {
@@ -233,8 +223,8 @@
 
 #order-apex_cart .products .product footer {
   float: right;
-  margin: 20px 0;
-  width: 40%;
+  margin-top: 1rem;
+  width: 100%;
   font-size: 0.8em;
   text-align: center;
 }
