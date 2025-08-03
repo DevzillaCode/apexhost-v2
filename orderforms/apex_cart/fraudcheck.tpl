@@ -15,8 +15,10 @@
             {include file="orderforms/apex_cart/sidebar-categories-collapsed.tpl"}
 
             <div class="alert alert-danger error-heading">
-                <i class="fas fa-exclamation-triangle"></i>
-                {$errortitle}
+                <div>
+                    <i class="fas fa-exclamation-triangle"></i>
+                    {$errortitle}
+                </div>
             </div>
 
             <div class="row">

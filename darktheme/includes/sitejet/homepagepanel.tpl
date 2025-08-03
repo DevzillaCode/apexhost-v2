@@ -29,8 +29,11 @@
                         {lang key="sitejetBuilder.editWebsite"}
                     </button>
                 </div>
-                <div class="alert alert-danger mt-2" id="sitejetAlert"
-                     style="display: none;">{lang key="errorButTryAgain"}</div>
+                <div class="alert alert-danger mt-2" id="sitejetAlert" style="display: none;">
+                    <div>
+                        {lang key="errorButTryAgain"}
+                    </div>
+                </div>
             </div>
         </div>
     </div>

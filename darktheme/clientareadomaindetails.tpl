@@ -8,13 +8,15 @@
 {* Show unpaid invoice alert with dynamic styling (danger for overdue, warning otherwise) *}
 {if $unpaidInvoice}
   <div class="alert alert-{if $unpaidInvoiceOverdue}danger{else}warning{/if}" id="alert{if $unpaidInvoiceOverdue}Overdue{else}Unpaid{/if}Invoice">
-    <div class="float-right">
-      {* Quick pay button for unpaid invoice *}
-      <a href="viewinvoice.php?id={$unpaidInvoice}" class="btn btn-xs btn-light">
-        {lang key='payInvoice'}
-      </a>
+    <div>
+      <div class="float-right">
+        {* Quick pay button for unpaid invoice *}
+        <a href="viewinvoice.php?id={$unpaidInvoice}" class="btn btn-xs btn-light">
+          {lang key='payInvoice'}
+        </a>
+      </div>
+      {$unpaidInvoiceMessage}
     </div>
-    {$unpaidInvoiceMessage}
   </div>
 {/if}
 
@@ -37,7 +39,9 @@
         {* Show warning if domain status prevents management *}
         {if $systemStatus != 'Active'}
           <div class="alert alert-warning" role="alert">
-            {lang key='domainCannotBeManagedUnlessActive'}
+            <div>
+              {lang key='domainCannotBeManagedUnlessActive'}
+            </div>
           </div>
         {/if}
 

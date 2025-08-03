@@ -17,7 +17,7 @@
             <div class="row">
                 <div class="col-sm-8 col-sm-offset-2 offset-sm-2">
                     <div class="alert alert-info order-confirmation">
-                        {$LANG.ordernumberis} <span>{$ordernumber}</span>
+                        <div>{$LANG.ordernumberis} <span>{$ordernumber}</span></div>
                     </div>
                 </div>
             </div>
@@ -26,19 +26,23 @@
 
             {if $expressCheckoutInfo}
                 <div class="alert alert-info text-center">
-                    {$expressCheckoutInfo}
+                    <div>
+                        {$expressCheckoutInfo}
+                    </div>
                 </div>
             {elseif $expressCheckoutError}
                 <div class="alert alert-danger text-center">
-                    {$expressCheckoutError}
+                    <div>{$expressCheckoutError}</div>
                 </div>
             {elseif $invoiceid && !$ispaid}
                 <div class="alert alert-warning text-center">
-                    {$LANG.ordercompletebutnotpaid}
-                    <br /><br />
-                    <a href="{$WEB_ROOT}/viewinvoice.php?id={$invoiceid}" target="_blank" class="alert-link">
-                        {$LANG.invoicenumber}{$invoiceid}
-                    </a>
+                    <div>
+                        {$LANG.ordercompletebutnotpaid}
+                        <br /><br />
+                        <a href="{$WEB_ROOT}/viewinvoice.php?id={$invoiceid}" target="_blank" class="alert-link">
+                            {$LANG.invoicenumber}{$invoiceid}
+                        </a>
+                    </div>
                 </div>
             {/if}
 

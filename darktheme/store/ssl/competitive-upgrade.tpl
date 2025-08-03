@@ -18,21 +18,23 @@
                     <h4>{lang key='store.ssl.competitiveUpgrades.buyWithTime'} <strong>{lang key='store.ssl.competitiveUpgrades.foc'}</strong>.</h4>
 
                     <div class="alert alert-warning text-left">
-                        <strong><i class="fas fa-star fa-5x float-left"></i> {lang key='store.ssl.competitiveUpgrades.exampleScenario'}</strong><br>
-                        {lang key='store.ssl.competitiveUpgrades.example.line1'}
-                        {lang key='store.ssl.competitiveUpgrades.example.line2'}
-                        {lang key='store.ssl.competitiveUpgrades.example.line3'}
+                        <div>
+                            <strong><i class="fas fa-star fa-5x float-left"></i> {lang key='store.ssl.competitiveUpgrades.exampleScenario'}</strong><br>
+                            {lang key='store.ssl.competitiveUpgrades.example.line1'}
+                            {lang key='store.ssl.competitiveUpgrades.example.line2'}
+                            {lang key='store.ssl.competitiveUpgrades.example.line3'}
+                        </div>
                     </div>
 
                     <p>{lang key='store.ssl.competitiveUpgrades.eligibilityCheck'}</p>
 
                     {if $connectionError}
                         <div class="alert alert-danger">
-                            {lang key='store.ssl.competitiveUpgrades.checkFailed'}
+                            <div>{lang key='store.ssl.competitiveUpgrades.checkFailed'}</div>
                         </div>
                     {elseif $error}
                         <div class="alert alert-danger">
-                            {$error}
+                            <div>{$error}</div>
                         </div>
                     {else}
                         <br>
@@ -43,7 +45,7 @@
                         {if $validated}
                             {if $eligible}
                                 <div class="alert alert-success text-center">
-                                    {lang key='store.ssl.competitiveUpgrades.eligible'}
+                                    <div>{lang key='store.ssl.competitiveUpgrades.eligible'}</div>
                                 </div>
                                 <table class="table table-striped">
                                     <tr>
@@ -70,7 +72,7 @@
                                 </a>
                             {else}
                                 <div class="alert alert-warning text-center">
-                                    {lang key='store.ssl.competitiveUpgrades.ineligible'}*.
+                                    <div>{lang key='store.ssl.competitiveUpgrades.ineligible'}*.</div>
                                 </div>
                             {/if}
                         {/if}

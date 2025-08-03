@@ -1,10 +1,14 @@
 <div id="oxSuccess" class="alert alert-success w-hidden">
-    <i class="fas fa-check fa-fw"></i>
-    <span></span>
+    <div>
+        <i class="fas fa-check fa-fw"></i>
+        <span></span>
+    </div>
 </div>
 <div id="oxLoadError" class="alert alert-danger w-hidden">
-    <i class="fas fa-times fa-fw"></i>
-    <span></span>
+    <div>
+        <i class="fas fa-times fa-fw"></i>
+        <span></span>
+    </div>
 </div>
 
 <div class="card mb-4">
@@ -281,8 +285,10 @@
                 </div>
                 <div class="modal-body card-body" id="modalSetPasswordBody">
                     <div class="alert alert-danger modal-error w-hidden">
-                        <i class="fas fa-times fa-fw"></i>
-                        <span></span>
+                        <div>
+                            <i class="fas fa-times fa-fw"></i>
+                            <span></span>
+                        </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
@@ -379,8 +385,10 @@
                 </div>
                 <div class="modal-body card-body" id="modalSetPasswordBody">
                     <div class="alert alert-danger modal-error w-hidden">
-                        <i class="fas fa-times fa-fw"></i>
-                        <span></span>
+                        <div>
+                            <i class="fas fa-times fa-fw"></i>
+                            <span></span>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="inputManageDisplayName">{lang key='ox.displayName'}</label>
@@ -427,8 +435,10 @@
                 </div>
                 <div class="modal-body card-body" id="modalSetPasswordBody">
                     <div class="alert alert-danger modal-error w-hidden">
-                        <i class="fas fa-times fa-fw"></i>
-                        <span></span>
+                        <div>
+                            <i class="fas fa-times fa-fw"></i>
+                            <span></span>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label for="inputChangePassword">{lang key='clientareapassword'}</label>
@@ -485,8 +495,10 @@
                 </div>
                 <div class="modal-body card-body" id="modalDeleteAccountBody">
                     <div class="alert alert-danger modal-error w-hidden">
-                        <i class="fas fa-times fa-fw"></i>
-                        <span></span>
+                        <div>
+                            <i class="fas fa-times fa-fw"></i>
+                            <span></span>
+                        </div>
                     </div>
                     <span class="delete-question" aria-hidden="true">{lang key='ox.deleteAccountQuestion'}</span>
                     <span class="delete-aliases-question" aria-hidden="true">{lang key='ox.deleteAccountWithAliasesQuestion'}</span>
@@ -523,8 +535,10 @@
                 </div>
                 <div class="modal-body card-body" id="modalDeleteAccountBody">
                     <div class="alert alert-danger modal-error w-hidden">
-                        <i class="fas fa-times fa-fw"></i>
-                        <span></span>
+                        <div>
+                            <i class="fas fa-times fa-fw"></i>
+                            <span></span>
+                        </div>
                     </div>
                     {lang key='ox.alias.deleteQuestion'}
                 </div>

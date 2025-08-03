@@ -13,7 +13,7 @@
 
     <form id="frmManagePaymentMethod" class="frm-credit-card-input" role="form" method="post" action="{if $editMode}{routePath('account-paymentmethods-save', $payMethod->id)}{else}{routePath('account-paymentmethods-add')}{/if}">
       <div class="alert alert-warning text-center gateway-errors assisted-cc-input-feedback w-hidden">
-        {lang key='paymentMethodsManage.invalidCardDetails'}
+        <div>{lang key='paymentMethodsManage.invalidCardDetails'}</div>
       </div>
 
       <div class="form-group row">

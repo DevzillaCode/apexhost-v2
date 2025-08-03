@@ -15,7 +15,9 @@
         </div>
         <div class="modal-body">
           <div class="alert alert-danger w-hidden" id="generatePwLengthError">
-            {lang key='generatePassword.lengthValidationError'}
+            <div>
+              {lang key='generatePassword.lengthValidationError'}
+            </div>
           </div>
           <div class="form-group mb-4">
             <label for="inputGeneratePasswordLength" class="form-label">{lang key='generatePassword.pwLength'}</label>

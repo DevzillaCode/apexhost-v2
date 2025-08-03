@@ -161,8 +161,10 @@
 
     {if $continueok}
         <div class="alert alert-info info-text-sm">
-            <i class="fas fa-info-circle"></i>
-            {$LANG.orderForm.domainAvailabilityCached}
+            <div>
+                <i class="fas fa-info-circle"></i>
+                {$LANG.orderForm.domainAvailabilityCached}
+            </div>
         </div>
 
         <div class="text-center">

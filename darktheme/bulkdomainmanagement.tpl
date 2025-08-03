@@ -21,21 +21,25 @@
           {if $errors}
             <!-- Error alert with list of errors -->
             <div class="alert alert-error">
-              <p class="bold">
-                {lang key='clientareaerrors'}
-              </p>
-              <ul>
-                {foreach $errors as $error}
-                  <li>{$error}</li>
-                {/foreach}
-              </ul>
+              <div>
+                <p class="bold">
+                  {lang key='clientareaerrors'}
+                </p>
+                <ul>
+                  {foreach $errors as $error}
+                    <li>{$error}</li>
+                  {/foreach}
+                </ul>
+              </div>
             </div>
           {else}
             <!-- Success alert -->
             <div class="alert alert-success">
-              <p>
-                {lang key='changessavedsuccessfully'}
-              </p>
+              <div>
+                <p>
+                  {lang key='changessavedsuccessfully'}
+                </p>
+              </div>
             </div>
           {/if}
         {/if}
@@ -96,9 +100,11 @@
         <!-- Display success message after form submission -->
         {if $save}
           <div class="alert alert-success">
-            <p>
-              {lang key='changessavedsuccessfully'}
-            </p>
+            <div>
+              <p>
+                {lang key='changessavedsuccessfully'}
+              </p>
+            </div>
           </div>
         {/if}
 
@@ -134,21 +140,25 @@
           {if $errors}
             <!-- Error alert with list of errors -->
             <div class="alert alert-error">
-              <p class="bold">
-                {lang key='clientareaerrors'}
-              </p>
-              <ul>
-                {foreach $errors as $error}
-                  <li>{$error}</li>
-                {/foreach}
-              </ul>
+              <div>
+                <p class="bold">
+                  {lang key='clientareaerrors'}
+                </p>
+                <ul>
+                  {foreach $errors as $error}
+                    <li>{$error}</li>
+                  {/foreach}
+                </ul>
+              </div>
             </div>
           {else}
             <!-- Success alert -->
             <div class="alert alert-success">
-              <p>
-                {lang key='changessavedsuccessfully'}
-              </p>
+              <div>
+                <p>
+                  {lang key='changessavedsuccessfully'}
+                </p>
+              </div>
             </div>
           {/if}
         {/if}
@@ -185,21 +195,25 @@
           {if $errors}
             <!-- Error alert with list of errors -->
             <div class="alert alert-error">
-              <p class="bold">
-                {lang key='clientareaerrors'}
-              </p>
-              <ul>
-                {foreach $errors as $error}
-                  <li>{$error}</li>
-                {/foreach}
-              </ul>
+              <div>
+                <p class="bold">
+                  {lang key='clientareaerrors'}
+                </p>
+                <ul>
+                  {foreach $errors as $error}
+                    <li>{$error}</li>
+                  {/foreach}
+                </ul>
+              </div>
             </div>
           {else}
             <!-- Success alert -->
             <div class="alert alert-success">
-              <p>
-                {lang key='changessavedsuccessfully'}
-              </p>
+              <div>
+                <p>
+                  {lang key='changessavedsuccessfully'}
+                </p>
+              </div>
             </div>
           {/if}
         {/if}

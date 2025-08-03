@@ -31,10 +31,12 @@
         {* errors *}
         {if $errormessage}
           <div class="alert alert-danger" role="alert">
-            <p>{$LANG.orderForm.correctErrors}:</p>
-            <ul>
-              {$errormessage}
-            </ul>
+            <div>
+              <p>{$LANG.orderForm.correctErrors}:</p>
+              <ul>
+                {$errormessage}
+              </ul>
+            </div>
           </div>
         {/if}
         {* domains *}

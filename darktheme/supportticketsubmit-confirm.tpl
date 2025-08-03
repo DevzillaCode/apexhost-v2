@@ -4,10 +4,12 @@
         <h3 class="card-title">{lang key="createNewSupportRequest"}</h3>
 
         <div class="alert alert-success text-center">
-            <strong>
-                {lang key='supportticketsticketcreated'}
-                <a id="ticket-number" href="viewticket.php?tid={$tid}&amp;c={$c}" class="alert-link">#{$tid}</a>
-            </strong>
+            <div>
+                <strong>
+                    {lang key='supportticketsticketcreated'}
+                    <a id="ticket-number" href="viewticket.php?tid={$tid}&amp;c={$c}" class="alert-link">#{$tid}</a>
+                </strong>
+            </div>
         </div>
 
         <div class="row">

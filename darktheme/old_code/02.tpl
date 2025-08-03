@@ -1,7 +1,7 @@
 {* Include checkout template components *}
 {if $checkout}
   {include file="orderforms/$carttpl/checkout.tpl"}
-  {else}
+{else}
 
   {* Script *}
   <script>
@@ -46,34 +46,40 @@
               {* Promotion message *}
               {if $promoerrormessage}
                 <div class="alert alert-warning text-center" role="alert">
-                  {$promoerrormessage}
+                  <div>
+                    {$promoerrormessage}
+                  </div>
                 </div>
               {elseif $errormessage}
                 <div class="alert alert-danger" role="alert">
-                  <p>{$LANG.orderForm.correctErrors}:</p>
-                  <ul>
-                    {$errormessage}
-                  </ul>
+                  <div>
+                    <p>{$LANG.orderForm.correctErrors}:</p>
+                    <ul>
+                      {$errormessage}
+                    </ul>
+                  </div>
                 </div>
               {elseif $promotioncode && $rawdiscount eq "0.00"}
                 <div class="alert alert-info text-center" role="alert">
-                  {$LANG.promoappliedbutnodiscount}
+                  <div>{$LANG.promoappliedbutnodiscount}</div>
                 </div>
               {elseif $promoaddedsuccess}
                 <div class="alert alert-success text-center" role="alert">
-                  {$LANG.orderForm.promotionAccepted}
+                  <div>{$LANG.orderForm.promotionAccepted}</div>
                 </div>
               {/if}
 
               {* Bundle requirements *}
               {if $bundlewarnings}
                 <div class="alert alert-warning" role="alert">
-                  <strong>{$LANG.bundlereqsnotmet}</strong><br />
-                  <ul>
-                    {foreach from=$bundlewarnings item=warning}
-                      <li>{$warning}</li>
-                    {/foreach}
-                  </ul>
+                  <div>
+                    <strong>{$LANG.bundlereqsnotmet}</strong><br />
+                    <ul>
+                      {foreach from=$bundlewarnings item=warning}
+                        <li>{$warning}</li>
+                      {/foreach}
+                    </ul>
+                  </div>
                 </div>
               {/if}
 
