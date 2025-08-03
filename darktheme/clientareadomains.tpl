@@ -139,7 +139,7 @@
 
                 <!-- Selection checkbox for bulk actions -->
                 <td class="order-cell">
-                  <label class="form-check">
+                  <label class="form-check justify-content-center">
                     <input type="hidden" name="email_preferences[{$emailType}]" value="0">
                     <input type="checkbox" name="domids[]" class="form-check-input" value="{$domain.id}" />
                     <span class="checkmark"></span>
