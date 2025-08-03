@@ -1615,6 +1615,10 @@ a.badge:focus {
   flex-direction: column;
   row-gap: 1rem;
 }
+.modal.wide-modal .modal-content {
+  width: 600px;
+  max-width: 600px;
+}
 .modal-header {
   display: flex;
   align-items: flex-start;

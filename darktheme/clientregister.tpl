@@ -422,13 +422,9 @@
             </div>
           </div>
         {/if}
-
-        {* CAPTCHA *}
-        {include file="$template/includes/captcha.tpl"}
-
         {* Terms of service agreement *}
         {if $accepttos}
-          <div class="my-6">
+          <div class="mt-6">
             <label class="form-check" for="accepttos">
               <input type="checkbox" id="accepttos" name="accepttos" class="form-check-input accepttos">
               <span class="checkmark"></span>
@@ -437,11 +433,15 @@
           </div>
         {/if}
 
-        {* Submit button *}
-        <div class="row">
-          <div class="col-xl-2 col-lg-3 col-md-3">
-            <div class="mt-6">
-              <input class="btn btn-light btn-block px-5{$captcha->getButtonClass($captchaForm)}" type="submit" value="{lang key='clientregistertitle'}" />
+        {* CAPTCHA *}
+        {include file="$template/includes/captcha.tpl"}
+
+        {* page-footer *}
+        <div class="page-footer">
+          {* Submit button *}
+          <div class="row">
+            <div class="col-xl-2 col-lg-3 col-md-3 ml-auto">
+              <input class="btn btn-primary btn-wide btn-block{$captcha->getButtonClass($captchaForm)}" type="submit" value="{lang key='clientregistertitle'}" />
             </div>
           </div>
         </div>

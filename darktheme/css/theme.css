@@ -1660,7 +1660,8 @@ pre code {
 /* ----------------------------------- */
 
 /* form-control */
-.form-control {
+.form-control,
+.InputContainer .InputElement {
   display: block;
   width: 100%;
   padding: var(--input-padding-md);
@@ -1810,7 +1811,8 @@ select.form-control option {
 .inline-label {
   margin-bottom: 0 !important;
 }
-.form-label {
+.form-label,
+.stripe-cards-inputs label {
   font-size: var(--text-sm);
   font-weight: 500;
   color: var(--foreground);
