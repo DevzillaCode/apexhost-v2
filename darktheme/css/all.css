@@ -2917,3 +2917,9 @@ body:after {
   z-index: 9998;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
+
+/* paymentGatewayInput */
+#paymentGatewayInput .form-group,
+.fieldgroup-creditcard .form-group {
+  margin-bottom: 1rem;
+}

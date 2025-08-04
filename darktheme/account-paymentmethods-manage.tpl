@@ -78,7 +78,7 @@
     <div id="paymentGatewayInput"></div>
     {* fieldgroup *}
     <div class="fieldgroup-creditcard{if $editMode && !$payMethod->isCreditCard() || $paymentMethodType == 'bankacct' || $remoteUpdate} w-hidden{/if} mb-4">
-      <div class="cc-details d-flex flex-column row-gap-4">
+      <div class="cc-details d-flex flex-column">
         <div class="form-group row">
           <label for="inputCardNumber" class="col-md-4 form-label inline-label">{lang key='creditcardcardnumber'}</label>
           <div class="col-md-8">

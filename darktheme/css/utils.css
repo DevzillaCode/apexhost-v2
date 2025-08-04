@@ -1707,6 +1707,9 @@ a.badge:focus {
   vertical-align: middle;
   height: 48px;
 }
+.table-sm.table-cell {
+  height: 40px;
+}
 .thead .order-head + .table-head:nth-child(2),
 .tbody .table-row .order-cell + .table-cell:nth-child(2) {
   padding-inline-start: 0;
