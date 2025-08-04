@@ -22,7 +22,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">Find a domain name for my bakery</div>
+              <div class="action-text">{lang key='quickactions_find_domain_bakery'}</div>
             </div>
             <div class="action-item color-variant-2">
               {* Action Icon *}
@@ -32,7 +32,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">Compare shared vs. VPS hosting</div>
+              <div class="action-text">{lang key='quickactions_compare_hosting'}</div>
             </div>
             <div class="action-item color-variant-3">
               {* Action Icon *}
@@ -42,7 +42,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">Best SSL certificate for eCommerce</div>
+              <div class="action-text">{lang key='quickactions_best_ssl_ecommerce'}</div>
             </div>
             <div class="action-item color-variant-4">
               {* Action Icon *}
@@ -52,7 +52,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">Move WordPress site to new host</div>
+              <div class="action-text">{lang key='quickactions_move_wordpress'}</div>
             </div>
             <div class="action-item color-variant-5">
               {* Action Icon *}
@@ -62,7 +62,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">Fix broken links after migration</div>
+              <div class="action-text">{lang key='quickactions_fix_broken_links'}</div>
             </div>
             <div class="action-item color-variant-6">
               {* Action Icon *}
@@ -72,7 +72,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">Optimize images for web hosting</div>
+              <div class="action-text">{lang key='quickactions_optimize_images'}</div>
             </div>
             <div class="action-item color-variant-7">
               {* Action Icon *}
@@ -83,7 +83,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">Best caching plugin for my site</div>
+              <div class="action-text">{lang key='quickactions_best_caching_plugin'}</div>
             </div>
             <div class="action-item color-variant-8">
               {* Action Icon *}
@@ -93,7 +93,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">Block brute-force attacks</div>
+              <div class="action-text">{lang key='quickactions_block_brute_force'}</div>
             </div>
             <div class="action-item color-variant-9">
               {* Action Icon *}
@@ -103,7 +103,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">Set up automated backups</div>
+              <div class="action-text">{lang key='quickactions_setup_automated_backups'}</div>
             </div>
             <div class="action-item color-variant-10">
               {* Action Icon *}
@@ -113,7 +113,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">Create a professional email</div>
+              <div class="action-text">{lang key='quickactions_create_professional_email'}</div>
             </div>
           </div>
         </div>
@@ -131,7 +131,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">Import/export MySQL database</div>
+              <div class="action-text">{lang key='quickactions_import_export_mysql'}</div>
             </div>
             <div class="action-item color-variant-2">
               {* Action Icon *}
@@ -144,7 +144,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">Fix email delivery issues</div>
+              <div class="action-text">{lang key='quickactions_fix_email_delivery'}</div>
             </div>
             <div class="action-item color-variant-3">
               {* Action Icon *}
@@ -155,7 +155,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">Set up a staging environment</div>
+              <div class="action-text">{lang key='quickactions_setup_staging_environment'}</div>
             </div>
             <div class="action-item color-variant-4">
               {* Action Icon *}
@@ -165,7 +165,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">Generate a free SSL cert</div>
+              <div class="action-text">{lang key='quickactions_generate_free_ssl'}</div>
             </div>
             <div class="action-item color-variant-5">
               {* Action Icon *}
@@ -175,7 +175,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">SSH commands for beginners</div>
+              <div class="action-text">{lang key='quickactions_ssh_commands_beginners'}</div>
             </div>
             <div class="action-item color-variant-6">
               {* Action Icon *}
@@ -187,7 +187,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">Fix Error Establishing Database Connection</div>
+              <div class="action-text">{lang key='quickactions_fix_database_connection'}</div>
             </div>
             <div class="action-item color-variant-7">
               {* Action Icon *}
@@ -203,7 +203,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">Recover hacked website</div>
+              <div class="action-text">{lang key='quickactions_recover_hacked_website'}</div>
             </div>
             <div class="action-item color-variant-8">
               {* Action Icon *}
@@ -213,7 +213,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">Best hosting for scaling traffic</div>
+              <div class="action-text">{lang key='quickactions_best_hosting_scaling'}</div>
             </div>
             <div class="action-item color-variant-9">
               {* Action Icon *}
@@ -226,7 +226,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">Track website visitors (analytics)</div>
+              <div class="action-text">{lang key='quickactions_track_website_visitors'}</div>
             </div>
             <div class="action-item color-variant-10">
               {* Action Icon *}
@@ -236,7 +236,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">SEO checklist for hosted sites</div>
+              <div class="action-text">{lang key='quickactions_seo_checklist_hosted'}</div>
             </div>
           </div>
         </div>
@@ -253,7 +253,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">Maintenance mode template</div>
+              <div class="action-text">{lang key='quickactions_maintenance_mode_template'}</div>
             </div>
             <div class="action-item color-variant-4">
               {* Action Icon *}
@@ -263,7 +263,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">Set up a CDN for global speed</div>
+              <div class="action-text">{lang key='quickactions_setup_cdn_global_speed'}</div>
             </div>
             <div class="action-item color-variant-5">
               {* Action Icon *}
@@ -273,7 +273,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">Switch to green hosting</div>
+              <div class="action-text">{lang key='quickactions_switch_green_hosting'}</div>
             </div>
             <div class="action-item color-variant-6">
               {* Action Icon *}
@@ -283,7 +283,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">Carbon footprint calculator for my site</div>
+              <div class="action-text">{lang key='quickactions_carbon_footprint_calculator'}</div>
             </div>
             <div class="action-item color-variant-7">
               {* Action Icon *}
@@ -293,7 +293,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">Generate Terms of Service for my site</div>
+              <div class="action-text">{lang key='quickactions_generate_terms_service'}</div>
             </div>
             <div class="action-item color-variant-8">
               {* Action Icon *}
@@ -303,7 +303,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">Best hosting for Minecraft servers</div>
+              <div class="action-text">{lang key='quickactions_best_hosting_minecraft'}</div>
             </div>
             <div class="action-item color-variant-9">
               {* Action Icon *}
@@ -313,7 +313,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">Downgrade plan without downtime</div>
+              <div class="action-text">{lang key='quickactions_downgrade_plan_no_downtime'}</div>
             </div>
             <div class="action-item color-variant-10">
               {* Action Icon *}
@@ -323,7 +323,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">One-click restore from backup</div>
+              <div class="action-text">{lang key='quickactions_one_click_restore_backup'}</div>
             </div>
             <div class="action-item color-variant-11">
               {* Action Icon *}
@@ -333,7 +333,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">Automate daily backups to Google Drive</div>
+              <div class="action-text">{lang key='quickactions_automate_daily_backups_google'}</div>
             </div>
             <div class="action-item color-variant-12">
               {* Action Icon *}
@@ -343,7 +343,7 @@
                 </svg>
               </div>
               {* Action Text *}
-              <div class="action-text">Host a website on Web3/IPFS</div>
+              <div class="action-text">{lang key='quickactions_host_website_web3_ipfs'}</div>
             </div>
           </div>
         </div>

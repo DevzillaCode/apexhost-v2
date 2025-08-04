@@ -144,6 +144,9 @@
 .theme-navbar .logo-wrapper {
   min-width: 20%;
 }
+.theme-navbar .logo-wrapper .logo-link img {
+  width: 100px;
+}
 
 /* links-toggler */
 .theme-navbar .links-toggler {
@@ -789,7 +792,11 @@ body.float-bar-open {
 .quick-actions-header .title {
   font-size: var(--text-5xl);
   font-family: var(--font-family-base);
+  font-weight: 700;
   letter-spacing: -0.05rem;
+}
+.quick-actions-header .title > span {
+
 }
 
 /* Quick Actions Wrapper */
@@ -890,11 +897,7 @@ body.float-bar-open {
 }
 
 .quick-actions-header .action-item.color-variant-4 .action-icon {
-  background-color: color-mix(
-    in srgb,
-    var(--yellow),
-    transparent 80%
-  );
+  background-color: color-mix(in srgb, var(--yellow), transparent 80%);
 }
 
 .quick-actions-header .action-item.color-variant-5 .action-icon {
@@ -1083,7 +1086,7 @@ body.float-bar-open {
   border-radius: var(--radius-md);
   padding: var(--space-5);
   height: 100%;
-  background: var(--card);
+  background: var(--surface-bg);
   border: 1px solid var(--border);
 }
 .home-domains-features .feature-item .icon {
@@ -1168,7 +1171,7 @@ body.float-bar-open {
 
 /* : Premium Plan Card : */
 .premium-plan-card {
-  background: var(--card);
+  background: var(--surface-bg);
   border-radius: var(--radius-md);
   border: 1px solid var(--border);
 }
@@ -1192,7 +1195,7 @@ body.float-bar-open {
 
 /* : Mini Plan Card : */
 .mini-plan-card {
-  background: var(--card);
+  background: var(--surface-bg);
   border-radius: var(--radius-md);
   border: 1px solid var(--border);
 }
@@ -1208,14 +1211,14 @@ body.float-bar-open {
   height: 50px;
 }
 .mini-plan-card .price-list .price-item {
-  background-color: var(--background);
+  background-color: var(--surface-bg);
   border-radius: var(--radius-sm);
 }
 /* ----------------------------------- */
 
 /* Mini Testemonial Card */
 .mini-testimonial-card {
-  background: var(--background);
+  background: var(--surface-bg);
   border-radius: var(--radius-md);
 }
 .mini-testimonial-card::before {
@@ -1261,8 +1264,9 @@ body.float-bar-open {
 
 /* : Basic Features Card : */
 .basic-features-card {
-  background: var(--card);
+  background: var(--surface-bg);
   border-radius: var(--radius-md);
+  border: 1px solid var(--border);
   height: 100%;
 }
 /* ----------------------------------- */
@@ -1284,7 +1288,7 @@ body.float-bar-open {
   padding: 50px;
   border-radius: var(--radius-md);
   overflow: hidden;
-  background: var(--background);
+  background: var(--surface-bg);
 }
 
 .hosting-solutions-section .ui-content::before {

@@ -119,12 +119,11 @@
 
   {if $templatefile == 'homepage'}
 
-    {include file="$template/components/sections/Inputs.tpl"}
-    {* {include file="$template/components/sections/header/QuickActionsHeader.tpl"} *}
+    {include file="$template/components/sections/headers/QuickActionsHeader.tpl"}
     {* Domain Search & Features - Only if domain services are enabled *}
     {if $registerdomainenabled || $transferdomainenabled}
       {* Main domain search functionality *}
-      {include file="$template/components/sections/domains/DomainSearchHeader.tpl"}
+      {* {include file="$template/components/sections/domains/DomainSearchHeader.tpl"} *}
       {* Domain features showcase *}
       {include file="$template/components/sections/domains/DomainsFeatures.tpl"}
     {/if}
