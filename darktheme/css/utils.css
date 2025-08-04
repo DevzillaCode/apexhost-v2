@@ -1597,6 +1597,7 @@ a.badge:focus {
   height: 100%;
   overflow: hidden;
   outline: 0;
+  padding: 1rem 0;
 }
 .modal-dialog {
   position: relative;
@@ -1622,6 +1623,15 @@ a.badge:focus {
 .modal.wide-modal .modal-content {
   width: 600px;
   max-width: 600px;
+  height: 100%;
+  overflow-y: auto;
+}
+@media (max-width: 1199.98px) {
+  .modal-content,
+  .modal.wide-modal .modal-content {
+    width: calc(100% - 2rem);
+    max-width: 100%;
+  }
 }
 .modal-header {
   display: flex;
@@ -1637,7 +1647,14 @@ a.badge:focus {
   top: 0.5rem;
   right: 0.5rem;
 }
-.modal-body {}
+@media (max-width: 1199.98px) {
+  .modal-body {
+    max-height: 400px;
+    overflow-y: auto;
+    overflow-x: hidden;
+  }
+}
+
 .modal-footer {
   display: flex;
   justify-content: flex-end;

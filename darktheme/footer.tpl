@@ -57,20 +57,21 @@
 
                     <form method="get" action="{$currentpagelinkback}">
                       {** localisation-modal : start **}
-                      <div class="modal modal-localisation theme-localisation-modal" id="modalChooseLanguage" tabindex="-1" role="dialog">
+                      <div class="modal modal-localisation wide-modal theme-localisation-modal" id="modalChooseLanguage" tabindex="-1" role="dialog">
                         <div class="modal-dialog modal-lg" role="document">
                           <div class="modal-content">
+                            {* modal-header *}
+                            <div class="modal-header">
+                              <h4 class="modal-title">{lang key='chooselanguage'}</h4>
+                              <button type="button" class="close-btn btn-square btn-ghost-light btn-xs rounded-circle" data-dismiss="modal" aria-label="Close">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x">
+                                  <path d="M18 6 6 18"></path>
+                                  <path d="m6 6 12 12"></path>
+                                </svg>
+                              </button>
+                            </div>
                             {* modal-body *}
                             <div class="modal-body">
-                              {* custom-modal-header *}
-                              <div class="custom-modal-header d-flex align-items-center justify-content-between">
-                                <h5 class="modal-title">{lang key='chooselanguage'}</h5>
-                                <button type="button" class="btn-square btn-ghost-danger btn-sm" data-dismiss="modal" aria-label="Close">
-                                  <span class="icon">
-                                    {include file="$template/images/svg/times.svg"}
-                                  </span>
-                                </button>
-                              </div>
                               {* languages-list *}
                               <div class="languages-list">
                                 {if $languagechangeenabled && count($locales) > 1}
@@ -105,9 +106,14 @@
                                 {/if}
                               </div>
                             </div>
-                            {* modal-actions *}
-                            <div class="modal-actions d-flex align-items-center justify-content-end">
-                              <button type="submit" class="btn btn-light btn-sm btn-wide">{lang key='apply'}</button>
+                            {* modal-footer *}
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-ghost-light btn-xs btn-wide" data-dismiss="modal">
+                                {lang key="cancel"}
+                              </button>
+                              <button type="submit" class="btn btn-light btn-xs btn-wide">
+                              {lang key='apply'}
+                              </button>
                             </div>
                           </div>
                         </div>
