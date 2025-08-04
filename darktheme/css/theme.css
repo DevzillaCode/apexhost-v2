@@ -122,6 +122,12 @@
   --yellow-hover: #f69419;
   --blue: #2391fe;
   --blue-hover: #1c7af4;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --teal: #20c997;
+  --cyan: #17a2b8;
+  --gray: #6c757d;
+  --orange: #fd7e14;
 
   /* Theme */
   --background: #0a0a0a;
@@ -1680,6 +1686,13 @@ pre code {
 }
 .form-control[type="file"] {
   line-height: 1;
+}
+.form-control:-webkit-autofill,
+.form-control:-webkit-autofill:focus,
+.form-control:-webkit-autofill:hover {
+  -webkit-transition: background-color 5000s;
+  transition: background-color 5000s;
+  -webkit-text-fill-color: #fff;
 }
 @media (prefers-reduced-motion: reduce) {
   .form-control {

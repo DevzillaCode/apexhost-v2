@@ -21,7 +21,7 @@
     </div>
 
     {* form-group *}
-    <div class="form-group row mb-4">
+    <div class="form-group row mb-4 row-gap-4">
       <label for="inputPaymentMethodType" class="col-md-4 form-label inline-label">{lang key='paymentMethods.type'}</label>
       <div class="col-md-8">
         <div class="d-flex flex-wrap gap-4">
