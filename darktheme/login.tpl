@@ -18,13 +18,13 @@
       {* login-form *}
       <form method="post" action="{routePath('login-validate')}" class="nt-auth-form" role="form">
         {* Logo *}
-        <div class="logo-container text-center mb-4">
-          <img src="{$assetPath}logo-square.png" class="img-fluid logo" alt="{$companyname}">
+        <div class="logo-container text-center mb-6">
+          <img src="{$assetPath}logo.png" class="img-fluid logo" alt="{$companyname}">
         </div>
         {* form-header *}
         <div class="form-header mb-10">
-          <h1 class="title-3 color-foreground font-weight-semibold mb-2">Welcome Back</h1>
-          <p class="text-size-base">Enter your email and password to access your account</p>
+          <h1 class="title-3 color-foreground font-weight-semibold mb-2">{lang key="welcomeBack"}</h1>
+          <p class="text-size-base">{lang key="enterEmailAndPass"}</p>
         </div>
         {include file="$template/includes/flashmessage.tpl"}
         {* form-body *}

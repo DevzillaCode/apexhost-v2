@@ -89,7 +89,7 @@
 
   {include file="$template/components/shared/Preloader.tpl"}
 
-  {if $templatefile !== 'login' && $templatefile !== 'passwordreset' && $templatefile !== 'contact'}
+  {if $templatefile !== 'login' && $templatefile !== 'password-reset-container' && $templatefile !== 'contact'}
     <header id="header" class="header">
       {* Topbar - Only visible for logged-in users *}
       {if $loggedin}
@@ -97,7 +97,7 @@
       {/if}
 
       {* Main navigation bar *}
-      {if $templatefile !== 'login' && $templatefile !== 'passwordreset' && $templatefile !== 'contact'}
+      {if $templatefile !== 'login' && $templatefile !== 'password-reset-container' && $templatefile !== 'contact'}
         {include file="$template/components/sections/shared/navbar/Navbar.tpl"}
       {/if}
     </header>
@@ -105,7 +105,7 @@
 
   {include file="$template/includes/network-issues-notifications.tpl"}
 
-  {if $templatefile !== 'homepage' && $templatefile !== 'login' && $templatefile !== 'passwordreset' && $templatefile !== 'contact'}
+  {if $templatefile !== 'homepage' && $templatefile !== 'login' && $templatefile !== 'password-reset-container' && $templatefile !== 'contact'}
     {* Breadcrumbs - Only for non-homepage templates *}
     <nav class="theme-master-breadcrumb" aria-label="breadcrumb">
       <div class="container-fluid">
@@ -149,7 +149,7 @@
   {/if}
 
   {* Main body section - Exclude login *}
-  {if $templatefile !== 'login' && $templatefile !== 'contact'}
+  {if $templatefile !== 'login' && $templatefile !== 'contact' && $templatefile !== 'password-reset-container'}
     <section id="main-body">
       <div class="{if !$skipMainBodyContainer}container-fluid{/if}">
         <div class="row main-row row-gap-8">
