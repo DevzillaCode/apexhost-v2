@@ -1,6 +1,7 @@
 {* SVG icon variables *}
 {* Services *}
 {assign var="svgMyServices" value='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M3 6.25A3.25 3.25 0 0 1 6.25 3h11.5A3.25 3.25 0 0 1 21 6.25v11.5A3.25 3.25 0 0 1 17.75 21H6.25A3.25 3.25 0 0 1 3 17.75V6.25Zm3.75.5a.75.75 0 0 0 0 1.5h10.5a.75.75 0 0 0 0-1.5H6.75Z"/></svg>'}
+{assign var="svgRenewServices" value='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-rotate-ccw-icon lucide-rotate-ccw"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>'}
 {assign var="svgOrderNewServices" value='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M12 4a1 1 0 0 1 1 1v6h6a1 1 0 1 1 0 2h-6v6a1 1 0 1 1-2 0v-6H5a1 1 0 1 1 0-2h6V5a1 1 0 0 1 1-1z"/></svg>'}
 {assign var="svgViewAvailableAddons" value='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="M11 21.725v-9.15L3 7.95v9.175l8 4.6Zm2 0l8-4.6V7.95l-8 4.625v9.15Zm3.975-13.75l2.95-1.725L12 1.7L9.025 3.4l7.95 4.575ZM12 10.85l2.975-1.7l-7.925-4.6l-3 1.725L12 10.85Z"/></svg>'}
 {* Domains *}
@@ -16,6 +17,7 @@
 {* Billing *}
 {assign var="svgMyInvoices" value='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="currentColor" d="m21 22l-3-2l-3 2l-3-2l-3 2l-3-2l-3 2V3h18z"/></svg>'}
 {assign var="svgMyQuotes" value='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256"><path fill="currentColor" d="M116 72v88a48.05 48.05 0 0 1-48 48a8 8 0 0 1 0-16a32 32 0 0 0 32-32v-8H40a16 16 0 0 1-16-16V72a16 16 0 0 1 16-16h60a16 16 0 0 1 16 16Zm100-16h-60a16 16 0 0 0-16 16v64a16 16 0 0 0 16 16h60v8a32 32 0 0 1-32 32a8 8 0 0 0 0 16a48.05 48.05 0 0 0 48-48V72a16 16 0 0 0-16-16Z"/></svg>'}
+{assign var="svgMassPayment" value='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wallet-icon lucide-wallet"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"/><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"/></svg>'}
 {assign var="svgPaymentMethods" value='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-landmark-icon lucide-landmark"><path d="M10 18v-7"/><path d="M11.12 2.198a2 2 0 0 1 1.76.006l7.866 3.847c.476.233.31.949-.22.949H3.474c-.53 0-.695-.716-.22-.949z"/><path d="M14 18v-7"/><path d="M18 18v-7"/><path d="M3 22h18"/><path d="M6 18v-7"/></svg>'}
 {* Support *}
 {assign var="svgTickets" value='<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="evenodd" d="M1 4.5A1.5 1.5 0 0 1 2.5 3h11A1.5 1.5 0 0 1 15 4.5v1c0 .276-.227.494-.495.562a2 2 0 0 0 0 3.876c.268.068.495.286.495.562v1a1.5 1.5 0 0 1-1.5 1.5h-11A1.5 1.5 0 0 1 1 11.5v-1c0-.276.227-.494.495-.562a2 2 0 0 0 0-3.876C1.227 5.994 1 5.776 1 5.5zm9 1.25a.75.75 0 0 1 1.5 0v1a.75.75 0 0 1-1.5 0zm.75 2.75a.75.75 0 0 0-.75.75v1a.75.75 0 0 0 1.5 0v-1a.75.75 0 0 0-.75-.75" clip-rule="evenodd"/></svg>'}
@@ -29,18 +31,20 @@
 {* Map labels to SVG variables for easy lookup *}
 {assign var="svgIcons" value=[
   'My Services' => $svgMyServices,
+  'Renew Services' => $svgRenewServices,
   'Order New Services' => $svgOrderNewServices,
   'View Available Addons' => $svgViewAvailableAddons,
   'My Domains' => $svgMyDomains,
   'Renew Domains' => $svgRenewDomains,
   'Register a New Domain' => $svgRegisterNewDomains,
-  'Transfer Domains to Us' => $svgTransferDomains,
+  'Transfer a Domain to Us' => $svgTransferDomains,
   'Domain Search' => $svgDomainSearch,
   'SSL Certificates' => $svgSSLCertificates,
   'E-mail Services' => $svgEmailServices,
   'Manage SSL Certificates' => $svgManageSSLCertificates,
   'My Invoices' => $svgMyInvoices,
   'My Quotes' => $svgMyQuotes,
+  'Mass Payment' => $svgMassPayment,
   'Payment Methods' => $svgPaymentMethods,
   'Tickets' => $svgTickets,
   'Announcements' => $svgAnnouncements,
@@ -70,8 +74,8 @@
       <li menuItemName="{$childItem->getName()}" class="ddm-item" id="{$childItem->getId()}">
         <a href="{$childItem->getUri()}" class="ddm-link" {if $childItem->getAttribute('target')} target="{$childItem->getAttribute('target')}" {/if} data-gap-x="10px">
           {* SVG output: if label matches, show SVG; else, fallback to icon or placeholder *}
-          {if isset($svgIcons[$childItem->getLabel()])}
-          {$svgIcons[$childItem->getLabel()] nofilter}
+          {if isset($svgIcons[$childItem->getName()])}
+          {$svgIcons[$childItem->getName()] nofilter}
           {elseif $childItem->hasIcon()}
           <i class="{$childItem->getIcon()}"></i>
           {else}

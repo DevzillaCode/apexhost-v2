@@ -17,13 +17,13 @@
 
 {* Map labels to SVG variables for easy lookup *}
 {assign var="svgIcons" value=[
-  'Account Details' => $svgAccountDetails,
+  'Edit Account Details' => $svgAccountDetails,
   'User Management' => $svgUserManagement,
   'Payment Methods' => $svgPaymentMethods,
   'Contacts' => $svgContacts,
   'Account Security' => $svgAccountSecurity,
   'Email History' => $svgEmailHistory,
-  'Your Profile' => $svgYourProfile,
+  'Profile' => $svgYourProfile,
   'Change Password' => $svgChangePassword,
   'Security Settings' => $svgSecuritySettings,
   'Login' => $svgLogin,
@@ -41,8 +41,8 @@
       <li class="ddm-item">
         <a href="{$childItem->getUri()}" class="ddm-link {if $childItem->getLabel() == 'Logout'}btn-ghost-danger{/if}" role="menuitem" {if $childItem->getAttribute('target')} target="{$childItem->getAttribute('target')}" {/if} data-gap-x="6px">
           {* SVG output: if label matches, show SVG; else, fallback to icon or placeholder *}
-          {if isset($svgIcons[$childItem->getLabel()])}
-            {$svgIcons[$childItem->getLabel()] nofilter}
+          {if isset($svgIcons[$childItem->getName()])}
+            {$svgIcons[$childItem->getName()] nofilter}
           {elseif $childItem->hasIcon()}
             <i class="{$childItem->getIcon()}"></i>
           {else}
