@@ -23,7 +23,7 @@
         </svg>
         <a href="clientarea.php?action=services" class="tile-link btn-square btn-xs btn-secondary dropdown-toggle-split btn-circle position-absolute" title="{lang key='navservices'}">
           <span class="sr-only">{lang key='navservices'}</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right rtl-rotate">
             <path d="M5 12h14" />
             <path d="m12 5 7 7-7 7" />
           </svg>
@@ -52,7 +52,7 @@
           </svg>
           <a href="clientarea.php?action=domains" class="tile-link btn-square btn-xs btn-secondary dropdown-toggle-split btn-circle position-absolute" title="{lang key='navdomains'}">
             <span class="sr-only">{lang key='navdomains'}</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right rtl-rotate">
               <path d="M5 12h14" />
               <path d="m12 5 7 7-7 7" />
             </svg>
@@ -82,7 +82,7 @@
           </svg>
           <a href="affiliates.php" class="tile-link btn-square btn-xs btn-secondary dropdown-toggle-split btn-circle position-absolute" title="{lang key='affiliatessignups'}">
             <span class="sr-only">{lang key='affiliatessignups'}</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right rtl-rotate">
               <path d="M5 12h14" />
               <path d="m12 5 7 7-7 7" />
             </svg>
@@ -110,7 +110,7 @@
           </svg>
           <a href="clientarea.php?action=quotes" class="tile-link btn-square btn-xs btn-secondary dropdown-toggle-split btn-circle position-absolute" title="{lang key='quotes'}">
             <span class="sr-only">{lang key='quotes'}</span>
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right rtl-rotate">
               <path d="M5 12h14" />
               <path d="m12 5 7 7-7 7" />
             </svg>
@@ -141,7 +141,7 @@
         </svg>
         <a href="supporttickets.php" class="tile-link btn-square btn-xs btn-secondary dropdown-toggle-split btn-circle position-absolute" title="{lang key='navtickets'}">
           <span class="sr-only">{lang key='navtickets'}</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right rtl-rotate">
             <path d="M5 12h14" />
             <path d="m12 5 7 7-7 7" />
           </svg>
@@ -170,7 +170,7 @@
         </svg>
         <a href="clientarea.php?action=invoices" class="tile-link btn-square btn-xs btn-secondary dropdown-toggle-split btn-circle position-absolute" title="{lang key='navinvoices'}">
           <span class="sr-only">{lang key='navinvoices'}</span>
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right rtl-rotate">
             <path d="M5 12h14" />
             <path d="m12 5 7 7-7 7" />
           </svg>
@@ -208,7 +208,7 @@
                   {$item->getExtra('btn-text')}
                   {if $item->getExtra('btn-icon')}
                     {if $item->getExtra('btn-icon') == 'fas fa-arrow-right'}
-                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right rtl-rotate">
                         <path d="M5 12h14" />
                         <path d="m12 5 7 7-7 7" />
                       </svg>
@@ -240,7 +240,7 @@
                     {if $childItem->hasBadge()} <span class="badge">{$childItem->getBadge()}</span>{/if}
                   </a>
                 {else}
-                  <div menuItemName="{$childItem->getName()}" class="p-3 hover-accent{if $childItem->getClass()} {$childItem->getClass()}{/if}" id="{$childItem->getId()}">
+                  <div menuItemName="{$childItem->getName()}" class="rounded-md p-3 hover-accent{if $childItem->getClass()} {$childItem->getClass()}{/if}" id="{$childItem->getId()}">
                     {if $childItem->hasIcon()}<i class="{$childItem->getIcon()}"></i> {/if}
                     {$childItem->getLabel()}
                     {if $childItem->hasBadge()} <span class="badge">{$childItem->getBadge()}</span>{/if}

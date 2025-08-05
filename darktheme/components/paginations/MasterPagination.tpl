@@ -5,11 +5,11 @@
 {assign var='rightDubbleChevrons' value='<i class="fas fa-chevron-double-right"></i>'}
 
 {* Replace left chevron with custom SVG and add translated text for "Previous" *}
-{assign var='leftChevronReplacement' value='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left-icon lucide-chevron-left"><path d="m15 18-6-6 6-6"/></svg>'}
+{assign var='leftChevronReplacement' value='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left-icon lucide-chevron-left rtl-rotate"><path d="m15 18-6-6 6-6"/></svg>'}
 {assign var='leftChevronReplacement' value=$leftChevronReplacement|cat:' '|cat:{lang key="tablepagesprevious"}}
 
 {* Replace right chevron with translated text for "Next" and custom SVG *}
-{assign var='rightChevronReplacement' value='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right-icon lucide-chevron-right"><path d="m9 18 6-6-6-6"/></svg>'}
+{assign var='rightChevronReplacement' value='<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right-icon lucide-chevron-right rtl-rotate"><path d="m9 18 6-6-6-6"/></svg>'}
 {assign var='rightChevronReplacement' value={lang key="tablepagesnext"}|cat:' '|cat:$rightChevronReplacement}
 
 {* Replace double chevrons with custom SVG icons *}

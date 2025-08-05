@@ -45,55 +45,36 @@
 
       {* btn-group *}
       <!-- Bulk action buttons group -->
-      <div class="btn-group btn-group-sm mb-4" role="group">
-        {* button *}
-        <!-- Nameservers management button -->
-        <button type="button" class="btn btn-secondary setBulkAction" id="nameservers">
-          <!-- Globe icon -->
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe-icon lucide-globe">
-            <circle cx="12" cy="12" r="10" />
-            <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
-            <path d="M2 12h20" />
-          </svg>
-          {lang key='domainmanagens'}
-        </button>
-
-        {* button *}
-        <!-- Contact information edit button -->
-        <button type="button" class="btn btn-secondary setBulkAction" id="contactinfo">
-          <!-- User circle icon -->
-          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-user-round-icon lucide-circle-user-round">
-            <path d="M18 20a6 6 0 0 0-12 0" />
-            <circle cx="12" cy="10" r="4" />
-            <circle cx="12" cy="12" r="10" />
-          </svg>
-          {lang key='domaincontactinfoedit'}
-        </button>
-
-        {* button *}
-        <!-- Mass renew button (only shows if renewals are allowed) -->
-        {if $allowrenew}
-          <button type="button" class="btn btn-secondary setBulkAction" id="renewDomains">
-            <!-- Refresh icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-cw-icon lucide-refresh-cw">
-              <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
-              <path d="M21 3v5h-5" />
-              <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
-              <path d="M8 16H3v5" />
+      <div class="d-lg-block d-none">
+        <div class="btn-group btn-group-sm mb-4" role="group">
+          {* button *}
+          <!-- Nameservers management button -->
+          <button type="button" class="btn btn-secondary setBulkAction" id="nameservers">
+            <!-- Globe icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe-icon lucide-globe">
+              <circle cx="12" cy="12" r="10" />
+              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+              <path d="M2 12h20" />
             </svg>
-            {lang key='domainmassrenew'}
+            {lang key='domainmanagens'}
           </button>
-        {/if}
 
-        {* dropdown *}
-        <!-- Additional actions dropdown -->
-        <div class="btn-group btn-group-sm" role="group">
-          <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            {lang key="more"}...
+          {* button *}
+          <!-- Contact information edit button -->
+          <button type="button" class="btn btn-secondary setBulkAction" id="contactinfo">
+            <!-- User circle icon -->
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-user-round-icon lucide-circle-user-round">
+              <path d="M18 20a6 6 0 0 0-12 0" />
+              <circle cx="12" cy="10" r="4" />
+              <circle cx="12" cy="12" r="10" />
+            </svg>
+            {lang key='domaincontactinfoedit'}
           </button>
-          <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
-            <!-- Auto-renew status management -->
-            <a class="dropdown-item setBulkAction" href="#" id="autorenew">
+
+          {* button *}
+          <!-- Mass renew button (only shows if renewals are allowed) -->
+          {if $allowrenew}
+            <button type="button" class="btn btn-secondary setBulkAction" id="renewDomains">
               <!-- Refresh icon -->
               <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-cw-icon lucide-refresh-cw">
                 <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
@@ -101,17 +82,38 @@
                 <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
                 <path d="M8 16H3v5" />
               </svg>
-              {lang key='domainautorenewstatus'}
-            </a>
-            <!-- Registration lock status management -->
-            <a class="dropdown-item setBulkAction" href="#" id="reglock">
-              <!-- Lock icon -->
-              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock-icon lucide-lock">
-                <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
-                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
-              </svg>
-              {lang key='domainreglockstatus'}
-            </a>
+              {lang key='domainmassrenew'}
+            </button>
+          {/if}
+
+          {* dropdown *}
+          <!-- Additional actions dropdown -->
+          <div class="btn-group btn-group-sm" role="group">
+            <button id="btnGroupDrop1" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              {lang key="more"}...
+            </button>
+            <div class="dropdown-menu" aria-labelledby="btnGroupDrop1">
+              <!-- Auto-renew status management -->
+              <a class="dropdown-item setBulkAction" href="#" id="autorenew">
+                <!-- Refresh icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-refresh-cw-icon lucide-refresh-cw">
+                  <path d="M3 12a9 9 0 0 1 9-9 9.75 9.75 0 0 1 6.74 2.74L21 8" />
+                  <path d="M21 3v5h-5" />
+                  <path d="M21 12a9 9 0 0 1-9 9 9.75 9.75 0 0 1-6.74-2.74L3 16" />
+                  <path d="M8 16H3v5" />
+                </svg>
+                {lang key='domainautorenewstatus'}
+              </a>
+              <!-- Registration lock status management -->
+              <a class="dropdown-item setBulkAction" href="#" id="reglock">
+                <!-- Lock icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-lock-icon lucide-lock">
+                  <rect width="18" height="11" x="3" y="11" rx="2" ry="2" />
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+                </svg>
+                {lang key='domainreglockstatus'}
+              </a>
+            </div>
           </div>
         </div>
       </div>

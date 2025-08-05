@@ -6,9 +6,6 @@
 {assetExists file="custom.css"}
 <link href="{$__assetPath__}" rel="stylesheet">
 {/assetExists}
-{assetExists file="utils.css"}
-<link href="{$__assetPath__}" rel="stylesheet">
-{/assetExists}
 
 <script>
   var csrfToken = '{$token}',

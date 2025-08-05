@@ -43,22 +43,22 @@
                       <i class="fad fa-spinner fa-spin fa-fw"></i>
                     </span>
                   {/if}
-                  <i class="{$childItem->getIcon()|replace:'fas':'fad'}"></i>&nbsp;
+                  <i class="{$childItem->getIcon()|replace:'fas':'fad'}"></i>
                 {/if}
                 {$childItem->getLabel()}
                 {if $childItem->hasBadge()}
-                  &nbsp;<span class="badge">{$childItem->getBadge()}</span>
+                  <span class="badge">{$childItem->getBadge()}</span>
                 {/if}
               </a>
             {else}
               {* Sidebar non-link item *}
               <div menuItemName="{$childItem->getName()}" class="sidebar-list-item no-action{if $childItem->getClass()} {$childItem->getClass()}{/if}" id="{$childItem->getId()}{if $childItem->isCurrent()}active{/if}">
                 {if $childItem->hasIcon()}
-                  <i class="{$childItem->getIcon()|replace:'fas':'fad'}"></i>&nbsp;
+                  <i class="{$childItem->getIcon()|replace:'fas':'fad'}"></i>
                 {/if}
                 {$childItem->getLabel()}
                 {if $childItem->hasBadge()}
-                  &nbsp;<span class="badge">{$childItem->getBadge()}</span>
+                  <span class="badge">{$childItem->getBadge()}</span>
                 {/if}
               </div>
             {/if}

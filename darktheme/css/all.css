@@ -33,14 +33,14 @@
   z-index: 0;
   margin-top: 0 !important;
   margin-bottom: 0 !important;
-  padding-right: 36px;
-  margin-right: 0;
+  padding-inline-end: 36px;
+  margin-inline-end: 0;
 }
 .intl-tel-input .flag-container {
   position: absolute;
   top: 0;
   bottom: 0;
-  right: 0;
+  inset-inline-end: 0;
   padding: 1px;
 }
 .intl-tel-input .selected-flag {
@@ -60,7 +60,7 @@
   position: absolute;
   top: 50%;
   margin-top: -2px;
-  right: 6px; /* This will be adjusted for each sdc class */
+  inset-inline-end: 6px; /* This will be adjusted for each sdc class */
   width: 0;
   height: 0;
   border-left: 3px solid transparent;
@@ -121,7 +121,7 @@
 }
 .intl-tel-input .country-list .flag-box,
 .intl-tel-input .country-list .country-name {
-  margin-right: 6px;
+  margin-inline-end: 6px;
 }
 .intl-tel-input.allow-dropdown input,
 .intl-tel-input.allow-dropdown input[type="text"],
@@ -129,14 +129,14 @@
 .intl-tel-input.separate-dial-code input,
 .intl-tel-input.separate-dial-code input[type="text"],
 .intl-tel-input.separate-dial-code input[type="tel"] {
-  padding-right: 15px;
-  padding-left: 52px;
-  margin-left: 0;
+  padding-inline-end: 15px;
+  padding-inline-start: 52px;
+  margin-inline-start: 0;
 }
 .intl-tel-input.allow-dropdown .flag-container,
 .intl-tel-input.separate-dial-code .flag-container {
-  right: auto;
-  left: 2px;
+  inset-inline-end: auto;
+  inset-inline-start: 2px;
   top: 2px;
   bottom: 2px;
 }
@@ -172,7 +172,7 @@
 .intl-tel-input.separate-dial-code .selected-dial-code {
   display: table-cell;
   vertical-align: middle;
-  padding-left: 28px;
+  padding-inline-start: 28px;
   font-size: var(--text-sm);
 }
 /* Base arrow styles */
@@ -191,7 +191,7 @@
 .intl-tel-input.separate-dial-code.iti-sdc-2 input,
 .intl-tel-input.separate-dial-code.iti-sdc-2 input[type="text"],
 .intl-tel-input.separate-dial-code.iti-sdc-2 input[type="tel"] {
-  padding-left: 90px;
+  padding-inline-start: 90px;
 }
 .intl-tel-input.separate-dial-code.iti-sdc-2 .selected-flag {
   width: 88px;
@@ -200,7 +200,7 @@
 .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-2 input,
 .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-2 input[type="text"],
 .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-2 input[type="tel"] {
-  padding-left: 90px;
+  padding-inline-start: 90px;
 }
 .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-2 .selected-flag {
   width: 80px;
@@ -209,14 +209,14 @@
 }
 /* Adjusted arrow for sdc-2 */
 .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-2 .selected-flag .iti-arrow {
-  right: 8px; /* Reduced from 10px to account for padding */
+  inset-inline-end: 8px; /* Reduced from 10px to account for padding */
 }
 
 /* sdc-3 (increased by ~10%) */
 .intl-tel-input.separate-dial-code.iti-sdc-3 input,
 .intl-tel-input.separate-dial-code.iti-sdc-3 input[type="text"],
 .intl-tel-input.separate-dial-code.iti-sdc-3 input[type="tel"] {
-  padding-left: 102px;
+  padding-inline-start: 102px;
 }
 .intl-tel-input.separate-dial-code.iti-sdc-3 .selected-flag {
   width: 97px;
@@ -225,7 +225,7 @@
 .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input,
 .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input[type="text"],
 .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 input[type="tel"] {
-  padding-left: 102px;
+  padding-inline-start: 102px;
 }
 .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 .selected-flag {
   width: 88px;
@@ -234,14 +234,14 @@
 }
 /* Adjusted arrow for sdc-3 */
 .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-3 .selected-flag .iti-arrow {
-  right: 10px; /* Reduced from 12px to account for padding */
+  inset-inline-end: 10px; /* Reduced from 12px to account for padding */
 }
 
 /* sdc-4 (increased by ~15%) */
 .intl-tel-input.separate-dial-code.iti-sdc-4 input,
 .intl-tel-input.separate-dial-code.iti-sdc-4 input[type="text"],
 .intl-tel-input.separate-dial-code.iti-sdc-4 input[type="tel"] {
-  padding-left: 114px;
+  padding-inline-start: 114px;
 }
 .intl-tel-input.separate-dial-code.iti-sdc-4 .selected-flag {
   width: 101px;
@@ -250,7 +250,7 @@
 .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-4 input,
 .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-4 input[type="text"],
 .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-4 input[type="tel"] {
-  padding-left: 114px;
+  padding-inline-start: 114px;
 }
 .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-4 .selected-flag {
   width: 92px;
@@ -259,14 +259,14 @@
 }
 /* Adjusted arrow for sdc-4 */
 .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-4 .selected-flag .iti-arrow {
-  right: 12px; /* Reduced from 14px to account for padding */
+  inset-inline-end: 12px; /* Reduced from 14px to account for padding */
 }
 
 /* sdc-5 (increased by ~20%) */
 .intl-tel-input.separate-dial-code.iti-sdc-5 input,
 .intl-tel-input.separate-dial-code.iti-sdc-5 input[type="text"],
 .intl-tel-input.separate-dial-code.iti-sdc-5 input[type="tel"] {
-  padding-left: 122px;
+  padding-inline-start: 122px;
 }
 .intl-tel-input.separate-dial-code.iti-sdc-5 .selected-flag {
   width: 106px;
@@ -275,7 +275,7 @@
 .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-5 input,
 .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-5 input[type="text"],
 .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-5 input[type="tel"] {
-  padding-left: 122px;
+  padding-inline-start: 122px;
 }
 .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-5 .selected-flag {
   width: 96px;
@@ -284,13 +284,13 @@
 }
 /* Adjusted arrow for sdc-5 */
 .intl-tel-input.separate-dial-code.allow-dropdown.iti-sdc-5 .selected-flag .iti-arrow {
-  right: 14px; /* Reduced from 16px to account for padding */
+  inset-inline-end: 14px; /* Reduced from 16px to account for padding */
 }
 
 .intl-tel-input.iti-container {
   position: absolute;
   top: -1000px;
-  left: -1000px;
+  inset-inline-start: -1000px;
   z-index: 1060;
   padding: 1px;
 }
@@ -301,8 +301,8 @@
 .iti-mobile .intl-tel-input.iti-container {
   top: 30px;
   bottom: 30px;
-  left: 30px;
-  right: 30px;
+  inset-inline-start: 30px;
+  inset-inline-end: 30px;
   position: fixed;
 }
 
@@ -1724,18 +1724,18 @@
   border-right: 1px solid transparent;
 }
 .bootstrap-switch .bootstrap-switch-handle-on {
-  border-bottom-left-radius: 0.25rem;
-  border-top-left-radius: 0.25rem;
+  border-end-start-radius: 0.25rem;
+  border-start-start-radius: 0.25rem;
 }
 .bootstrap-switch .bootstrap-switch-handle-off {
-  border-bottom-right-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+  border-end-end-radius: 0.25rem;
+  border-start-end-radius: 0.25rem;
 }
 .bootstrap-switch input[type="radio"],
 .bootstrap-switch input[type="checkbox"] {
   position: absolute !important;
   top: 0;
-  left: 0;
+  inset-inline-start: 0;
   opacity: 0;
   z-index: -1;
 }
@@ -1787,19 +1787,19 @@
   cursor: default !important;
 }
 .bootstrap-switch.bootstrap-switch-animate .bootstrap-switch-container {
-  transition: margin-left 0.5s;
+  transition: margin-inline-start 0.5s;
 }
 .bootstrap-switch.bootstrap-switch-inverse .bootstrap-switch-handle-on {
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-  border-bottom-right-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+  border-end-start-radius: 0;
+  border-start-start-radius: 0;
+  border-end-end-radius: 0.25rem;
+  border-start-end-radius: 0.25rem;
 }
 .bootstrap-switch.bootstrap-switch-inverse .bootstrap-switch-handle-off {
-  border-bottom-right-radius: 0;
-  border-top-right-radius: 0;
-  border-bottom-left-radius: 0.25rem;
-  border-top-left-radius: 0.25rem;
+  border-end-end-radius: 0;
+  border-start-end-radius: 0;
+  border-end-start-radius: 0.25rem;
+  border-start-start-radius: 0.25rem;
 }
 .bootstrap-switch.bootstrap-switch-focused {
   box-shadow: 0 0 0 2px var(--border);
@@ -1807,14 +1807,14 @@
 .bootstrap-switch.bootstrap-switch-on .bootstrap-switch-label,
 .bootstrap-switch.bootstrap-switch-inverse.bootstrap-switch-off
   .bootstrap-switch-label {
-  border-bottom-right-radius: 0.25rem;
-  border-top-right-radius: 0.25rem;
+  border-end-end-radius: 0.25rem;
+  border-start-end-radius: 0.25rem;
 }
 .bootstrap-switch.bootstrap-switch-off .bootstrap-switch-label,
 .bootstrap-switch.bootstrap-switch-inverse.bootstrap-switch-on
   .bootstrap-switch-label {
-  border-bottom-left-radius: 0.25rem;
-  border-top-left-radius: 0.25rem;
+  border-end-start-radius: 0.25rem;
+  border-start-start-radius: 0.25rem;
 }
 
 .md-editor {
@@ -1865,11 +1865,11 @@
     0 0 8px rgba(102, 175, 233, 0.6);
 }
 .md-editor .md-controls {
-  float: right;
+  float: inline-end;
   padding: 3px;
 }
 .md-editor .md-controls .md-control {
-  right: 5px;
+  inset-inline-end: 5px;
   color: #bebebe;
   padding: 3px 3px 3px 10px;
 }
@@ -1881,7 +1881,7 @@
   height: 100%;
   position: fixed;
   top: 0;
-  left: 0;
+  inset-inline-start: 0;
   z-index: 99999;
   padding: 60px 30px 15px;
   background: #fff !important;
@@ -1937,7 +1937,7 @@
 .md-editor.md-fullscreen-mode .md-fullscreen-controls {
   position: absolute;
   top: 20px;
-  right: 20px;
+  inset-inline-end: 20px;
   text-align: right;
   z-index: 1002;
   display: block;
@@ -2005,7 +2005,7 @@ table.dataTable thead > tr > td.sorting_asc_disabled,
 table.dataTable thead > tr > td.sorting_desc_disabled {
   cursor: pointer;
   position: relative;
-  padding-right: 26px;
+  padding-inline-end: 26px;
 }
 table.dataTable thead > tr > th.sorting:before,
 table.dataTable thead > tr > th.sorting:after,
@@ -2030,7 +2030,7 @@ table.dataTable thead > tr > td.sorting_desc_disabled:after {
   position: absolute;
   display: block;
   opacity: 0.125;
-  right: 10px;
+  inset-inline-end: 10px;
   line-height: 9px;
   font-size: 0.8em;
 }
@@ -2087,9 +2087,9 @@ div.dataTables_scrollBody table.dataTable thead > tr > td:after {
 div.dataTables_processing {
   position: absolute;
   top: 50%;
-  left: 50%;
+  inset-inline-start: 50%;
   width: 200px;
-  margin-left: -100px;
+  margin-inline-start: -100px;
   margin-top: -26px;
   text-align: center;
   padding: 2px;
@@ -2110,19 +2110,19 @@ div.dataTables_processing > div:last-child > div {
   animation-timing-function: cubic-bezier(0, 1, 1, 0);
 }
 div.dataTables_processing > div:last-child > div:nth-child(1) {
-  left: 8px;
+  inset-inline-start: 8px;
   animation: datatables-loader-1 0.6s infinite;
 }
 div.dataTables_processing > div:last-child > div:nth-child(2) {
-  left: 8px;
+  inset-inline-start: 8px;
   animation: datatables-loader-2 0.6s infinite;
 }
 div.dataTables_processing > div:last-child > div:nth-child(3) {
-  left: 32px;
+  inset-inline-start: 32px;
   animation: datatables-loader-2 0.6s infinite;
 }
 div.dataTables_processing > div:last-child > div:nth-child(4) {
-  left: 56px;
+  inset-inline-start: 56px;
   animation: datatables-loader-3 0.6s infinite;
 }
 
@@ -2285,13 +2285,14 @@ div.dataTables_wrapper div.dataTables_filter label {
 }
 div.dataTables_wrapper div.dataTables_info {
   padding-bottom: 1rem;
+  padding-top: 0.5rem;
 }
 div.dataTables_wrapper div.dataTables_processing {
   position: absolute;
   top: 50%;
-  left: 50%;
+  inset-inline-start: 50%;
   width: 200px;
-  margin-left: -100px;
+  margin-inline-start: -100px;
   margin-top: -26px;
   text-align: center;
   padding: 1em 0;
@@ -2328,7 +2329,7 @@ div.dataTables_scrollFoot > .dataTables_scrollFootInner > table {
 }
 
 table.dataTable.table-sm > thead > tr > th:not(.sorting_disabled) {
-  padding-right: 20px;
+  padding-inline-end: 20px;
 }
 
 table.table-bordered.dataTable {
@@ -2360,13 +2361,13 @@ div.table-responsive
   > div.dataTables_wrapper
   > div.row
   > div[class^="col-"]:first-child {
-  padding-left: 0;
+  padding-inline-start: 0;
 }
 div.table-responsive
   > div.dataTables_wrapper
   > div.row
   > div[class^="col-"]:last-child {
-  padding-right: 0;
+  padding-inline-end: 0;
 }
 
 table.dataTable.dtr-inline.collapsed > tbody > tr > td.child,
@@ -2382,13 +2383,13 @@ table.dataTable.dtr-inline.collapsed > tbody > tr > td.dataTables_empty:before {
 table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control,
 table.dataTable.dtr-inline.collapsed > tbody > tr > th.dtr-control {
   position: relative;
-  padding-left: 30px;
+  padding-inline-start: 30px;
   cursor: pointer;
 }
 table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control:before,
 table.dataTable.dtr-inline.collapsed > tbody > tr > th.dtr-control:before {
   top: 50%;
-  left: 5px;
+  inset-inline-start: 5px;
   height: 1em;
   width: 1em;
   margin-top: -9px;
@@ -2419,7 +2420,7 @@ table.dataTable.dtr-inline.collapsed
 }
 table.dataTable.dtr-inline.collapsed.compact > tbody > tr > td.dtr-control,
 table.dataTable.dtr-inline.collapsed.compact > tbody > tr > th.dtr-control {
-  padding-left: 27px;
+  padding-inline-start: 27px;
 }
 table.dataTable.dtr-inline.collapsed.compact
   > tbody
@@ -2429,7 +2430,7 @@ table.dataTable.dtr-inline.collapsed.compact
   > tbody
   > tr
   > th.dtr-control:before {
-  left: 4px;
+  inset-inline-start: 4px;
   height: 14px;
   width: 14px;
   border-radius: 14px;
@@ -2448,11 +2449,11 @@ table.dataTable.dtr-column > tbody > tr > th.dtr-control:before,
 table.dataTable.dtr-column > tbody > tr > td.control:before,
 table.dataTable.dtr-column > tbody > tr > th.control:before {
   top: 50%;
-  left: 50%;
+  inset-inline-start: 50%;
   height: 0.8em;
   width: 0.8em;
   margin-top: -0.5em;
-  margin-left: -0.5em;
+  margin-inline-start: -0.5em;
   display: block;
   position: absolute;
   color: white;
@@ -2505,7 +2506,7 @@ div.dtr-modal {
   position: fixed;
   box-sizing: border-box;
   top: 0;
-  left: 0;
+  inset-inline-start: 0;
   height: 100%;
   width: 100%;
   z-index: 100;
@@ -2514,9 +2515,9 @@ div.dtr-modal {
 div.dtr-modal div.dtr-modal-display {
   position: absolute;
   top: 0;
-  left: 0;
+  inset-inline-start: 0;
   bottom: 0;
-  right: 0;
+  inset-inline-end: 0;
   width: 50%;
   height: 50%;
   overflow: auto;
@@ -2535,7 +2536,7 @@ div.dtr-modal div.dtr-modal-content {
 div.dtr-modal div.dtr-modal-close {
   position: absolute;
   top: 6px;
-  right: 6px;
+  inset-inline-end: 6px;
   width: 22px;
   height: 22px;
   border: 1px solid #eaeaea;
@@ -2551,8 +2552,8 @@ div.dtr-modal div.dtr-modal-close:hover {
 div.dtr-modal div.dtr-modal-background {
   position: fixed;
   top: 0;
-  left: 0;
-  right: 0;
+  inset-inline-start: 0;
+  inset-inline-end: 0;
   bottom: 0;
   z-index: 101;
   background: rgba(0, 0, 0, 0.6);
@@ -2609,8 +2610,8 @@ div.dtr-bs-modal table.table tr:first-child td {
   margin-bottom: 5px;
 }
 .btn-group > .btn-group:nth-child(2) > .multiselect.btn {
-  border-top-left-radius: 4px;
-  border-bottom-left-radius: 4px;
+  border-start-start-radius: 4px;
+  border-end-start-radius: 4px;
 }
 .form-inline .multiselect-container label.checkbox,
 .form-inline .multiselect-container label.radio {
@@ -2618,8 +2619,8 @@ div.dtr-bs-modal table.table tr:first-child td {
 }
 .form-inline .multiselect-container li a label.checkbox input[type="checkbox"],
 .form-inline .multiselect-container li a label.radio input[type="radio"] {
-  margin-left: -20px;
-  margin-right: 0;
+  margin-inline-start: -20px;
+  margin-inline-end: 0;
 }
 /* Preload images */
 body:after {
@@ -2631,7 +2632,7 @@ body:after {
 .lightboxOverlay {
   position: absolute;
   top: 0;
-  left: 0;
+  inset-inline-start: 0;
   z-index: 9999;
   background-color: black;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
@@ -2641,7 +2642,7 @@ body:after {
 
 .lightbox {
   position: absolute;
-  left: 0;
+  inset-inline-start: 0;
   width: 100%;
   z-index: 10000;
   text-align: center;
@@ -2683,7 +2684,7 @@ body:after {
 .lb-loader {
   position: absolute;
   top: 43%;
-  left: 0;
+  inset-inline-start: 0;
   height: 25%;
   width: 100%;
   text-align: center;
@@ -2701,14 +2702,14 @@ body:after {
 .lb-nav {
   position: absolute;
   top: 0;
-  left: 0;
+  inset-inline-start: 0;
   height: 100%;
   width: 100%;
   z-index: 10;
 }
 
 .lb-container > .nav {
-  left: 0;
+  inset-inline-start: 0;
 }
 
 .lb-nav a {
@@ -2725,8 +2726,8 @@ body:after {
 
 .lb-nav a.lb-prev {
   width: 34%;
-  left: 0;
-  float: left;
+  inset-inline-start: 0;
+  float: inline-start;
   background: url(../images/prev.png) left 48% no-repeat;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
@@ -2743,8 +2744,8 @@ body:after {
 
 .lb-nav a.lb-next {
   width: 64%;
-  right: 0;
-  float: right;
+  inset-inline-end: 0;
+  float: inline-end;
   background: url(../images/next.png) right 48% no-repeat;
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
@@ -2765,11 +2766,11 @@ body:after {
   *zoom: 1;
   width: 100%;
   -moz-border-radius-bottomleft: 4px;
-  -webkit-border-bottom-left-radius: 4px;
-  border-bottom-left-radius: 4px;
+  -webkit-border-end-start-radius: 4px;
+  border-end-start-radius: 4px;
   -moz-border-radius-bottomright: 4px;
-  -webkit-border-bottom-right-radius: 4px;
-  border-bottom-right-radius: 4px;
+  -webkit-border-end-end-radius: 4px;
+  border-end-end-radius: 4px;
 }
 
 .lb-dataContainer:after {
@@ -2785,7 +2786,7 @@ body:after {
 
 .lb-data .lb-details {
   width: 85%;
-  float: left;
+  float: inline-start;
   text-align: left;
   line-height: 1.1em;
 }
@@ -2806,7 +2807,7 @@ body:after {
 
 .lb-data .lb-close {
   display: block;
-  float: right;
+  float: inline-end;
   width: 30px;
   height: 30px;
   background: url(../images/close.png) top right no-repeat;
@@ -2891,7 +2892,7 @@ body:after {
 .captcha-overlay-badge {
   position: fixed;
   bottom: 20px;
-  right: 20px;
+  inset-inline-end: 20px;
   z-index: 9999;
   cursor: pointer;
 }
@@ -2909,7 +2910,7 @@ body:after {
   display: none;
   position: fixed;
   bottom: 80px;
-  right: 20px;
+  inset-inline-end: 20px;
   background-color: #fff;
   border: 1px solid #ccc;
   padding: 10px;
