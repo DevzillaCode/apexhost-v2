@@ -182,7 +182,7 @@
 }
 
 /* RTL Classes */
-.rtl-rotate {
+[dir="rtl"] .rtl-rotate {
   transform: rotate(180deg);
 }
 
