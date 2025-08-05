@@ -1,10 +1,8 @@
-<!-- Include table list component with filtering enabled on column 4 (status) -->
-{include file="$template/includes/tablelist.tpl" tableName="InvoicesList" filterColumn="4"}
+<!-- Include table list component with filtering enabled on column 5 (status) -->
+{include file="$template/includes/tablelist.tpl" tableName="InvoicesList" filterColumn="5"}
 
 <!-- Page header with title and tagline -->
-{include file="$template/components/heading/PageTitle.tpl"
-  headline="{lang key='clientareainvoices'}"
-tagline="{lang key='clientareainvoicestagline'}"
+{include file="$template/components/heading/PageTitle.tpl" headline="{lang key='clientareainvoices'}" tagline="{lang key='clientareainvoicestagline'}"
 }
 
 <!-- JavaScript for DataTable initialization and sorting -->

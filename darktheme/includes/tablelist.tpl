@@ -13,10 +13,11 @@
     }
 
     jQuery(document).ready(function() {
-      jQuery(".view-filter-btns a").click(function(e) {
+      jQuery(".view-filter-btns .sidebar-list-item").click(function(e) {
         var filterValue = jQuery(this).find("span").not('.badge').html().trim(),
-          dataTable = jQuery('#table{$tableName}').DataTable(),
-          filterValueRegex;
+            dataTable = jQuery('#table{$tableName}').DataTable(),
+            filterValueRegex;
+
         if (jQuery(this).hasClass('active')) {
           {if !isset($dontControlActiveClass) || !$dontControlActiveClass}
             jQuery(this).removeClass('active');
@@ -25,7 +26,7 @@
           dataTable.column({$filterColumn}).search('').draw();
         } else {
           {if !isset($dontControlActiveClass) || !$dontControlActiveClass}
-            jQuery('.view-filter-btns .list-group-item').removeClass('active');
+            jQuery('.view-filter-btns .sidebar-list-item').removeClass('active');
             jQuery('i.far.fa-dot-circle').removeClass('fa-dot-circle').addClass('fa-circle');
             jQuery(this).addClass('active');
             jQuery(this).find(jQuery("i.far.fa-circle")).removeClass('fa-circle').addClass('fa-dot-circle');
