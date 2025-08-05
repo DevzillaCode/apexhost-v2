@@ -17,38 +17,38 @@
 }
 
 #order-apex_cart .cart-sidebar {
-  float: left;
+  float: inline-start;
   width: 25%;
   position: relative;
   min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-inline-end: 15px;
+  padding-inline-start: 15px;
 }
 #order-apex_cart .cart-body {
-  float: right;
+  float: inline-end;
   width: 75%;
   position: relative;
   min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-inline-end: 15px;
+  padding-inline-start: 15px;
 }
 
 #order-apex_cart .secondary-cart-body {
-  float: left;
+  float: inline-start;
   width: 65%;
   position: relative;
   min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-inline-end: 15px;
+  padding-inline-start: 15px;
 }
 
 #order-apex_cart .secondary-cart-sidebar {
-  float: right;
+  float: inline-end;
   width: 35%;
   position: relative;
   min-height: 1px;
-  padding-right: 15px;
-  padding-left: 15px;
+  padding-inline-end: 15px;
+  padding-inline-start: 15px;
 }
 
 @media only screen and (max-width: 1199px) {
@@ -89,7 +89,7 @@
 }
 
 #order-apex_cart label .iradio_square-blue {
-  margin-right: 2px;
+  margin-inline-end: 2px;
 }
 
 #order-apex_cart .info-text-sm {
@@ -189,14 +189,14 @@
 }
 
 #order-apex_cart .products .product header .qty {
-  float: right;
+  float: inline-end;
   font-size: 0.8em;
   font-style: italic;
   color: #888;
 }
 
 #order-apex_cart .products .product div.product-desc {
-  float: left;
+  float: inline-start;
   width: 100%;
   font-size: var(--text-sm);
 }
@@ -222,7 +222,7 @@
 }
 
 #order-apex_cart .products .product footer {
-  float: right;
+  float: inline-end;
   margin-top: 1rem;
   width: 100%;
   font-size: 0.8em;
@@ -243,7 +243,7 @@
 #order-apex_cart .panel-addon::before {
   position: absolute;
   content: "✓";
-  right: 10px;
+  inset-inline-end: 10px;
   top: 10px;
   width: 1.25rem;
   height: 1.25rem;
@@ -297,8 +297,8 @@
   margin: 15px 0;
 }
 #order-apex_cart .domains-row {
-  margin-right: -2px;
-  margin-left: -2px;
+  margin-inline-end: -2px;
+  margin-inline-start: -2px;
 }
 @media (max-width: 767px) {
   #order-apex_cart .domains-row {
@@ -312,8 +312,8 @@
 #order-apex_cart .domains-row .col-xs-5,
 #order-apex_cart .domains-row .col-xs-7,
 #order-apex_cart .domains-row .col-xs-9 {
-  padding-right: 2px;
-  padding-left: 2px;
+  padding-inline-end: 2px;
+  padding-inline-start: 2px;
 }
 
 #order-apex_cart .domain-selection-options .option {
@@ -327,10 +327,10 @@
   cursor: pointer;
 }
 #order-apex_cart .domain-selection-options .option .iradio_square-blue {
-  margin-right: 10px;
+  margin-inline-end: 10px;
 }
 #order-apex_cart .domain-suggestions .icheckbox_square-green {
-  margin-right: 10px;
+  margin-inline-end: 10px;
 }
 #order-apex_cart .domain-selection-options .option-selected label {
   font-weight: bold;
@@ -447,11 +447,11 @@
   font-weight: bold;
 }
 #order-apex_cart .apply-credit-container .radio {
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-inline-start: 20px;
+  padding-inline-end: 20px;
 }
 #order-apex_cart .apply-credit-container .iradio_square-blue {
-  margin-right: 6px;
+  margin-inline-end: 6px;
 }
 
 #order-apex_cart .cc-input-container {
@@ -465,12 +465,12 @@
   margin-bottom: 10px;
 }
 #order-apex_cart .cc-input-container .radio-inline {
-  padding-left: 0;
+  padding-inline-start: 0;
   margin-bottom: 10px;
 }
 #order-apex_cart .cc-input-container .paymethod-info {
   cursor: pointer;
-  padding-right: 10px;
+  padding-inline-end: 10px;
   margin-bottom: 5px;
 }
 #order-apex_cart .cc-input-container ul {
@@ -495,12 +495,12 @@
 }
 #order-apex_cart .checkout-security-msg {
   margin: 20px 0;
-  padding-left: 75px;
+  padding-inline-start: 75px;
   font-size: 0.8em;
 }
 #order-apex_cart .checkout-security-msg i {
-  float: left;
-  margin-left: -48px;
+  float: inline-start;
+  margin-inline-start: -48px;
   font-size: 2.8em;
 }
 
@@ -510,7 +510,7 @@
 
 #order-apex_cart .prepend-icon {
   top: 0;
-  left: 0;
+  inset-inline-start: 0;
   display: inline-block;
   vertical-align: top;
   position: relative;
@@ -549,7 +549,7 @@
 }
 #order-apex_cart .prepend-icon .field {
   -webkit-appearance: none;
-  padding-left: 36px;
+  padding-inline-start: 36px;
 }
 #order-apex_cart .prepend-icon .field-icon i {
   position: relative;
@@ -819,7 +819,7 @@
 }
 
 #order-apex_cart .express-checkout-buttons .separator {
-  margin-left: 70px;
+  margin-inline-start: 70px;
   padding: 5px;
   text-align: center;
   font-weight: bold;
@@ -871,7 +871,7 @@ div.domainresults div:not(.btn-group) {
 }
 
 div.domainresults div:not(.btn-group) span {
-  padding-left: 20px;
+  padding-inline-start: 20px;
   font-size: 14px;
   color: #888;
 }
@@ -930,7 +930,7 @@ div.domainresults table tr td {
 .domain-bulk-options-box {
   position: absolute;
   top: 18px;
-  right: 134px;
+  inset-inline-end: 134px;
   z-index: 100;
 }
 
@@ -974,7 +974,7 @@ div.domainresults table tr td {
 
 div.domainresults div.domain-checkout-area {
   display: none;
-  float: right;
+  float: inline-end;
   padding: 8px 40px 0;
 }
 
@@ -1046,11 +1046,11 @@ a.domain-tld-pricing-category {
   border-radius: var(--radius-md);
 }
 .spotlight-tlds-container {
-  margin-left: -7px;
-  margin-right: -7px;
+  margin-inline-start: -7px;
+  margin-inline-end: -7px;
 }
 .spotlight-tld-container {
-  float: left;
+  float: inline-start;
   padding: 7px 7px;
 }
 .spotlight-tld-container-1 {
@@ -1168,7 +1168,7 @@ a.domain-tld-pricing-category {
   text-transform: uppercase;
   color: #fff;
   top: 3px;
-  right: -18px;
+  inset-inline-end: -18px;
   background-color: #2ad588;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
@@ -1183,7 +1183,7 @@ a.domain-tld-pricing-category {
   text-transform: uppercase;
   color: #fff;
   top: 3px;
-  right: -18px;
+  inset-inline-end: -18px;
   background-color: #f7d458;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
@@ -1198,7 +1198,7 @@ a.domain-tld-pricing-category {
   text-transform: uppercase;
   color: #fff;
   top: 3px;
-  right: -18px;
+  inset-inline-end: -18px;
   background-color: #f9615a;
   transform: rotate(45deg);
   -webkit-transform: rotate(45deg);
@@ -1242,7 +1242,7 @@ a.domain-tld-pricing-category {
   color: #fff;
 }
 .suggested-domains .actions {
-  float: right;
+  float: inline-end;
 }
 .suggested-domains .price {
   padding: 0 20px;
@@ -1286,7 +1286,7 @@ a.domain-tld-pricing-category {
   border-radius: var(--radius-md);
 }
 .domain-promo-box svg {
-  float: right;
+  float: inline-end;
 }
 .domain-promo-box p {
   margin: 0 0 10px 0;
@@ -1338,7 +1338,7 @@ a.domain-tld-pricing-category {
   color: #666;
 }
 .service-renewals .div-renewal-ineligible i {
-  margin-right: 4px;
+  margin-inline-end: 4px;
 }
 .addon-renewals {
   margin-top: 15px;
@@ -1385,7 +1385,7 @@ a.domain-tld-pricing-category {
   margin-bottom: 1rem;
 }
 #order-apex_cart .addon-promo-container .logo {
-  float: right;
+  float: inline-end;
   margin: 0 0 10px 20px;
   text-align: right;
   line-height: 100px;
@@ -1421,7 +1421,7 @@ a.domain-tld-pricing-category {
   border-bottom: 2px solid #99bb3a;
 }
 #order-apex_cart .mc-promo .cta {
-  float: right;
+  float: inline-end;
   padding: 3px 10px;
   text-align: center;
 }
@@ -1443,7 +1443,7 @@ a.domain-tld-pricing-category {
   cursor: pointer;
 }
 #order-apex_cart .mc-promo .icon {
-  float: left;
+  float: inline-start;
   margin: 10px;
   width: 48px;
   height: 48px;
@@ -1462,7 +1462,7 @@ a.domain-tld-pricing-category {
 }
 #order-apex_cart .mc-promo .body i {
   color: #99bc3a;
-  padding-right: 3px;
+  padding-inline-end: 3px;
 }
 .mc-promo em {
   font-weight: bold;
@@ -1502,7 +1502,7 @@ a.domain-tld-pricing-category {
   font-size: 0.9em;
 }
 #order-apex_cart .mc-promo .expander {
-  float: left;
+  float: inline-start;
   font-size: 1em;
   color: #99bc3a;
   text-align: right;
@@ -1706,7 +1706,7 @@ a.domain-tld-pricing-category {
 
 @media (max-width: 991px) {
   #order-apex_cart .captcha-container #google-recaptcha {
-    padding-left: 2.5%;
+    padding-inline-start: 2.5%;
     margin-bottom: -25px;
   }
 }
@@ -1735,7 +1735,7 @@ a.domain-tld-pricing-category {
 }
 @media (max-width: 320px) {
   #order-apex_cart .captcha-container #google-recaptcha {
-    padding-left: 13.5%;
+    padding-inline-start: 13.5%;
     margin-bottom: -45px;
     transform: scale(0.83);
     transform-origin: 0 0;
@@ -1824,7 +1824,7 @@ a.domain-tld-pricing-category {
   border-bottom: 4px solid #9abb3a;
 }
 .product-recommendations .product-recommendation .cta {
-  float: right;
+  float: inline-end;
   padding: 3px 10px;
   text-align: center;
   display: flex;
@@ -1879,14 +1879,14 @@ a.domain-tld-pricing-category {
   font-size: 0.9em;
 }
 .product-recommendations .product-recommendation .expander {
-  float: left;
+  float: inline-start;
   width: 28px;
   font-size: 1.5em;
   color: #9abb3a;
   text-align: right;
   line-height: 60px;
   transition: all 2s linear;
-  margin-right: 15px;
+  margin-inline-end: 15px;
 }
 .product-recommendations .product-recommendation .expander .fa-square {
   font-size: 0.7em;

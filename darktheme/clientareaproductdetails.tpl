@@ -34,7 +34,7 @@
     <div class="d-flex align-items-center flex-wrap gap-4">
       <a href="viewinvoice.php?id={$unpaidInvoice}" class="btn btn-xs btn-semi-ghost-info">
         {lang key='payInvoice'}
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right-icon lucide-chevron-right">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right-icon lucide-chevron-right rtl-rotate">
           <path d="m9 18 6-6-6-6" />
         </svg>
       </a>
@@ -368,7 +368,7 @@
               <div class="d-flex flex-wrap gap-2">
                 <a href="http://{$domain}" class="btn btn-semi-ghost-info btn-sm" target="_blank">
                   {lang key='visitwebsite'}
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right rtl-rotate">
                     <path d="M5 12h14" />
                     <path d="m12 5 7 7-7 7" />
                   </svg>
