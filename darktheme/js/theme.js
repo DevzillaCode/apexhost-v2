@@ -375,74 +375,78 @@ $(function () {
  * [listtable] (now with responsive wrapper)
  */
 $(function () {
-  // =============================================
-  // CONFIGURATION - Edit these values as needed
-  // =============================================
-  const CONFIG = {
-    // Element selectors
-    selectors: {
-      listTable: ".listtable",
-      filter: ".dataTables_filter",
-      info: ".dataTables_info",
-    },
+  if ($(".listtable").length > 0) {
+    // =============================================
+    // CONFIGURATION - Edit these values as needed
+    // =============================================
+    const CONFIG = {
+      // Element selectors
+      selectors: {
+        listTable: ".listtable",
+        filter: ".dataTables_filter",
+        info: ".dataTables_info",
+      },
 
-    // Classes to add to elements
-    classes: {
-      listTable: "table-responsive mb-10 border rounded-md", // Responsive wrapper for the table
-      filter: "", // Margin below filter
-      info: "", // Margin below info
-    },
+      // Classes to add to elements
+      classes: {
+        listTable: "table-responsive mb-10 border rounded-md", // Responsive wrapper for the table
+        filter: "", // Margin below filter
+        info: "", // Margin below info
+      },
 
-    // Insertion method ('before' or 'after' existing elements)
-    insertMethod: "before",
-  };
+      // Insertion method ('before' or 'after' existing elements)
+      insertMethod: "before",
+    };
 
-  // =============================================
-  // VALIDATION - Check if required elements exist
-  // =============================================
-  if (!$(CONFIG.selectors.listTable).length) {
-    console.error("Listtable element not found:", CONFIG.selectors.listTable);
-    return; // Exit if main container doesn't exist
-  }
+    // =============================================
+    // VALIDATION - Check if required elements exist
+    // =============================================
+    if (!$(CONFIG.selectors.listTable).length) {
+      console.error("Listtable element not found:", CONFIG.selectors.listTable);
+      return; // Exit if main container doesn't exist
+    }
 
-  // =============================================
-  // ELEMENT REORGANIZATION
-  // =============================================
+    // =============================================
+    // ELEMENT REORGANIZATION
+    // =============================================
 
-  // Move filter element (search input)
-  if ($(CONFIG.selectors.filter).length) {
-    $(CONFIG.selectors.listTable)[CONFIG.insertMethod](
-      $(CONFIG.selectors.filter)
-    );
-    $(CONFIG.selectors.filter).addClass(CONFIG.classes.filter);
-  } else {
-    console.warn("Filter element not found:", CONFIG.selectors.filter);
-  }
+    // Move filter element (search input)
+    if ($(CONFIG.selectors.filter).length) {
+      $(CONFIG.selectors.listTable)[CONFIG.insertMethod](
+        $(CONFIG.selectors.filter)
+      );
+      $(CONFIG.selectors.filter).addClass(CONFIG.classes.filter);
+    } else {
+      console.warn("Filter element not found:", CONFIG.selectors.filter);
+    }
 
-  // Move info element ("Showing X of Y entries")
-  if ($(CONFIG.selectors.info).length) {
-    $(CONFIG.selectors.listTable)[CONFIG.insertMethod](
-      $(CONFIG.selectors.info)
-    );
-    $(CONFIG.selectors.info).addClass(CONFIG.classes.info);
-  } else {
-    console.warn("Info element not found:", CONFIG.selectors.info);
-  }
+    // Move info element ("Showing X of Y entries")
+    if ($(CONFIG.selectors.info).length) {
+      $(CONFIG.selectors.listTable)[CONFIG.insertMethod](
+        $(CONFIG.selectors.info)
+      );
+      $(CONFIG.selectors.info).addClass(CONFIG.classes.info);
+    } else {
+      console.warn("Info element not found:", CONFIG.selectors.info);
+    }
 
-  // =============================================
-  // STYLING ENHANCEMENTS
-  // =============================================
-  $(CONFIG.selectors.listTable).addClass(CONFIG.classes.listTable);
+    // =============================================
+    // STYLING ENHANCEMENTS
+    // =============================================
+    $(CONFIG.selectors.listTable).addClass(CONFIG.classes.listTable);
 
-  // =============================================
-  // OPTIONAL: DEBUG OUTPUT
-  // =============================================
-  if (console.debug) {
-    console.debug("DataTables reorganization completed:", {
-      filterPosition: $(CONFIG.selectors.filter).length ? "moved" : "not found",
-      infoPosition: $(CONFIG.selectors.info).length ? "moved" : "not found",
-      listTableClasses: $(CONFIG.selectors.listTable).attr("class"),
-    });
+    // =============================================
+    // OPTIONAL: DEBUG OUTPUT
+    // =============================================
+    if (console.debug) {
+      console.debug("DataTables reorganization completed:", {
+        filterPosition: $(CONFIG.selectors.filter).length
+          ? "moved"
+          : "not found",
+        infoPosition: $(CONFIG.selectors.info).length ? "moved" : "not found",
+        listTableClasses: $(CONFIG.selectors.listTable).attr("class"),
+      });
+    }
   }
 });
 
@@ -457,64 +461,68 @@ $(function () {
  *   └── [rightContainer] (contains length menu)
  */
 $(function () {
-  // =============================================
-  // CONFIGURATION - Edit these classes as needed
-  // =============================================
-  const FLEX_CONTAINER_CLASSES ="d-flex justify-content-between align-items-center flex-lg-row flex-column gap-lg-0 gap-4";
-  const SUB_CONTAINER_CLASSES = "d-flex align-items-center justify-content-lg-start justify-content-center gap-3";
+  if ($(".listtable").length > 0) {
+    // =============================================
+    // CONFIGURATION - Edit these classes as needed
+    // =============================================
+    const FLEX_CONTAINER_CLASSES =
+      "d-flex justify-content-between align-items-center flex-lg-row flex-column gap-lg-0 gap-4";
+    const SUB_CONTAINER_CLASSES =
+      "d-flex align-items-center justify-content-lg-start justify-content-center gap-3";
 
-  // =============================================
-  // ELEMENT SELECTORS - Update if IDs/classes change
-  // =============================================
-  const SELECTORS = {
-    listTable: ".listtable",
-    paginate: ".dataTables_paginate",
-    length: ".dataTables_length",
-  };
+    // =============================================
+    // ELEMENT SELECTORS - Update if IDs/classes change
+    // =============================================
+    const SELECTORS = {
+      listTable: ".listtable",
+      paginate: ".dataTables_paginate",
+      length: ".dataTables_length",
+    };
 
-  // =============================================
-  // CONTAINER CREATION
-  // =============================================
+    // =============================================
+    // CONTAINER CREATION
+    // =============================================
 
-  // Main flex container that holds both left and right sections
-  const $flexContainer = $("<div>").addClass(FLEX_CONTAINER_CLASSES);
+    // Main flex container that holds both left and right sections
+    const $flexContainer = $("<div>").addClass(FLEX_CONTAINER_CLASSES);
 
-  // Left container - will hold pagination controls
-  const $leftContainer = $("<div>").addClass(SUB_CONTAINER_CLASSES);
+    // Left container - will hold pagination controls
+    const $leftContainer = $("<div>").addClass(SUB_CONTAINER_CLASSES);
 
-  // Right container - will hold length menu
-  const $rightContainer = $("<div>").addClass(SUB_CONTAINER_CLASSES);
+    // Right container - will hold length menu
+    const $rightContainer = $("<div>").addClass(SUB_CONTAINER_CLASSES);
 
-  // =============================================
-  // ELEMENT REORGANIZATION
-  // =============================================
+    // =============================================
+    // ELEMENT REORGANIZATION
+    // =============================================
 
-  // Move pagination controls to left container
-  if ($(SELECTORS.paginate).length) {
-    $leftContainer.append($(SELECTORS.paginate));
-  } else {
-    console.warn("Pagination element not found:", SELECTORS.paginate);
-  }
+    // Move pagination controls to left container
+    if ($(SELECTORS.paginate).length) {
+      $leftContainer.append($(SELECTORS.paginate));
+    } else {
+      console.warn("Pagination element not found:", SELECTORS.paginate);
+    }
 
-  // Move length menu to right container
-  if ($(SELECTORS.length).length) {
-    $rightContainer.append($(SELECTORS.length));
-  } else {
-    console.warn("Length menu element not found:", SELECTORS.length);
-  }
+    // Move length menu to right container
+    if ($(SELECTORS.length).length) {
+      $rightContainer.append($(SELECTORS.length));
+    } else {
+      console.warn("Length menu element not found:", SELECTORS.length);
+    }
 
-  // =============================================
-  // DOM STRUCTURE ASSEMBLY
-  // =============================================
+    // =============================================
+    // DOM STRUCTURE ASSEMBLY
+    // =============================================
 
-  // Combine containers
-  $flexContainer.append($leftContainer, $rightContainer);
+    // Combine containers
+    $flexContainer.append($leftContainer, $rightContainer);
 
-  // Insert the new container after the listtable
-  // Change to .before() if you want it above the table
-  if ($(SELECTORS.listTable).length) {
-    $(SELECTORS.listTable).after($flexContainer);
-  } else {
-    console.error("Listtable element not found:", SELECTORS.listTable);
+    // Insert the new container after the listtable
+    // Change to .before() if you want it above the table
+    if ($(SELECTORS.listTable).length) {
+      $(SELECTORS.listTable).after($flexContainer);
+    } else {
+      console.error("Listtable element not found:", SELECTORS.listTable);
+    }
   }
 });

@@ -1,18 +1,15 @@
-<div class="row justify-content-center">
-    <div class="card mw-540 mb-4 mt-4">
-        <div class="card-body px-md-5 py-5">
-            {if $loggedin && $innerTemplate}
-                {include file="$template/includes/alert.tpl" type="error" msg="{lang key='noPasswordResetWhenLoggedIn'}"}
-            {else}
-                {if $successMessage}
-                    {include file="$template/includes/alert.tpl" type="success" msg=$successTitle}
-                    <p>{$successMessage}</p>
-                {else}
-                    {if $innerTemplate}
-                        {include file="$template/password-reset-$innerTemplate.tpl"}
-                    {/if}
-                {/if}
-            {/if}
-        </div>
-    </div>
-</div>
+{if $loggedin && $innerTemplate}
+    {include file="$template/includes/alert.tpl" type="error" msg="{lang key='noPasswordResetWhenLoggedIn'}"}
+{else}
+    {if $successMessage}
+        {include file="$template/includes/alert.tpl" type="success" msg=$successTitle}
+       <div class="container-fluid py-8">
+            <p>{$successMessage}</p>
+            <a class="btn btn-primary btn-sm mt-4" href="login.php">{lang key="loginbutton"}</a>
+       </div>
+    {else}
+        {if $innerTemplate}
+            {include file="$template/password-reset-$innerTemplate.tpl"}
+        {/if}
+    {/if}
+{/if}

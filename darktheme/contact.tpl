@@ -10,8 +10,8 @@
     <div class="left-section">
       {* Content area *}
       <div class="content text-md-left text-center">
-        <h1 class="title-2 color-foreground font-weight-semibold mb-2">{lang key='contact.title'}</h1>
-        <p class="text-size-base">{lang key='contact.description'}</p>
+        <h1 class="title-2 color-foreground font-weight-semibold mb-2">{lang key='contactTitle'}</h1>
+        <p class="text-size-base">{lang key='contactDescription'}</p>
         {* Navigation links *}
         <div class="float-links">
           <div class="d-flex align-items-center justify-content-md-start justify-content-center flex-wrap">
@@ -29,7 +29,7 @@
       <div class="content">
         {* Show success message after form submission *}
         {if $sent}
-          {include file="$template/includes/alert.tpl" type="success" msg="{lang key='contact.success'}"}
+          {include file="$template/includes/alert.tpl" type="success" msg="{lang key='contactSuccess'}"}
         {/if}
         {* Show error message if form submission fails *}
         {if $errormessage}
@@ -43,7 +43,7 @@
             <div class="form-body d-flex flex-column gap-4">
               {* Full Name Input *}
               <div class="form-group">
-                <label for="inputName" class="form-label">{lang key='contact.clientName'}</label>
+                <label for="inputName" class="form-label">{lang key='contactClientName'}</label>
                 <div class="prepend-icon">
                   <div class="form-float-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-round-icon lucide-user-round">
@@ -51,12 +51,12 @@
                       <path d="M20 21a8 8 0 0 0-16 0" />
                     </svg>
                   </div>
-                  <input type="text" name="name" id="inputName" class="form-control" value="{$name}" placeholder="{lang key='contact.clientNamePlaceholder'}" autofocus autocomplete="off">
+                  <input type="text" name="name" id="inputName" class="form-control" value="{$name}" placeholder="{lang key='contactClientNamePlaceholder'}" autofocus autocomplete="off">
                 </div>
               </div>
               {* Email Input *}
               <div class="form-group">
-                <label for="inputEmail" class="form-label">{lang key='contact.clientEmail'}</label>
+                <label for="inputEmail" class="form-label">{lang key='contactClientEmail'}</label>
                 <div class="prepend-icon">
                   <div class="form-float-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mail-icon lucide-mail">
@@ -64,12 +64,12 @@
                       <rect x="2" y="4" width="20" height="16" rx="2" />
                     </svg>
                   </div>
-                  <input type="email" name="email" id="inputEmail" class="form-control" value="{$email}" placeholder="{lang key='contact.clientEmailPlaceholder'}" autocomplete="off">
+                  <input type="email" name="email" id="inputEmail" class="form-control" value="{$email}" placeholder="{lang key='contactClientEmailPlaceholder'}" autocomplete="off">
                 </div>
               </div>
               {* Subject Input *}
               <div class="form-group">
-                <label for="inputSubject" class="form-label">{lang key='contact.subject'}</label>
+                <label for="inputSubject" class="form-label">{lang key='contactSubject'}</label>
                 <div class="prepend-icon">
                   <div class="form-float-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-marked-icon lucide-book-marked">
@@ -77,19 +77,19 @@
                       <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H19a1 1 0 0 1 1 1v18a1 1 0 0 1-1 1H6.5a1 1 0 0 1 0-5H20" />
                     </svg>
                   </div>
-                  <input type="text" name="subject" id="inputSubject" class="form-control" value="{$subject}" placeholder="{lang key='contact.subjectPlaceholder'}" autocomplete="off">
+                  <input type="text" name="subject" id="inputSubject" class="form-control" value="{$subject}" placeholder="{lang key='contactSubjectPlaceholder'}" autocomplete="off">
                 </div>
               </div>
               {* Message Input *}
               <div class="form-group">
-                <label for="inputMessage" class="form-label">{lang key='contact.message'}</label>
+                <label for="inputMessage" class="form-label">{lang key='contactMessage'}</label>
                 <div class="prepend-icon">
                   <div class="form-float-icon">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-circle-icon lucide-message-circle">
                       <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
                     </svg>
                   </div>
-                  <textarea name="message" rows="7" class="form-control" id="inputMessage" placeholder="{lang key='contact.messagePlaceholder'}">{$message}</textarea>
+                  <textarea name="message" rows="7" class="form-control" id="inputMessage" placeholder="{lang key='contactMessagePlaceholder'}">{$message}</textarea>
                 </div>
               </div>
               {* CAPTCHA if enabled *}
@@ -100,7 +100,7 @@
               {/if}
               {* Submit Button *}
               <div class="form-group">
-                <button type="submit" name="submit" class="btn btn-light btn-block{$captcha->getButtonClass($captchaForm)}">{lang key='contact.send'}</button>
+                <button type="submit" name="submit" class="btn btn-light btn-block{$captcha->getButtonClass($captchaForm)}">{lang key='contactSend'}</button>
               </div>
             </div>
           </form>

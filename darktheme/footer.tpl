@@ -11,7 +11,7 @@
                     </div>
                     </section>
 
-                    {if $templatefile !== 'login' && $templatefile !== 'passwordreset' && $templatefile !== 'contact'}
+                    {if $templatefile !== 'login' && $templatefile !== 'password-reset-container' && $templatefile !== 'contact'}
                       <!-- Theme Footer -->
                       {include file="$template/components/sections/shared/Footer.tpl"}
                     {/if}
