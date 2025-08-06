@@ -2390,7 +2390,7 @@ body.float-bar-open {
   border: 1px solid var(--border);
   display: flex;
   flex-direction: column;
-  row-gap: 1rem;
+  row-gap: 2rem;
 }
 .modal.wide-modal .modal-content {
   width: 600px;
