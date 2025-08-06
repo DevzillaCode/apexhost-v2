@@ -21,7 +21,7 @@
   </h1>
 
   {* Article metadata section *}
-  <ul class="list-inline d-flex align-items-center flex-wrap mb-4" data-gap-x="8px" data-gap-y="8px">
+  <ul class="list-inline d-flex align-items-center flex-wrap mb-4 row-gap-2 col-gap-2">
     {* Display tags if they exist *}
     {if $kbarticle.tags}
       <li>

@@ -1,5 +1,4 @@
 <!-- Styling -->
-{\WHMCS\View\Asset::fontCssInclude('open-sans-family.css')}
 <link href="{assetPath file='all.css'}?v={$versionHash}" rel="stylesheet">
 <link href="{assetPath file='theme.css'}?v={$versionHash}" rel="stylesheet">
 <link href="{$WEB_ROOT}/assets/css/fontawesome-all.min.css" rel="stylesheet">

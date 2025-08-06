@@ -14,7 +14,7 @@
     {foreach $productGroups as $group}
       {if $group.name eq "Shared Hosting"}
         <!-- row -->
-        <div class="row" data-gap-y="30px">
+        <div class="row row-gap-8">
           {foreach $group.products as $product}
             <!-- col -->
             <div class="col-xl-3 col-md-6">
@@ -65,9 +65,9 @@
                 <!-- plan-features -->
                 <div class="plan-features px-5">
                   <!-- features-title -->
-                  <h5 class="features-title title-6 font-weight-semibold color-foreground mb-5">{lang key="T_topFeatures"}</h5>
+                  <h3 class="features-title title-6 font-weight-semibold color-foreground mb-5">{lang key="T_topFeatures"}</h3>
                   <!-- features-list -->
-                  <ul class="features-list list-unstyled d-flex flex-column" data-gap-y="12px">
+                  <ul class="features-list list-unstyled d-flex flex-column row-gap-3">
                     <!-- list-item -->
                     {foreach $product.features as $feature => $value}
                       <div class="item" id="{$idPrefix}-feature{$value@iteration}">
@@ -77,7 +77,7 @@
                     {foreachelse}
                       {assign var="descriptionLines" value=explode("\n", $product.description)}
                       {foreach $descriptionLines as $line}
-                        <li class="list-item d-flex align-items-center justify-content-start" data-gap-x="10px">
+                        <li class="list-item d-flex align-items-center justify-content-start col-gap-3">
                           <svg class="icon d-inline-flex align-items-center" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <g id="SVGRepo_bgCarrier" stroke-width="0" transform="translate(4.5600000000000005,4.5600000000000005), scale(0.62)">
                               <rect x="-2.4" y="-2.4" width="24" height="24" rx="14.4" fill="#ffffff" strokewidth="0"></rect>
@@ -103,9 +103,9 @@
     {/foreach}
     {* Section Features *}
     <!-- section-features -->
-    <div class="section-features d-flex align-items-center justify-content-center flex-wrap" data-gap-x="30px" data-gap-y="15px">
+    <div class="section-features d-flex align-items-center justify-content-center flex-wrap row-gap-4 col-gap-8">
       <!-- line -->
-      <div class="line d-flex align-items-center justify-content-center" data-gap-x="10px">
+      <div class="line d-flex align-items-center justify-content-center col-gap-3">
         <svg class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
           <path class="st0" d="M256,0C114.8,0,0,114.8,0,256s114.8,256,256,256s256-114.8,256-256S397.2,0,256,0z"></path>
           <path class="st1" fill="#ffffff" d="M385.8,201.8L247.1,340.4c-4.2,4.2-9.6,6.3-15.1,6.3s-10.9-2.1-15.1-6.3l-69.3-69.3c-8.3-8.3-8.3-21.8,0-30.2
@@ -114,7 +114,7 @@
         <span class="text text-size-sm font-weight-medium color-neutral-300">{lang key="T_backupsMonthly"}</span>
       </div>
       <!-- line -->
-      <div class="line d-flex align-items-center justify-content-center" data-gap-x="10px">
+      <div class="line d-flex align-items-center justify-content-center col-gap-3">
         <svg class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
           <path class="st0" d="M256,0C114.8,0,0,114.8,0,256s114.8,256,256,256s256-114.8,256-256S397.2,0,256,0z"></path>
           <path class="st1" fill="#ffffff" d="M385.8,201.8L247.1,340.4c-4.2,4.2-9.6,6.3-15.1,6.3s-10.9-2.1-15.1-6.3l-69.3-69.3c-8.3-8.3-8.3-21.8,0-30.2 c8.3-8.3,21.8-8.3,30.2,0l54.3,54.3l123.6-123.6c8.3-8.3,21.8-8.3,30.2,0C394.1,179.9,394.1,193.4,385.8,201.8z"></path>
@@ -122,7 +122,7 @@
         <span class="text text-size-sm font-weight-medium color-neutral-300">{lang key="T_freeWhiteGloveMigrations"}</span>
       </div>
       <!-- line -->
-      <div class="line d-flex align-items-center justify-content-center" data-gap-x="10px">
+      <div class="line d-flex align-items-center justify-content-center col-gap-3">
         <svg class="icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;" xml:space="preserve">
           <path class="st0" d="M256,0C114.8,0,0,114.8,0,256s114.8,256,256,256s256-114.8,256-256S397.2,0,256,0z"></path>
           <path class="st1" fill="#ffffff" d="M385.8,201.8L247.1,340.4c-4.2,4.2-9.6,6.3-15.1,6.3s-10.9-2.1-15.1-6.3l-69.3-69.3c-8.3-8.3-8.3-21.8,0-30.2 c8.3-8.3,21.8-8.3,30.2,0l54.3,54.3l123.6-123.6c8.3-8.3,21.8-8.3,30.2,0C394.1,179.9,394.1,193.4,385.8,201.8z"></path>

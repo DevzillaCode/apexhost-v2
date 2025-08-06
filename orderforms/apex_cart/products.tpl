@@ -25,7 +25,7 @@
       {* product-cards *}
       <div class="product-cards">
         {* row *}
-        <div class="row" data-gap-y="30px">
+        <div class="row row-gap-8">
           {* Include the product cards template *}
           {include file="orderforms/apex_cart/includes/cards/standard-card.tpl"}
         </div>

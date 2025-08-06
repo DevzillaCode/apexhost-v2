@@ -9,7 +9,7 @@
       <!-- search-form -->
       <form method="post" action="domainchecker.php" id="frmDomainHomepage" class="domain-search-form">
         <input type="hidden" name="transfer" />
-        <div class="custom-input-group d-flex flex-md-row flex-column align-items-center" data-gap-y="10px">
+        <div class="custom-input-group d-flex flex-md-row flex-column align-items-center row-gap-3">
           <!-- flex-div -->
           <div class="d-flex align-items-center w-100">
             <i class="fad fa-search"></i>

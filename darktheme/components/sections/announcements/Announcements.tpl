@@ -6,7 +6,7 @@
     {* section-content *}
     <div class="section-content">
       {* row *}
-      <div class="row" data-gap-y="30px">
+      <div class="row row-gap-8">
         {foreach $announcements as $announcement}
           {if $announcement@index < 3}
             {* col *}

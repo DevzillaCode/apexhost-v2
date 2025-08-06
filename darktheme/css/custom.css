@@ -42,7 +42,7 @@
     var(--red)
   );
   background-size: 200%;
-  /* filter: blur(calc(0.8 * 4rem)); */
+  filter: blur(calc(0.8 * 4rem));
   animation: animated-bg 2s infinite linear;
   transition: all 0.05s ease-in-out;
   opacity: 0.3;

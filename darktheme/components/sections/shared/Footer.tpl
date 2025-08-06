@@ -64,7 +64,7 @@
   <div class="footer-bottom">
     <div class="container-fluid">
       <!-- content -->
-      <div class="content d-flex align-items-start mb-4 flex-lg-row flex-column" data-gap-y="30px" data-gap-x="30px">
+      <div class="content d-flex align-items-start mb-4 flex-lg-row flex-column row-gap-8 col-gap-8">
         <!-- logo -->
         <div class="logo">
           <a href="index.php">
@@ -88,7 +88,7 @@
           <p class="para-3">{lang key="footer_copyright_text" year=$date_year company=$companyname}</p>
         </div>
         <!-- social-list -->
-        <ul class="social-list list-unstyled d-flex align-items-center justify-content-lg-end justify-content-center ml-lg-auto" data-gap-x="10px" data-gap-y="10px">
+        <ul class="social-list list-unstyled d-flex align-items-center justify-content-lg-end justify-content-center ml-lg-auto row-gap-3 col-gap-3">
           {foreach $socialAccounts as $account}
             <li class="footer-list-inline-item">
               <a class="theme-square-btn --fill-transparent-dark --icon-size-18" href="{$account->getUrl()}" target="_blank" title="{$account->getName()}">

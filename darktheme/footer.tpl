@@ -75,11 +75,11 @@
                               {* languages-list *}
                               <div class="languages-list">
                                 {if $languagechangeenabled && count($locales) > 1}
-                                  <div class="row item-selector small-gutters" data-gap-y="15px">
+                                  <div class="row item-selector small-gutters">
                                     <input type="hidden" name="language" data-current="{$language}" value="{$language}" />
                                     {foreach $locales as $locale}
                                       <div class="col-lg-3 col-md-4 col-sm-6">
-                                        <a href="#" class="item{if $language == $locale.language} active{/if}" data-value="{$locale.language}" data-gap-x="10px">
+                                        <a href="#" class="item{if $language == $locale.language} active{/if}" data-value="{$locale.language} col-gap-3">
                                           {* <img src="{$WEB_ROOT}/templates/apexhost/images/flags/{$locale.language}.svg" class="flag img-fluid" alt="{$locale.localisedName}" loading="lazy" /> *}
                                           {$locale.localisedName}
                                           {if $language == $locale.language}
@@ -173,9 +173,6 @@
 
                     {$footeroutput}
                     {assetExists file="immediate.js"}
-                    <script src="{$__assetPath__}"></script>
-                    {/assetExists}
-                    {assetExists file="bundle.js"}
                     <script src="{$__assetPath__}"></script>
                     {/assetExists}
                     {assetExists file="theme.js"}

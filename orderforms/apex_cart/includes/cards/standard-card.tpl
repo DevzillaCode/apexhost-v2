@@ -13,7 +13,7 @@
       </div>
       {* standard-card-body *}
       <div class="standard-card-body">
-        <div class="row" data-gap-y="15px">
+        <div class="row row-gap-4">
           {* col *}
           {foreach $product.features as $feature => $value}
             <div class="col-lg-6">
@@ -60,7 +60,7 @@
           {* col *}
           <div class="col-lg-6">
             {* card-price *}
-            <div class="d-flex align-items-center" data-gap-x="10px">
+            <div class="d-flex align-items-center col-gap-3">
               <span class="card-price text-size-lg font-weight-semibold color-foreground">
                 <span class="card-sign text-size-lg color-foreground">
                   {$product.pricing.minprice.price|substr:0:1}

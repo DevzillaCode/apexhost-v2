@@ -30,14 +30,14 @@
     {/if}
   </div>
   {* card-info *}
-  <div class="card-info d-flex align-items-center justify-content-start flex-warp mb-4" data-gap-x="10px">
+  <div class="card-info d-flex align-items-center justify-content-start flex-warp mb-4 col-gap-3">
     {* info-div *}
-    <div class="info-div d-inline-flex align-items-center py-2 px-3 text-size-sm color-foreground" data-gap-x="8px">
+    <div class="info-div d-inline-flex align-items-center py-2 px-3 text-size-sm color-foreground col-gap-2">
       <i class="fad fa-calendar-alt"></i>
       {$carbon->parse($announcement.rawDate)->format('jS F, Y')}
     </div>
     {* info-div *}
-    <div class="info-div d-inline-flex align-items-center py-2 px-3 text-size-sm color-foreground" data-gap-x="8px">
+    <div class="info-div d-inline-flex align-items-center py-2 px-3 text-size-sm color-foreground col-gap-2">
       <i class="fad fa-clock"></i>
       {$carbon->parse($announcement.rawDate)->format('h:ia')}
     </div>

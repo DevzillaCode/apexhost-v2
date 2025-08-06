@@ -97,7 +97,7 @@
                     <div class="item">
                       {* item-title *}
                       <h4 class="item-title">{$product.productinfo.groupname}<span class="item-name ml-auto">{$product.productinfo.name}</span>
-                        <button class="btn-square btn-semi-ghost-secondary btn-xxs rounded-circle rotate-180" data-toggle="collapse" type="button" data-target="#collapse-{$num}" aria-expanded="false" aria-controls="collapse-{$num}">
+                        <button class="btn-square btn-semi-ghost-secondary btn-xxs rounded-circle rotate-180" data-toggle="collapse" type="button" data-target="#collapse-{$num}" aria-expanded="false" aria-controls="collapse-{$num}" aria-label="collapse-{$num}">
                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down">
                             <path d="m6 9 6 6 6-6" />
                           </svg>
@@ -270,7 +270,7 @@
                       <h4 class="item-title">
                         {$addon.name}
                         <span class="item-name ml-auto">{$addon.productname}</span>
-                        <button class="btn-square btn-semi-ghost-secondary btn-xxs rounded-circle rotate-180" data-toggle="collapse" type="button" data-target="#collapse-addon-{$num}" aria-expanded="false" aria-controls="collapse-addon-{$num}">
+                        <button class="btn-square btn-semi-ghost-secondary btn-xxs rounded-circle rotate-180" data-toggle="collapse" type="button" data-target="#collapse-addon-{$num}" aria-expanded="false" aria-controls="collapse-addon-{$num}" aria-label="collapse-addon-{$num}">
                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down">
                             <path d="m6 9 6 6 6-6" />
                           </svg>
@@ -361,7 +361,7 @@
                       <h4 class="item-title">
                         {if $domain.type eq "register"}{$LANG.orderdomainregistration}{else}{$LANG.orderdomaintransfer}{/if}
                         <span class="item-name ml-auto">{$domain.domain}</span>
-                        <button class="btn-square btn-semi-ghost-secondary btn-xxs rounded-circle rotate-180" data-toggle="collapse" type="button" data-target="#collapse-domain-{$num}" aria-expanded="false" aria-controls="collapse-domain-{$num}">
+                        <button class="btn-square btn-semi-ghost-secondary btn-xxs rounded-circle rotate-180" data-toggle="collapse" type="button" data-target="#collapse-domain-{$num}" aria-expanded="false" aria-controls="collapse-domain-{$num}" aria-label="collapse-domain-{$num}">
                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down">
                             <path d="m6 9 6 6 6-6" />
                           </svg>
@@ -495,7 +495,7 @@
                       <h4 class="item-title">
                         {lang key='renewService.titleAltSingular'}
                         <span class="item-name ml-auto">{$service.name}</span>
-                        <button class="btn-square btn-semi-ghost-secondary btn-xxs rounded-circle rotate-180" data-toggle="collapse" type="button" data-target="#collapse-renewal-service-{$num}" aria-expanded="false" aria-controls="collapse-renewal-service-{$num}">
+                        <button class="btn-square btn-semi-ghost-secondary btn-xxs rounded-circle rotate-180" data-toggle="collapse" type="button" data-target="#collapse-renewal-service-{$num}" aria-expanded="false" aria-controls="collapse-renewal-service-{$num}" aria-label="collapse-renewal-service-{$num}">
                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down">
                             <path d="m6 9 6 6 6-6" />
                           </svg>
@@ -580,7 +580,7 @@
                       <h4 class="item-title">
                         {lang key='renewServiceAddon.titleAltSingular'}
                         <span class="item-name ml-auto">{$service.name}</span>
-                        <button class="btn-square btn-semi-ghost-secondary btn-xxs rounded-circle rotate-180" data-toggle="collapse" type="button" data-target="#collapse-renewal-addon-{$num}" aria-expanded="false" aria-controls="collapse-renewal-addon-{$num}">
+                        <button class="btn-square btn-semi-ghost-secondary btn-xxs rounded-circle rotate-180" data-toggle="collapse" type="button" data-target="#collapse-renewal-addon-{$num}" aria-expanded="false" aria-controls="collapse-renewal-addon-{$num}" aria-label="collapse-renewal-addon-{$num}">
                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down">
                             <path d="m6 9 6 6 6-6" />
                           </svg>
@@ -668,7 +668,7 @@
                       <h4 class="item-title">
                         {$LANG.domainrenewal}
                         <span class="item-name ml-auto">{$domain.domain}</span>
-                        <button class="btn-square btn-semi-ghost-secondary btn-xxs rounded-circle rotate-180" data-toggle="collapse" type="button" data-target="#collapse-domain-renewal-{$num}" aria-expanded="false" aria-controls="collapse-domain-renewal-{$num}">
+                        <button class="btn-square btn-semi-ghost-secondary btn-xxs rounded-circle rotate-180" data-toggle="collapse" type="button" data-target="#collapse-domain-renewal-{$num}" aria-expanded="false" aria-controls="collapse-domain-renewal-{$num}" aria-label="collapse-domain-renewal-{$num}">
                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down">
                             <path d="m6 9 6 6 6-6" />
                           </svg>
@@ -782,7 +782,7 @@
                             {$upgrade->originalAddon->name} → {$upgrade->newAddon->name}
                           {/if}
                         </span>
-                        <button class="btn-square btn-semi-ghost-secondary btn-xxs rounded-circle rotate-180" data-toggle="collapse" type="button" data-target="#collapse-upgrade-{$num}" aria-expanded="false" aria-controls="collapse-upgrade-{$num}">
+                        <button class="btn-square btn-semi-ghost-secondary btn-xxs rounded-circle rotate-180" data-toggle="collapse" type="button" data-target="#collapse-upgrade-{$num}" aria-expanded="false" aria-controls="collapse-upgrade-{$num}" aria-label="collapse-upgrade-{$num}">
                           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-down-icon lucide-chevron-down">
                             <path d="m6 9 6 6 6-6" />
                           </svg>

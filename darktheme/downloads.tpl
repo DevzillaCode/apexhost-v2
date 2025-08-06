@@ -65,7 +65,7 @@
       <!-- Loop through each popular download -->
       {foreach $mostdownloads as $download}
         <!-- Individual download article card -->
-        <article class="card article-card --has-hover d-flex align-items-start p-4 rounded-sm border-0" data-id="{$download.id}" data-gap-x="6px" style="column-gap: 6px;">
+        <article class="card article-card --has-hover d-flex align-items-start p-4 rounded-sm border-0 col-gap-4" data-id="{$download.id}">
 
           <!-- Restriction label (only shows for client-only downloads) -->
           {if $download.clientsonly}

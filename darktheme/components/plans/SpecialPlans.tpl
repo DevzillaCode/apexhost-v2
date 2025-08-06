@@ -3,7 +3,7 @@
     <!-- section-title -->
     {include file="$template/components/heading/HeroTitle.tpl" headline="{lang key="Amazing Products"}" tagline="{lang key="Create the perfect site with powerful drag and drop tools"}"}
     {* row *}
-    <div class="row" data-gap-y="30px">
+    <div class="row row-gap-8">
       {* col *}
       <div class="col-xl-6">
         {* premium-plan-card *}
@@ -15,11 +15,11 @@
               {* col *}
               <div class="col-7">
                 {* left-content *}
-                <div class="left-content d-flex" data-gap-x="20px">
+                <div class="left-content d-flex col-gap-5">
                   {* text-container *}
                   <div class="text-container pr-lg-5">
                     {* title *}
-                    <h4 class="title title-4 font-weight-semibold color-foreground mb-0">Ultimate Plan</h4>
+                    <h3 class="title title-4 font-weight-semibold color-foreground mb-0">Ultimate Plan</h3>
                   </div>
                 </div>
               </div>
@@ -27,7 +27,7 @@
                 {* right-content *}
                 <div class="right-content">
                   {* price *}
-                  <div class="price" data-gap-x="5px">
+                  <div class="price col-gap-1">
                     <div class="discount title-3 gradient-text gradient-primary font-weight-bold font-heading">80% OFF</div>
                   </div>
                 </div>
@@ -39,7 +39,7 @@
             {* plan-text *}
             <p class="plan-text mb-10">Enhance your site’s performance by delivering content globally, ensuring visitors experience faster loading times from the nearest server location.</p>
             {* plan-features *}
-            <ul class="plan-features list-unstyled d-flex flex-column" data-gap-y="10px">
+            <ul class="plan-features list-unstyled d-flex flex-column row-gap-3">
               {* feature-item *}
               <li class="feature-item d-flex align-items-md-center justify-content-between flex-md-row flex-column">
                 <span class="text text-size-sm font-weight-semibold color-foreground">60GB SSD Storage</span>
@@ -88,13 +88,13 @@
       {* col *}
       <div class="col-xl-6">
         {* row *}
-        <div class="row" data-gap-y="30px">
+        <div class="row row-gap-8">
           {* col *}
           <div class="col-12">
             {* mini-plan-card *}
             <div class="mini-plan-card py-8 px-8">
               {* plan-header *}
-              <div class="plan-header d-flex mb-7" data-gap-x="15px">
+              <div class="plan-header d-flex mb-7 col-gap-4">
                 {* icon *}
                 <div class="icon">
                   {include  file="$template/images/svg/elephant-origami.svg"}
@@ -108,7 +108,7 @@
               {* plan-body *}
               <div class="plan-body">
                 {* price-list *}
-                <ul class="price-list list-unstyled d-flex flex-column mb-0" data-gap-y="5px">
+                <ul class="price-list list-unstyled d-flex flex-column mb-0 row-gap-1">
                   {* price-item *}
                   <li class="price-item d-flex align-items-center justify-content-between py-3 px-3">
                     <span class="text color-foreground text-size-sm font-weight-semibold">4 vCPU Cores</span>

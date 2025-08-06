@@ -1,7 +1,7 @@
 <div class="home-domains-features text-left">
   <div class="container-fluid">
     <!-- row -->
-    <div class="row" data-gap-y="30px">
+    <div class="row row-gap-8">
       <!-- col -->
       <div class="col-xl-2 col-md-4 col-sm-6">
         <!-- feature-item -->
@@ -13,7 +13,7 @@
             </svg>
           </div>
           {* title - text *}
-          <h3 class="title title-6 font-weight-semibold mb-2">{lang key='T_whoisPrivacy'}</h3>
+          <h2 class="title title-6 font-weight-semibold mb-2">{lang key='T_whoisPrivacy'}</h2>
           <p class="text text-size-sm font-weight-medium mb-0">{lang key='T_whoisPrivacyDescription'}</p>
         </div>
       </div>
@@ -28,7 +28,7 @@
             </svg>
           </div>
           {* title - text *}
-          <h3 class="title title-6 font-weight-semibold mb-2">{lang key='T_unlimitedBandwidth'}</h3>
+          <h2 class="title title-6 font-weight-semibold mb-2">{lang key='T_unlimitedBandwidth'}</h2>
           <p class="text text-size-sm font-weight-medium mb-0">{lang key='T_unlimitedBandwidthDescription'}</p>
         </div>
       </div>
@@ -43,7 +43,7 @@
             </svg>
           </div>
           {* title - text *}
-          <h3 class="title title-6 font-weight-semibold mb-2">{lang key='T_ssl'}</h3>
+          <h2 class="title title-6 font-weight-semibold mb-2">{lang key='T_ssl'}</h2>
           <p class="text text-size-sm font-weight-medium mb-0">{lang key='T_sslDescription'}</p>
         </div>
       </div>
@@ -58,7 +58,7 @@
             </svg>
           </div>
           {* title - text *}
-          <h3 class="title title-6 font-weight-semibold mb-2">{lang key='T_customDomains'}</h3>
+          <h2 class="title title-6 font-weight-semibold mb-2">{lang key='T_customDomains'}</h2>
           <p class="text text-size-sm font-weight-medium mb-0">{lang key='T_customDomainsDescription'}</p>
         </div>
       </div>
@@ -73,7 +73,7 @@
             </svg>
           </div>
           {* title - text *}
-          <h3 class="title title-6 font-weight-semibold mb-2">{lang key='T_emailHosting'}</h3>
+          <h2 class="title title-6 font-weight-semibold mb-2">{lang key='T_emailHosting'}</h2>
           </h3>
           <p class="text text-size-sm font-weight-medium mb-0">{lang key='T_emailHostingDescription'}</p>
         </div>
@@ -92,7 +92,7 @@
             </svg>
           </div>
           {* title - text *}
-          <h3 class="title title-6 font-weight-semibold mb-2">{lang key="T_websiteBuilder"}</h3>
+          <h2 class="title title-6 font-weight-semibold mb-2">{lang key="T_websiteBuilder"}</h2>
           <p class="text text-size-sm font-weight-medium mb-0">{lang key="T_websiteBuilderDescription"}</p>
         </div>
       </div>

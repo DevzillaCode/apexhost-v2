@@ -45,7 +45,7 @@
 
         {* Personal information section *}
         <h3 class="title-5 mb-5">{lang key='orderForm.personalInformation'}</h3>
-        <div class="row small-gutters mb-10" data-gap-y="15px">
+        <div class="row small-gutters mb-10 row-gap-4">
           {* First name field *}
           <div class="col-md-6">
             <div class="form-group">
@@ -105,7 +105,7 @@
 
         {* Billing address section *}
         <h3 class="title-5 mb-5">{lang key='orderForm.billingAddress'}</h3>
-        <div class="row small-gutters mb-10" data-gap-y="15px">
+        <div class="row small-gutters mb-10 row-gap-4">
           {* Company name field *}
           <div class="col-md-6">
             <div class="form-group">
@@ -317,7 +317,7 @@
         <div id="containerNewUserSecurity" {if $remote_auth_prelinked && !$securityquestions } class="w-hidden" {/if}>
           <h3 class="title-5 mb-5">{lang key='orderForm.accountSecurity'}</h3>
           <div id="passwdFeedback" class="alert alert-info text-center col-sm-12 w-hidden"></div>
-          <div class="row small-gutters mb-10" data-gap-y="15px">
+          <div class="row small-gutters mb-10 row-gap-4">
             {* Password fields *}
             <div class="col-md-6">
               <div class="form-group">
@@ -373,7 +373,7 @@
         {* Security questions section *}
         {if $securityquestions}
           <h3 class="title-5 mb-5">{lang key='orderForm.securityQuestions'}</h3>
-          <div class="row small-gutters mb-10" data-gap-y="15px">
+          <div class="row small-gutters mb-10 row-gap-4">
             <div class="col-6">
               <div class="form-group">
                 <div class="prepend-icon">

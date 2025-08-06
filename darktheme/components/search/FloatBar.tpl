@@ -4,7 +4,7 @@
     {* content-area *}
     <div class="content-area" id="float-bar-content-area">
       {* div *}
-      <div class="d-flex align-items-center" data-gap-x="10px">
+      <div class="d-flex align-items-center col-gap-3">
         {* icon *}
         <div class="icon --icon-size-14">
           <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 1000 1000">
@@ -18,10 +18,10 @@
     {* actions-bar *}
     <div class="actions-bar">
       {* div *}
-      <div class="d-flex align-items-center justify-content-between" data-gap-x="6px">
+      <div class="d-flex align-items-center justify-content-between col-gap-2">
         {* left-content *}
         <div class="left-content" id="float-bar-left-content">
-          <div class="d-flex align-items-center" data-gap-x="6px">
+          <div class="d-flex align-items-center col-gap-2">
             <button type="button" class="btn btn-outline-secondary btn-sm btn-pill active" id="float-bar-domain-btn">
               <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24">
                 <path fill="currentColor" d="M12 2C6.477 2 2 6.477 2 12s4.477 10 10 10s10-4.477 10-10S17.523 2 12 2zm6.918 6h-3.215a49.088 49.088 0 0 0-.565-3.357A8.048 8.048 0 0 1 18.918 8zm-5.904-3.928c.068.352.387 2.038.645 3.928h-3.318c.258-1.89.577-3.576.645-3.928C11.319 4.029 11.656 4 12 4s.681.029 1.014.072zM14 12c0 .598-.043 1.286-.109 2h-3.782c-.066-.714-.109-1.402-.109-2s.043-1.286.109-2h3.782c.066.714.109 1.402.109 2zM8.862 4.643A49.088 49.088 0 0 0 8.297 8H5.082a8.048 8.048 0 0 1 3.78-3.357zM4.263 10h3.821C8.033 10.668 8 11.344 8 12s.033 1.332.085 2H4.263C4.097 13.359 4 12.692 4 12s.098-1.359.263-2zm.819 6h3.215c.188 1.424.42 2.65.565 3.357A8.048 8.048 0 0 1 5.082 16zm5.904 3.928A77.282 77.282 0 0 1 10.341 16h3.318a78.303 78.303 0 0 1-.645 3.928c-.333.043-.67.072-1.014.072s-.681-.029-1.014-.072zm4.152-.571c.145-.707.377-1.933.565-3.357h3.215a8.048 8.048 0 0 1-3.78 3.357zM19.737 14h-3.821c.051-.668.084-1.344.084-2s-.033-1.332-.085-2h3.821c.166.641.264 1.308.264 2s-.097 1.359-.263 2z" />
@@ -43,7 +43,7 @@
           </div>
         </div>
         {* right-content *}
-        <div class="right-content d-flex align-items-center" data-gap-x="6px">
+        <div class="right-content d-flex align-items-center col-gap-2">
           <button type="submit" class="btn btn-light btn-sm btn-pill" id="float-search-btn">
             <svg xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 1000 1000">
               <path fill="currentColor" d="m746 641l254 255l-105 105l-254-254q-106 72-232 72q-169 0-289-120T0 410t120-289T409 1t289 120t120 289q0 127-72 231zm-65-231q0-113-79.5-193T409 137t-193 80t-80 193t80 192.5T409 682t192.5-79.5T681 410z" />
@@ -51,7 +51,7 @@
             Search
           </button>
           {* toggler *}
-          <button type="button" class="btn-square btn-light btn-sm btn-pill" id="float-bar-toggler">
+          <button type="button" class="btn-square btn-light btn-sm btn-pill" id="float-bar-toggler" aria-label="Toggle">
             <svg class="_expand_icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
               <g fill="currentColor">
                 <path d="M5.707 15.707a1 1 0 0 1-1.414-1.414l4-4a1 1 0 1 1 1.414 1.414l-4 4Z" />
