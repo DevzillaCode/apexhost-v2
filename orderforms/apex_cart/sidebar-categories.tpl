@@ -21,7 +21,7 @@
     {* Panel heading with title, icon, and badge *}
     <div class="panel-heading">
       <h3 class="panel-title d-flex align-items-center justify-content-between mb-0">
-        <div class="panel-header-text d-flex align-items-center" data-gap-x="10px">
+        <div class="panel-header-text d-flex align-items-center col-gap-3">
           {if $panel->hasIcon()}
             <i class="{$panel->getIcon()|replace:'fas':'fad'} text-size-sm"></i>
           {/if}
@@ -50,7 +50,7 @@
           {foreach $panel->getChildren() as $child}
             {if $child->getUri()}
               {* Sidebar link item *}
-              <a menuItemName="{$child->getName()}" href="{$child->getUri()}" class="sidebar-list-item d-flex align-items-center {if $child->isDisabled()} disabled{/if}{if $child->getClass()} {$child->getClass()}{/if}{if $child->isCurrent()} active{/if}" {if $child->getAttribute('dataToggleTab')} data-toggle="tab" {/if}{if $child->getAttribute('target')} target="{$child->getAttribute('target')}" {/if} id="{$child->getId()}" data-gap-x="8px">
+              <a menuItemName="{$child->getName()}" href="{$child->getUri()}" class="sidebar-list-item d-flex align-items-center  col-gap-3 {if $child->isDisabled()} disabled{/if}{if $child->getClass()} {$child->getClass()}{/if}{if $child->isCurrent()} active{/if}" {if $child->getAttribute('dataToggleTab')} data-toggle="tab" {/if}{if $child->getAttribute('target')} target="{$child->getAttribute('target')}" {/if} id="{$child->getId()}">
                 {* SVG output: if label matches, show SVG; else, fallback to icon or placeholder *}
                 {if isset($svgIcons[$child->getLabel()])}
                   {$svgIcons[$child->getLabel()] nofilter}

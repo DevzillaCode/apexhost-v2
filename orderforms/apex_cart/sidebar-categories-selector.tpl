@@ -8,7 +8,7 @@
   <div class="panel-heading">
     <h3 class="panel-title d-flex align-items-center justify-content-between">
       {* Panel header text: icon, label, and badge *}
-      <div class="panel-header-text d-flex align-items-center" data-gap-x="10px">
+      <div class="panel-header-text d-flex align-items-center col-gap-3">
         {if $panel->hasIcon()}
           {* Display panel icon if available *}
           <i class="{$panel->getIcon()|replace:'fas':'fad'}"></i>

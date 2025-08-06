@@ -6,6 +6,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>{if $kbarticle.title}{$kbarticle.title} - {/if}{$pagetitle} - {$companyname}</title>
 
+  <!-- Preconnect early -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Preload the most critical font -->
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap">
+  </noscript>
+
+  <!-- Load secondary font non-blocking -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&display=swap" media="print" onload="this.media='all'">
+
   <!-- SEO Meta Tags -->
   <meta name="description" content="{if $kbarticle.seo_description}{$kbarticle.seo_description}{else}{$pagetitle} - {$companyname} Services{/if}">
   <meta name="keywords" content="{if $kbarticle.seo_keywords}{$kbarticle.seo_keywords}{else}{$companyname}, hosting, services, support{/if}">

@@ -5,7 +5,7 @@
       {* section-title *}
       {include file="$template/components/heading/HeroTitle.tpl" headline="{lang key="T_hostingSolutionsTitle"}" tagline="{lang key="T_hostingSolutionsDesc"}"}
       {* hosting-solutions-cards *}
-      <div class="row" data-gap-y="30px">
+      <div class="row row-gap-8">
         {* col *}
         <div class="col-lg-6">
           {* ui-content *}
@@ -30,7 +30,7 @@
         {* col *}
         <div class="col-lg-6 ml-auto">
           {* row *}
-          <div class="row" data-gap-y="30px">
+          <div class="row row-gap-8">
             {foreach $productGroups as $productGroup}
               {if $productGroup@index < 4}
                 {* col *}

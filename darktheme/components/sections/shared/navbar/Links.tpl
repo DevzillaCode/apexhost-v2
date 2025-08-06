@@ -53,10 +53,10 @@
   'Network Status' => $svgNetworkStatus
 ]}
 
-<ul class="links-list list-unstyled" data-gap-x="6px" data-gap-y="6px">
+<ul class="links-list list-unstyled row-gap-2 col-gap-2">
   {foreach $navbar as $item}
     <li menuItemName="{$item->getName()}" class="link-wrapper{if $item->hasChildren()} has-dropdown-menu{/if}{if $item->getClass()} {$item->getClass()}{/if}" id="{$item->getId()}">
-      <a class="link{if $item->hasChildren()}" data-toggle="dropdown" {if $item->hasChildren()}data-type="dropdown_menu_toggler" {/if} aria-haspopup="true" aria-expanded="false" href="#" {else}" href="{$item->getUri()}" {/if}{if $item->getAttribute('target')} target="{$item->getAttribute('target')}" {/if} data-gap-x="6px">
+      <a class="link{if $item->hasChildren()} col-gap-2" data-toggle="dropdown" {if $item->hasChildren()}data-type="dropdown_menu_toggler" {/if} aria-haspopup="true" aria-expanded="false" href="#" {else}" href="{$item->getUri()}" {/if}{if $item->getAttribute('target')} target="{$item->getAttribute('target')}" {/if}>
       {$item->getLabel()}
       {if $item->hasChildren()}
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
@@ -72,7 +72,7 @@
       {else}
       <!-- ddm-item -->
       <li menuItemName="{$childItem->getName()}" class="ddm-item" id="{$childItem->getId()}">
-        <a href="{$childItem->getUri()}" class="ddm-link" {if $childItem->getAttribute('target')} target="{$childItem->getAttribute('target')}" {/if} data-gap-x="10px">
+        <a href="{$childItem->getUri()}" class="ddm-link col-gap-3" {if $childItem->getAttribute('target')} target="{$childItem->getAttribute('target')}" {/if}>
           {* SVG output: if label matches, show SVG; else, fallback to icon or placeholder *}
           {if isset($svgIcons[$childItem->getName()])}
           {$svgIcons[$childItem->getName()] nofilter}

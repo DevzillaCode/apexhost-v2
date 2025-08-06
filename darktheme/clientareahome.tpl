@@ -21,7 +21,7 @@
           <polyline points="3.29 7 12 12 20.71 7" />
           <path d="m7.5 4.27 9 5.15" />
         </svg>
-        <a href="clientarea.php?action=services" class="tile-link btn-square btn-xs btn-secondary dropdown-toggle-split btn-circle position-absolute" title="{lang key='navservices'}">
+        <a href="clientarea.php?action=services" class="tile-link btn-square btn-xs btn-secondary dropdown-toggle-split btn-circle position-absolute" title="{lang key='navservices'}" aria-label="{lang key='navservices'}">
           <span class="sr-only">{lang key='navservices'}</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right rtl-rotate">
             <path d="M5 12h14" />
@@ -50,7 +50,7 @@
             <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
             <path d="M2 12h20" />
           </svg>
-          <a href="clientarea.php?action=domains" class="tile-link btn-square btn-xs btn-secondary dropdown-toggle-split btn-circle position-absolute" title="{lang key='navdomains'}">
+          <a href="clientarea.php?action=domains" class="tile-link btn-square btn-xs btn-secondary dropdown-toggle-split btn-circle position-absolute" title="{lang key='navdomains'}" aria-label="{lang key='navdomains'}">
             <span class="sr-only">{lang key='navdomains'}</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right rtl-rotate">
               <path d="M5 12h14" />
@@ -80,7 +80,7 @@
             <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
             <circle cx="9" cy="7" r="4" />
           </svg>
-          <a href="affiliates.php" class="tile-link btn-square btn-xs btn-secondary dropdown-toggle-split btn-circle position-absolute" title="{lang key='affiliatessignups'}">
+          <a href="affiliates.php" class="tile-link btn-square btn-xs btn-secondary dropdown-toggle-split btn-circle position-absolute" title="{lang key='affiliatessignups'}" aria-label="{lang key='affiliatessignups'}">
             <span class="sr-only">{lang key='affiliatessignups'}</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right rtl-rotate">
               <path d="M5 12h14" />
@@ -108,7 +108,7 @@
             <path d="M16 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
             <path d="M5 3a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2 1 1 0 0 1 1 1v1a2 2 0 0 1-2 2 1 1 0 0 0-1 1v2a1 1 0 0 0 1 1 6 6 0 0 0 6-6V5a2 2 0 0 0-2-2z" />
           </svg>
-          <a href="clientarea.php?action=quotes" class="tile-link btn-square btn-xs btn-secondary dropdown-toggle-split btn-circle position-absolute" title="{lang key='quotes'}">
+          <a href="clientarea.php?action=quotes" class="tile-link btn-square btn-xs btn-secondary dropdown-toggle-split btn-circle position-absolute" title="{lang key='quotes'}" aria-label="{lang key='quotes'}">
             <span class="sr-only">{lang key='quotes'}</span>
             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right rtl-rotate">
               <path d="M5 12h14" />
@@ -139,7 +139,7 @@
           <path d="M6 19v2" />
           <rect x="2" y="8" width="20" height="13" rx="2" />
         </svg>
-        <a href="supporttickets.php" class="tile-link btn-square btn-xs btn-secondary dropdown-toggle-split btn-circle position-absolute" title="{lang key='navtickets'}">
+        <a href="supporttickets.php" class="tile-link btn-square btn-xs btn-secondary dropdown-toggle-split btn-circle position-absolute" title="{lang key='navtickets'}" aria-label="{lang key='navtickets'}">
           <span class="sr-only">{lang key='navtickets'}</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right rtl-rotate">
             <path d="M5 12h14" />
@@ -168,7 +168,7 @@
           <path d="M19 17V5a2 2 0 0 0-2-2H4" />
           <path d="M8 21h12a2 2 0 0 0 2-2v-1a1 1 0 0 0-1-1H11a1 1 0 0 0-1 1v1a2 2 0 1 1-4 0V5a2 2 0 1 0-4 0v2a1 1 0 0 0 1 1h3" />
         </svg>
-        <a href="clientarea.php?action=invoices" class="tile-link btn-square btn-xs btn-secondary dropdown-toggle-split btn-circle position-absolute" title="{lang key='navinvoices'}">
+        <a href="clientarea.php?action=invoices" class="tile-link btn-square btn-xs btn-secondary dropdown-toggle-split btn-circle position-absolute" title="{lang key='navinvoices'}" aria-label="{lang key='navinvoices'}">
           <span class="sr-only">{lang key='navinvoices'}</span>
           <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right rtl-rotate">
             <path d="M5 12h14" />

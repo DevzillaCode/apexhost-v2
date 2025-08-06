@@ -6,7 +6,7 @@
     {* section-title *}
     {include file="$template/components/heading/HeroTitle.tpl" headline="Hosting Advantages" tagline="Craft Stunning Websites Effortlessly"}
     {* features-cards *}
-    <div class="row" data-gap-y="30px">
+    <div class="row row-gap-8">
       {* col *}
       <div class="col-lg-3 col-md-6">
         {* basic-features-card *}
