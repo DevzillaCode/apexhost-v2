@@ -69,7 +69,7 @@ $(function () {
   });
 
   function closeMainDropdown() {
-    $(".link-wrapper.show .theme-dropdown-menu").stop(true, true).slideUp(200);
+    $(".link-wrapper.show .theme-dropdown-menu").stop(true, true).hide();
     $(".link-wrapper.show").removeClass("show");
   }
 

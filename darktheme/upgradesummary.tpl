@@ -6,7 +6,7 @@
 
         {if $promorecurring}
             {include file="$template/includes/alert.tpl" type="info"
-            msg="{lang key='recurringpromodesc'}"|sprintf2:$promorecurring}
+            message="{lang key='recurringpromodesc'}"|sprintf2:$promorecurring}
         {/if}
 
         <div class="alert alert-block alert-info text-center">
@@ -66,7 +66,7 @@
         </table>
 
         {if $type eq "package"}
-            {include file="$template/includes/alert.tpl" type="warning" msg="{lang key='upgradeproductlogic'}"|cat:' ('|cat:$upgrade.daysuntilrenewal|cat:' '|cat:"{lang key='days'}"|cat:')'}
+            {include file="$template/includes/alert.tpl" type="warning" message="{lang key='upgradeproductlogic'}"|cat:' ('|cat:$upgrade.daysuntilrenewal|cat:' '|cat:"{lang key='days'}"|cat:')'}
         {/if}
 
         <div class="row">

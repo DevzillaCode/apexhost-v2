@@ -12,7 +12,7 @@
         <div class="content-padded">
 
             {if $incorrect}
-                {include file="$template/includes/alert.tpl" type="error" msg="{lang key='loginincorrect'}"}
+                {include file="$template/includes/alert.tpl" type="error" message="{lang key='loginincorrect'}"}
             {/if}
 
             <div class="form-group">

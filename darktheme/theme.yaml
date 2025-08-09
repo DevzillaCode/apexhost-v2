@@ -1,8 +1,8 @@
-# WHMCS Twenty-One Theme Configuration File
+# WHMCS Apex-Host Theme Configuration File
 
-name: "Twenty-One"
+name: "Apex-Host"
 description: "The Default Theme for WHMCS 2021"
-author: "WHMCS Limited"
+author: "NiftyTheme"
 properties:
   serverSidePagination: false # Defines client side will handle pagination
 provides:

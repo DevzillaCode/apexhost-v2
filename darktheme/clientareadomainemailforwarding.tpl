@@ -2,7 +2,7 @@
     <div class="card-body">
         <h3 class="card-title">{lang key='domainemailforwarding'}</h3>
 
-        {include file="$template/includes/alert.tpl" type="info" msg="{lang key='domainemailforwardingdesc'}"}
+        {include file="$template/includes/alert.tpl" type="info" message="{lang key='domainemailforwardingdesc'}"}
 
         {if $error}
             {include file="$template/includes/alert.tpl" type="error" msg=$error}

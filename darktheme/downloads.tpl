@@ -43,7 +43,7 @@
 </div>
 {else}
 <!-- Show message when no download categories are available -->
-{include file="$template/includes/alert.tpl" type="info" msg="{lang key='downloadsnone'}"}
+{include file="$template/includes/alert.tpl" type="info" message="{lang key='downloadsnone'}"}
 {/if}
 
 <!-- Most popular downloads section (only shows if popular downloads exist) -->

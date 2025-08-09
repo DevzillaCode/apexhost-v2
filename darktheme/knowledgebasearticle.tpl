@@ -1,6 +1,6 @@
 {* Display success message if user has already voted *}
 {if $kbarticle.voted}
-  {include file="$template/includes/alert.tpl" type="success alert-bordered-left" msg="{lang key="knowledgebaseArticleRatingThanks"}"}
+  {include file="$template/includes/alert.tpl" type="success alert-bordered-left" message="{lang key="knowledgebaseArticleRatingThanks"}"}
 {/if}
 
 {* Main article container *}

@@ -29,7 +29,7 @@
       <div class="content">
         {* Show success message after form submission *}
         {if $sent}
-          {include file="$template/includes/alert.tpl" type="success" msg="{lang key='contactSuccess'}"}
+          {include file="$template/includes/alert.tpl" type="success" message="{lang key='contactSuccess'}"}
         {/if}
         {* Show error message if form submission fails *}
         {if $errormessage}

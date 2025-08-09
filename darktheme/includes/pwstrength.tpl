@@ -7,9 +7,9 @@
 </div>
 
 {if file_exists("templates/$template/includes/alert.tpl")}
-    {include file="$template/includes/alert.tpl" type="info" msg="<small><i class='fa fa-info-circle fa-fw'></i> {lang key='passwordtips'}</small>"}
+    {include file="$template/includes/alert.tpl" type="info" message="<small><i class='fa fa-info-circle fa-fw'></i> {lang key='passwordtips'}</small>"}
 {elseif file_exists("templates/six/includes/alert.tpl")}
-    {include file="six/includes/alert.tpl" type="info" msg="<small><i class='fa fa-info-circle fa-fw'></i> {lang key='passwordtips'}</small>"}
+    {include file="six/includes/alert.tpl" type="info" message="<small><i class='fa fa-info-circle fa-fw'></i> {lang key='passwordtips'}</small>"}
 {/if}
 
 <script>

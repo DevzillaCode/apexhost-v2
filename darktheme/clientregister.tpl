@@ -27,7 +27,7 @@
   <div class="content d-flex align-items-center justify-content-center flex-column w-100">
     {* Show message if registration is disabled *}
     {if $registrationDisabled}
-      {include file="$template/includes/alert.tpl" type="error" msg="{lang key='registerCreateAccount'}"|cat:' <strong><a href="'|cat:" $WEB_ROOT"|cat:'/cart.php" class="alert-link">'|cat:"{lang key='registerCreateAccountOrder'}"|cat:'</a></strong>'}
+      {include file="$template/includes/alert.tpl" type="error" message="{lang key='registerCreateAccount'}"|cat:' <strong><a href="'|cat:" $WEB_ROOT"|cat:'/cart.php" class="alert-link">'|cat:"{lang key='registerCreateAccountOrder'}"|cat:'</a></strong>'}
     {/if}
 
     {* Show error message if exists *}

@@ -2,7 +2,7 @@
     {include file="$template/includes/alert.tpl" type="warning" msg=$result}
 {/if}
 
-{include file="$template/includes/alert.tpl" type="info" msg="{lang key='domainregisternsexplanation'}"}
+{include file="$template/includes/alert.tpl" type="info" message="{lang key='domainregisternsexplanation'}"}
 
 <div class="card">
     <div class="card-body">

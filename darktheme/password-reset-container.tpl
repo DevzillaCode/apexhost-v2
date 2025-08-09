@@ -1,5 +1,5 @@
 {if $loggedin && $innerTemplate}
-    {include file="$template/includes/alert.tpl" type="error" msg="{lang key='noPasswordResetWhenLoggedIn'}"}
+    {include file="$template/includes/alert.tpl" type="error" message="{lang key='noPasswordResetWhenLoggedIn'}"}
 {else}
     {if $successMessage}
         {include file="$template/includes/alert.tpl" type="success" msg=$successTitle}

@@ -1,13 +1,13 @@
 <div class="card">
     <div class="card-body">
         {if $stillopen}
-            {include file="$template/includes/alert.tpl" type="warning" msg="{lang key='feedbackclosed'}"}
+            {include file="$template/includes/alert.tpl" type="warning" message="{lang key='feedbackclosed'}"}
 
             <p class="text-center">
                 <a href="clientarea.php" class="btn btn-primary">{lang key='returnclient'}</a>
             </p>
         {elseif $feedbackdone}
-            {include file="$template/includes/alert.tpl" type="success" msg="{lang key='feedbackprovided'}"}
+            {include file="$template/includes/alert.tpl" type="success" message="{lang key='feedbackprovided'}"}
 
             <p class="text-center">{lang key='feedbackthankyou'}</p>
 
@@ -15,7 +15,7 @@
                 <a href="clientarea.php" class="btn btn-primary">{lang key='returnclient'}</a>
             </p>
         {elseif $success}
-            {include file="$template/includes/alert.tpl" type="success" msg="{lang key='feedbackreceived'}"}
+            {include file="$template/includes/alert.tpl" type="success" message="{lang key='feedbackreceived'}"}
 
             <p class="text-center">{lang key='feedbackthankyou'}</p>
 
