@@ -6,62 +6,62 @@
 
         {if $promorecurring}
             {include file="$template/includes/alert.tpl" type="info"
-            message="{lang key='recurringpromodesc'}"|sprintf2:$promorecurring}
+                message="{lang key='recurringpromodesc'}"|sprintf2:$promorecurring}
         {/if}
 
         <div class="alert alert-block alert-info text-center">
             <div>
-                {lang key='upgradecurrentconfig'}: <strong>{$groupname} - {$productname}</strong>{if $domain} ({$domain}){/if}
+                <p class="alert-message">{lang key='upgradecurrentconfig'}: <strong>{$groupname} - {$productname}</strong>{if $domain} ({$domain}){/if}</p>
             </div>
         </div>
 
         <table class="table table-striped">
             <thead>
-            <tr>
-                <th width="60%">{lang key='orderdesc'}</th>
-                <th width="40%" class="text-center">{lang key='orderprice'}</th>
-            </tr>
+                <tr>
+                    <th width="60%">{lang key='orderdesc'}</th>
+                    <th width="40%" class="text-center">{lang key='orderprice'}</th>
+                </tr>
             </thead>
             <tbody>
-            {foreach $upgrades as $upgrade}
-                {if $type eq "package"}
-                    <tr>
-                        <td><input type="hidden" name="pid" value="{$upgrade.newproductid}" /><input type="hidden" name="billingcycle" value="{$upgrade.newproductbillingcycle}" />{$upgrade.oldproductname} => {$upgrade.newproductname}</td>
-                        <td class="text-center">{$upgrade.price}</td>
-                    </tr>
-                {elseif $type eq "configoptions"}
-                    <tr>
-                        <td>{$upgrade.configname}: {$upgrade.originalvalue} => {$upgrade.newvalue}</td>
-                        <td class="text-center">{$upgrade.price}</td>
+                {foreach $upgrades as $upgrade}
+                    {if $type eq "package"}
+                        <tr>
+                            <td><input type="hidden" name="pid" value="{$upgrade.newproductid}" /><input type="hidden" name="billingcycle" value="{$upgrade.newproductbillingcycle}" />{$upgrade.oldproductname} => {$upgrade.newproductname}</td>
+                            <td class="text-center">{$upgrade.price}</td>
+                        </tr>
+                    {elseif $type eq "configoptions"}
+                        <tr>
+                            <td>{$upgrade.configname}: {$upgrade.originalvalue} => {$upgrade.newvalue}</td>
+                            <td class="text-center">{$upgrade.price}</td>
+                        </tr>
+                    {/if}
+                {/foreach}
+                <tr class="masspay-total">
+                    <td class="text-right">{lang key='ordersubtotal'}:</td>
+                    <td class="text-center">{$subtotal}</td>
+                </tr>
+                {if $promodesc}
+                    <tr class="masspay-total">
+                        <td class="text-right">{$promodesc}:</td>
+                        <td class="text-center">{$discount}</td>
                     </tr>
                 {/if}
-            {/foreach}
-            <tr class="masspay-total">
-                <td class="text-right">{lang key='ordersubtotal'}:</td>
-                <td class="text-center">{$subtotal}</td>
-            </tr>
-            {if $promodesc}
+                {if $taxrate}
+                    <tr class="masspay-total">
+                        <td class="text-right">{$taxname} @ {$taxrate}%:</td>
+                        <td class="text-center">{$tax}</td>
+                    </tr>
+                {/if}
+                {if $taxrate2}
+                    <tr class="masspay-total">
+                        <td class="text-right">{$taxname2} @ {$taxrate2}%:</td>
+                        <td class="text-center">{$tax2}</td>
+                    </tr>
+                {/if}
                 <tr class="masspay-total">
-                    <td class="text-right">{$promodesc}:</td>
-                    <td class="text-center">{$discount}</td>
+                    <td class="text-right">{lang key='ordertotalduetoday'}:</td>
+                    <td class="text-center">{$total}</td>
                 </tr>
-            {/if}
-            {if $taxrate}
-                <tr class="masspay-total">
-                    <td class="text-right">{$taxname} @ {$taxrate}%:</td>
-                    <td class="text-center">{$tax}</td>
-                </tr>
-            {/if}
-            {if $taxrate2}
-                <tr class="masspay-total">
-                    <td class="text-right">{$taxname2} @ {$taxrate2}%:</td>
-                    <td class="text-center">{$tax2}</td>
-                </tr>
-            {/if}
-            <tr class="masspay-total">
-                <td class="text-right">{lang key='ordertotalduetoday'}:</td>
-                <td class="text-center">{$total}</td>
-            </tr>
             </tbody>
         </table>
 
@@ -85,8 +85,7 @@
                         <input type="hidden" name="configoption[{$cid}]" value="{$value}" />
                     {/foreach}
                     <div class="input-group">
-                        <input class="form-control" type="text" name="promocode" placeholder="{lang key='orderpromotioncode'}" width="40"
-                               {if $promocode}value="{$promocode} - {$promodesc}" disabled="disabled"{/if}>
+                        <input class="form-control" type="text" name="promocode" placeholder="{lang key='orderpromotioncode'}" width="40" {if $promocode}value="{$promocode} - {$promodesc}" disabled="disabled" {/if}>
                         {if $promocode}
                             <div class="input-group-append">
                                 <button type="submit" name="removepromo" class="btn btn-danger">
@@ -126,7 +125,7 @@
                                 <option value="none">{lang key='paymentmethoddefault'}</option>
                             {/if}
                             {foreach $gateways as $gateway}
-                                <option value="{$gateway.sysname}"{if $gateway.sysname eq $selectedgateway} selected="selected"{/if}>{$gateway.name}</option>
+                                <option value="{$gateway.sysname}" {if $gateway.sysname eq $selectedgateway} selected="selected" {/if}>{$gateway.name}</option>
                             {/foreach}
                         </select>
                     </div>

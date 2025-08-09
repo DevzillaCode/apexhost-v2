@@ -7,15 +7,41 @@
 
 {* Show unpaid invoice alert with dynamic styling (danger for overdue, warning otherwise) *}
 {if $unpaidInvoice}
-  <div class="alert alert-{if $unpaidInvoiceOverdue}danger{else}warning{/if}" id="alert{if $unpaidInvoiceOverdue}Overdue{else}Unpaid{/if}Invoice">
-    <div>
-      <div class="float-right">
-        {* Quick pay button for unpaid invoice *}
-        <a href="viewinvoice.php?id={$unpaidInvoice}" class="btn btn-xs btn-light">
-          {lang key='payInvoice'}
-        </a>
+  <div class="alert-container">
+    <div class="alert alert-{if $unpaidInvoiceOverdue}danger{else}warning{/if}" id="alert{if $unpaidInvoiceOverdue}Overdue{else}Unpaid{/if}Invoice">
+      <div>
+        {* alert-icon *}
+        <div class="alert-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-notepad-text-icon lucide-notepad-text">
+            <path d="M8 2v4" />
+            <path d="M12 2v4" />
+            <path d="M16 2v4" />
+            <rect width="16" height="18" x="4" y="4" rx="2" />
+            <path d="M8 10h6" />
+            <path d="M8 14h8" />
+            <path d="M8 18h5" />
+          </svg>
+        </div>
+        {* alert-content *}
+        <div class="alert-content">
+          {* alert-message *}
+          <p class="alert-message">{$unpaidInvoiceMessage}</p>
+          {* Quick pay button for unpaid invoice *}
+          <a href="viewinvoice.php?id={$unpaidInvoice}" class="alert-link">
+            {lang key='payInvoice'}
+          </a>
+        </div>
+        {* close-alert *}
+        <div class="alert-dismissible">
+          <button type="button" class="alert-close-btn" data-dismiss="alert" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-x-icon lucide-circle-x">
+              <circle cx="12" cy="12" r="10" />
+              <path d="m15 9-6 6" />
+              <path d="m9 9 6 6" />
+            </svg>
+          </button>
+        </div>
       </div>
-      {$unpaidInvoiceMessage}
     </div>
   </div>
 {/if}
@@ -40,7 +66,7 @@
         {if $systemStatus != 'Active'}
           <div class="alert alert-warning" role="alert">
             <div>
-              {lang key='domainCannotBeManagedUnlessActive'}
+              <p class="alert-message">{lang key='domainCannotBeManagedUnlessActive'}</p>
             </div>
           </div>
         {/if}

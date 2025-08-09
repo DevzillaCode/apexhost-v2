@@ -36,11 +36,27 @@
                     {if $domainid}
                         <div class="alert alert-warning">
                             <div>
-                                <p><strong>{lang key='cancelrequestdomain'}</strong></p>
-                                <p>{"{lang key='cancelrequestdomaindesc'}"|sprintf2:$domainnextduedate:$domainprice:$domainregperiod}</p>
-                                <label class="form-check text-center">
-                                    <input type="checkbox" class="form-check-input" name="canceldomain" id="canceldomain" /> {lang key='cancelrequestdomainconfirm'}
-                                </label>
+                                {* alert-icon *}
+                                <div class="alert-icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-globe-icon lucide-globe">
+                                        <circle cx="12" cy="12" r="10" />
+                                        <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20" />
+                                        <path d="M2 12h20" />
+                                    </svg>
+                                </div>
+                                {* alert-content *}
+                                <div class="alert-content">
+                                    {* alert-title *}
+                                    <h2 class="alert-title">{lang key='cancelrequestdomain'}</h2>
+                                    {* alert-message *}
+                                    <p class="alert-message">{"{lang key='cancelrequestdomaindesc'}"|sprintf2:$domainnextduedate:$domainprice:$domainregperiod}</p>
+                                    {* form-check *}
+                                    <label class="form-check mt-4">
+                                        <input type="checkbox" class="form-check-input" name="canceldomain" id="canceldomain" />
+                                        <span class="checkmark"></span>
+                                        {lang key='cancelrequestdomainconfirm'}
+                                    </label>
+                                </div>
                             </div>
                         </div>
                     {/if}

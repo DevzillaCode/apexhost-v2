@@ -25,10 +25,9 @@
                 <div>
                   <!-- alert-icon -->
                   <div class="alert-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-x-icon lucide-circle-x">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-slash-icon lucide-circle-slash">
                       <circle cx="12" cy="12" r="10" />
-                      <path d="m15 9-6 6" />
-                      <path d="m9 9 6 6" />
+                      <line x1="9" x2="15" y1="15" y2="9" />
                     </svg>
                   </div>
                   <!-- alert-content -->
@@ -61,9 +60,9 @@
                 <div>
                   <!-- alert-icon -->
                   <div class="alert-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-icon lucide-check-circle">
-                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                      <polyline points="22 4 12 14.01 9 11.01" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-icon lucide-circle-check">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="m9 12 2 2 4-4" />
                     </svg>
                   </div>
                   <!-- alert-content -->
@@ -147,9 +146,9 @@
               <div>
                 <!-- alert-icon -->
                 <div class="alert-icon">
-                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-icon lucide-check-circle">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                    <polyline points="22 4 12 14.01 9 11.01" />
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-icon lucide-circle-check">
+                    <circle cx="12" cy="12" r="10" />
+                    <path d="m9 12 2 2 4-4" />
                   </svg>
                 </div>
                 <!-- alert-content -->
@@ -208,10 +207,9 @@
                 <div>
                   <!-- alert-icon -->
                   <div class="alert-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-x-icon lucide-circle-x">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-slash-icon lucide-circle-slash">
                       <circle cx="12" cy="12" r="10" />
-                      <path d="m15 9-6 6" />
-                      <path d="m9 9 6 6" />
+                      <line x1="9" x2="15" y1="15" y2="9" />
                     </svg>
                   </div>
                   <!-- alert-content -->
@@ -244,9 +242,9 @@
                 <div>
                   <!-- alert-icon -->
                   <div class="alert-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-icon lucide-check-circle">
-                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                      <polyline points="22 4 12 14.01 9 11.01" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-icon lucide-circle-check">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="m9 12 2 2 4-4" />
                     </svg>
                   </div>
                   <!-- alert-content -->
@@ -306,10 +304,9 @@
                 <div>
                   <!-- alert-icon -->
                   <div class="alert-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-x-icon lucide-circle-x">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-slash-icon lucide-circle-slash">
                       <circle cx="12" cy="12" r="10" />
-                      <path d="m15 9-6 6" />
-                      <path d="m9 9 6 6" />
+                      <line x1="9" x2="15" y1="15" y2="9" />
                     </svg>
                   </div>
                   <!-- alert-content -->
@@ -342,9 +339,9 @@
                 <div>
                   <!-- alert-icon -->
                   <div class="alert-icon">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle-icon lucide-check-circle">
-                      <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                      <polyline points="22 4 12 14.01 9 11.01" />
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-icon lucide-circle-check">
+                      <circle cx="12" cy="12" r="10" />
+                      <path d="m9 12 2 2 4-4" />
                     </svg>
                   </div>
                   <!-- alert-content -->

@@ -49,7 +49,9 @@
       {lang key="paymentstodate"}: <strong>{$invoice.amountpaid}</strong>
     </div>
     <div class="alert alert-success text-center m-0">
-      <div>{lang key="balancedue"}: <strong>{$balance}</strong></div>
+      <div>
+       <p class="alert-message">{lang key="balancedue"}: <strong>{$balance}</strong></p>
+      </div>
     </div>
   </div>
 </div>

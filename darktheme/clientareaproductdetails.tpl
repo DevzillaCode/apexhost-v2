@@ -2,16 +2,63 @@
 {if $modulecustombuttonresult}
   {if $modulecustombuttonresult == "success"}
     <!-- Success Alert -->
-    <div class="alert alert-success" id="alertModuleCustomButtonSuccess">
-      <div>
-        {lang key='moduleactionsuccess'}
+    <div class="alert-container">
+      <div class="alert alert-success alert-float" id="alertModuleCustomButtonSuccess" role="alert">
+        <div>
+          <!-- alert-icon -->
+          <div class="alert-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-check-icon lucide-circle-check">
+              <circle cx="12" cy="12" r="10" />
+              <path d="m9 12 2 2 4-4" />
+            </svg>
+          </div>
+          <!-- alert-content -->
+          <div class="alert-content">
+            <!-- alert-message -->
+            <p class="alert-message">{lang key='moduleactionsuccess'}</p>
+          </div>
+          <!-- close-alert -->
+          <div class="alert-dismissible">
+            <button type="button" class="alert-close-btn" data-dismiss="alert" aria-label="Close">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-x-icon lucide-circle-x">
+                <circle cx="12" cy="12" r="10" />
+                <path d="m15 9-6 6" />
+                <path d="m9 9 6 6" />
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   {else}
     <!-- Error Alert -->
-    <div class="alert alert-danger" id="alertModuleCustomButtonFailed">
-      <div>
-        {lang key='moduleactionfailed'} {$modulecustombuttonresult}
+    <div class="alert-container">
+      <div class="alert alert-danger alert-float" id="alertModuleCustomButtonFailed" role="alert">
+        <div>
+          <!-- alert-icon -->
+          <div class="alert-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-off-icon lucide-circle-off">
+              <path d="m2 2 20 20" />
+              <path d="M8.35 2.69A10 10 0 0 1 21.3 15.65" />
+              <path d="M19.08 19.08A10 10 0 1 1 4.92 4.92" />
+            </svg>
+          </div>
+          <!-- alert-content -->
+          <div class="alert-content">
+            <!-- alert-message -->
+            <p class="alert-message">{lang key='moduleactionfailed'} {$modulecustombuttonresult}</p>
+          </div>
+          <!-- close-alert -->
+          <div class="alert-dismissible">
+            <button type="button" class="alert-close-btn" data-dismiss="alert" aria-label="Close">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-x-icon lucide-circle-x">
+                <circle cx="12" cy="12" r="10" />
+                <path d="m15 9-6 6" />
+                <path d="m9 9 6 6" />
+              </svg>
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   {/if}
@@ -20,9 +67,33 @@
 {* Display pending cancellation notice *}
 {if $pendingcancellation}
   <!-- Pending Cancellation -->
-  <div class="alert alert-danger" id="alertPendingCancellation">
-    <div>
-      {lang key='cancellationrequestedexplanation'}
+  <div class="alert-container">
+    <div class="alert alert-danger alert-float" id="alertPendingCancellation" role="alert">
+      <div>
+        <!-- alert-icon -->
+        <div class="alert-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-x-icon lucide-circle-x">
+            <circle cx="12" cy="12" r="10" />
+            <path d="m15 9-6 6" />
+            <path d="m9 9 6 6" />
+          </svg>
+        </div>
+        <!-- alert-content -->
+        <div class="alert-content">
+          <!-- alert-message -->
+          <p class="alert-message">{lang key='cancellationrequestedexplanation'}</p>
+        </div>
+        <!-- close-alert -->
+        <div class="alert-dismissible">
+          <button type="button" class="alert-close-btn" data-dismiss="alert" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-x-icon lucide-circle-x">
+              <circle cx="12" cy="12" r="10" />
+              <path d="m15 9-6 6" />
+              <path d="m9 9 6 6" />
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 {/if}
@@ -30,15 +101,41 @@
 {* Display unpaid invoice alert *}
 {if $unpaidInvoice}
   <!-- Unpaid Invoice Alert -->
-  <div class="alert alert-{if $unpaidInvoiceOverdue}danger{else}warning{/if}" id="alert{if $unpaidInvoiceOverdue}Overdue{else}Unpaid{/if}Invoice">
-    <div class="d-flex align-items-center flex-wrap gap-4">
-      <a href="viewinvoice.php?id={$unpaidInvoice}" class="btn btn-xs btn-semi-ghost-info">
-        {lang key='payInvoice'}
-        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right-icon lucide-chevron-right rtl-rotate">
-          <path d="m9 18 6-6-6-6" />
-        </svg>
-      </a>
-      {$unpaidInvoiceMessage}
+  <div class="alert-container">
+    <div class="alert alert-{if $unpaidInvoiceOverdue}danger{else}warning{/if}" id="alert{if $unpaidInvoiceOverdue}Overdue{else}Unpaid{/if}Invoice">
+      <div>
+        {* alert-icon *}
+        <div class="alert-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-notepad-text-icon lucide-notepad-text">
+            <path d="M8 2v4" />
+            <path d="M12 2v4" />
+            <path d="M16 2v4" />
+            <rect width="16" height="18" x="4" y="4" rx="2" />
+            <path d="M8 10h6" />
+            <path d="M8 14h8" />
+            <path d="M8 18h5" />
+          </svg>
+        </div>
+        {* alert-content *}
+        <div class="alert-content">
+          {* alert-message *}
+          <p class="alert-message">{$unpaidInvoiceMessage}</p>
+          {* Quick pay button for unpaid invoice *}
+          <a href="viewinvoice.php?id={$unpaidInvoice}" class="alert-link">
+            {lang key='payInvoice'}
+          </a>
+        </div>
+        {* close-alert *}
+        <div class="alert-dismissible">
+          <button type="button" class="alert-close-btn" data-dismiss="alert" aria-label="Close">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-x-icon lucide-circle-x">
+              <circle cx="12" cy="12" r="10" />
+              <path d="m15 9-6 6" />
+              <path d="m9 9 6 6" />
+            </svg>
+          </button>
+        </div>
+      </div>
     </div>
   </div>
 {/if}
@@ -489,7 +586,7 @@
         {if $downloads}
           <div class="alert alert-info">
             <div>
-              {lang key="clientAreaProductDownloadsAvailable"}
+              <p class="alert-message">{lang key="clientAreaProductDownloadsAvailable"}</p>
             </div>
           </div>
 
@@ -514,7 +611,7 @@
         {else}
           <div class="alert alert-info">
             <div>
-              {lang key="noDownloads"}
+              <p class="alert-message">{lang key="noDownloads"}</p>
             </div>
           </div>
         {/if}
@@ -531,7 +628,7 @@
         {if $addonsavailable}
           <div class="alert alert-info">
             <div>
-              {lang key="clientAreaProductAddonsAvailable"}
+              <p class="alert-message">{lang key="clientAreaProductAddonsAvailable"}</p>
             </div>
           </div>
         {/if}
@@ -579,13 +676,13 @@
           {if $modulechangepwresult == "success"}
             <div class="alert alert-success">
               <div>
-                {$modulechangepasswordmessage}
+                <p class="alert-message">{$modulechangepasswordmessage}</p>
               </div>
             </div>
           {elseif $modulechangepwresult == "error"}
             <div class="alert alert-danger">
               <div>
-                {$modulechangepasswordmessage|strip_tags}
+                <p class="alert-message">{$modulechangepasswordmessage|strip_tags}</p>
               </div>
             </div>
           {/if}

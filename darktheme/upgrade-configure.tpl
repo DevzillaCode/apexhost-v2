@@ -4,7 +4,7 @@
            {if !$serviceToBeUpgraded && $errorMessage}
            <div class="alert alert-warning">
                 <div>
-                    {$errorMessage}
+                    <p class="alert-message">{$errorMessage}</p>
                 </div>
            </div>
            {else}
@@ -46,7 +46,7 @@
             {if $errorMessage}
                 <div class="alert alert-warning">
                     <div>
-                        {$errorMessage}
+                        <p class="alert-message">{$errorMessage}</p>
                     </div>
                 </div>
             {/if}

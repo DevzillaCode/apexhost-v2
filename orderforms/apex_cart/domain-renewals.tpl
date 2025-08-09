@@ -36,7 +36,9 @@
       {if $totalDomainCount == 0}
         {* Show message when no domains are available *}
         <div id="no-domains" class="alert alert-warning" role="alert">
-          <div>{$LANG.domainRenewal.noDomains}</div>
+          <div>
+            <p class="alert-message">{$LANG.domainRenewal.noDomains}</p>
+          </div>
         </div>
         {* Return to client area button *}
         <p class="text-center">

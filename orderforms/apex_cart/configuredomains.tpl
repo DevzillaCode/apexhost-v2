@@ -32,8 +32,8 @@
         {if $errormessage}
           <div class="alert alert-danger" role="alert">
             <div>
-              <p>{$LANG.orderForm.correctErrors}:</p>
-              <ul>
+              <p class="alert-message">{$LANG.orderForm.correctErrors}:</p>
+              <ul class="alert-list">
                 {$errormessage}
               </ul>
             </div>
