@@ -18,7 +18,6 @@
       Disallow: /cart.php
       Sitemap: {$systemurl}/sitemap.xml
 
-
 # DOCUMENTATION
 1. How to edit the navbar icons.
 2. How to the domains features.
