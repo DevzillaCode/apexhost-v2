@@ -9,7 +9,7 @@
 
         <div class="alert alert-warning text-center h4">
             <div>
-                {$newBackupCode}
+                <p class="alert-message">{$newBackupCode}</p>
             </div>
         </div>
 

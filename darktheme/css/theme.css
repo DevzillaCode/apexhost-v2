@@ -2716,7 +2716,7 @@ a.badge:focus {
 .alert > div {
   position: relative;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   z-index: 2;
 }
 .alert.alert-float {
@@ -2741,8 +2741,8 @@ a.badge:focus {
 }
 
 /* alert-heading & alert-message & alert-title & alert-link */
-.alert-heading {
-  color: inherit;
+.alert-content {
+  padding-block-start: 3px;
 }
 .alert-message {
   font-family: "IBM Plex Mono", monospace !important;
@@ -2767,17 +2767,27 @@ a.badge:focus {
   position: relative;
   font-family: "IBM Plex Mono", monospace !important;
   font-size: 12px;
-  padding-inline-start: 1rem
+  padding-inline-start: 0.75rem
 }
 .alert-list li::before {
   position: absolute;
   content: '';
-  top: 0.25rem;
+  top: 0.35rem;
   inset-inline-start: 0;
-  width: 0.5rem;
-  height: 0.5rem;
+  width: 0.25rem;
+  height: 0.25rem;
   border-radius: var(--radius-full);
   background-color: var(--background);
+}
+
+/* alert-form-check */
+.alert-content .form-check {
+  color: var(--background);
+  font-family: "IBM Plex Mono", monospace !important;
+  font-size: 12px;
+}
+.alert-content .form-check .checkmark {
+  border-color: var(--background);
 }
 
 /* alert-dismissible */

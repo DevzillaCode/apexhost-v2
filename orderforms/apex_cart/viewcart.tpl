@@ -51,24 +51,30 @@
               {* Promotion message *}
               {if $promoerrormessage}
                 <div class="alert alert-warning" role="alert">
-                  <div>{$promoerrormessage}</div>
+                  <div>
+                    <p class="alert-message">{$promoerrormessage}</p>
+                  </div>
                 </div>
               {elseif $errormessage}
                 <div class="alert alert-danger" role="alert">
                   <div>
-                    <p>{$LANG.orderForm.correctErrors}:</p>
-                    <ul>
+                    <h2 class="alert-title">{$LANG.orderForm.correctErrors}:</h2>
+                    <ul class="alert-list">
                       {$errormessage}
                     </ul>
                   </div>
                 </div>
               {elseif $promotioncode && $rawdiscount eq "0.00"}
                 <div class="alert alert-info" role="alert">
-                  <div>{$LANG.promoappliedbutnodiscount}</div>
+                  <div>
+                    <p class="alert-message">{$LANG.promoappliedbutnodiscount}</p>
+                  </div>
                 </div>
               {elseif $promoaddedsuccess}
                 <div class="alert alert-success" role="alert">
-                  <div>{$LANG.orderForm.promotionAccepted}</div>
+                  <div>
+                    <p class="alert-message">{$LANG.orderForm.promotionAccepted}</p>
+                  </div>
                 </div>
               {/if}
 
@@ -76,8 +82,8 @@
               {if $bundlewarnings}
                 <div class="alert alert-warning" role="alert">
                   <div>
-                    <strong>{$LANG.bundlereqsnotmet}</strong><br />
-                    <ul>
+                    <h2 class="alert-title">{$LANG.bundlereqsnotmet}</h2>
+                    <ul class="alert-list">
                       {foreach from=$bundlewarnings item=warning}
                         <li>{$warning}</li>
                       {/foreach}

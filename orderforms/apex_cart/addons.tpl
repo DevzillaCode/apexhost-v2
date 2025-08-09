@@ -16,7 +16,9 @@
 
       {if count($addons) == 0}
         <div id="noAddons" class="alert alert-warning text-center" role="alert">
-          <div>{$LANG.cartproductaddonsnone}</div>
+          <div>
+          <p class="alert-message">{$LANG.cartproductaddonsnone}</p>
+          </div>
         </div>
         <div class="page-footer">
           <a href="{$WEB_ROOT}/clientarea.php" class="btn btn-semi-ghost-secondary btn-wide">

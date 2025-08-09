@@ -19,13 +19,17 @@
 
       {* Display message if no services are available *}
       <div id="no-services" class="alert alert-warning text-center" role="alert">
-        <div>{lang key='renewService.noServices'}</div>
+        <div>
+          <p class="alert-message">{lang key='renewService.noServices'}</p>
+        </div>
       </div>
 
       {* Main content when services are available *}
       {if $totalServiceCount == 0}
         <div id="no-services" class="alert alert-warning text-center" role="alert">
-          <div>{lang key='renewService.noServices'}</div>
+          <div>
+            <p class="alert-message">{lang key='renewService.noServices'}</p>
+          </div>
         </div>
         {* page-footer *}
         <div class="page-footer">

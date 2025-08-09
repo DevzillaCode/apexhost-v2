@@ -31,7 +31,7 @@
                 </div>
                 <div class="alert alert-danger mt-2" id="sitejetAlert" style="display: none;">
                     <div>
-                        {lang key="errorButTryAgain"}
+                        <p class="alert-message">{lang key="errorButTryAgain"}</p>
                     </div>
                 </div>
             </div>

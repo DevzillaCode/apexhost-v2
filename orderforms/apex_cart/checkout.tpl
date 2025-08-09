@@ -44,8 +44,8 @@
       {if $errormessage}
         <div class="alert alert-danger checkout-error-feedback" role="alert">
           <div>
-            <p>{$LANG.orderForm.correctErrors}:</p>
-            <ul>
+            <h2 class="alert-title">{$LANG.orderForm.correctErrors}:</h2>
+            <ul class="alert-list">
               {$errormessage}
             </ul>
           </div>
@@ -684,7 +684,9 @@
         </div>
 
         <div class="alert alert-success large-text" role="alert" id="totalDueToday">
-          <div>{$LANG.ordertotalduetoday}: &nbsp; <strong id="totalCartPrice">{$total}</strong></div>
+          <div>
+            <p class="alert-message">{$LANG.ordertotalduetoday}: &nbsp; <strong id="totalCartPrice">{$total}</strong></p>
+          </div>
         </div>
 
         <div id="applyCreditContainer" class="apply-credit-container{if !$canUseCreditOnCheckout} w-hidden{/if}" data-apply-credit="{$applyCredit}">
@@ -966,9 +968,21 @@
       {if $servedOverSsl}
         <div class="alert alert-warning checkout-security-msg">
           <div>
-            <i class="fas fa-lock"></i>
-            {$LANG.ordersecure} (<strong>{$ipaddress}</strong>) {$LANG.ordersecure2}
-            <div class="clearfix"></div>
+            <!-- alert-icon -->
+            <div class="alert-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-alert-icon lucide-circle-alert">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" x2="12" y1="8" y2="12" />
+                <line x1="12" x2="12.01" y1="16" y2="16" />
+              </svg>
+            </div>
+            <!-- alert-content -->
+            <div class="alert-content">
+              <!-- alert-message -->
+              <p class="alert-message">
+                {$LANG.ordersecure} (<strong>{$ipaddress}</strong>) {$LANG.ordersecure2}
+              </p>
+            </div>
           </div>
         </div>
       {/if}

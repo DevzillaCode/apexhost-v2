@@ -19,10 +19,22 @@
 
                     <div class="alert alert-warning text-left">
                         <div>
-                            <strong><i class="fas fa-star fa-5x float-left"></i> {lang key='store.ssl.competitiveUpgrades.exampleScenario'}</strong><br>
-                            {lang key='store.ssl.competitiveUpgrades.example.line1'}
-                            {lang key='store.ssl.competitiveUpgrades.example.line2'}
-                            {lang key='store.ssl.competitiveUpgrades.example.line3'}
+                            <!-- alert-icon -->
+                            <div class="alert-icon">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-star-icon lucide-star">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
+                                </svg>
+                            </div>
+                            <!-- alert-content -->
+                            <div class="alert-content">
+                                <!-- alert-message -->
+                                <p class="alert-message">
+                                    <strong>{lang key='store.ssl.competitiveUpgrades.exampleScenario'}</strong><br>
+                                    {lang key='store.ssl.competitiveUpgrades.example.line1'}<br>
+                                    {lang key='store.ssl.competitiveUpgrades.example.line2'}<br>
+                                    {lang key='store.ssl.competitiveUpgrades.example.line3'}
+                                </p>
+                            </div>
                         </div>
                     </div>
 
@@ -30,11 +42,15 @@
 
                     {if $connectionError}
                         <div class="alert alert-danger">
-                            <div>{lang key='store.ssl.competitiveUpgrades.checkFailed'}</div>
+                            <div>
+                                <p class="alert-message">{lang key='store.ssl.competitiveUpgrades.checkFailed'}</p>
+                            </div>
                         </div>
                     {elseif $error}
                         <div class="alert alert-danger">
-                            <div>{$error}</div>
+                            <div>
+                                <p class="alert-message">{$error}</p>
+                            </div>
                         </div>
                     {else}
                         <br>
@@ -45,7 +61,9 @@
                         {if $validated}
                             {if $eligible}
                                 <div class="alert alert-success text-center">
-                                    <div>{lang key='store.ssl.competitiveUpgrades.eligible'}</div>
+                                    <div>
+                                        <p class="alert-message">{lang key='store.ssl.competitiveUpgrades.eligible'}</p>
+                                    </div>
                                 </div>
                                 <table class="table table-striped">
                                     <tr>
@@ -72,7 +90,9 @@
                                 </a>
                             {else}
                                 <div class="alert alert-warning text-center">
-                                    <div>{lang key='store.ssl.competitiveUpgrades.ineligible'}*.</div>
+                                    <div>
+                                        <p class="alert-message">{lang key='store.ssl.competitiveUpgrades.ineligible'}*.</p>
+                                    </div>
                                 </div>
                             {/if}
                         {/if}

@@ -1,13 +1,58 @@
-<div id="oxSuccess" class="alert alert-success w-hidden">
-    <div>
-        <i class="fas fa-check fa-fw"></i>
-        <span></span>
+<div class="alert-container">
+    <div class="alert alert-success alert-float w-hidden" role="alert" id="oxSuccess">
+        <div>
+            <!-- alert-icon -->
+            <div class="alert-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-icon lucide-check">
+                    <polyline points="20 6 9 17 4 12" />
+                </svg>
+            </div>
+            <!-- alert-content -->
+            <div class="alert-content">
+                <!-- alert-message -->
+                <p class="alert-message">
+                    <span></span>
+                </p>
+            </div>
+            <!-- close-alert -->
+            <div class="alert-dismissible">
+                <button type="button" class="alert-close-btn" data-dismiss="alert" aria-label="Close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-x-icon lucide-circle-x">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="m15 9-6 6" />
+                        <path d="m9 9 6 6" />
+                    </svg>
+                </button>
+            </div>
+        </div>
     </div>
-</div>
-<div id="oxLoadError" class="alert alert-danger w-hidden">
-    <div>
-        <i class="fas fa-times fa-fw"></i>
-        <span></span>
+    <div class="alert alert-danger alert-float" role="alert" id="oxLoadError">
+        <div>
+            <!-- alert-icon -->
+            <div class="alert-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-x-icon lucide-x">
+                    <line x1="18" y1="6" x2="6" y2="18" />
+                    <line x1="6" y1="6" x2="18" y2="18" />
+                </svg>
+            </div>
+            <!-- alert-content -->
+            <div class="alert-content">
+                <!-- alert-message -->
+                <p class="alert-message">
+                    <span></span>
+                </p>
+            </div>
+            <!-- close-alert -->
+            <div class="alert-dismissible">
+                <button type="button" class="alert-close-btn" data-dismiss="alert" aria-label="Close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-x-icon lucide-circle-x">
+                        <circle cx="12" cy="12" r="10" />
+                        <path d="m15 9-6 6" />
+                        <path d="m9 9 6 6" />
+                    </svg>
+                </button>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -43,104 +88,96 @@
         <div id="accountCount">{lang key='ox.accountCount' number='-' limit=$model->qty}</div>
         <table class="ox-table-accounts table" style="display: table">
             <thead>
-            <tr>
-                <th>{lang key='ox.emailAddress'}</th>
-                <th class="w-25">{lang key='ox.mailboxSize'}</th>
-                <th class="w-50 invisible"></th>
-            </tr>
+                <tr>
+                    <th>{lang key='ox.emailAddress'}</th>
+                    <th class="w-25">{lang key='ox.mailboxSize'}</th>
+                    <th class="w-50 invisible"></th>
+                </tr>
             </thead>
             <tbody>
-            <tr class="loading">
-                <td class="text-center" colspan="4">
-                    <i class="fas fa-sync-alt fa-spin" aria-hidden="true"></i>
-                    {lang key='loading'}
-                </td>
-            </tr>
-            <tr class="no-accounts w-hidden">
-                <td class="text-center" colspan="4">{lang key='ox.noAccounts'}</td>
-            </tr>
+                <tr class="loading">
+                    <td class="text-center" colspan="4">
+                        <i class="fas fa-sync-alt fa-spin" aria-hidden="true"></i>
+                        {lang key='loading'}
+                    </td>
+                </tr>
+                <tr class="no-accounts w-hidden">
+                    <td class="text-center" colspan="4">{lang key='ox.noAccounts'}</td>
+                </tr>
             </tbody>
-            <tbody class="cloneAccountsBody w-hidden"
-                   data-account-id=""
-                   data-account=""
-                   data-first-name=""
-                   data-last-name=""
-                   data-display-name=""
-            >
-            <tr>
-                <td>
-                    <span class="account"></span>@{$domain}<br/>
-                    <i class="fas fa-chevron-right fa-xs fa-fw"></i>
-                    <span class="email-aliases">
-                        {lang key='ox.alias.emailAliases'}: <span class="alias-count"></span>
-                    </span>
-                </td>
-                <td><span class="limit"></span>GB</td>
-                <td class="text-right">
-                    <div class="d-inline d-md-none">
-                        <div class="btn-group" role="group">
-                            <button type="button" class="btn btn-light btn-sm dropdown-toggle dropdown-hamburger" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="fas fa-bars"></i>
-                            </button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#" class="dropdown-item manage-account">{lang key='ox.manageAccount'}</a></li>
-                                <li><a href="#" class="dropdown-item set-ox-password">{lang key='ox.setPassword'}</a></li>
-                                <li><a href="#" class="dropdown-item list-group-item-action list-group-item-danger ox-delete">{lang key='ox.delete'}</a></li>
-                            </ul>
+            <tbody class="cloneAccountsBody w-hidden" data-account-id="" data-account="" data-first-name="" data-last-name="" data-display-name="">
+                <tr>
+                    <td>
+                        <span class="account"></span>@{$domain}<br />
+                        <i class="fas fa-chevron-right fa-xs fa-fw"></i>
+                        <span class="email-aliases">
+                            {lang key='ox.alias.emailAliases'}: <span class="alias-count"></span>
+                        </span>
+                    </td>
+                    <td><span class="limit"></span>GB</td>
+                    <td class="text-right">
+                        <div class="d-inline d-md-none">
+                            <div class="btn-group" role="group">
+                                <button type="button" class="btn btn-light btn-sm dropdown-toggle dropdown-hamburger" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <i class="fas fa-bars"></i>
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#" class="dropdown-item manage-account">{lang key='ox.manageAccount'}</a></li>
+                                    <li><a href="#" class="dropdown-item set-ox-password">{lang key='ox.setPassword'}</a></li>
+                                    <li><a href="#" class="dropdown-item list-group-item-action list-group-item-danger ox-delete">{lang key='ox.delete'}</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="d-none d-md-inline d-xl-none">
-                        <div class="btn-group" role="group">
-                            <button class="btn btn-light btn-sm manage-account">{lang key='ox.manageAccount'}</button>
-                            <button type="button" class="btn btn-light btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#" class="dropdown-item set-ox-password">{lang key='ox.setPassword'}</a></li>
-                                <li><a href="#" class="dropdown-item list-group-item-action list-group-item-danger ox-delete">{lang key='ox.delete'}</a></li>
-                            </ul>
+                        <div class="d-none d-md-inline d-xl-none">
+                            <div class="btn-group" role="group">
+                                <button class="btn btn-light btn-sm manage-account">{lang key='ox.manageAccount'}</button>
+                                <button type="button" class="btn btn-light btn-sm dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></button>
+                                <ul class="dropdown-menu">
+                                    <li><a href="#" class="dropdown-item set-ox-password">{lang key='ox.setPassword'}</a></li>
+                                    <li><a href="#" class="dropdown-item list-group-item-action list-group-item-danger ox-delete">{lang key='ox.delete'}</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                    <div class="d-none d-xl-inline">
-                        <div class="btn-group" role="group">
-                            <button class="btn btn-light btn-sm manage-account">{lang key='ox.manageAccount'}</button>
-                            <button class="btn btn-light btn-sm set-ox-password">{lang key='ox.setPassword'}</button>
-                            <button class="btn btn-danger btn-sm ox-delete">{lang key='ox.delete'}</button>
+                        <div class="d-none d-xl-inline">
+                            <div class="btn-group" role="group">
+                                <button class="btn btn-light btn-sm manage-account">{lang key='ox.manageAccount'}</button>
+                                <button class="btn btn-light btn-sm set-ox-password">{lang key='ox.setPassword'}</button>
+                                <button class="btn btn-danger btn-sm ox-delete">{lang key='ox.delete'}</button>
+                            </div>
                         </div>
-                    </div>
-                </td>
-            </tr>
+                    </td>
+                </tr>
             </tbody>
             <tbody class="cloneAliasesBody w-hidden" data-account-id="">
-            <tr>
-               <td colspan="3">
-                   <table class="table">
-                       <tr class="create-alias" data-alias="">
-                           <td>
-                               <div class="input-group input-group-xs">
-                                   <input type="text" name="alias" class="form-control">
-                                   <div class="input-group-append">
-                                       <span class="input-group-text">
-                                           @{$domain}
-                                       </span>
-                                       <button class="btn btn-primary btn-xs ox-create-alias">
-                                       <span class="loader w-hidden">
-                                           <i class="far fa-sync-alt fa-spin" aria-hidden="true"></i>
-                                       </span>
-                                           <span class="create-string">
-                                           {lang key='ox.alias.createButton'}
-                                       </span>
-                                       </button>
-                                   </div>
-                               </div>
-                           </td>
-                           <td colspan="2">&nbsp;</td>
-                       </tr>
-                   </table>
-               </td>
-            </tr>
+                <tr>
+                    <td colspan="3">
+                        <table class="table">
+                            <tr class="create-alias" data-alias="">
+                                <td>
+                                    <div class="input-group input-group-xs">
+                                        <input type="text" name="alias" class="form-control">
+                                        <div class="input-group-append">
+                                            <span class="input-group-text">
+                                                @{$domain}
+                                            </span>
+                                            <button class="btn btn-primary btn-xs ox-create-alias">
+                                                <span class="loader w-hidden">
+                                                    <i class="far fa-sync-alt fa-spin" aria-hidden="true"></i>
+                                                </span>
+                                                <span class="create-string">
+                                                    {lang key='ox.alias.createButton'}
+                                                </span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td colspan="2">&nbsp;</td>
+                            </tr>
+                        </table>
+                    </td>
+                </tr>
             </tbody>
-            <tr class="cloneAliasRow w-hidden"
-                data-alias=""
-            >
+            <tr class="cloneAliasRow w-hidden" data-alias="">
                 <td colspan="2"><span class="alias"></span>@{$domain}</td>
                 <td class="text-right">
                     <div class="btn-group" role="group">
@@ -161,25 +198,28 @@
         </a>
     </li>
     <li class="nav-item">
-        <a href="#davsettings" class="nav-link"  data-toggle="tab">
+        <a href="#davsettings" class="nav-link" data-toggle="tab">
             <i class="far fa-calendar-alt fa-fw"></i>
             {lang key='ox.settings.davSettings'}
         </a>
     </li>
     <li class="nav-item">
-        <a href="#usage" class="nav-link"  data-toggle="tab">
+        <a href="#usage" class="nav-link" data-toggle="tab">
             <i class="far fa-file-alt fa-fw"></i>
             {lang key='ox.settings.usageInstructions'}
         </a>
     </li>
     <li class="nav-item w-hidden" id="migrationNav">
-        <a href="#migration" class="nav-link"  data-toggle="tab">
+        <a href="#migration" class="nav-link" data-toggle="tab">
             <i class="far fa-file-alt fa-fw"></i>
             {lang key='ox.settings.migrationTitle'}
         </a>
     </li>
 </ul>
-<div class="responsive-tabs-sm-connector"><div class="channel"></div><div class="bottom-border"></div></div>
+<div class="responsive-tabs-sm-connector">
+    <div class="channel"></div>
+    <div class="bottom-border"></div>
+</div>
 <div class="tab-content product-details-tab-container w-text-09 mb-4">
     <div class="tab-pane fade show active" id="retrievalsettings">
         <p>{lang key='ox.settings.retrievalIntro'}</p>
@@ -267,8 +307,7 @@
     <div class="tab-pane fade w-hidden" id="migration">
         <p>{lang key="ox.settings.migrationIntro"}</p>
         <div>
-            <a class="migration-url btn btn-info btn-block btn-lg" href="#" target="_blank"
-                >{lang key="ox.settings.migrationLaunch"}</a>
+            <a class="migration-url btn btn-info btn-block btn-lg" href="#" target="_blank">{lang key="ox.settings.migrationLaunch"}</a>
         </div>
     </div>
 </div>
@@ -626,7 +665,7 @@
             .attr('data-first-name', data.first_name)
             .attr('data-last-name', data.last_name)
             .attr('data-display-name', data.display_name)
-            .attr('data-account', data.username + '@{$domain}');
+        .attr('data-account', data.username + '@{$domain}');
         clone.addClass('account-entry').removeClass('cloneAccountsBody').show();
         table.append(clone);
     }
@@ -685,10 +724,10 @@
 
     function updateAliasesDisplay(accountId) {
         var aliasesCount = jQuery('tbody.account-entry[data-account-id="' + accountId + '"] span.alias-count');
-            count = jQuery('tbody.aliases-body[data-account-id="' + accountId + '"] tr.alias-entry')
-                .not('.w-hidden')
-                .length;
-            aliasesCount.text(count);
+        count = jQuery('tbody.aliases-body[data-account-id="' + accountId + '"] tr.alias-entry')
+            .not('.w-hidden')
+            .length;
+        aliasesCount.text(count);
     }
 
     function loadConfiguration(force) {
@@ -734,7 +773,7 @@
                 if (data.usage) {
                     var tabSpec = tabs[tabNames.indexOf('Usage')];
                     tabSpec.panel.find('tr').remove();
-                    jQuery.each(data.usage, function (index, value) {
+                    jQuery.each(data.usage, function(index, value) {
                         tabSpec.panel.append(
                             '<tr><td>' + value + '</td></tr>'
                         );
@@ -847,12 +886,12 @@
                     accountId = element.closest('tbody.aliases-body').data('account-id'),
                     aliasTableTbody = element.closest('tbody'),
                     alias = element.closest('tr.create-alias')
-                        .find('input[name="alias"]').val(),
+                    .find('input[name="alias"]').val(),
                     aliases = element.closest('tbody.aliases-body')
-                        .find('tr.alias-entry')
-                        .map(function(index, element) {
-                            return jQuery(element).data('alias') + '@{$domain}';
-                        }).get();
+                    .find('tr.alias-entry')
+                    .map(function(index, element) {
+                        return jQuery(element).data('alias') + '@{$domain}';
+                    }).get();
 
                 if (typeof alias === 'undefined' && alias.length == 0) {
                     return false;
@@ -904,10 +943,10 @@
                 var accountId = jQuery(this).closest('tbody.aliases-body').data('account-id'),
                     alias = jQuery(this).closest('tr.alias-entry').data('alias'),
                     aliases = jQuery(this).closest('tr.alias-entry')
-                        .siblings('tr.alias-entry')
-                        .map(function(index, element) {
-                            return jQuery(element).data('alias') + '@{$domain}';
-                        }).get(),
+                    .siblings('tr.alias-entry')
+                    .map(function(index, element) {
+                        return jQuery(element).data('alias') + '@{$domain}';
+                    }).get(),
                     modalDeleteAlias = jQuery('#modalDeleteAlias');
 
                 modalDeleteAlias.find('.modal-error').hide().text(''),

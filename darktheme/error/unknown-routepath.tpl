@@ -2,6 +2,8 @@
 
 <div class="alert alert-info text-center mb-5">
     <div>
-        Sorry, but the previous page (<a href="{$referrer|escape}">{$referrer|escape}</a>) provided an invalid page link.
+        <p class="alert-message">
+            Sorry, but the previous page (<a href="{$referrer|escape}" class="alert-link">{$referrer|escape}</a>) provided an invalid page link.
+        </p>
     </div>
 </div>
