@@ -1,8 +1,8 @@
 {* Display success/error alerts for registrar custom button actions *}
 {if $registrarcustombuttonresult=="success"}
-  {include file="$template/includes/alert.tpl" type="success" msg="{lang key='moduleactionsuccess'}"}
+  {include file="$template/includes/alert.tpl" type="success" message="{lang key='moduleactionsuccess'}"}
 {elseif $registrarcustombuttonresult}
-  {include file="$template/includes/alert.tpl" type="error" msg="{lang key='moduleactionfailed'}"}
+  {include file="$template/includes/alert.tpl" type="error" message="{lang key='moduleactionfailed'}"}
 {/if}
 
 {* Show unpaid invoice alert with dynamic styling (danger for overdue, warning otherwise) *}
@@ -32,7 +32,7 @@
         {* Display any system alerts (errors, warnings, info messages) *}
         {if $alerts}
           {foreach $alerts as $alert}
-            {include file="$template/includes/alert.tpl" type=$alert.type msg="<strong>{$alert.title}</strong><br>{$alert.description}"}
+            {include file="$template/includes/alert.tpl" type=$alert.type message="<strong>{$alert.title}</strong><br>{$alert.description}"}
           {/foreach}
         {/if}
 
@@ -225,7 +225,7 @@
 
         {* Success confirmation after changing auto-renew settings *}
         {if $changeAutoRenewStatusSuccessful}
-          {include file="$template/includes/alert.tpl" type="success" msg="{lang key='changessavedsuccessfully'}"}
+          {include file="$template/includes/alert.tpl" type="success" message="{lang key='changessavedsuccessfully'}"}
         {/if}
 
         {* Explanation of auto-renew functionality *}
@@ -269,14 +269,14 @@
         {* Show result of nameserver save operation *}
         {if $subaction eq "savens"}
           {if $updatesuccess}
-            {include file="$template/includes/alert.tpl" type="success" msg="{lang key='changessavedsuccessfully'}"}
+            {include file="$template/includes/alert.tpl" type="success" message="{lang key='changessavedsuccessfully'}"}
           {elseif $error}
             {include file="$template/includes/alert.tpl" type="error" msg=$error}
           {/if}
         {/if}
 
         {* Informational message about nameservers *}
-        {include file="$template/includes/alert.tpl" type="info" msg="{lang key='domainnsexp'}"}
+        {include file="$template/includes/alert.tpl" type="info" message="{lang key='domainnsexp'}"}
 
         {* Nameserver configuration form *}
         <form role="form" method="post" action="{$smarty.server.PHP_SELF}?action=domaindetails#tabNameservers">
@@ -335,14 +335,14 @@
         {* Display result of lock status change *}
         {if $subaction eq "savereglock"}
           {if $updatesuccess}
-            {include file="$template/includes/alert.tpl" type="success" msg="{lang key='changessavedsuccessfully'}"}
+            {include file="$template/includes/alert.tpl" type="success" message="{lang key='changessavedsuccessfully'}"}
           {elseif $error}
             {include file="$template/includes/alert.tpl" type="error" msg=$error}
           {/if}
         {/if}
 
         {* Information about domain locking feature *}
-        {include file="$template/includes/alert.tpl" type="info" msg="{lang key='domainlockingexp'}"}
+        {include file="$template/includes/alert.tpl" type="info" message="{lang key='domainlockingexp'}"}
 
         {* Additional explanation text *}
         <p class="mb-4">{lang key='domainlockingexp'}</p>
@@ -379,13 +379,13 @@
 
         {* Display result of domain release operation *}
         {if $releaseDomainSuccessful}
-          {include file="$template/includes/alert.tpl" type="success" msg="{lang key='changessavedsuccessfully'}" textcenter="true"}
+          {include file="$template/includes/alert.tpl" type="success" message="{lang key='changessavedsuccessfully'}" textcenter="true"}
         {elseif !empty($error)}
-          {include file="$template/includes/alert.tpl" type="error" msg="$error" textcenter="true"}
+          {include file="$template/includes/alert.tpl" type="error" message="$error" textcenter="true"}
         {/if}
 
         {* Information about domain release/transfer process *}
-        {include file="$template/includes/alert.tpl" type="info" msg="{lang key='domainreleasedescription'}"}
+        {include file="$template/includes/alert.tpl" type="info" message="{lang key='domainreleasedescription'}"}
 
         {* Domain release form *}
         <form role="form" method="post" action="{$smarty.server.PHP_SELF}?action=domaindetails#tabRelease">

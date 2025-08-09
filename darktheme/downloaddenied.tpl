@@ -1,6 +1,6 @@
 {if $reason eq "supportandupdates"}
 
-    {include file="$template/includes/alert.tpl" type="error" msg="{lang key='supportAndUpdatesExpiredLicense'}{if $licensekey}: {$licensekey}{else}.{/if}"}
+    {include file="$template/includes/alert.tpl" type="error" message="{lang key='supportAndUpdatesExpiredLicense'}{if $licensekey}: {$licensekey}{else}.{/if}"}
 
 {/if}
 

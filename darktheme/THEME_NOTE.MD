@@ -12,7 +12,6 @@
 1. Change `$group.name` at the `plans.tpl`
 
 # IMPORTANT:
-1. Remove the comment form the (blur) props
 4. Create `robots.txt` file
   ->  User-agent: *
       Disallow: /admin/
@@ -27,8 +26,7 @@
 4. Change `$group.name` at the `plans.tpl`
 
 # NOTES
-1. Fonts Sizes for each website element
-  -
+1. Add custom images for announcements.
 
 {include file="$template/components/sections/Inputs.tpl"}
 

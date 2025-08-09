@@ -3,7 +3,7 @@
         <div class="card-body">
             <h3 class="card-title">{lang key='sso.title'}</h3>
 
-            {include file="$template/includes/alert.tpl" type="success" msg="{lang key='sso.summary'}"}
+            {include file="$template/includes/alert.tpl" type="success" message="{lang key='sso.summary'}"}
 
             <form id="frmSingleSignOn">
                 <input type="hidden" name="token" value="{$token}" />

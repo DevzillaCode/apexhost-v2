@@ -2,7 +2,7 @@
     <div class="card-body">
         <h3 class="card-title">{lang key='domaindnsmanagement'}</h3>
 
-        {include file="$template/includes/alert.tpl" type="info" msg="{lang key='domaindnsmanagementdesc'}"}
+        {include file="$template/includes/alert.tpl" type="info" message="{lang key='domaindnsmanagementdesc'}"}
 
         {if $error}
             {include file="$template/includes/alert.tpl" type="error" msg=$error}

@@ -1,6 +1,6 @@
 {* Display success message if form submission is successful *}
 {if $successful}
-  {include file="$template/includes/alert.tpl" type="success" msg="{lang key='changessavedsuccessfully'}"}
+  {include file="$template/includes/alert.tpl" type="success" message="{lang key='changessavedsuccessfully'}"}
 {/if}
 
 {* Display error message if form submission fails *}

@@ -79,9 +79,9 @@
       </p>
 
       {if $twoFactorAuthRequired}
-        {include file="$template/includes/alert.tpl" type="warning" msg="{lang key="clientAreaSecurityTwoFactorAuthRequired"}"}
+        {include file="$template/includes/alert.tpl" type="warning" message="{lang key="clientAreaSecurityTwoFactorAuthRequired"}"}
       {else}
-        {include file="$template/includes/alert.tpl" type="warning" msg="{lang key="clientAreaSecurityTwoFactorAuthRecommendation"}"}
+        {include file="$template/includes/alert.tpl" type="warning" message="{lang key="clientAreaSecurityTwoFactorAuthRecommendation"}"}
       {/if}
 
       <div class="d-flex col-gap-2 mt-4">

@@ -1,5 +1,5 @@
 {if $successful}
-    {include file="$template/includes/alert.tpl" type="success" msg="{lang key='changessavedsuccessfully'}"}
+    {include file="$template/includes/alert.tpl" type="success" message="{lang key='changessavedsuccessfully'}"}
 {/if}
 
 {if $pending}
@@ -8,9 +8,9 @@
 
 {if $domainInformation && !$pending && $domainInformation->getIsIrtpEnabled() && $domainInformation->isContactChangePending()}
     {if $domainInformation->getPendingSuspension()}
-        {include file="$template/includes/alert.tpl" type="warning" msg="<strong>{lang key='domains.verificationRequired'}</strong><br>{lang key='domains.newRegistration'}"}
+        {include file="$template/includes/alert.tpl" type="warning" message="<strong>{lang key='domains.verificationRequired'}</strong><br>{lang key='domains.newRegistration'}"}
     {else}
-        {include file="$template/includes/alert.tpl" type="info" msg="<strong>{lang key='domains.contactChangePending'}</strong><br>{lang key='domains.contactsChanged'}"}
+        {include file="$template/includes/alert.tpl" type="info" message="<strong>{lang key='domains.contactChangePending'}</strong><br>{lang key='domains.contactsChanged'}"}
     {/if}
 {/if}
 

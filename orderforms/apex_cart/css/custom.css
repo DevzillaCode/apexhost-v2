@@ -28,7 +28,8 @@
 
 /* : Standard Cart : */
 .standard-card {
-  background: var(--card);
+  background: var(--surface-bg);
+  border: 1px solid var(--border);
   border-radius: var(--radius-md);
 }
 /* popular */
@@ -38,7 +39,7 @@
   inset: 0;
   padding: 2px;
   border-radius: var(--radius-md);
-  background: var(--background);
+  background: var(--linear-gradient);
   background-size: 400% 100%;
   -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
   mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);

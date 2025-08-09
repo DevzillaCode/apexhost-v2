@@ -1,28 +1,28 @@
 {* Conditional alerts for payment method actions *}
 {if $createSuccess}
   {* Success alert for adding a payment method *}
-  {include file="$template/includes/alert.tpl" type="success" msg="{lang key='paymentMethods.addedSuccess'}"}
+  {include file="$template/includes/alert.tpl" type="success" message="{lang key='paymentMethods.addedSuccess'}"}
 {elseif $createFailed}
   {* Warning alert for failed payment method addition *}
-  {include file="$template/includes/alert.tpl" type="warning" msg="{lang key='paymentMethods.addFailed'}"}
+  {include file="$template/includes/alert.tpl" type="warning" message="{lang key='paymentMethods.addFailed'}"}
 {elseif $saveSuccess}
   {* Success alert for updating a payment method *}
-  {include file="$template/includes/alert.tpl" type="success" msg="{lang key='paymentMethods.updateSuccess'}"}
+  {include file="$template/includes/alert.tpl" type="success" message="{lang key='paymentMethods.updateSuccess'}"}
 {elseif $saveFailed}
   {* Warning alert for failed payment method update *}
-  {include file="$template/includes/alert.tpl" type="warning" msg="{lang key='paymentMethods.saveFailed'}"}
+  {include file="$template/includes/alert.tpl" type="warning" message="{lang key='paymentMethods.saveFailed'}"}
 {elseif $setDefaultResult === true}
   {* Success alert for setting default payment method *}
-  {include file="$template/includes/alert.tpl" type="success" msg="{lang key='paymentMethods.defaultUpdateSuccess'}"}
+  {include file="$template/includes/alert.tpl" type="success" message="{lang key='paymentMethods.defaultUpdateSuccess'}"}
 {elseif $setDefaultResult === false}
   {* Warning alert for failed default payment method update *}
-  {include file="$template/includes/alert.tpl" type="warning" msg="{lang key='paymentMethods.defaultUpdateFailed'}"}
+  {include file="$template/includes/alert.tpl" type="warning" message="{lang key='paymentMethods.defaultUpdateFailed'}"}
 {elseif $deleteResult === true}
   {* Success alert for deleting a payment method *}
-  {include file="$template/includes/alert.tpl" type="success" msg="{lang key='paymentMethods.deleteSuccess'}"}
+  {include file="$template/includes/alert.tpl" type="success" message="{lang key='paymentMethods.deleteSuccess'}"}
 {elseif $deleteResult === false}
   {* Warning alert for failed payment method deletion *}
-  {include file="$template/includes/alert.tpl" type="warning" msg="{lang key='paymentMethods.deleteFailed'}"}
+  {include file="$template/includes/alert.tpl" type="warning" message="{lang key='paymentMethods.deleteFailed'}"}
 {/if}
 
 {* Container for payment methods management *}

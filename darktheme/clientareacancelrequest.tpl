@@ -1,13 +1,13 @@
 {if $invalid}
 
-    {include file="$template/includes/alert.tpl" type="error" msg="{lang key='clientareacancelinvalid'}"}
+    {include file="$template/includes/alert.tpl" type="error" message="{lang key='clientareacancelinvalid'}"}
     <p class="text-center">
         <a href="clientarea.php?action=productdetails&amp;id={$id}" class="btn btn-primary">{lang key='clientareabacklink'}</a>
     </p>
 
 {elseif $requested}
 
-    {include file="$template/includes/alert.tpl" type="success" msg="{lang key='clientareacancelconfirmation'}"}
+    {include file="$template/includes/alert.tpl" type="success" message="{lang key='clientareacancelconfirmation'}"}
 
     <p class="text-center">
         <a href="clientarea.php?action=productdetails&amp;id={$id}" class="btn btn-primary">{lang key='clientareabacklink'}</a>
@@ -19,7 +19,7 @@
         {include file="$template/includes/alert.tpl" type="error" errorshtml="<li>{lang key='clientareacancelreasonrequired'}</li>"}
     {/if}
 
-    {include file="$template/includes/alert.tpl" type="info" msg="{lang key='clientareacancelproduct'}: <strong>{$groupname} - {$productname}</strong>{if $domain} ({$domain}){/if}"}
+    {include file="$template/includes/alert.tpl" type="info" message="{lang key='clientareacancelproduct'}: <strong>{$groupname} - {$productname}</strong>{if $domain} ({$domain}){/if}"}
 
     <div class="card">
         <div class="card-body">

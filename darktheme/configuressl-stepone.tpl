@@ -1,7 +1,7 @@
 {if !$status}
     <div class="card py-3">
         <div class="card-body text-center">
-            {include file="$template/includes/alert.tpl" type="warning" msg="{lang key='sslinvalidlink'}"}
+            {include file="$template/includes/alert.tpl" type="warning" message="{lang key='sslinvalidlink'}"}
             <button type="button" onclick="history.go(-1)" class="btn btn-primary">
                 {lang key='clientareabacklink'}
             </button>
@@ -161,7 +161,7 @@
                     </div>
                 {else}
 
-                    {include file="$template/includes/alert.tpl" type="info" msg="{lang key='sslnoconfigurationpossible'}"}
+                    {include file="$template/includes/alert.tpl" type="info" message="{lang key='sslnoconfigurationpossible'}"}
 
                     <input type="hidden" name="id" value="{$serviceid}" />
                     <div class="text-center">

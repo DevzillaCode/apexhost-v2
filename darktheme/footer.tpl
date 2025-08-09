@@ -75,11 +75,11 @@
                               {* languages-list *}
                               <div class="languages-list">
                                 {if $languagechangeenabled && count($locales) > 1}
-                                  <div class="row item-selector small-gutters">
+                                  <div class="row item-selector small-gutters row-gap-3">
                                     <input type="hidden" name="language" data-current="{$language}" value="{$language}" />
                                     {foreach $locales as $locale}
                                       <div class="col-lg-3 col-md-4 col-sm-6">
-                                        <a href="#" class="item{if $language == $locale.language} active{/if}" data-value="{$locale.language} col-gap-3">
+                                        <a href="#" class="item{if $language == $locale.language} active{/if}" data-value="{$locale.language}">
                                           {* <img src="{$WEB_ROOT}/templates/apexhost/images/flags/{$locale.language}.svg" class="flag img-fluid" alt="{$locale.localisedName}" loading="lazy" /> *}
                                           {$locale.localisedName}
                                           {if $language == $locale.language}
@@ -108,10 +108,10 @@
                             </div>
                             {* modal-footer *}
                             <div class="modal-footer">
-                              <button type="button" class="btn btn-ghost-light btn-xs btn-wide" data-dismiss="modal">
+                              <button type="button" class="btn btn-ghost-light btn-sm btn-wide" data-dismiss="modal">
                                 {lang key="cancel"}
                               </button>
-                              <button type="submit" class="btn btn-light btn-xs btn-wide">
+                              <button type="submit" class="btn btn-light btn-sm btn-wide">
                               {lang key='apply'}
                               </button>
                             </div>

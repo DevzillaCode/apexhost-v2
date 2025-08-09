@@ -6,12 +6,12 @@
 
     <div class="card py-3">
         <div class="card-body">
-            {include file="$template/includes/alert.tpl" type="success" msg="{lang key='sslconfigcomplete'}"}
+            {include file="$template/includes/alert.tpl" type="success" message="{lang key='sslconfigcomplete'}"}
 
             <h4 class="text-center">{lang key='ssl.nextSteps'}</h4>
 
             {if is_null($authData) || (!is_null($authData) && $authData->methodNameConstant() == 'emailauth')}
-                {include file="$template/includes/alert.tpl" type="info" msg="{lang key='ssl.emailSteps'}"}
+                {include file="$template/includes/alert.tpl" type="info" message="{lang key='ssl.emailSteps'}"}
                 {if !is_null($authData)}
                     <div class="pb-3 text-center">{lang key='ssl.emailInformation'}</div>
                     <div class="form-group row">
@@ -22,7 +22,7 @@
                     </div>
                 {/if}
             {elseif !is_null($authData) && $authData->methodNameConstant() == 'dnsauth'}
-                {include file="$template/includes/alert.tpl" type="info" msg="{lang key='ssl.dnsSteps'}"}
+                {include file="$template/includes/alert.tpl" type="info" message="{lang key='ssl.dnsSteps'}"}
                 <div class="pb-3 text-center">{lang key='ssl.dnsRecordInformation'}</div>
                 <div class="form-group row">
                     <label for="recordType" class="control-label col-md-4 form-label text-md-right">{lang key='ssl.type'}</label>
@@ -57,7 +57,7 @@
                     </div>
                 </div>
             {elseif !empty($authData) && $authData->methodNameConstant() == 'fileauth'}
-                {include file="$template/includes/alert.tpl" type="info" msg="{lang key='ssl.fileSteps'}"}
+                {include file="$template/includes/alert.tpl" type="info" message="{lang key='ssl.fileSteps'}"}
                 <div class="pb-3 text-center">{lang key='ssl.fileInformation'}</div>
                 <div class="form-group row">
                     <label for="fileName" class="control-label col-md-4 form-label text-md-right">{lang key='ssl.url'}</label>

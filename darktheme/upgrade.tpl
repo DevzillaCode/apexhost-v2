@@ -1,11 +1,11 @@
 <div class="card">
     <div class="card-body">
         {if $overdueinvoice}
-            {include file="$template/includes/alert.tpl" type="warning" msg="{lang key='upgradeerroroverdueinvoice'}"}
+            {include file="$template/includes/alert.tpl" type="warning" message="{lang key='upgradeerroroverdueinvoice'}"}
         {elseif $existingupgradeinvoice}
-            {include file="$template/includes/alert.tpl" type="warning" msg="{lang key='upgradeexistingupgradeinvoice'}"}
+            {include file="$template/includes/alert.tpl" type="warning" message="{lang key='upgradeexistingupgradeinvoice'}"}
         {elseif $upgradenotavailable}
-            {include file="$template/includes/alert.tpl" type="warning" msg="{lang key='upgradeNotPossible'}"}
+            {include file="$template/includes/alert.tpl" type="warning" message="{lang key='upgradeNotPossible'}"}
         {/if}
 
         {if $overdueinvoice}

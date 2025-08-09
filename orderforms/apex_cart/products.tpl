@@ -14,7 +14,7 @@
     <div class="cart-body cart-body-expanded" id="cart-body">
 
       {* Include cart header *}
-      {include file="orderforms/apex_cart/includes/standard-cart-header.tpl" headline=$productGroup.headline|default:$productGroup.name tagline=$productGroup.tagline}
+      {include file="$template/components/heading/PageTitle.tpl" headline=$productGroup.headline|default:$productGroup.name tagline=$productGroup.tagline}
 
       {* Error message *}
       {include file="orderforms/apex_cart/includes/product-errors.tpl"}

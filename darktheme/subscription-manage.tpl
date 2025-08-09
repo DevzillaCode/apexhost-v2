@@ -11,12 +11,12 @@
 
         {elseif $action == 'optin'}
 
-            {include file="$template/includes/alert.tpl" type="success" msg="{lang key='thankYou'}"}
+            {include file="$template/includes/alert.tpl" type="success" message="{lang key='thankYou'}"}
             <p class="text-center">{lang key='newslettersubscribed'}</p>
 
         {elseif $action == 'optout'}
 
-            {include file="$template/includes/alert.tpl" type="success" msg="{lang key='thankYou'}"}
+            {include file="$template/includes/alert.tpl" type="success" message="{lang key='thankYou'}"}
             <p>{lang key='newsletterremoved'}</p>
             <p>{"{lang key='newsletterresubscribe'}"|sprintf2:'<a href="clientarea.php?action=details">':'</a>'}</p>
 

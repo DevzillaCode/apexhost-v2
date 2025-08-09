@@ -1,7 +1,7 @@
 {if $addfundsdisabled}
-    {include file="$template/includes/alert.tpl" type="error" msg="{lang key='clientareaaddfundsdisabled'}"}
+    {include file="$template/includes/alert.tpl" type="error" message="{lang key='clientareaaddfundsdisabled'}"}
 {elseif $notallowed}
-    {include file="$template/includes/alert.tpl" type="error" msg="{lang key='clientareaaddfundsnotallowed'}"}
+    {include file="$template/includes/alert.tpl" type="error" message="{lang key='clientareaaddfundsnotallowed'}"}
 {elseif $errormessage}
     {include file="$template/includes/alert.tpl" type="error" errorshtml=$errormessage}
 {/if}

@@ -12,7 +12,7 @@
             </h2>
 
             {if $loggedin}
-                <button class="btn btn-light btn-lg btn-resend-verify-email" data-email-sent="{lang key='emailSent'}" data-error-msg="{lang key='error'}" data-uri="{routePath('user-email-verification-resend')}">
+                <button class="btn btn-light btn-lg btn-resend-verify-email" data-email-sent="{lang key='emailSent'}" data-error-message="{lang key='error'}" data-uri="{routePath('user-email-verification-resend')}">
                     {lang key='resendEmail'}
                 </button>
             {else}

@@ -26,5 +26,5 @@
     </div>
 
 {else}
-    {include file="$template/includes/alert.tpl" type="warning" msg="{lang key='affiliatesdisabled'}"}
+    {include file="$template/includes/alert.tpl" type="warning" message="{lang key='affiliatesdisabled'}"}
 {/if}
