@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>ApexHost WHMCS Theme — Documentation</title>
+    <meta name="description" content="How to install, activate, customize, and maintain the ApexHost WHMCS theme and apex_cart order form." />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Light-only, GitHub-like styling (no theme CSS) -->
+    <style>
+      :root {
+        --doc-max: 1100px;
+        --fg: #24292f;
+        --muted: #57606a;
+        --border: #d0d7de;
+        --canvas: #ffffff;
+        --subtle: #f6f8fa;
+        --link: #0969da;
+        --link-hover: #054da2;
+      }
+      html { color-scheme: light; }
+      body {
+        margin: 0;
+        background: var(--canvas);
+        color: var(--fg);
+        line-height: 1.5;
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+      }
+      a { color: var(--link); text-decoration: none; }
+      a:hover { text-decoration: underline; color: var(--link-hover); }
+      .doc-container { max-width: var(--doc-max); margin: 40px auto; padding: 0 20px; }
+      .doc-header { margin-bottom: 28px; }
+      .doc-title { font-size: 32px; font-weight: 700; margin: 0 0 8px; color: var(--fg); }
+      .doc-sub { color: var(--muted); margin: 0; }
+      .doc-grid { display: grid; grid-template-columns: 260px 1fr; gap: 28px; }
+      .doc-nav {
+        position: sticky; top: 16px; align-self: start;
+        max-height: calc(100vh - 32px); overflow: auto;
+        border: 1px solid var(--border); border-radius: 6px;
+        padding: 16px; background: var(--canvas);
+      }
+      .doc-nav h3 { font-size: 12px; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin: 0 0 10px; }
+      .doc-nav ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 8px; }
+      .doc-nav a { color: var(--fg); font-weight: 600; font-size: 14px; }
+      .doc-section {
+        background: var(--canvas);
+        border: 1px solid var(--border);
+        border-radius: 6px;
+        padding: 22px; margin-bottom: 18px;
+      }
+      .doc-section h2 { font-size: 20px; margin: 0 0 10px; color: var(--fg); }
+      .doc-section h3 { font-size: 16px; margin: 16px 0 8px; color: var(--fg); }
+      .doc-section p { margin: 8px 0; line-height: 1.6; color: var(--fg); }
+      .doc-section code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+        background: var(--subtle);
+        border: 1px solid var(--border);
+        border-radius: 6px; padding: 0 6px;
+      }
+      .doc-section pre {
+        background: var(--subtle);
+        border: 1px solid var(--border);
+        border-radius: 6px; padding: 12px; overflow: auto;
+      }
+      .doc-list { padding-left: 18px; }
+      .doc-list li { margin: 6px 0; }
+      .callout {
+        padding: 12px 14px; border-radius: 6px;
+        border: 1px dashed var(--border); background: var(--subtle);
+      }
+      @media (max-width: 1024px) {
+        .doc-grid { grid-template-columns: 1fr; }
+        .doc-nav { position: relative; top: auto; max-height: none; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="doc-container">
+      <header class="doc-header">
+        <h1 class="doc-title">ApexHost WHMCS Theme — Documentation</h1>
+        <p class="doc-sub">Install, activate, customize, and maintain the <code>darktheme</code> client theme and <code>apex_cart</code> order form.</p>
+      </header>
+      <div class="doc-grid">
+        <nav class="doc-nav">
+          <h3>On this page</h3>
+          <ul>
+            <li><a href="#included">What’s Included</a></li>
+            <li><a href="#requirements">Requirements</a></li>
+            <li><a href="#install">1) Installation & Activation</a></li>
+            <li><a href="#structure">2) File Structure</a></li>
+            <li><a href="#customize">3) Quick Customizations</a></li>
+            <li><a href="#language">4) Language and RTL</a></li>
+            <li><a href="#orderform">5) Order Form (apex_cart)</a></li>
+            <li><a href="#advanced">6) Advanced Notes</a></li>
+            <li><a href="#best">7) Best Practices</a></li>
+            <li><a href="#troubleshoot">8) Troubleshooting</a></li>
+            <li><a href="#update">9) Update Strategy</a></li>
+            <li><a href="#checklist">10) Quick Checklist</a></li>
+          </ul>
+        </nav>
+        <main>
+          <section id="included" class="doc-section">
+            <h2>What’s Included</h2>
+            <ul class="doc-list">
+              <li><strong>Client theme</strong>: <code>templates/darktheme</code></li>
+              <li><strong>Order form</strong>: <code>templates/orderforms/apex_cart</code></li>
+              <li><strong>Docs</strong>: <code>templates/Documentation/</code></li>
+            </ul>
+          </section>
+
+          <section id="requirements" class="doc-section">
+            <h2>Requirements</h2>
+            <ul class="doc-list">
+              <li>WHMCS 8+</li>
+              <li>Bootstrap 4, jQuery, Font Awesome (provided by the theme)</li>
+              <li>From <code>darktheme/theme.yaml</code>: bootstrap 4.5.3, jquery 1.12.4, fontawesome 5.10.1</li>
+              <li>From <code>orderforms/apex_cart/theme.yaml</code>: bootstrap 3||4, jquery 1.12, fontawesome 5</li>
+            </ul>
+          </section>
+
+          <section id="install" class="doc-section">
+            <h2>1) Installation & Activation</h2>
+            <h3>Install the files</h3>
+            <ul class="doc-list">
+              <li>Upload <code>templates/darktheme</code></li>
+              <li>Upload <code>templates/orderforms/apex_cart</code></li>
+            </ul>
+            <h3>Activate the client theme</h3>
+            <p>WHMCS Admin → System Settings → General Settings → General tab → Template → <strong>darktheme</strong>.</p>
+            <h3>Activate the order form</h3>
+            <p>WHMCS Admin → System Settings → Ordering → Default Order Form Template → <strong>apex_cart</strong>.</p>
+            <h3>Clear template cache</h3>
+            <p>WHMCS Admin → Utilities → System → System Cleanup → <strong>Empty Template Cache</strong>.</p>
+          </section>
+
+          <section id="structure" class="doc-section">
+            <h2>2) File Structure (edit safely)</h2>
+            <ul class="doc-list">
+              <li><code>darktheme/header.tpl</code>, <code>darktheme/footer.tpl</code> — Shell, meta tags, Preloader, Navbar, Breadcrumbs</li>
+              <li><code>darktheme/includes/head.tpl</code> — Styles/scripts includes; <code>custom.css</code> loads last</li>
+              <li><code>darktheme/components/</code> — Navbar, plans, sections (domains/features/hosting), shared parts</li>
+              <li><code>darktheme/css/</code> — <code>theme.css</code> (core), <code>custom.css</code> (your overrides)</li>
+              <li><code>darktheme/js/theme.js</code> — Dropdowns, navbar behavior, floating search, sidebar toggles</li>
+              <li><code>darktheme/THEME_NOTE.MD</code> — Z-index map and template variables</li>
+              <li><code>orderforms/apex_cart/</code> — Cart/checkout UI</li>
+            </ul>
+          </section>
+
+          <section id="customize" class="doc-section">
+            <h2>3) Quick Customizations</h2>
+            <h3>A) Logo, favicon, SEO</h3>
+            <p>Logo via <code>{$assetLogoPath}</code> in Navbar. Update in WHMCS General Settings or ensure asset exists.</p>
+            <p>Favicon/OG image in <code>header.tpl</code> — update if you change paths:</p>
+            <pre><code>&lt;link rel="icon" href="{$systemurl}/assets/img/favicon.ico"&gt;
+&lt;meta property="og:image" content="{$systemurl}/assets/img/og-image.jpg"&gt;</code></pre>
+
+            <h3>B) Navbar links and icons</h3>
+            <p>Edit <code>components/sections/shared/navbar/Links.tpl</code>. Menu items come from WHMCS; icons are mapped by label in <code>$svgIcons</code>. Add/change SVG mappings or use the menu item icon class.</p>
+
+            <h3>C) Homepage plans</h3>
+            <p>Edit <code>components/plans/BasicPlans.tpl</code>:</p>
+            <ul class="doc-list">
+              <li>Change product group: <code>{if $group.name eq "Shared Hosting"}</code></li>
+              <li>Adjust price labels: <code>basicPlanPrice</code>, <code>standardPlanPrice</code>, <code>popularPlanPrice</code>, <code>premiumPlanPrice</code></li>
+              <li>Ensure product names match your WHMCS products for conditional display</li>
+            </ul>
+
+            <h3>D) Special plans block</h3>
+            <p>Update copy/prices in <code>components/plans/SpecialPlans.tpl</code>.</p>
+
+            <h3>E) Domain features band</h3>
+            <p>Edit <code>components/sections/domains/DomainsFeatures.tpl</code>. Replace SVGs or text; keep <code>{lang ...}</code> or hardcode text.</p>
+
+            <h3>F) Feature highlight cards</h3>
+            <p>Update titles and text in <code>components/sections/features/FeaturesSection.tpl</code>.</p>
+
+            <h3>G) CSS theme overrides</h3>
+            <p>Put your overrides in <code>css/custom.css</code> (loaded last). Tweak colors, spacing, typography, cards, buttons.</p>
+
+            <h3>H) JavaScript behavior</h3>
+            <p><code>js/theme.js</code> controls dropdowns, sticky bars, floating search, sidebars. Disable behaviors by removing handlers or scoping with CSS.</p>
+          </section>
+
+          <section id="language" class="doc-section">
+            <h2>4) Language and RTL</h2>
+            <p>RTL enabled when language is <code>arabic</code>. To change texts referenced via <code>{lang key=...}</code>:</p>
+            <ul class="doc-list">
+              <li>Use WHMCS language overrides: <code>whmcs/lang/overrides/your-locale.php</code></li>
+              <li>Or replace <code>{lang ...}</code> with static text in templates</li>
+            </ul>
+          </section>
+
+          <section id="orderform" class="doc-section">
+            <h2>5) Order Form (apex_cart)</h2>
+            <ul class="doc-list">
+              <li>Activate: Admin → System Settings → Ordering → Default Order Form Template → <strong>apex_cart</strong></li>
+              <li>Customize visuals via <code>templates/orderforms/apex_cart/css/</code> and <code>.../js/</code></li>
+              <li>Edit layouts in <code>templates/orderforms/apex_cart/*.tpl</code> (e.g., <code>viewcart.tpl</code>, <code>configureproduct.tpl</code>)</li>
+            </ul>
+          </section>
+
+          <section id="advanced" class="doc-section">
+            <h2>6) Advanced Notes</h2>
+            <h3>Template variables</h3>
+            <p>See <code>darktheme/THEME_NOTE.MD</code> for common Smarty variables (<code>{$WEB_ROOT}</code>, <code>{$companyname}</code>, <code>{$pagetitle}</code>, <code>{$primarySidebar}</code>, ...).</p>
+            <h3>Performance/UX</h3>
+            <ul class="doc-list">
+              <li>Preloader: style via <code>custom.css</code>, include via <code>header.tpl</code></li>
+              <li><code>theme.js</code> adjusts body padding to prevent content jump</li>
+            </ul>
+            <h3>SEO and social meta</h3>
+            <p>Defaults are in <code>header.tpl</code>. Update descriptions, images, and schema.org as needed.</p>
+          </section>
+
+          <section id="best" class="doc-section">
+            <h2>7) Best Practices</h2>
+            <ul class="doc-list">
+              <li><strong>Back up</strong> before changes</li>
+              <li>Prefer <strong><code>custom.css</code></strong> for styling overrides</li>
+              <li>Use <strong>language overrides</strong> for text</li>
+              <li><strong>Clear template cache</strong> after edits</li>
+              <li>Match product names if using conditional price labels</li>
+              <li>Test across devices and in dark mode</li>
+            </ul>
+          </section>
+
+          <section id="troubleshoot" class="doc-section">
+            <h2>8) Troubleshooting</h2>
+            <ul class="doc-list">
+              <li><strong>Navbar icon missing</strong>: label not mapped in <code>$svgIcons</code></li>
+              <li><strong>Plan price label wrong</strong>: product name mismatch with <code>BasicPlans.tpl</code> conditionals</li>
+              <li><strong>Section hidden</strong>: some includes render only on homepage or in conditions (see <code>header.tpl</code>)</li>
+              <li><strong>Cache stale</strong>: empty template cache and hard-refresh</li>
+            </ul>
+          </section>
+
+          <section id="update" class="doc-section">
+            <h2>9) Update Strategy</h2>
+            <ul class="doc-list">
+              <li>Keep edits small and isolated</li>
+              <li>Document changed files to reapply after updates</li>
+            </ul>
+          </section>
+
+          <section id="checklist" class="doc-section">
+            <h2>10) Quick Checklist</h2>
+            <ul class="doc-list">
+              <li>Set client theme <strong>darktheme</strong> and order form <strong>apex_cart</strong></li>
+              <li>Update logo and favicon</li>
+              <li>Set homepage product group and visible prices in <code>BasicPlans.tpl</code></li>
+              <li>Adjust navbar icons/labels mapping in <code>Links.tpl</code></li>
+              <li>Edit <code>DomainsFeatures.tpl</code> and <code>FeaturesSection.tpl</code> text</li>
+              <li>Add your CSS in <code>css/custom.css</code></li>
+              <li>Clear template cache</li>
+            </ul>
+            <div class="callout"><strong>Need help?</strong> Tell us what you want to change, and we’ll provide targeted edits.</div>
+          </section>
+        </main>
+      </div>
+    </div>
+  </body>
+  </html>
+
