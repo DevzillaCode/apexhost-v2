@@ -2726,13 +2726,6 @@ a.badge:focus {
   margin-inline-start: auto;
   margin-inline-end: auto;
 }
-@media (max-width: 767.98px) {
-  .alert.alert-float {
-    top: 15px;
-    width: 100%;
-    max-width: calc(100% - 2rem);
-  }
-}
 
 /* alert-icon */
 .alert .alert-icon {
