@@ -40,8 +40,25 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="{$systemurl}{$smarty.server.REQUEST_URI}">
 
-  <!-- Favicon -->
+  <!-- Standard Favicon -->
   <link rel="icon" href="{$systemurl}/assets/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="{$systemurl}/assets/img/favicon.ico" type="image/x-icon">
+
+  <!-- PNG Favicons -->
+  <link rel="icon" type="image/png" sizes="16x16" href="{$systemurl}/assets/img/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="{$systemurl}/assets/img/favicon-32x32.png">
+
+  <!-- Android Chrome -->
+  <link rel="icon" type="image/png" sizes="192x192" href="{$systemurl}/assets/img/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="{$systemurl}/assets/img/android-chrome-512x512.png">
+
+  <!-- Apple Touch Icon -->
+  <link rel="apple-touch-icon" href="{$systemurl}/assets/img/apple-touch-icon.png">
+
+  <!-- Manifest for Progressive Web App -->
+  <link rel="manifest" href="{$systemurl}/assets/img/site.webmanifest">
+  <meta name="theme-color" content="#000000">
+
 
   <!-- Schema Markup for Organization -->
   <script type="application/ld+json">
