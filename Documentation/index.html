@@ -183,14 +183,26 @@
             <p><code>js/theme.js</code> controls dropdowns, sticky bars, floating search, sidebars. Disable behaviors by removing handlers or scoping with CSS.</p>
           </section>
 
-          <section id="language" class="doc-section">
-            <h2>4) Language and RTL</h2>
-            <p>RTL enabled when language is <code>arabic</code>. To change texts referenced via <code>{lang key=...}</code>:</p>
-            <ul class="doc-list">
-              <li>Use WHMCS language overrides: <code>whmcs/lang/overrides/your-locale.php</code></li>
-              <li>Or replace <code>{lang ...}</code> with static text in templates</li>
-            </ul>
-          </section>
+                     <section id="language" class="doc-section">
+             <h2>4) Language and RTL</h2>
+             <p>RTL enabled when language is <code>arabic</code>. To change texts referenced via <code>{lang key=...}</code>:</p>
+             <ul class="doc-list">
+               <li>Use WHMCS language overrides: <code>whmcs/lang/overrides/your-locale.php</code></li>
+               <li>Or replace <code>{lang ...}</code> with static text in templates</li>
+             </ul>
+
+                           <h3>Implementing Language Files</h3>
+              <p>To add custom language strings for the theme:</p>
+              <ol class="doc-list">
+                <li>Copy the <code>theme_english.php</code> and <code>theme_arabic.php</code> lang files from the downloaded files at the dir (lang) and add them to the <code>whmcs/lang</code> dir</li>
+                <li>Go to <code>whmcs/lang/</code> directory</li>
+                <li>Edit <code>english.php</code> and add this line at the end of the file:</li>
+              </ol>
+              <pre><code>include 'theme_english.php';</code></pre>
+              <p>Do the same with <code>arabic.php</code>:</p>
+              <pre><code>include 'theme_arabic.php';</code></pre>
+              <p>Then create your custom language files (<code>theme_english.php</code> and <code>theme_arabic.php</code>) in the same <code>whmcs/lang/</code> directory with your language strings.</p>
+           </section>
 
           <section id="orderform" class="doc-section">
             <h2>5) Order Form (apex_cart)</h2>
