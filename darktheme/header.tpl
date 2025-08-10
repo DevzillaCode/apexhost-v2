@@ -41,23 +41,23 @@
   <link rel="canonical" href="{$systemurl}{$smarty.server.REQUEST_URI}">
 
   <!-- Standard Favicon -->
-  <link rel="icon" href="{$systemurl}/assets/img/favicon.ico" type="image/x-icon">
-  <link rel="shortcut icon" href="{$systemurl}/assets/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="{$systemurl}templates/{$template}/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="{$systemurl}templates/{$template}/img/favicon.ico" type="image/x-icon">
 
   <!-- PNG Favicons -->
-  <link rel="icon" type="image/png" sizes="16x16" href="{$systemurl}/assets/img/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="{$systemurl}/assets/img/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="{$systemurl}templates/{$template}/img/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="{$systemurl}templates/{$template}/img/favicon-32x32.png">
 
   <!-- Android Chrome -->
-  <link rel="icon" type="image/png" sizes="192x192" href="{$systemurl}/assets/img/android-chrome-192x192.png">
-  <link rel="icon" type="image/png" sizes="512x512" href="{$systemurl}/assets/img/android-chrome-512x512.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="{$systemurl}templates/{$template}/img/android-chrome-192x192.png">
+  <link rel="icon" type="image/png" sizes="512x512" href="{$systemurl}templates/{$template}/img/android-chrome-512x512.png">
 
   <!-- Apple Touch Icon -->
-  <link rel="apple-touch-icon" href="{$systemurl}/assets/img/apple-touch-icon.png">
+  <link rel="apple-touch-icon" href="{$systemurl}templates/{$template}/img/apple-touch-icon.png">
 
   <!-- Manifest for Progressive Web App -->
-  <link rel="manifest" href="{$systemurl}/assets/img/site.webmanifest">
-  <meta name="theme-color" content="#000000">
+  <link rel="manifest" href="{$systemurl}templates/{$template}/img/site.webmanifest">
+  <meta name="theme-color" content="#4f39f6">
 
 
   <!-- Schema Markup for Organization -->
