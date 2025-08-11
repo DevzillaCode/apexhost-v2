@@ -48,7 +48,6 @@
             {* Promotions and error messages container *}
             <div class="d-flex flex-column row-gap-4">
 
-
               {* Promotion message *}
               {if $promoerrormessage}
                 <div class="alert-container">
