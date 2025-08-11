@@ -23,8 +23,10 @@
           </div>
         </div>
       </div>
-      <input class="btn btn-primary" type="submit" name="save" value="{lang key='clientareasavechanges'}" />
-      <input class="btn btn-semi-ghost-secondary" type="reset" value="{lang key='cancel'}" />
+      <div class="form-group d-flex flex-wrap col-gap-2">
+        <input class="btn btn-primary" type="submit" name="save" value="{lang key='clientareasavechanges'}" />
+        <input class="btn btn-semi-ghost-secondary" type="reset" value="{lang key='cancel'}" />
+      </div>
     </form>
 
   </div>
@@ -53,8 +55,10 @@
           </div>
         </div>
       </div>
-      <input class="btn btn-primary" type="submit" name="save" value="{lang key='clientareasavechanges'}" />
-      <input class="btn btn-semi-ghost-secondary" type="reset" value="{lang key='cancel'}" />
+      <div class="form-group d-flex flex-wrap col-gap-2">
+        <input class="btn btn-primary" type="submit" name="save" value="{lang key='clientareasavechanges'}" />
+        <input class="btn btn-semi-ghost-secondary" type="reset" value="{lang key='cancel'}" />
+      </div>
     </form>
 
   </div>
