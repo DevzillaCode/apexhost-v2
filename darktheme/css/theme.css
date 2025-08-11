@@ -5592,7 +5592,9 @@ input[type="button"].btn-block {
   background-color: var(--card);
   border-radius: 0.25rem;
 }
-
+.progress.progress-sm {
+  height: 0.5rem;
+}
 .progress-bar {
   display: flex;
   flex-direction: column;

@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{$companyname} - {$pagetitle}</title>
 
-    <link href="{assetPath file='all.min.css'}?v={$versionHash}" rel="stylesheet">
-    <link href="{assetPath file='theme.min.css'}?v={$versionHash}" rel="stylesheet">
+    <link href="{assetPath file='all.css'}?v={$versionHash}" rel="stylesheet">
+    <link href="{assetPath file='theme.css'}?v={$versionHash}" rel="stylesheet">
     <link href="{$WEB_ROOT}/assets/css/fontawesome-all.min.css" rel="stylesheet">
-    <link href="{assetPath file='invoice.min.css'}?v={$versionHash}" rel="stylesheet">
+    <link href="{assetPath file='invoice.css'}?v={$versionHash}" rel="stylesheet">
     <script>var whmcsBaseUrl = "{$WEB_ROOT}";</script>
     <script src="{assetPath file='scripts.js'}?v={$versionHash}"></script>
 

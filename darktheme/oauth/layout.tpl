@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{$requestedAction} - {$companyname}</title>
 
-    <link href="{assetPath file='all.min.css'}" rel="stylesheet">
-    <link href="{assetPath file='theme.min.css'}?v={$versionHash}" rel="stylesheet">
+    <link href="{assetPath file='all.css'}" rel="stylesheet">
+    <link href="{assetPath file='theme.css'}?v={$versionHash}" rel="stylesheet">
     {assetExists file="custom.css"}
     <link href="{$__assetPath__}" rel="stylesheet">
     {/assetExists}
