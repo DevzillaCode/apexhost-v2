@@ -104,7 +104,7 @@
         <p class="para-3">{lang key="footer_terms_notice_1"} <br> {lang key="footer_terms_notice_2"} <a href="terms.php">{lang key="footer_terms_of_use"}</a></p>
         <!-- sign -->
         <div class="signature ml-auto mt-lg-0 mt-3">
-          <p class="para-3">{lang key="footer_developed_by"} <a href="https://www.yourcompany.com" target="_blank">NiftyTheme</a></p>
+          <p class="para-3">{lang key="footer_developed_by"} <a href="https://whmcsforge.gumroad.com/" target="_blank">WHMCSForge</a> {lang key="footer_developed_by_2"} <a href="https://whmcsforge.gumroad.com/" target="_blank">WHMCSForge</a></p>
         </div>
       </div>
     </div>

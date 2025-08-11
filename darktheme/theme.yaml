@@ -1,8 +1,8 @@
 # WHMCS Apex-Host Theme Configuration File
 
 name: "Apex-Host"
-description: "The Default Theme for WHMCS 2021"
-author: "NiftyTheme"
+description: "Premium WHMCS Web Hosting Theme"
+author: "WHMCSForge"
 properties:
   serverSidePagination: false # Defines client side will handle pagination
 provides:

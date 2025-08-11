@@ -1,8 +1,8 @@
 /*!
  * WHMCS ApexHost Theme
  * Global Javascript
- * Copyright (c) 2025 NiftyTheme Limited
- * https://www.niftytheme.com
+ * Copyright (c) 2025 WHMCSForge Limited
+ * https://whmcsforge.gumroad.com/
  */
 
 jQuery(document).ready(function() {
