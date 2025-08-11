@@ -1444,7 +1444,6 @@
   top: 0;
   border-radius: 0.25rem;
   transform: translate3d(0, 0, 0);
-  position: relative;
 }
 .bootstrap-switch .bootstrap-switch-handle-on,
 .bootstrap-switch .bootstrap-switch-handle-off,
