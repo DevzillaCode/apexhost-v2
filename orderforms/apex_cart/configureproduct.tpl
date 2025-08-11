@@ -337,7 +337,7 @@
               </div>
             {/if}
 
-            <div class="alert alert-warning alert-float mt-4" role="alert">
+            <div class="alert alert-warning alert-float mt-4 w-100" role="alert">
               <div>
                 <!-- alert-icon -->
                 <div class="alert-icon">
