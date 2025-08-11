@@ -360,7 +360,7 @@
             {* Password strength meter *}
             <div class="col-md-6">
               <div class="password-strength-meter">
-                <div class="progress">
+                <div class="progress progress-sm">
                   <div class="progress-bar bg-success bg-striped" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" id="passwordStrengthMeterBar">
                   </div>
                 </div>
