@@ -90,7 +90,13 @@
           </div>
           {* col *}
           <div class="col-lg-6 text-lg-right text-center mt-lg-0 mt-4">
-            <a href="{$product.productUrl}" id="{$idPrefix}-order-button" {if $product.hasRecommendations} data-has-recommendations="1" {/if} class="btn btn-light">{$LANG.ordernowbutton}<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></a>
+            <a href="{$product.productUrl}" id="{$idPrefix}-order-button" {if $product.hasRecommendations} data-has-recommendations="1" {/if} class="btn btn-light">
+              {$LANG.ordernowbutton}
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right-icon lucide-arrow-right">
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
+            </a>
           </div>
         </div>
       </div>
