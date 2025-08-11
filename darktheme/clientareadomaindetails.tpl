@@ -75,6 +75,7 @@
                     <line x1="12" x2="12.01" y1="16" y2="16" />
                   </svg>
                 </div>
+                {* alert-content *}
                 <div class="alert-content">
                   <p class="alert-message">{lang key='domainCannotBeManagedUnlessActive'}</p>
                 </div>
